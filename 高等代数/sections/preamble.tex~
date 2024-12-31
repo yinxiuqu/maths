@@ -1,0 +1,71 @@
+%% 此文件为引导区设置和自定义内容，插入序言区
+
+% 公式按节编号
+\numberwithin{equation}{section}
+% 图片按节编号
+\numberwithin{figure}{section}
+
+% 重定义三大定理环境风格，名称前空两格
+\newtheoremstyle{plain}{\topsep}{\topsep}{\citshape}{}{%
+  \hspace*{2em}\color{ecolor}\bfseries}{}{%
+  0.5em}{%
+  \thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+\newtheoremstyle{definition}{\topsep}{\topsep}{\citshape}{}{%
+  \hspace*{2em}\color{ecolor}\bfseries}{}{%
+  0.5em}{}
+
+\newtheoremstyle{remark}{\topsep}{\topsep}{\cnormal}{}{
+  \hspace*{2em}\color{ecolor}\bfseries}{}{
+  0.5em}{}
+
+% 设置目录居中
+\renewcommand\contentsname{\begin{center}\color{ecolor}目\hspace{1em}录\end{center}}
+
+% 重定义proof环境,去掉证明后的实心点变为冒号
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+\pushQED{\qed}%
+\normalfont \topsep6\p@\@plus6\p@\relax
+\trivlist
+\item\relax
+{\hspace{2em}\itshape
+#1\@addpunct{:}}\hspace\labelsep\ignorespaces
+}{%
+  % \rightline{$\square$}\popQED\endtrivlist\@endpefalse
+  \popQED\qedsymbol{$\square$}\endtrivlist\@endpefalse
+}
+\makeatother
+
+%% 定义deduction、theory环境，使其按节编号
+\newtheorem{deduction}{推论}[section]
+\newtheorem{theory}{引理}[section]
+\newtheorem{question}{命题}[section]
+\newtheorem{application}{应用}[section]
+
+%% 定义solution、notice、generalize环境和名称，添加冒号
+\makeatletter
+\newenvironment{solution}{\par\textbf{\color{ecolor}\solutionname\@addpunct{:}}}{\par}
+\newenvironment{notice}{\par\textbf{\color{ecolor}\noticename}}{\par}
+\newenvironment{generalize}{\par\textbf{\color{ecolor}\generalizename}}{\par}
+\makeatother
+\newcommand{\solutionname}{解}
+\newcommand{\noticename}{注}
+\newcommand{\generalizename}{推广}
+
+% 定义常用的数学符号
+\DeclareMathOperator{\st}{s.t.{}}
+\DeclareMathOperator{\IM}{Im}
+\DeclareMathOperator{\KER}{Ker}
+\DeclareMathOperator{\DIM}{dim}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+
+%% 控制编译时只编译某些部分
+\includeonly{./sections/section7}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

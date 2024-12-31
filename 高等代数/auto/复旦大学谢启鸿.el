@@ -1,0 +1,44 @@
+(TeX-add-style-hook
+ "复旦大学谢启鸿"
+ (lambda ()
+   (TeX-run-style-hooks
+    "datetime"
+    "amssymb"
+    "amsmath"
+    "tikz"
+    "extarrows")
+   (TeX-add-symbols
+    "solutionname")
+   (LaTeX-add-labels
+    "thm:1-1"
+    "eq:0-1"
+    "eq:0-2"
+    "eq:0-3"
+    "eq:0-4"
+    "eq:0-5"
+    "eq:1-1"
+    "eq:1-2"
+    "eq:1-3"
+    "eq:1-4"
+    "eq:1-5"
+    "eq:1-6"
+    "eq:1-7"
+    "eq:1-8"
+    "eq:1-9"
+    "eq:1-10"
+    "eq:1-11"
+    "eq:1-12"
+    "thm:2.1"
+    "thm:Cauchy-Binet"
+    "eq:5"
+    "fig:1"
+    "fig:2"
+    "eq:1"
+    "eq:2"
+    "eq:3"
+    "eq:4"
+    "line_equation:1")
+   (LaTeX-add-environments
+    "solution"))
+ :latex)
+

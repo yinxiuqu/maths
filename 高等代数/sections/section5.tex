@@ -1,0 +1,167 @@
+\section{多项式}
+
+\subsection{复系数多项式}
+
+\begin{theorem}[代数基本定理]
+  每个次数大于零的复数域上的多项式都至少有一个复数根.
+\end{theorem}
+\begin{deduction}
+  设$n \geq 1$，以下记法等价：
+  \begin{asparaenum}[(1)]
+  \item 任一$n$次复系数多项式至少有一个复根；
+  \item 复系数不可约多项式都是一次多项式；
+  \item 任一复系数多项式都是一次多项式的乘积；
+  \item 任一$n$次复系数多项式恰有$n$个复根（计重根）.
+  \end{asparaenum}
+\end{deduction}
+\begin{proof}
+  (1)$\Longrightarrow$(2):设$P(x)$在$\mathbb{C}$上不可约.\\
+  由(1)可知，$b$为$P(x)$的根，则$(x-b)\mid P(x)$,即$P(x)=(x-b)q(x)$,\\
+  由$P(x)$不可约可知, $q(x)=c\neq 0$,从而$P(x)=c(x-b)$是一次多项式.
+
+  (2)$\Longrightarrow$(3):因式分解定理即得.
+
+  (3)$\Longrightarrow$(4):$f(x)=c(x-b_1)(x-b_2)\cdots(x-b_n)$,
+  则$f(x)$的根为$b_1,b_2,\cdots,b_n$.
+
+  (4)$\Longrightarrow$(1):显然.
+\end{proof}
+\begin{theorem}[Osada]
+  $f(x)=x^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$为整系数多项式，且\\
+  $|a_0|>1+\sum\limits^{n-1}_{i=1}|a_i|$, 其中$|a_0|$为素数,
+  则$f(x)$在有理数域上不可约.
+\end{theorem}
+
+\subsection{结式和判别式}
+\begin{theorem}\label{thm:Rfg1}
+  $f(x)$与$g(x)$在$\mathbb{C}$上有公根
+  $\Longleftrightarrow R(f,g)=0$,\quad
+  $(f(x),g(x))=1 \Longleftrightarrow R(f,g) \neq 0$.
+\end{theorem}
+\begin{theorem}\label{thm:Rfg2}
+  设$f(x)$的$n$个根为$x_1,x_2,\cdots,x_n$,
+  $g(x)$的$m$个根为$y_1,y_2,\cdots,y_n$,则
+  \begin{equation*}\label{eqn:Rfg1}
+    R(f,g)=a_0^mb_0^n\prod\limits_{i=1}^n\prod\limits_{j=1}^m(x_i-y_j)\tag{\dag}
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  {\heiti Step 1}首一化:令$f(x)=a_0f_1(x), g(x)=b_0g_1(x)$, $f_1, g_1$均为首一多项式.\\
+  $R(f,g)=
+  \begin{vmatrix}
+    a_0 & a_1 & a_2 & \cdots & a_n & 0 & 0 & \cdots & 0 \\
+    0 & a_0 & a_1 & \cdots & a_{n-1} & a_n & 0 & \cdots & 0 \\
+    0 & 0 & a_0 & \cdots & a_{n-2} & a_{n-1} & a_n & \cdots & 0 \\
+    \vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\
+    0 & 0 & 0 & \cdots & 0 & a_0 & a_1 & \cdots & a_n \\
+    b_0 & b_1 & b_2 & \cdots & b_m & 0 & 0 & \cdots & 0 \\
+    0 & b_0 & b_1 & \cdots & b_{m-1} & b_m & 0 & \cdots & 0 \\
+    0 & 0 & b_0 & \cdots & b_{m-2} & b_{m-1} & b_m & \cdots & 0 \\
+    \vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\
+    0 & 0 & 0 & \cdots & 0 & b_0 & b_1 & \cdots & b_m
+  \end{vmatrix}$\\
+  从$R(f,g)$前$m$行各提取一个$a_0$, 从$R(f,g)$后$n$行各提取一个$b_0$,得
+  $R(f,g)= a_0^mb_0^nR(f_1,g_1)$.\\
+  所以只要证明$R(f_1,g_1)=\prod\limits_{i=1}^n\prod\limits_{j=1}^m(x_i-y_j)$.
+
+  {\heiti Step 2}:设$f_1(x)=(x-x_1)(x-x_2)\cdots(x-x_n)$, 
+  $g_1(x)=(x-y_1)(x-y_2)\cdots(x-y_m)$.\\
+  若$\exists 1 \leq i \leq n, 1 \leq j \leq m \st x_i=y_j$,
+  由定理\ref{thm:Rfg1}$\Longrightarrow$\eqref{eqn:Rfg1}式成立.\\
+  下面设$x_i\neq y_j, \forall 1 \leq i \leq n, 1 \leq j \neq m$
+  且$x_1,x_2,\cdots,x_n$互不相同, $y_1,y_2,\cdots,y_m$互不相同,\\
+  设$R(f_1,g_1)$在是$f_1$和$g_1$结式的方阵,则
+  \begin{align*}
+    &R(f_1,g_1)
+    \begin{pmatrix}
+    x_1^{m+n-1}&x_2^{m+n-1}&\cdots&x_n^{m+n-1}&y_1^{m+n-1}&y_2^{m+n-1}&\cdots&y_m^{m+n-1}\\
+    x_1^{m+n-2}&x_2^{m+n-2}&\cdots&x_n^{m+n-2}&y_1^{m+n-2}&y_2^{m+n-2}&\cdots&y_m^{m+n-2}\\
+    \vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\
+    x_1 & x_2 & \cdots & x_n & y_1 & y_2 & \cdots & y_m\\
+    1 & 1 & 1 & 1 & 1 & 1 & 1 & 1
+    \end{pmatrix}=\\
+    &
+       \begin{pmatrix}
+         x_1^{m-1}f_1(x_1)&x_2^{m-1}f_1(x_2)&\cdots&x_n^{m-1}f_1(x_n)&y_1^{m-1}f_1(y_1)&y_2^{m-1}f_1(y_2)&\cdots&y_m^{m-1}f_1(y_m)\\
+         x_1^{m-2}f_1(x_1)&x_2^{m-2}f_1(x_2)&\cdots&x_n^{m-2}f_1(x_n)&y_1^{m-2}f_1(y_1)&y_2^{m-2}f_1(y_2)&\cdots&y_m^{m-2}f_1(y_m)\\
+         \vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\
+         f_1(x_1)&f_1(x_2)&\cdots&f_1(x_n)&f_1(y_1)&f_1(y_2)&\cdots&f_1(y_m)\\
+         x_1^{n-1}g_1(x_1)&x_2^{n-1}g_1(x_2)&\cdots&x_n^{n-1}g_1(x_n)&y_1^{n-1}g_1(y_1)&y_2^{n-1}g_1(y_2)&\cdots&y_m^{n-1}g_1(y_m)\\
+         x_1^{n-2}g_1(x_1)&x_2^{n-2}g_1(x_2)&\cdots&x_n^{m-2}g_1(x_n)&y_1^{n-2}g_1(y_1)&y_2^{n-2}g_1(y_2)&\cdots&y_m^{n-2}g_1(y_m)\\
+         \vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\
+         g_1(x_1)&g_1(x_2)&\cdots&g_1(x_n)&g_1(y_1)&g_1(y_2)&\cdots&g_1(y_m)
+       \end{pmatrix}
+  \end{align*}
+  $\because$ $x_i, y_j$分别是$f_1(x),g_1(x)$的解, $\therefore$ $f_1(x_i)=0, g_1(y_j)=0$,
+  但是$f_1(y_j)\neq 0, g_1(x_i)\neq 0$.于是,
+  \begin{align}\label{eqn:Rfg2}
+    R(f_1,g_1)&
+    \begin{pmatrix}
+    x_1^{m+n-1}&x_2^{m+n-1}&\cdots&x_n^{m+n-1}&y_1^{m+n-1}&y_2^{m+n-1}&\cdots&y_m^{m+n-1}\\
+    x_1^{m+n-2}&x_2^{m+n-2}&\cdots&x_n^{m+n-2}&y_1^{m+n-2}&y_2^{m+n-2}&\cdots&y_m^{m+n-2}\\
+    \vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\
+    x_1 & x_2 & \cdots & x_n & y_1 & y_2 & \cdots & y_m\\
+    1 & 1 & 1 & 1 & 1 & 1 & 1 & 1
+    \end{pmatrix}\notag\\
+    =&
+                  \begin{pmatrix}
+                    0 & \cdots & 0 & y_1^{m-1}f_1(y_1) & \cdots & y_m^{m-1}f_1(y_m)\\
+                    \vdots & & \vdots & \vdots & & \vdots\\
+                    0 & \cdots & 0 & f_1(y_1) & \cdots & f_1(y_m)\\
+                    x_1^{n-1}g_1(x_1) & \cdots & x_n^{n-1}g_1(x_n) & 0 & \cdots & 0\\
+                    \vdots & & \vdots & \vdots & & \vdots\\
+                    g_1(x_1) & \cdots & g_1(x_n) & 0 & \cdots & 0
+                  \end{pmatrix}
+  \end{align}
+  \eqref{eqn:Rfg2}式左边是结式方阵和一个降幂的Vander Monde矩阵的乘积，
+  其乘积的行列式值为:
+  \begin{equation}\label{eqn:Rfg3}
+    R(f_1,g_1)\prod_{1\leq i < k\leq n}(x_i-x_k)
+    \prod_{1\leq j < l\leq m}(y_j-y_l)\prod_{i=1}^n\prod_{j=1}^m(x_i-y_j)
+  \end{equation}
+  \eqref{eqn:Rfg2}式右边是一个分块对角方阵，
+  前$n$列分别提出$g_1(x_i)$, 后$m$列分别提出$f_1(y_j)$之后，
+  剩下非零部分是两个降幂Vander Monde矩阵,
+  按前$m$行、$n$列进行Laplace展开，
+  其行列式值为：
+  \begin{equation}\label{eqn:Rfg4}
+    (-1)^{mn}\prod_{i=1}^ng_1(x_i)\prod_{j=1}^mf_1(y_j)
+    \prod_{1\leq i < k\leq n}(x_i-x_k)\prod_{1\leq j < l\leq m}(y_j-y_l)
+  \end{equation}
+  $\eqref{eqn:Rfg3}=\eqref{eqn:Rfg4}$,等式两边约去非零的相同部分后，得：
+  \begin{equation}\label{eqn:Rfg5}
+    R(f_1,g_1)\prod_{i=1}^n\prod_{j=1}^m(x_i-y_j) =
+    (-1)^{mn}\prod_{i=1}^ng_1(x_i)\prod_{j=1}^mf_1(y_j)
+  \end{equation}
+  \eqref{eqn:Rfg5}式右边里，
+  \begin{align}\label{eqn:Rfg6}
+    (-1)^{mn}\prod_{j=1}^mf_1(y_j)&=\prod_{j=1}^m((-1)^nf_1(y_j))\notag\\
+                               &=\prod_{j=1}^m((-1)^n(y_j-x_1)\cdots(y_j-x_n))\notag\\
+                               &=\prod_{j=1}^m((x_1-y_j)\cdots(x_n-y_j)\notag\\
+                               &=\prod_{i=1}^n\prod_{j=1}^m(x_i-y_j)
+  \end{align}
+  将\eqref{eqn:Rfg6}式代入\eqref{eqn:Rfg5}式右边并约去非零部分，得
+  \begin{align*}
+    R(f_1,g_1) & = \prod_{i=1}^ng_1(x_i)\\
+           & = \prod_{i=1}^n((x_i-y_1)\cdots(x_i-y_m))\\
+           & = \prod_{i=1}^n\prod_{j=1}^m(x_i-y_j)
+  \end{align*}
+
+  {\heiti Step 3}:摄动.
+  $\exists  c_1, \cdots, c_n, d_1, \cdots, d_n \in \mathbb{C}\\
+  \st \forall 0 < t \ll 1, x_1+c_1t, \cdots, x_n+c_nt, y_1+d_1t, \cdots, y_m+d_mt$互不相同.\\
+  设$f_t(x)=(x-x_1-c_1t)\cdots(x-x_n-c_nt), g_t(x)=(x-y_1-d_1t)\cdots(x-y_m-d_mt)$,\\
+  $\forall 0 < t \ll 1, f_t(x), g_t(x)$系数是$t$的多项式，且$f_0(x)=f_1(x), g_0(x)=g_1(x)$,
+  由Step 2知,
+  \begin{equation*}
+    R(f_t,g_t)=\prod_{i=1}^n\prod_{j=1}^m(x_i+c_it-y_j-d_jt)
+  \end{equation*}
+  令$t\longrightarrow 0^+$,得
+  \begin{equation*}
+    R(f_1,g_1)=\prod_{i=1}^n\prod_{j=1}^m(x_i-y_j)
+  \end{equation*}
+\end{proof}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

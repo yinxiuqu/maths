@@ -1,0 +1,17 @@
+%% 此文件为usepackage设置
+
+\usepackage{datetime}
+\usepackage{amssymb}% 用于$\square$符号
+\usepackage{amsmath}% 用于数学公式环境
+\usepackage{amssymb}% 用于数学符号
+\usepackage{amscd}% 用于做交换图即CD环境
+\usepackage{extarrows}% 产生可变长的箭头符号
+\usepackage{pifont}% 使用圆圈数字,\ding{172}是圆圈1
+\usepackage{paralist}% 用于提供三种列表环境
+\usepackage{tikz}% 用于做图
+\usepackage{tkz-euclide}%用于做图
+
+%\usepackage{ntheorem}% 引进\renewtheorem命令
+%\usepackage{xpatch}%% 用于去掉证明、解后面的黑点，改为双点冒号
+%\usepackage{tocbibind}
+%\usepackage{tocloft}

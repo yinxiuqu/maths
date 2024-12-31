@@ -1,0 +1,526 @@
+\section{特征值}
+
+\subsection{对角化}
+
+\begin{theorem}
+  设$\varphi$是$n$维线性空间$V$上的线性变换,则存在$V$的一组基,
+  使得$\varphi$在这组基下的表示矩阵为对角阵的充分必要条件是
+  $\varphi$有$n$个线性无关的特征向量(这样的线性变换成为可对角化线性变换).
+\end{theorem}
+\begin{proof}
+  {\heiti 必要性.}设$\varphi$可对角化，根据定义即存在$V$的一组基$\{e_1, e_2, \cdots, e_n\}$
+  使得$\varphi$在此基下的表示矩阵为
+  对角阵diag$\{\lambda_1, \lambda_2, \cdots, \lambda_n\}$,则
+  \begin{align*}
+    & (\varphi(e_1), \varphi(e_2), \cdots, \varphi(e_n)) =
+      (e_1, e_2, \cdots, e_n)
+      \begin{pmatrix}
+        \lambda_1 & & &\\
+        & \lambda_2 & &\\
+        & & \cdots &\\
+        & & & \lambda_n
+      \end{pmatrix}\\
+    \Longrightarrow & \varphi(e_1)=\lambda_1e_1,\varphi(e_2)=\lambda_2e_2, \cdots, \varphi=\lambda_ne_n\\
+    \xLongrightarrow {e_i\text{为基向量}}&\varphi\text{有$n$个线性无关的特征向量}. 
+  \end{align*}
+  {\heiti 充分性.}设$\varphi$有$n$个线性无关的特征向量$e_1,e_2,\cdot,e_n$,
+  即$\varphi(e_i)=\lambda_ie_i,(1 \leq i \leq n)$,并且\\
+  $\{e_1,e_2,\cdot,e_n$是$V$的一组基,所以
+  \begin{align*}
+    & (\varphi(e_1), \varphi(e_2), \cdots, \varphi(e_n)) =
+      (e_1, e_2, \cdots, e_n)
+      \begin{pmatrix}
+        \lambda_1 & & &\\
+        & \lambda_2 & &\\
+        & & \cdots &\\
+        & & & \lambda_n
+      \end{pmatrix}\\
+    \Longrightarrow & \varphi\text{的表示矩阵为对角阵}
+  \end{align*}
+  故$\varphi$可对角化.
+\end{proof}
+\begin{theorem}\label{thm:diag1}
+  若$\lambda_1, \lambda_2, \cdots, \lambda_k$为数域$\mathbb{K}$上$n$维
+  线性空间$V$上线性变换$\varphi$的不同特征值,则
+  $V_1 + V_2 + \cdots + V_k =
+  V_1 \oplus V_2 \oplus \cdots \oplus V_k$.
+\end{theorem}
+\begin{deduction}
+  线性变换$\varphi$属于不同特征值的特征向量必线性无关.
+\end{deduction}
+\begin{proof}
+  设$\lambda_1, \lambda_2, \cdots, \lambda_k$为$\varphi$的不同特征值,
+  $v_1, v_2, \cdots, v_k$为对应的特征向量.\\
+  令$c_1v_1+ c_2v_2+ \cdots + c_kv_k = 0$,那么,
+  $c_1v_1 \in V_1, c_2v_2 \in V_2, \cdots, c_kv_k \in V_k$,\\
+  由定理\ref{thm:diag1}可知, $c_1v_1 = c_2v_2 = \cdots = c_kv_k = 0$,
+  由于$v_i$都是特征向量,故$v_i \neq 0$,\\
+  所以,$c_1 = c_2 = \cdots = c_k = 0$,因此,$v_1, v_2, \cdots, v_k$线性无关.
+\end{proof}
+
+\subsection{极小多项式与Cayley-Hamilton定理}
+
+\begin{question}\label{qs:CH1}
+  任一$n$阶矩阵的极小多项式必唯一.
+\end{question}
+\begin{question}\label{qs:CH2}
+  相似的矩阵具有相同的极小多项式.
+\end{question}
+\begin{question}\label{qs:CH3}
+  设$A$是一个分块对角阵
+  \[A=
+    \begin{pmatrix}
+      A_1 &&&\\
+          &A_2&&\\
+          &&\cdots&\\
+      &&&A_k
+    \end{pmatrix},\]
+  其中$A_i$都是方阵,则$A$的极小多项式等于诸$A_i$的极小多项式之最小公倍式.
+\end{question}
+\begin{example}\label{exl:CH1}
+  设$A$的全体不同特征值为$\lambda_1,\cdots,\lambda_k$,
+  求证:若$A$可对角化,则极小多项式为
+  $m(x)=(x-\lambda_1)(x-\lambda_2)\cdots(x-\lambda_k)$.
+\end{example}
+\begin{proof}
+  存在非异矩阵P,使得
+  \[P^{-1}AP=
+    \begin{pmatrix}
+      \lambda_1 I & & &\\
+                  & \lambda_2 I & &\\
+                  && \ddots &\\
+      &&&\lambda_k I
+    \end{pmatrix}=B\]
+  由命题\ref{qs:CH2}可知,$A$与$B$有相同极小多项式，即
+  \[m(x)=m_B(x).\]
+  因为$B$是分块对角阵,由命题\ref{qs:CH3}可推出
+  \[m_B(x)=[x-\lambda_1,x-\lambda_2,\cdots,x-\lambda_k]=
+    (x-\lambda_1)(x-\lambda_2)\cdots(x-\lambda_k).\]
+\end{proof}
+\begin{notice}
+  $A$可对角化 $\Longleftrightarrow$ $A$的极小多项式无重根.
+\end{notice}
+\begin{question}\label{qs:CH4}
+  设$A=
+  \begin{pmatrix}
+    \lambda_1 & a_{12} & \cdots & a_{1n}\\
+           & \lambda_2 & \cdots & a_{2n}\\
+              && \ddots & \vdots\\
+    &&&\lambda_n
+  \end{pmatrix}$,则
+  \begin{equation}
+    \label{eq:CH4}
+    (A-\lambda_1I_n)(A-\lambda_2I_n)\cdots(A-\lambda_nI_n)=0,
+  \end{equation}
+  即$A$适合其特征多项式
+  \begin{equation}
+    \label{eq:ch2}
+    f(\lambda)=(\lambda-\lambda_1)(\lambda-\lambda_2)\cdots(\lambda-\lambda_n).
+  \end{equation}
+\end{question}
+\begin{proof}
+  设$e_i=
+  \begin{pmatrix}
+    0\\
+    \vdots\\
+    1\\
+    \vdots\\
+    0
+  \end{pmatrix}
+  $是第$i$行为$1$的单位列向量,可得如下$n$个等式:
+  \begin{align}
+    &Ae_1=\lambda_1e_1\label{eq:ch3},\\
+    &Ae_1=a_{12}e_1+\lambda_2e_2\label{eq:ch4},\\
+    &\cdots\cdots\notag\\
+    &Ae_i=a_{1i}e_1+\cdots+a_{i-1,i}e_{i-1}+\lambda_ie_i\label{eq:ch5},\\
+    &\cdots\cdots\notag\\
+    &Ae_n=a_{1n}e_1+\cdots+a_{n-1,n}e_{n-1}+\lambda_ne_n\label{eq:ch6}.
+  \end{align}
+  $\because f(A)g(A)=g(A)f(A)$,\\
+  $\therefore (A-\lambda_1I_n)(A-\lambda_2I_n)\cdots(A-\lambda_nI_n)=
+  (A-\lambda_{i+1}I_n)(A-\lambda_{i+2}I_n)\cdots(A-\lambda_nI_n)
+  (A-\lambda_1I_n)(A-\lambda_2I_n)\cdots(A-\lambda_iI_n)$,\\
+  只要证
+  \begin{equation}\label{eq:ch7}
+   (A-\lambda_1I_n)(A-\lambda_2I_n)\cdots(A-\lambda_nI_n)e_i=0,
+  \forall 1 \leq i \leq n 
+  \end{equation}
+  只要证
+  \begin{equation}
+    \label{eq:ch8}
+    (A-\lambda_1I_n)(A-\lambda_2I_n)\cdots(A-\lambda_iI_n)e_i=0,
+    \forall 1 \leq i \leq n
+  \end{equation}
+  对$i$进行归纳:\\
+  $i=1$时,由\eqref{eq:ch3}式可知,$(A-\lambda_1I_n)e_i=0$成立.\\
+  现假设$i-1$时结论成立,则$i$时,
+  由\eqref{eq:ch5}可知,
+  \begin{equation}
+    \label{eq:ch9}
+    Ae_i-\lambda_ie_i = a_{1i}e_1+\cdots+a_{i-1,i}e_{i-1}
+  \end{equation}
+  即
+  \begin{equation}
+    \label{eq:ch10}
+    (A-\lambda_iI_n)e_i= a_{1i}e_1+\cdots+a_{i-1,i}e_{i-1}
+  \end{equation}
+  将\eqref{eq:ch10}式代入\eqref{eq:ch8}式,得
+  \begin{align}
+    &(A-\lambda_1I_n)(A-\lambda_2I_n)\cdots(A-\lambda_iI_n)e_i\notag\\
+    = &(A-\lambda_1I_n)(A-\lambda_2I_n)\cdots(A-\lambda_{i-1}I_n)(a_{1i}e_1+\cdots+a_{i-1,i}e_{i-1})\label{eq:ch11}
+  \end{align}
+  将\eqref{eq:ch11}式前$i-1$个因式和第$i$个因式中的每一项相乘,可得
+  \begin{align}
+    &(A-\lambda_1I_n)(A-\lambda_2I_n)\cdots(A-\lambda_iI_n)e_i\notag\\
+    =&\sum\limits_{j=1}^{i-1}a_{ji}(A-\lambda_1I_n)(A-\lambda_2I_n)\cdots(A-\lambda_{i-1}I_n)e_j\label{eq:ch12}
+  \end{align}
+  由归纳假设可知, \eqref{eq:ch12}式的$i-1$项全部为$0$,从而\eqref{eq:ch8}式为$0$.
+\end{proof}
+\begin{theorem}[Cayley-Hamilton(凯莱-哈密顿)定理]\label{thm:CH}
+  设$A$是数域$\mathbb{K}$上的$n$阶矩阵, $f(x)$是$A$的特征多项式,则$f(A)=O$.
+\end{theorem}
+\begin{proof}
+  $\exists$非异阵$P\st P^{-1}AP=B=
+  \begin{pmatrix}
+    \lambda_1 & a_{12} & \cdots & a_{1n}\\
+              &\lambda_2&\cdots&a_{2n}\\
+              &&\ddots&\vdots\\
+    &&&\lambda_n
+  \end{pmatrix}$,\\
+  其特征多项式为$f(\lambda)=(\lambda-\lambda_1)(\lambda-\lambda_2)\cdots(\lambda-\lambda_n)$.\\
+  由命题\eqref{qs:CH4}可知$f(B)=O$,则\\
+  $f(A)=f(PBP^{-1})=Pf(B)P^{-1}=O$.
+\end{proof}
+\begin{deduction}
+  条件和假设同定理\eqref{thm:CH},则$f(\lambda)\mid m(\lambda)^n$.
+\end{deduction}
+\begin{proof}
+  $f(\lambda)=(\lambda-\lambda_1)^{m_1}(\lambda-\lambda_2)^{m_2}\cdots(\lambda-\lambda_k)^{m_k}$,
+  其中$\lambda_1,\lambda_2,\cdots,\lambda_k$是$A$的全体不同特征值,\\
+  $m(\lambda)=(\lambda-\lambda_1)^{r_1}(\lambda-\lambda_2)^{r_2}\cdots(\lambda-\lambda_k)^{r_k}$,
+  其中$r_1,r_2,\cdots,r_k \in \mathbb{Z}^+$.\\
+  $m_1+m_2+\cdots+m_k=n \Longrightarrow m_i \leq n \leq n\cdot r_i, 1 \leq i \leq k \Longrightarrow f(\lambda)\mid m(\lambda)$.
+\end{proof}
+\begin{deduction}[Cayley-Hamilton定理(几何领域)]
+  设$\varphi$是$n$维线性空间$V$上的线性变换, $f(x)$是$\varphi$的特征多项式,则$f(\varphi)=0$.
+\end{deduction}
+\begin{proof}
+  设$\varphi$的表示矩阵为$A \in M_n(\mathbb{K})$.
+
+  先证$A$可对角化的情形：\\
+  设$\Lambda = P^{-1}AP=
+  \begin{pmatrix}
+    \lambda_1 & & & \\
+              & \lambda_2 & & \\
+              & & \cdots & \\
+    & & & \lambda_n\\
+  \end{pmatrix}$,其特征多项式为
+  $f(\lambda)=(\lambda-\lambda_1)(\lambda-\lambda_2)\cdots(\lambda-\lambda_n)$.\\
+  $f(\Lambda)=$\\
+  $\begin{pmatrix}
+    0 & & & \\
+      &\lambda_2-\lambda_1& & \\
+      & & \cdots & \\
+      & & &\lambda_n-\lambda_1
+  \end{pmatrix}
+  \begin{pmatrix}
+    \lambda_1-\lambda_2& & & \\
+                       & 0 & & \\
+                       & & \cdots & \\
+      & & & \lambda_n-\lambda_2
+  \end{pmatrix}\cdots
+  \begin{pmatrix}
+    \lambda_1-\lambda_n & & & \\
+                        & \lambda_2-\lambda_n & & \\
+                        & & \cdots & \\
+      & & & 0
+  \end{pmatrix}$\\
+  $=0$,\\
+  $f(A)=f(P\Lambda P^{-1})=Pf(\Lambda)P^{-1}=O$.
+
+  再证一般情形(摄动法)：\\
+  $\exists$非异阵$P \st P^{-1}AP=
+  \begin{pmatrix}
+    \lambda_1 & * & * & *\\
+              & \lambda_2 & * & *\\
+              && \cdots &*\\
+    &&&\lambda_n
+  \end{pmatrix}$,\\ 
+  $\exists c_1,c_2,\cdots,c_n \in \mathbb{C} \st \forall 0 < t \ll 1,
+  \lambda_1+c_1t,\lambda_2+c_2t,\cdots,\lambda_n+c_nt$互不相同.\\
+  构造矩阵$A_t=P\begin{pmatrix}
+    \lambda_1+c_1t & * & * & *\\
+              & \lambda_2+c_2t & * & *\\
+              && \cdots &*\\
+    &&&\lambda_n+c_nt
+  \end{pmatrix}P^{-1}$,\\
+  当$0 < t \ll 1$时, $A_t$可对角化,当$t=0$时, $A_0=A$.\\
+  $\forall 0 < t \ll 1,
+  (A_t-(\lambda_1+c_1t)I_n)(A_t-(\lambda_2+c_2t)I_n)\cdots(A_t-(\lambda_n+c_nt)I_n)=0$,\\
+  令$t \longrightarrow 0$, 得$(A-\lambda_1I_n)(A-\lambda_2I_n)\cdots(A-\lambda_nI_n)=0$
+\end{proof}
+
+\subsection{特征值的估计}
+\begin{example}
+  已知$A^2-A-3I_n=0$,求证:$A-2I_n$可逆.
+\end{example}
+\begin{proof}
+
+  {\heiti 方法一、凑因子法:}\\
+  $\because (A-2I_n)(A+I_n)=I_n$, $\therefore A-2I_n$可逆.
+
+  {\heiti 方法二、线性方程组求解法:}\\
+  只要证$(A-2I_n)x=0$只有零解.
+
+  {\heiti 方法三、互素多项式法:}\\
+  $(x^2-x-3, x-2)=1$, $A$代入$x^2-x-3$等于零,则$A$代入$x-2$必不为零.
+
+  {\heiti 方法四、特征值法:}\\
+  反正法：设$A-2I_n$不可逆$\Longrightarrow 2$是$A$的特征值,\\
+  将$\lambda=2$代入$A^2-A-3I_n$得$2^2-2-3 \neq 0$产生矛盾,
+  从而$A-2I_n$可逆.
+\end{proof}
+\begin{example}
+  $A$是$4$阶方阵且满足$\tr(A^i)=i, i=1,2,3,4$,求$|A|$.
+\end{example}
+\begin{solution}
+  {\heiti 方法一：利用牛顿公式}\\
+  设$A$的特征值为$\lambda_1,\lambda_2,\lambda_3,\lambda_4$,
+  则$A^i$的特征值为$\lambda_1^i,\lambda_2^i,\lambda_3^i,\lambda_4^i
+  \Longrightarrow \sum\limits^4_{k=1}\lambda_k^i=i$.\\
+  根据上一章Newton公式:
+  \begin{equation}\label{eq:estimate1}
+    s_k-s_{k-1}\sigma_1+s_{k-2}\sigma_2-\cdots+(-1)^kk\sigma_k=0, k \leq n = 4
+  \end{equation}
+  上式中, $s_1=1, s_2=2, s_3=3, s_4=4$,
+  只要求$|A|=\lambda_1\lambda_2\lambda_3\lambda_4=\sigma_4$.
+  \begin{align*}
+    & \sigma_1 = s_1 = 1\\
+    & s_2-s_1\sigma_1+2\sigma_2=0 \Longrightarrow \sigma_2 = -\frac{1}{2}\\
+    & s_3-s_2\sigma_2+s_1\sigma_1-3\sigma_3=0 \Longrightarrow
+      \sigma_3=\frac{1}{6}\\
+    & s_4-s_3\sigma_3+s_2\sigma_2-s_1\sigma_1+4\sigma_4=0 \Longrightarrow
+      \sigma_4=\frac{1}{24}
+  \end{align*}
+
+  {\heiti 方法二：利用教材P250习题6(1)结论}
+  \begin{align*}
+  & \because \sigma_k=\frac{1}{k!}
+  \begin{vmatrix}
+    s_1 & 1 & 0 & \cdots & 0 \\
+    s_2 & s_1 & 2 & \cdots & 0 \\
+    \vdots & \vdots & \vdots & & \vdots \\
+    s_{k-1} & s_{k-2} & s_{k-3} & \vdots & k-1 \\
+    s_k & s_{k-1} & s_{k-2} & \cdots & s_1
+  \end{vmatrix}, 
+  & \therefore \sigma_4=\frac{1}{4!}
+  \begin{vmatrix}
+    1 & 1 & 0 & 0 \\
+    2 & 1 & 2 & 0 \\
+    3 & 2 & 1 & 3 \\
+    4 & 3 & 2 & 1
+  \end{vmatrix}=\frac{1}{24}.
+  \end{align*}
+\end{solution}
+\begin{example}\label{ex:estimate1}
+  $A^{m\times m},B^{n\times n}$无公共特征值,求证:矩阵方程$AX=XB$只有零解.
+\end{example}
+\begin{proof}
+
+  {\heiti 证法一:}
+  设$f(x)=|\lambda I-A|$为$A$的特征多项式,
+  由Cayley-Hamilton定理$\Longrightarrow f(A)=0$.\\
+  $A^2X=A(AX)=A(XB)=(AX)B=XB^2$,因此$A^nX=XB^n, n \in N$,\\
+  因为$f(A)$是关于$A$的多项式,$f(B)$是关于$B$的多项式,所以
+  \begin{equation}\label{eq:estimate2}
+    0=f(A)X = Xf(B)
+  \end{equation}
+  设$B$的特征值为$\mu_1,\mu_2,\cdots,\mu_n$,
+  则$f(B)$的特征值为$f(\mu_1),f(\mu_2),\cdots,f(\mu_n)$.\\
+  $\because A,B$无公共特征值, \\
+  $\therefore f(\mu_1),f(\mu_2),\cdots,f(\mu_n)$皆不为零
+  $\Longrightarrow f(B)$可逆
+  $\Longrightarrow$\eqref{eq:estimate2}式只有零解.
+
+  {\heiti 证法二:}
+  设$B$的特征多项式为$g(\lambda)$,\\
+  $A,B$无公共特征值 $\Longrightarrow f(\lambda), g(\lambda)$无公共根
+  $\Longrightarrow (f(\lambda),g(\lambda))=1$\\
+  因而$\exists$非零多项式$u(\lambda),v(\lambda) \st$
+  \begin{equation*}
+    f(\lambda)u(\lambda)+g(\lambda)v(\lambda)=1.
+  \end{equation*}
+  将$\lambda=B$代入上式,即
+  \begin{equation}\label{eq:estimate3}
+    f(B)u(B)+g(B)v(B)=I
+  \end{equation}
+  $\because g(\lambda)$为$B$的特征多项式,\\
+  $\therefore$\eqref{eq:estimate3}式中$g(B)=O \Longrightarrow f(B)u(B)=I
+  \Longrightarrow f(B)$可逆.
+\end{proof}
+\begin{application}
+  $A,B$为$n$阶方阵且特征值全大于零, $A^2=B^2$,求证: $A=B$.
+\end{application}
+\begin{proof}
+  $A(A-B)=A^2-AB=B^2-AB=(A-B)(-B)$\\
+  上式中,$A,-B$必无公共特征值,由例\ref{ex:estimate1}
+  $\Longrightarrow A-B = 0$.
+\end{proof}
+\begin{application}
+  $A$为$n$阶方阵且特征值全为偶数,
+  求证：矩阵方程$X+AX=XA^2$只有零解.
+\end{application}
+\begin{proof}
+  $X+AX=XA^2 \Longrightarrow (A+I)X=XA^2$, \\
+  $\because A$的特征值都是偶数,$\therefore A+I$的特征值为奇数, $A^2$的特征值为偶数,\\
+  因此$A+I$与$A^2$无公共特征值,
+  由例\ref{ex:estimate1}可知, \\
+  $(A+I)X=XA^2$只有零解,从而$X+AX=XA^2$只有零解.
+\end{proof}
+\begin{application}
+  $A$是$n$阶方阵且适合多项式$a_mx^m+a_{m-1}x^{m-1}+\cdots+a_1x+a_0$,
+  其中$|a_m| > \sum\limits^{m-1}_{i=0}|a_i|$,求证：
+  $2X+AX=XA$只有零解.
+\end{application}
+\begin{proof}
+  任取$A$的特征值$\lambda_0$, 断言: $|\lambda_0|<1$,
+  用反正法: 设$|\lambda_0|\geq 1$.\\
+  由题意知: 
+  $a_m\lambda_0^m+a_{m-1}\lambda_0^{m-1}+\cdots+a_1\lambda_0+a_0=0$,则
+  \begin{equation*}
+  a_m=-\frac{a_{m-1}}{\lambda_0}-\frac{a_{m-2}}{\lambda_0^2}-\cdots-
+  \frac{a_1}{\lambda_0^{m-1}}-\frac{a_0}{\lambda_0^m} \Longrightarrow
+  |a_m| \leq \sum\limits^{m-1}_{i=0}|a_i|, \text{与题意矛盾}.
+\end{equation*}
+$\therefore A$的所有特征值必小于1.\\
+如图\ref{fg:estimate1}所示,
+$A$的所有特征值都位于左边的单位圆内,且不包括圆周;
+$A+2I_n$的所有特征值都位于右边的单位圆内,且不包括圆周,
+即左边的单位圆向右平移两个单位.
+由于两个圆想切且不包括圆周,
+因此$A$和$A+2I_n$没有公共特征值.
+根据例\ref{ex:estimate1}可知,
+$(A+2I_n)X=XA$只有零解.
+\begin{figure}[!hb]
+    \begin{tikzpicture}[scale=0.75]
+    \tkzDefPoints{2/0/A,1/0/B,0/0/O}
+    \tkzDrawPoints[color=black,size=2pt](O)
+    \draw[thick,->] (-4.0,0) -- (4.0,0)
+    node[anchor=north west] {$x$};
+    \draw[thick,->] (0,-3.0) -- (0,3.0)
+    node[anchor=south east] {$y$ };
+    \foreach \x in {-3,-2,-1,1,2,3}
+    \draw (\x cm,1pt) -- (\x cm,-1pt)
+    node[anchor=north] {$\x$};
+    \foreach \y in {-2,-1,1,2}
+    \draw (1pt,\y cm) -- (-1pt,\y cm)
+    node[anchor=east] {$\y$};
+    \draw (O)++(0.25,-0.35) node {$O$};
+    \tkzDrawCircles[dashed](O,B A,B)
+  \end{tikzpicture}
+  \caption{}\label{fg:estimate1}
+\end{figure}
+\end{proof}
+\begin{application}\label{ap:estimate1}
+  $A^{m\times m},B^{n\times n}$是数域$\mathbb{K}$上的方阵且无公共特征值,
+  求证:对$\forall C \in M_{m\times n}(\mathbb{K})$,
+  矩阵方程$AX-XB=C$有唯一解.
+\end{application}
+\begin{proof}
+  构建一个线性变换：
+  \begin{align*}
+    \varphi:M_{m\times n}(\mathbb{K}) & \mapsto M_{m\times n}(\mathbb{K})\\
+     X & \mapsto AX-XB
+  \end{align*}
+  由题意$A,B$无公共特征值,根据例\ref{ex:estimate1}可知:\\
+  $AX=XB$只有零解,即$AX-XB=0$只有零解,
+  从而只有$X=0$与$AX-XB=0$相对应,\\
+  即$\KER\varphi=0 \Longrightarrow \varphi$为单射,由于$\varphi$为线性变换,
+  单射线性变换必为满射,从而$\varphi$为线性同构,\\
+  因此,对$\forall C \in M_{m\times n}(\mathbb{K})$,
+  当$AX-XB=C$时,必有唯一的$X$与其对应,\\
+  即$AX-XB=C$有唯一解.
+\end{proof}
+\begin{example}
+  $A^{m\times m},B^{n\times n}$是数域$\mathbb{K}$上的方阵且无公共特征值,
+  若$A,B$可对角化,则$M=\left(\begin{smallmatrix}
+    A & C \\
+    O & B\end{smallmatrix}\right)$可对角化.
+\end{example}
+\begin{proof}
+  由应用\ref{ap:estimate1} $\Longrightarrow \exists X_0 \st AX_0-X_0B=C$,则
+  \begin{equation*}
+    \begin{pmatrix}
+      I_m & X_0\\
+      O & I_n
+    \end{pmatrix}
+    \begin{pmatrix}
+      A & C\\
+      O & B
+    \end{pmatrix}
+    \begin{pmatrix}
+      I_m & -X_0\\
+      O & I_n
+    \end{pmatrix} =
+    \begin{pmatrix}
+      A & C+X_0B-AX_0\\
+      O & B
+    \end{pmatrix}
+  \end{equation*}
+  上式等号右边, $C+X_0B-AX_0=0$,所以,
+  $M \sim \left(\begin{smallmatrix}A & O\\O & B\end{smallmatrix}\right)$,
+  $A,B$可对角化, 故$M$也可对角化.
+\end{proof}
+\begin{example}
+  $A$为非异的循环矩阵,求证：$A^{-1}$也是循环矩阵.
+\end{example}
+\begin{proof}
+
+  {\heiti 证法一:}\\
+  单位循环矩阵为：
+    \begin{equation}
+    \label{eq:estimate4}
+    J =
+    \begin{pmatrix}
+      &I_{n-1}\\
+      1 &
+    \end{pmatrix}
+  \end{equation}
+  依题意可知:
+  \begin{equation}
+    \label{eq:estimate5}
+    A=
+    \begin{pmatrix}
+      a_1 & a_2 & \cdots & a_n\\
+      a_n & a_1 & \cdots & a_{n-1}\\
+      \vdots & \vdots & & \vdots\\
+      a_2 & \cdots & a_n & a_1
+    \end{pmatrix}= a_1I_n+a_2J+\cdots+a_nJ^{n-1}
+  \end{equation}
+  令$g(x)=a_nx^{n-1}+a_{n-1}x^{n-2}+\cdots+a_2x+a_1$,\\
+  $J$的特征多项式为$f(\lambda)=\lambda^n-1$,
+  $J$的h特征值为$w_k=e^{\frac{2k\pi i}{n}}, 0 \leq k \leq n-1$,\\
+  $A=g(J)$, $A$的特征值为$g(w_k), k=0,1,\cdots,n-1$, \\
+  又因为$A$非异,所以$g(w_i)\neq 0$,但$f(w_i)=0$,\\
+  因此,
+  \begin{align}
+    &f(x),g(x)\text{没有公共根} \Longrightarrow (f(x),g(x))=1\notag\\
+    \Longrightarrow &\exists\text{非零多项式}u,v \st f(x)u(x)+g(x)v(x)=1\label{eq:estimate6}
+  \end{align}
+  将$x=J$代入\eqref{eq:estimate6}式,得
+  \begin{equation}
+    \label{eq:estimate7}
+    f(J)u(J)+g(J)v(J)=I_n
+  \end{equation}
+  上式中, $f(J)=0,g(J)=A$,
+  因而$Av(J)=I_n \Longrightarrow A^{-1}=v(J)$为循环矩阵.
+
+  {\heiti 证法二:}\\
+  $A$非异 $\xLongrightarrow {Cayley-Hamilton\text{定理}} A^{-1}=h(A)$,
+  $h(A)$为$A$的$n-1$次多项式,见P282习题1.\\
+  $h(A) =h(g(J))$仍为循环矩阵.
+\end{proof}
+%%% Local Variables:
+%%% mode: Latex
+%%% TeX-master: "../main"
+%%% End:

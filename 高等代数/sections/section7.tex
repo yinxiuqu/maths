@@ -1,0 +1,1228 @@
+\section{相似标准型}
+\subsection{多项式矩阵}
+\begin{definition}
+  $M(\lambda)=M_m\lambda^m+M_{m-1}\lambda^{m-1}+\cdots+M_1\lambda+M_0$,
+  其中$M_i \in M_{r\times s}(\mathbb{K})$,称$M(\lambda)$为{\heiti 矩阵多项式}.
+  若$M_m\neq 0$,定义$\deg M(\lambda)=m$, 约定$\deg 0=-\infty$.
+  \begin{align*}
+    & N(\lambda)=N_n\lambda^n+N_{n-1}\lambda^{n-1}+\cdots+N_1\lambda+N_0, N_n \neq 0, \text{则}\\
+    & M(\lambda)=N(\lambda) \xLongleftrightarrow {\text{def}} m=n, M_i=N_i, \forall 0 \leq i \leq m
+  \end{align*}
+  设$m \geq n$,\\
+  定义加法:$M(\lambda)+N(\lambda)=M_m\lambda^m+\cdots+M_{n+1}\lambda^{n+1}
+  +(M_n+N_n)\lambda^n+\cdots+(M_0+N_n)$\\
+  定义数乘:$k\cdot M(\lambda)=k\cdot M_m\lambda^m+\cdots+k\cdot M_0$\\
+  定义乘法:$M(\lambda)\cdot N(\lambda)=P(\lambda)=\sum P_k\lambda^k,
+  P_k=\sum\limits_{i+j=k}M_iN_j$
+\end{definition}
+\begin{theory}
+  $\deg(M(\lambda)\cdot N(\lambda))\leq \deg M(\lambda) + \deg N(\lambda)$,
+  若$M_m$或$N_n$是可逆阵，则等号成立.
+\end{theory}
+\begin{proof}
+  $M(\lambda)\cdot N(\lambda)$的首项是$M_m\cdot N_n\cdot \lambda^{m+n}$,若
+  $M_m$或$N_n$可逆，则$M(\lambda)\cdot N(\lambda)\neq 0$.
+\end{proof}
+\begin{theorem}\label{thm:model-main1}
+  设$A,B$是数域$\mathbb{K}$上的矩阵,则$A,B$相似的充分必要条件是
+  $\lambda-$矩阵$\lambda I-A$与$\lambda I-B$相抵.
+\end{theorem}
+
+\subsection{矩阵的法式}
+\begin{theorem}\label{thm:model1}
+  设$A(\lambda)$是一个$n$阶$\lambda-$矩阵,则$A(\lambda)$相抵于对角阵
+  \begin{equation*}
+    \diag\{d_1(\lambda),d_1(\lambda),\cdots,d_r(\lambda);0,\cdots,0\},
+  \end{equation*}
+  其中$d_i(\lambda)$是非零首一多项式且$d_i(\lambda)\mid d_{i+1}(\lambda) (i=1,2,\cdots,r-1)$.
+\end{theorem}
+\begin{theory}\label{thr:model1}
+  设$A(\lambda),B(\lambda)$为$n$阶$\lambda-$矩阵,则:
+
+  (1) $|A(\lambda)\cdot B(\lambda)|=|A(\lambda)|\cdot |B(\lambda)|$;
+
+  (2) $A(\lambda)A(\lambda)^*=A(\lambda)^*A(\lambda)=|A(\lambda)|\cdot I_n$.
+\end{theory}
+\begin{proof}
+  (1)令$f(\lambda)=|A(\lambda)\cdot B(\lambda)|-|A(\lambda)|\cdot |B(\lambda)|$
+  是$\lambda$的多项式,\\
+  对任意的$a \in \mathbb{K}$,
+  $f(a)=|A(a)\cdot B(a)|-|A(a)|\cdot |B(a)| = 0$,
+  从而$f(\lambda) \equiv 0$.
+
+  (2) 令$(f_{ij}(\lambda))_{n\times n}=A(\lambda)\cdot A(\lambda)^* -
+  |A(\lambda)|\cdot I_n, f_{ij}(\lambda) \in \mathbb{K}[\lambda]$, \\
+  $\forall a \in \mathbb{K},
+  (f_{ij}(a)) = A(a)\cdot A(a)^* -
+  |A(a)|\cdot I_n = 0 \Longrightarrow f_{ij}(\lambda) \equiv 0, \forall i,j$
+\end{proof}
+\begin{theorem}
+  设$A(\lambda)$是$n$阶$\lambda-$矩阵,
+  则下列结论等价:
+
+  (1) $A(\lambda)$是可逆$\lambda-$阵;
+
+  (2) $|A(\lambda)|$是非零常数;
+
+  (3) $A(\lambda)$的相抵标准型为$I_n$;
+
+  (4) $A(\lambda)$只通过初等行(列)变换可变为$I_n$;
+
+  (5) $A(\lambda)$是初等$\lambda-$矩阵的乘积.
+\end{theorem}
+\begin{proof}
+  (1) $\Longrightarrow$ (2): 
+  $\exists B(\lambda) \st A(\lambda)B(\lambda)=B(\lambda)A(\lambda)=I_n$,\\
+  等式两边同取行列式,得:
+  $|A(\lambda)\cdot B(\lambda)|=|A(\lambda)|\cdot |B(\lambda)|=|I_n|=1$,\\
+  因为上式左边是两个关于$\lambda$的多项式相乘,右边是1,\\
+  因此$|A(\lambda)|$和$|B(\lambda)|$只能是非零常数.
+
+  (2) $\Longrightarrow$ (3): 由定理\ref{thm:model1}
+  $\Longrightarrow \exists \lambda-$矩阵$P(\lambda),Q(\lambda)
+  \st P(\lambda)A(\lambda)Q(\lambda)=
+  \diag \{d_1(\lambda),d_2(\lambda),\\\cdots,d_r(\lambda);0,\cdots,0\}$,
+  其中, $d_i(\lambda)$皆为关于$\lambda$的首一多项式,且$d_1(\lambda)\mid
+  d_2(\lambda) \mid \cdots \mid d_r(\lambda)$,
+  $P(\lambda)$,\\$Q(\lambda)$为初等$\lambda-$矩阵的乘积.
+  由引理\ref{thr:model1}可知,
+  \[|P(\lambda)|\cdot|A(\lambda)|\cdot|Q(\lambda)|=
+    d_1(\lambda)d_2(\lambda)\cdots d_r(\lambda)0\cdots 0\]
+  上式左边，$P(\lambda)$,$Q(\lambda)$为初等$\lambda-$矩阵的乘积,
+  所以皆不为零,又$|A(\lambda)|$为非零常数,故等式左边不等于零,
+  从而等式右边的$n-r$个0均不会出现，因此$r=n$且$d_i(\lambda)$都是非零常数.
+  又因为$d_i(\lambda)$皆是首一多项式,故对$\forall i, d_i(\lambda)=1$,
+  由此可推出$A(\lambda)=I_n$.
+
+  (3) $\Longrightarrow$ (4): 设$\exists P(\lambda), Q(\lambda)$
+  是初等$\lambda-$矩阵的乘积$\st$
+  \begin{align*}
+    & P(\lambda)A(\lambda)Q(\lambda)=I_n\\
+      \Longrightarrow & P(\lambda)A(\lambda)=Q(\lambda)^{-1}\\
+    \Longrightarrow & Q(\lambda)P(\lambda)A(\lambda)=I_n
+  \end{align*}
+  即$A(\lambda)$只需通过初等行变换即可变为$I_n$.
+  同理可证$A(\lambda)$只需通过初等列变换即可变为$I_n$.
+
+  (4) $\Longrightarrow$ (5): 设$P(\lambda)$是初等$\lambda-$矩阵$\st$
+  \begin{align*}
+    & P_r(\lambda)P_{r-1}(\lambda)\cdots P_1(\lambda)A(\lambda)=I_n\\
+    \Longrightarrow & P_{r-1}(\lambda)P_{r-2}(\lambda)\cdots P_1(\lambda)A(\lambda)=P_r(\lambda)^{-1}\\
+    & \cdots\cdots\\
+    \Longrightarrow & A(\lambda) = P_1(\lambda)^{-1}P_2(\lambda)^{-1}\cdots P_r(\lambda)^{-1}\\
+    \Longrightarrow & A(\lambda)\text{是初等}\lambda-\text{矩阵的乘积}.
+  \end{align*}
+
+  (5) $\Longrightarrow$ (1): 初等$\lambda-$矩阵都是可逆阵,且有限个可逆阵的乘积仍然是可逆阵,因此推出(1),
+  此时,
+  \[A(\lambda)^{-1}=\frac{1}{|A(\lambda)|}\cdot A(\lambda)^*.\]
+  \begin{proof}
+    由引理\ref{thr:model1}可知,
+    \begin{align*}
+      & A(\lambda)\cdot A(\lambda)^*=A(\lambda)^*A(\lambda)=|A(\lambda)|\cdot I_n\\
+      \xLongrightarrow {A(\lambda)\text{可逆故}|A(\lambda)\neq 0|}&
+        A(\lambda)(\frac{1}{|A(\lambda)|}A(\lambda)^*)=
+        (\frac{1}{|A(\lambda)|}A(\lambda)^*)A(\lambda)=I_n\\
+      \Longrightarrow & A(\lambda)^{-1}=\frac{1}{|A(\lambda)|}A(\lambda)^*
+    \end{align*}
+  \end{proof}
+\end{proof}
+\begin{theorem}\label{thm:model3}
+  设$A \in M_n(\mathbb{K})$,则$\lambda-A$相抵于
+  \begin{equation*}
+    \diag\{1,\cdots,1,d_1(\lambda),\cdots,d_m(\lambda)\},
+  \end{equation*}
+  其中,$d_i(\lambda)$为非常数首一多项式且
+  $d_1(\lambda)\mid d_2(\lambda) \mid\cdots\mid d_m(\lambda)$.
+\end{theorem}
+\begin{proof}
+  由定理\ref{thm:model1}可知,$\exists P(\lambda),Q(\lambda)$为
+  可逆$\lambda-$矩阵$\st$
+  \begin{equation*}
+    P(\lambda)(\lambda I_n-A)Q(\lambda)=
+    \diag\{d_1(\lambda),d_2(\lambda),\cdots,d_r(\lambda),0,\cdots,0\}
+  \end{equation*}
+  两边同时取行列式,得
+  \begin{equation*}
+    c\cdot|\lambda I_n-A|=
+    d_1(\lambda)d_2(\lambda)\cdots d_r(\lambda)0\cdots 0,c \neq 0
+  \end{equation*}
+  上式左边非零，所以右边也不等于零,故右边的$n-r$个零均不会出现,
+  从而$r=n$且
+  \begin{align}
+    & c|\lambda I_n-A|=d_1(\lambda)d_2(\lambda)\cdots d_n(\lambda)\notag\\
+    \Longrightarrow & c=1\notag\\
+    \Longrightarrow & |\lambda I_n-A|=d_1(\lambda)d_2(\lambda)\cdots d_n(\lambda)\label{eq:model1}
+  \end{align}
+  把$d_i(\lambda)$中的$1$都列出，即可得到结论.
+\end{proof}
+\begin{example}
+  若$\deg d_i(\lambda) \geq 1$,则$A=cI_n$.
+\end{example}
+\begin{proof}
+  由\eqref{eq:model1}两边取多项式次数,得
+  \begin{equation*}
+    n = \sum\limits^n_{i=1}\deg d_i(\lambda) \geq n
+  \end{equation*}
+  从而$d_1(\lambda),d_2(\lambda),\cdots,d_n(\lambda)$是一次首一多项式.
+  又由整除条件可知,
+  \begin{equation*}
+   d_1(\lambda)=d_2(\lambda)=\cdots=d_n(\lambda)=\lambda-c 
+ \end{equation*}
+ 即$\lambda I_n-A$相抵于矩阵
+ \begin{equation*}
+  \diag\{\lambda-c,\lambda-c,\cdots,\lambda-c\}=\lambda I_n-cI_n, 
+ \end{equation*}
+
+ 由定理\ref{thm:model-main1}可知,$A$与$cI_n$相似,从而$cI_n=P^{-1}AP\Longrightarrow A=cI_n$.
+\end{proof}
+\begin{example}
+  已知$A=
+  \begin{pmatrix}
+    0 & 1 & -1\\
+    3 & -2 & 0\\
+    -1 & 1 & -1
+  \end{pmatrix}
+  $,求$\lambda I_n-A$的相似标准型.
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \lambda I_3-A= &
+    \begin{pmatrix}
+      \lambda & -1 & 1\\
+      -3 & \lambda+2 & 0\\
+      1 & -1 & \lambda+1
+    \end{pmatrix}\longrightarrow
+    \begin{pmatrix}
+      1 & -1 & \lambda+1\\
+      -3 & \lambda+2 & 0\\
+      \lambda & -1 & 1
+    \end{pmatrix}\longrightarrow
+    \begin{pmatrix}
+      1 & -1 & \lambda+1\\
+      0 & \lambda-1 & 3(\lambda+1)\\
+      0 & \lambda-1 & -\lambda^2-\lambda+1
+    \end{pmatrix}\\
+    \longrightarrow &
+                      \begin{pmatrix}
+                        1 & 0 & 0\\
+                        0 & \lambda-1 & 3(\lambda+1)\\
+                        0 & \lambda-1 & -\lambda^2-\lambda+1
+                      \end{pmatrix}\longrightarrow
+                      \begin{pmatrix}
+                        1 & 0 & 0\\
+                        0 & \lambda -1 & 6\\
+                        0 & \lambda-1 & -\lambda^2-4\lambda+4
+                      \end{pmatrix}\\
+   \longrightarrow &
+                      \begin{pmatrix}
+                        1 & 0 & 0\\
+                        0 & 6 & \lambda-1\\
+                        0 & -\lambda^2-4\lambda+4 & \lambda-1
+                      \end{pmatrix}\longrightarrow
+                     \begin{pmatrix}
+                       1 & 0 & 0\\
+                        0 & 6 & 6(\lambda-1)\\
+                        0 & -\lambda^2-4\lambda+4 & 6(\lambda-1)
+                     \end{pmatrix}\\
+   \longrightarrow &
+                      \begin{pmatrix}
+                        1 & 0 & 0\\
+                        0 & 6 & 0\\
+                        0 & -\lambda^2-4\lambda+4 & (\lambda-1)^2(\lambda^2+4\lambda+2)
+                      \end{pmatrix}\longrightarrow
+                     \begin{pmatrix}
+                       1 & 0 & 0\\
+                       0 & 1 & 0\\
+                       0 & 0 & (\lambda-1)^2(\lambda^2+4\lambda+2)
+                     \end{pmatrix}
+  \end{align*}
+\end{solution}
+
+\subsection{不变因子}
+\begin{theory}
+  设$A(\lambda)$的非零行列式因子为
+  $D_1(\lambda),D_2(\lambda),\cdots,D_r(\lambda)$,则
+  \begin{equation*}
+   D_i(\lambda)\mid D_{i+1}(\lambda), \forall 1 \leq i \leq r-1. 
+  \end{equation*}
+\end{theory}
+\begin{proof}
+  任取$A(\lambda)$的$i+1$阶子式$M_{i+1}$,
+  将$M_{i+1}$按某行(列)展开,
+  这里假设按第一行展开:
+  \begin{equation}\label{eq:model2}
+    M_{i+1}=a_{11}(\lambda)M_{11}-a_{12}(\lambda)M_{12}+\cdots+(-1)^{i+2}a_{1,i+1}M_{1,i+1}
+  \end{equation}
+  \begin{align*}
+    \text{由行列式因子定义} & \Longrightarrow D_i(\lambda)\mid (\lambda)M_{1j}, 1 \leq j \leq i+1\\
+                            & \Longrightarrow D_i(\lambda)\mid M_{i+1}\\
+                            & \xLongrightarrow {D_i(\lambda)\text{是}M_{i+1}\text{公因式}}
+                              D_i(\lambda)\mid D_{i+1}(\lambda), \forall 1 \leq i \leq r-1 
+  \end{align*}
+\end{proof}
+\begin{theorem}\label{thm:model6}
+  相抵的$\lambda-$矩阵有相同的行列式因子,从而有相同的不变因子.
+\end{theorem}
+\begin{proof}
+  设
+  \begin{equation*}
+    B(\lambda)=P(\lambda)A(\lambda)Q(\lambda)
+  \end{equation*}
+  其中,$P(\lambda),Q(\lambda)$是可逆$\lambda-$矩阵,
+  设$A(\lambda),B(\lambda)$的行列式因子分别为
+  \[D_k(\lambda),E_k(\lambda), 1 \leq k \leq n \]
+  要证
+  \[D_k(\lambda)=E_k(\lambda), \forall 1 \leq k \leq n.\]
+  \begin{align}
+    & B(\lambda)
+    \begin{pmatrix}
+      i_1 & i_2 & \cdots & i_k\\
+      j_1 & j_2 & \cdots & j_k
+    \end{pmatrix}\xlongequal {\text{Cauchy-Binet公式}}
+    P(\lambda)A(\lambda)Q(\lambda)
+    \begin{pmatrix}\label{eq:model3}
+      i_1 & i_2 & \cdots & i_k\\
+      j_1 & j_2 & \cdots & j_k
+    \end{pmatrix}\\
+    = & \sum_{\genfrac{}{}{0pt}{3}{1\leq r_1 <\cdots<r_k\leq n}{1\leq s_1 <\cdots<s_k\leq n}}P(\lambda)
+      \begin{pmatrix}
+        i_1 & i_2 & \cdots & i_k\\
+        r_1 & r_2 & \cdots & r_k
+      \end{pmatrix}A(\lambda)
+      \begin{pmatrix}
+        r_1 & r_2 & \cdots & r_k\\
+      s_1 & s_2 & \cdots & s_k
+      \end{pmatrix}Q(\lambda)
+      \begin{pmatrix}\label{eq:model4}
+        s_1 & s_2 & \cdots & s_k\\
+      j_1 & j_2 & \cdots & j_k
+      \end{pmatrix}
+  \end{align}
+  \begin{asparaenum}[$1^{\circ}.$]
+  \item 若$D_k(\lambda)=0$:由\eqref{eq:model4}式可得:
+    \[B(\lambda)
+      \begin{pmatrix}
+        i_1 & i_2 & \cdots & i_k\\
+        j_1 & j_2 & \cdots & j_k
+      \end{pmatrix}=0,\]
+    从而$E_k(\lambda)=0$;
+  \item 若$D_k(\lambda)\neq 0$:由行列式因子定义可知:
+    \[D_k(\lambda)\mid A(\lambda)
+      \begin{pmatrix}
+        i_1 & i_2 & \cdots & i_k\\
+        j_1 & j_2 & \cdots & j_k
+      \end{pmatrix}\]
+    从而由\eqref{eq:model4}式可知:
+    \[D_k(\lambda)\mid B(\lambda)
+      \begin{pmatrix}
+        i_1 & i_2 & \cdots & i_k\\
+        j_1 & j_2 & \cdots & j_k
+      \end{pmatrix}\]
+    从而$D_k(\lambda)\mid E_k(\lambda)$.
+  \end{asparaenum}
+
+  由于$A(\lambda)=P(\lambda)^{-1}B(\lambda)Q(\lambda)^{-1}$,
+  因此同理可证,
+  \begin{asparaenum}[$1^{\circ}.$]
+  \item $E_k(\lambda)=0 \Longrightarrow D_k(\lambda)=0$;
+  \item 若$E_k(\lambda) \neq 0$,则$D_k(\lambda) \neq 0$
+    且$E_k(\lambda)\mid D_k(\lambda)$.
+  \end{asparaenum}
+
+  由以上可知,
+  \[E_k(\lambda)=0 \Longleftrightarrow D_k(\lambda)=0\]
+  或者
+  \[D_k(\lambda)\mid E_k(\lambda), E_k(\lambda)\mid D_k(\lambda)\]
+
+  结合以上可推出,
+  \[\exists 0 \neq c \st D_r(\lambda)=c\cdot E_k(\lambda),\]
+  又因为$D_k(\lambda),E_k(\lambda)$都是首一多项式,因此$c=1 \Longrightarrow D_k(\lambda)=E_k(\lambda)$.
+\end{proof}
+\begin{deduction}\label{ddn:model1}
+  设$n$阶$\lambda-$矩阵$A(\lambda)$的法式为
+  \[\Lambda=\diag\{d_1(\lambda),d_1(\lambda),\cdots,d_r(\lambda),0,\cdots,0\},\]
+  其中$d_i$是非零首一多项式且$d_i(\lambda)\mid d_{i+1}(\lambda)(i=1,2,\cdots,r-1)$,
+  则$A(\lambda)$的不变因子为$d_1(\lambda),\\d_2(\lambda),\cdots,d_r(\lambda)$.
+  特别,法式和不变因子之间相互唯一确定.
+\end{deduction}
+\begin{proof}
+  因为$A(\lambda)$相抵于$\Lambda$,由定理\ref{thm:model6}可知
+  $A(\lambda)$的不变因子即为$\Lambda$的不变因子,
+  而$\Lambda$的不变因子即$d_1(\lambda),d_2(\lambda),\cdots,d_r(\lambda)$.
+\end{proof}
+\begin{deduction}\label{ddn:model2}
+  设$A(\lambda),B(\lambda)$为$n$阶$\lambda-$矩阵,
+  则$A(\lambda)$与$B(\lambda)$相抵当且仅当它们有相同的法式.
+\end{deduction}
+\begin{proof}
+  若$A(\lambda)$和$B(\lambda)$有相同的法式,设为$\Lambda$,
+  则$A(\lambda)\sim \Lambda \sim B(\lambda)$,
+  由相抵的传递性可知, $A(\lambda)\sim B(\lambda)$.
+
+  若$A(\lambda)$和$B(\lambda)$相抵,
+  设$A(\lambda)$的法式为$\Lambda_1$,
+  设$B(\lambda)$的法式为$\Lambda_2$,则
+  \[A(\lambda)\sim \Lambda_1,B(\lambda)\sim \Lambda_2,
+    \text{且}A(\lambda)\sim B(\lambda)\]
+  由相抵的传递性可知, $\Lambda_1\sim \Lambda_2$,
+  由定理\ref{thm:model6}可知,
+  $\Lambda_1$与$\Lambda_2$有相同的不变因子.
+  由于$\Lambda_1$与$\Lambda_2$都是法式,
+  所以它们主对角线上的非零首一多项式元素都相同,
+  从而$\Lambda_1=\Lambda_2$.
+\end{proof}
+
+\begin{deduction}\label{ddn:model3}
+  $\lambda-$矩阵在相抵关系下的全系不变量是它的行列式因子组或不变因子组.
+\end{deduction}
+\begin{proof}
+  由定理\ref{thm:model6}可知,相抵的$\lambda-$矩阵有相同的行列式因子(组),
+  从而有相同的不变因子(组).
+  
+  反过来，如果两个$\lambda-$矩阵有相同的行列式因子或不变因子,
+  由推论\ref{ddn:model1}可知,它们必具有相同的法式,
+  从而由推论\ref{ddn:model2}可知, $A(\lambda)\sim B(\lambda)$.
+\end{proof}
+
+\begin{deduction}\label{ddn:model4}
+  $n$阶$\lambda-$矩阵$A(\lambda)$的法式与初等变换的选取无关.
+\end{deduction}
+\begin{proof}
+  设$A(\lambda)$可通过某初等变换过程变换为法式$\Lambda_1$,
+  设$A(\lambda)$可通过另一初等变换过程变换为法式$\Lambda_2$,
+  只要证$\Lambda_1=\Lambda_2$.
+  \[A(\lambda)\sim \Lambda_1,
+    A(\lambda)\sim \Lambda_2
+    \Longrightarrow \Lambda_1 \sim \Lambda_2\]
+  由推论\ref{ddn:model2}可知,$\Lambda_1= \Lambda_2$.
+\end{proof}
+\begin{theorem}\label{thm:model7}
+  数域$\mathbb{K}$上$n$阶矩阵$A$与$B$相似的充分必要条件是
+  它们的特征矩阵$\lambda I-A$和$\lambda I-B$
+  具有相同的行列式因子或不变因子.
+\end{theorem}
+\begin{proof}
+  由定理\ref{thm:model-main1}可知,
+  \[A\text{与}B\text{相似} \Longleftrightarrow
+    \lambda I -A\text{与}\lambda I-B\text{相抵}.\]
+  由推论\ref{ddn:model3}可知,
+  $\lambda I -A$与$\lambda I-B$有相同的
+  行列式因子或不变因子.
+\end{proof}
+\begin{notice}
+  特征矩阵$\lambda I -A$的行列式因子及不变因子
+  均简称为$A$的行列式因子及不变因子.
+\end{notice}
+\begin{deduction}
+  设$\mathbb{F}\subseteq \mathbb{K}$是两个数域,
+  $A,B$是$\mathbb{F}$上的两个矩阵,
+  则$A$与$B$在$\mathbb{F}$上相似的充分必要条件是
+  他们在$\mathbb{K}$上相似.
+\end{deduction}
+\begin{proof}
+  $A$与$B$在$\mathbb{F}$上相似 $\xLongleftrightarrow {\text{def}} \exists$
+  非异矩阵$P\in M_n(\mathbb{F}) \st B=P^{-1}AP$,
+  $A$与$B$在$\mathbb{K}$上相似 $\xLongleftrightarrow {\text{def}} \exists$
+  非异矩阵$Q\in M_n(\mathbb{K}) \st B=Q^{-1}AQ$.
+
+  必要性:设$\exists$非异矩阵$P\in M_n(\mathbb{F}) \st B=P^{-1}AP$,
+  可知$P^{-1}\in \mathbb{F}$.
+  把$P,P^{-1}$看成是$\mathbb{K}$上的矩阵,
+  从而$P$在$\mathbb{K}$上可逆,可以推出$A$与$B$在$\mathbb{K}$上也相似.
+
+  充分性: 若$A$与$B$在$\mathbb{K}$上相似,
+  由推论\ref{thm:model7}可知, 
+  $\lambda I-A$与$\lambda I-B$作为$\mathbb{K}$上的
+  $\lambda-$矩阵有相同的不变因子组(法式).
+  实际上$\lambda I-A$与$\lambda I-B$都是$\mathbb{F}$上的$\lambda-$矩阵,
+  由推论\ref{ddn:model4}可知,
+  在求法式的过程中,只要取$\mathbb{F}[\lambda]$
+  上的初等变换,就可以得到$\lambda I-A$与$\lambda I-B$
+  的法式,且法式中的不变因子多项式$d_i(\lambda)$
+  仍是$\mathbb{F}$上的多项式.因此,存在$\mathbb{F}$上的可逆$\lambda-$矩阵
+  $P(\lambda),Q(\lambda),M(\lambda),N(\lambda) \st$
+  \[P(\lambda)(\lambda I-A)Q(\lambda)=
+    M(\lambda)(\lambda I-B)N(\lambda)=
+    \diag\{d_1(\lambda),d_2(\lambda),\cdots,d_n(\lambda)\},\]
+  从而
+  \[(\lambda I-B)=M(\lambda)^{-1}P(\lambda)(\lambda I-A)Q(\lambda)N(\lambda)^{-1},\]
+  即$\lambda I-A$与$\lambda I-B$在$\mathbb{F}$相抵，
+  由定理\ref{thm:model-main1}可知,
+  $A$与$B$在$\mathbb{F}$上相似.
+\end{proof}
+\begin{deduction}
+  矩阵的不变因子组在基域扩张下不变.
+\end{deduction}
+
+\subsection{有理标准型}
+\begin{theory}\label{thr:RM1}
+  设$r$阶矩阵
+  \begin{equation}\label{eq:RM0}
+    F= \begin{pmatrix}
+    0 & 1 & 0 & \cdots & 0\\
+    0 & 0 & 1 & \cdots & 0\\
+    \vdots&\vdots&\vdots&&\vdots\\
+    0 & 0 & 0 & \cdots & 1\\
+    -a_r & -a_{r-1} & -a_{r-2} & \cdots & -a_1
+    \end{pmatrix},
+  \end{equation}
+则
+
+(1) $F$的行列式因子为
+\begin{equation}\label{eq:RM1}
+  1,\cdots,1,f(\lambda),
+\end{equation}
+其中共有$r-1$个$1$, $f(\lambda)=\lambda^r+a_1\lambda^{r-1}+\cdots+a_r$, 
+$F$的不变因子组也由\eqref{eq:RM1}式给出;
+
+(2) $F$的极小多项式和特征多项式都等于$f(\lambda)$.
+\end{theory}
+\begin{proof}
+  (1) \[\lambda I_r-F=
+  \begin{pmatrix}
+    \lambda &-1& 0 & \cdots & 0\\
+    0 &\lambda & -1 & \cdots & 0\\
+    \vdots&\vdots&\vdots&&\vdots\\
+    0 & 0 &\cdots &\lambda & -1\\
+    a_r & a_{r-1} & a_{r-2} & \cdots &\lambda+a_1
+  \end{pmatrix}\]
+\[D_r(\lambda)=|\lambda I_r-F|=\lambda^r+a_1\lambda^{r-1}+\cdots+a_r=f(\lambda)\]
+对$\forall 1 \leq k < r$, $\lambda I-F$总有一个$k$阶子式$=(-1)^k$,从而
+\[D_k(\lambda)=1, \forall 1 \leq k < r.\]
+
+(2)设$F$极小多项式为$m(\lambda)$,只要证$m(\lambda)=f(\lambda)$.
+
+由定理\ref{thm:CH}(Cayley-Hamilton定理)$\Longrightarrow$
+$m(\lambda) \mid f(\lambda) \Longrightarrow \deg m(\lambda)\leq r$.
+
+$1^{\circ}$.若$\deg m(\lambda)=r$,则$m(\lambda)=f(\lambda)$;
+
+$2^{\circ}$.若$\deg m(\lambda)<r$,用反正法:设
+\[m(\lambda)=c_{r-1}\lambda^{r-1}+c_{r-2}\lambda^{r-2}+
+  \cdots+c_1\lambda+c_0, c_i\text{不全为}0,\]
+设$e_i$为第$i$个元素为$1$,其余元素为$0$的单位行向量,则
+\[e_1F=e_2,e_2F=e_3,\cdots,e_{r-1}F=e_r,\]
+即
+\begin{equation}\label{eq:RM2}
+  e_1F=e_2,e_1F^2=e_3,\cdots,e_1F^{r-1}=e_r.
+\end{equation}
+由于$m(\Lambda)$是$F$的极小多项式,所以
+\[0=m(F)=c_{r-1}F^{r-1}+c_{r-2}F^{r-2}+
+  \cdots+c_1F+c_0I_r,\]
+上式左右两边同时左乘$e_1$,可得
+\[0=c_{r-1}e_1F^{r-1}+c_{r-2}e_1F^{r-2}+
+  \cdots+c_1e_1F+c_0e_1,\]
+上式各项分别应用\eqref{eq:RM2}式的结论,可得
+\[0=c_{r-1}e_r+c_{r-2}e_{r-1}+
+  \cdots+c_1e_2+c_0e_1=(c_0,c_1,\cdots,c_{r-1})
+  \Longrightarrow c_0=c_1=\cdots=c_{r-1}=0\]
+与假设矛盾.
+\end{proof}
+\begin{theory}\label{thr:RM2}
+  设$\lambda-$矩阵$A(\lambda)$相抵于对角$\lambda-$矩阵
+  \begin{equation}\label{eq:RM3}
+    \diag\{d_1(\lambda),d_2(\lambda),\cdots,d_n(\lambda)\},
+  \end{equation}
+  $\lambda-$矩阵$B(\lambda)$相抵于对角$\lambda-$矩阵
+  \begin{equation}\label{eq:RM4}
+    \diag\{d_{i_1}(\lambda),d_{i_2}(\lambda),\cdots,d_{i_n}(\lambda)\},
+  \end{equation}
+  且$i_1,i_2,\cdots,i_n$是$1,2,\cdots,n$的全排列,
+  则$A(\lambda) \sim B(\lambda)$.
+\end{theory}
+\begin{proof}
+  利用行对换及列对换即可将\eqref{eq:RM3}式变换成\eqref{eq:RM4}式,
+  因此\eqref{eq:RM3}式所表示的矩阵和\eqref{eq:RM4}式所表示的矩阵相抵,
+  所以$A(\lambda) \sim B(\lambda)$.
+\end{proof}
+\begin{theorem}\label{thm:RM1}
+  设$A$是数域$\mathbb{K}$上的$n$阶方阵, $A$的不变因子组为
+  \[1,\cdots,1,d_1(\lambda),\cdots,d_k(\lambda),\]
+  其中$\deg d_i(\lambda)=m_i$,则$A$相似于下列分块对角阵:
+  \[F=
+    \begin{pmatrix}
+      F_1&&&\\
+         &F_2&&\\
+         &&\ddots&\\
+      &&&F_k
+    \end{pmatrix}\]
+  其中$F_i$的阶等于$m_i$,且$F_i$是形如\eqref{eq:RM0}式的矩阵, 
+  $F_i$的最后一行由$d_i(\lambda)$的系数(除最高次项)的负值组成.
+\end{theorem}
+\begin{proof}
+  \begin{align}
+    & \lambda I_n-A \sim \diag\{1,\cdots,1,d_1(\lambda),\cdots,d_k(\lambda)\}\label{eq:RM5}\\
+      \Longrightarrow & |\lambda I_n-A|=d_1(\lambda)\cdots d_k(\lambda)\notag
+  \end{align}
+  则$m_1+m_2+\cdots+m_k=n$, 
+  \[\lambda I-F_i=\lambda I-F(d_i(\lambda)) \sim
+    \diag\{1,\cdots,1,d_i(\lambda)\},\]
+  上式中$d_i(\lambda)$前有$m_i-1$个$1$,则
+  \[\lambda I-F=
+    \begin{pmatrix}
+      \lambda I-F(d_1(\lambda))&&&\\
+                               &\lambda I-F(d_2(\lambda))&&\\
+                               &&\ddots&\\
+      &&&\lambda I-F(d_k(\lambda))
+    \end{pmatrix}\]
+  即$\lambda I -A$的法式为
+  \begin{equation}\label{eq:RM6}
+    \diag\{1,\cdots,1,d_1(\lambda);1,\cdots,1,d_2(\lambda);\cdots;1,\cdots,1,d_k(\lambda)\},
+  \end{equation}
+  上式中,每个$d_i(\lambda)$前都配有$m_i-1$个$1$,即共有$m_1-1+m_2-1+\cdots+m_k-1=n-k$个$1$.
+  因此, \eqref{eq:RM6}式是\eqref{eq:RM5}式的一个置换.由引理\ref{thr:RM2}可知,
+  $\lambda I_n-A \sim \lambda I_n-F$,
+  由定理\ref{thm:model-main1}可知,
+  $A \sim F$.
+\end{proof}
+\begin{theorem}
+  设数域$\mathbb{K}$上的$n$阶矩阵$A$的不变因子为
+  \[1,\cdots,1,d_1(\lambda),\cdots,d_k(\lambda),\]
+  其中$d_i(\lambda)\mid d_{i+1}(\lambda)(i=1,\cdots,k-1)$,
+  则$A$的极小多项式$m(\lambda)=d_k(\lambda)$.
+\end{theorem}
+\begin{proof}
+  由定理\ref{eq:RM1}可知,
+  \[A \sim \diag\{F(d_1(\lambda)),F(d_2(\lambda)),\cdots,F(d_k(\lambda))\},\]
+
+  $1^{\circ}.$ $m_A(\lambda)=m_F(\lambda)$;
+
+  $2^{\circ}.$ 令$F_i=F(d_i(\lambda))$,则
+  \[m_F(\lambda)= [m_{F_1}(\lambda),m_{F_2}(\lambda),\cdots,m_{F_k}(\lambda)].\]
+  \begin{align*}
+    \text{由引理\ref{thr:RM1}} \Longrightarrow &
+      m_{F_i}(\lambda)=d_i(\lambda), 1 \leq i \leq k\\
+    \Longrightarrow & m_A(\lambda)=[d_1(\lambda),d_2(\lambda),\cdots,d_k(\lambda)]
+       \xlongequal {d_i(\lambda)\mid d_{i+1}(\lambda)} d_k(\lambda).
+  \end{align*}
+\end{proof}
+\begin{deduction}
+  设$A\in M_n(\mathbb{F})$,
+  其极小多项式为$m_{\mathbb{F}}(\lambda)$. $\mathbb{F} \subseteq \mathbb{K}$,
+  将$A$看成是$\mathbb{K}$上的矩阵,极小多项式为$m_{\mathbb{K}}(\lambda)$,
+  则$m_{\mathbb{K}}(\lambda)=m_{\mathbb{F}}(\lambda)$.
+\end{deduction}
+
+\subsection{初等因子}
+\begin{definition}
+  设$f(\lambda)\in \mathbb{K}[\lambda], p(\lambda)$为不可约多项式,
+  若存在$e\in \mathbb{Z}^+$,使得$p(\lambda)^e\mid f(\lambda)$
+  但$p(\lambda)^{e+1}\nmid f(\lambda)$,
+  则称$p(\lambda)^e$为$f(\lambda)$的准素因子.
+\end{definition}
+\begin{definition}
+  设$d_1(\lambda),d_2(\lambda),\cdots,d_k(\lambda)$是数域$\mathbb{K}$上矩阵$A$的非常数不变因子,
+  在$\mathbb{K}$上把$d_i(\lambda)$分解成不可约因式之积:
+  \begin{equation}\label{eq:ED1}
+    \begin{split}
+      d_1(\lambda) & = p_1(\lambda)^{e_{11}}p_2(\lambda)^{e_{12}}\cdots p_t(\lambda)^{e_{1t}},\\
+      d_2(\lambda) & = p_1(\lambda)^{e_{21}}p_2(\lambda)^{e_{22}}\cdots p_t(\lambda)^{e_{2t}},\\
+      & \cdots\cdots\\
+      d_k(\lambda) & = p_1(\lambda)^{e_{k1}}p_2(\lambda)^{e_{k2}}\cdots p_t(\lambda)^{e_{kt}},
+    \end{split}
+  \end{equation}
+  其中$e_{ij}$是非负整数(注意$e_{ij}$可以为零!).
+  由于$d_i(\lambda)\mid d_{i+1}$,因此
+  \[e_{1j}\leq e_{2j}\leq \cdots\leq e_{kj}(j=1,2,\cdots,t).\]
+  若\eqref{eq:ED1}式中的$e_{ij}>0$,则称$p_j(\lambda)^{e_{ij}}$
+  为$A$的一个{\heiti 初等因子}, $A$的全体初等因子成为$A$的{\heiti 初等因子组}.
+
+  由因式分解的唯一性可知$A$的初等因子被$A$的不变因子唯一确定.
+  反过来,若给定一组初等因子$p_j(\lambda)^{e_{ij}}$,
+  适当添加一些$1$(表示为$p_j(\lambda)^{e_{ij}}=0)$,
+  则可将这组初等因子按降幂排列如下:
+  \begin{equation}\label{eq:ED2}
+    \begin{split}
+      p_1(\lambda)^{e_{k1}},&  p_1(\lambda)^{e_{k-1,1}}, \cdots, p_1(\lambda)^{e_{11}},\\
+      p_2(\lambda)^{e_{k2}},&  p_1(\lambda)^{e_{k-1,2}}, \cdots, p_1(\lambda)^{e_{12}},\\
+      & \cdots\cdots\\
+      p_t(\lambda)^{e_{kt}},&  p_1(\lambda)^{e_{k-1,t}}, \cdots, p_1(\lambda)^{e_{1t}},
+    \end{split}
+  \end{equation}
+  令
+  \begin{equation*}
+    \begin{split}
+      d_k(\lambda) & = p_1(\lambda)^{e_{k1}}p_2(\lambda)^{e_{k2}}\cdots p_t(\lambda)^{e_{kt}},\\
+      d_{k-1}(\lambda) & = p_1(\lambda)^{e_{k-1,1}}p_2(\lambda)^{e_{k-1,2}}\cdots p_t(\lambda)^{e_{k-1,t}},\\
+                   & \cdots\cdots\\
+      d_1(\lambda) & = p_1(\lambda)^{e_{11}}p_2(\lambda)^{e_{12}}\cdots p_t(\lambda)^{e_{1t}},
+    \end{split}
+  \end{equation*}
+  则$d_i(\lambda)\mid d_{i+1}(\lambda)(i=1,2,\cdots,k-1)$,
+  且$d_1(\lambda),\cdots,d_k(\lambda)$的初等因子组就如
+  \eqref{eq:ED2}式所示,因此，给定$A$的初等因子组,
+  我们可唯一地确定$A$的不变因子组.这一事实表明,
+  $A$的不变因子组与初等因子组在讨论矩阵相似关系中的作用
+  是相同的.因此，有下述定理.
+\end{definition}
+\begin{theorem}
+  数域$\mathbb{K}$上的两个矩阵$A$与$B$相似的充分必要条件是
+  他们具有相同的初等因子组,即矩阵的初等因子组是矩阵相似关系的全系不变量.
+\end{theorem}
+
+\subsection{Jordan标准型}
+
+\begin{theory}\label{thr:JD1}
+  $r$阶矩阵
+  \[J = \begin{pmatrix}
+      \lambda_0 & 1 & & &\\
+      & \lambda_0 & 1 & & \\
+      & & \ddots & \ddots &\\
+      & & & \ddots & 1\\
+      & & & & \lambda_0
+  \end{pmatrix}\]
+的初等因子组为$(\lambda-\lambda_0)^r$.
+\end{theory}
+\begin{proof}
+  \begin{equation}\label{eq:JD1}
+    \lambda I-J=
+    \begin{pmatrix}
+      \begin{BMAT}{c.cccc}{cccc.c}
+      \lambda-\lambda_0& -1 & & &\\
+      & \lambda-\lambda_0 & -1 & &\\
+      &&\ddots&\ddots&\\
+      &&&\ddots& -1\\
+      &&&&\lambda-\lambda_0
+      \end{BMAT}
+    \end{pmatrix},
+  \end{equation}
+  \begin{equation*}
+    D_r(\lambda)=|\lambda I_r-J|=(\lambda-\lambda_0)^r,
+  \end{equation*}
+  如\eqref{eq:JD1}式矩阵中虚线右上角部分所示,
+  \begin{align*}
+    & \forall 1 \leq k < r, \exists k\text{阶子式}=(-1)^k\\
+    \Longrightarrow & D_k(\lambda)=1, \forall 1 \leq k < r.
+  \end{align*}
+  \eqref{eq:JD1}式的行列式因子为
+  \[1,\cdots,1,(\lambda-\lambda_0)^r,\]
+  \eqref{eq:JD1}式的不变因子也为上式,
+  因此矩阵$J$的初等因子组为$(\lambda-\lambda_0)^r$.
+\end{proof}
+\begin{theory}\label{thr:JD2}
+  设特征矩阵$\lambda I-A$经过初等变换化为下列对角阵:
+  \begin{equation}\label{eq:JD2}
+    \begin{pmatrix}
+    f_1(\lambda)&&&\\
+    &f_2(\lambda)&&\\
+    &&\ddots&\\
+    &&&f_n(\lambda)
+    \end{pmatrix}
+  \end{equation}
+  其中, $f(\lambda)(i=1,\cdots,n)$为非零首一多项式.
+  将$f_i(\lambda)$作不可约分解,若$(\lambda-\lambda_0)^k$能整除$f_i(\lambda)$,
+  但$(\lambda-\lambda_0)^{k+1}$不能整除$f_i(\lambda)$,
+  就称$(\lambda-\lambda_0)^k$是$f_i(\lambda)$的一个准素因子,
+  则矩阵$A$的初等因子组等于所有$f_i(\lambda)$的准素因子的集合.
+\end{theory}
+\begin{proof}
+  {\heiti Step 1:}对$\forall 1 \leq i < j \leq n$,设
+  \[(f_i(\lambda),f_j(\lambda))=g(\lambda), [f_i(\lambda),f_j(\lambda)]=h(\lambda),\]
+  先证
+  \begin{equation}\label{eq:JD3}
+    \begin{pmatrix}
+      f_1(\lambda)&&&&&&\\
+                  &\cdots&&&&&\\
+                  &&f_i(\lambda)&&&&\\
+                  &&&\cdots&&&\\
+                  &&&&f_j(\lambda)&&\\
+                  &&&&&\cdots&\\
+      &&&&&&f_n(\lambda)
+    \end{pmatrix}\sim
+    \begin{pmatrix}
+      f_1(\lambda)&&&&&&\\
+      &\cdots&&&&&\\
+      &&g(\lambda)&&&&\\
+      &&&\cdots&&&\\
+      &&&&h(\lambda)&&\\
+      &&&&&\cdots&\\
+      &&&&&&f_n(\lambda)
+    \end{pmatrix}
+  \end{equation}
+  并且两个对角阵主对焦元素的准素因子全体相同.
+
+  不妨设$i=1, j=2$,设
+  \begin{equation}\label{eq:JD4}
+    f_1(\lambda)=g(\lambda)q(\lambda),
+  \end{equation}
+  \begin{equation}\label{eq:JD5}
+    h(\lambda)=f_1(\lambda)f_2(\lambda)/g(\lambda)=f_2(\lambda)q(\lambda),
+  \end{equation}
+  \begin{equation}\label{eq:JD6}
+    \exists u(\lambda),v(\lambda) \st
+    g(\lambda)=f_1(\lambda)u(\lambda)+f_2(\lambda)v(\lambda).
+  \end{equation}
+  由于对角阵第$1,2$两行(列)的初等行(列)变换和其他行(列)无关，因此，
+  下面只对前$2$行(列)进行操作：
+  \begin{align*}
+    & \begin{pmatrix}
+    f_1(\lambda) & 0\\
+    0 & f_2(\lambda)
+    \end{pmatrix}\xlongrightarrow{\eqref{eq:JD6}\text{式}}
+    \begin{pmatrix}
+      f_1(\lambda) & g(\lambda)\\
+      0 & f_2(\lambda)
+    \end{pmatrix}\xlongrightarrow{\eqref{eq:JD4}\text{式}}
+    \begin{pmatrix}
+      0 & g(\lambda)\\
+      -f_2(\lambda)q(\lambda) & f_2(\lambda)
+    \end{pmatrix}\\
+    \xlongrightarrow{g(\lambda)\text{是}f_2(\lambda)\text{的因式}}
+    & \begin{pmatrix}
+      0 & g(\lambda)\\
+      -h(\lambda) & 0
+    \end{pmatrix}\longrightarrow
+      \begin{pmatrix}
+        g(\lambda) & 0\\
+        0 & h(\lambda)
+      \end{pmatrix}.
+  \end{align*}
+  在数域$\mathbb{K}$上做公共因式分解:
+  \begin{equation}\label{eq:JD7}
+  \begin{split}
+    f_1(\lambda) &= p_1(\lambda)^{r_1}p_2(\lambda)^{r_2}\cdots p_t(\lambda)^{r_t},\\
+    f_2(\lambda) &= p_1(\lambda)^{s_1}p_2(\lambda)^{s_2}\cdots p_t(\lambda)^{s_t},
+  \end{split}
+  \end{equation}
+  其中$p_i(\lambda)$是首一互异的不可约多项式且$r_i,s_i\geq 0$,
+  令$e_i=\min\{r_i,s_i\}, k_i=\max\{r_i,s_i\}$,则
+  \begin{equation}\label{eq:JD8}
+    \begin{split}
+    g(\lambda) &= p_1(\lambda)^{e_1}p_2(\lambda)^{e_2}\cdots p_t(\lambda)^{e_t},\\
+    h(\lambda) &= p_1(\lambda)^{k_1}p_2(\lambda)^{k_2}\cdots p_t(\lambda)^{k_t},
+    \end{split} 
+  \end{equation}
+  \eqref{eq:JD8}式和\eqref{eq:JD7}式中,
+  $e_i,k_i$和对应的$r_i,s_i$相同或只是互换个位置,
+  由构造过程可知:
+  \[\diag\{f_1(\lambda),f_2(\lambda)\}\text{与}
+    \diag\{g(\lambda),h(\lambda)\}\text{有相同的准素因子组}.\]
+
+  {\heiti Step 2:}反复利用Step 1,
+  将$\diag\{f_1(\lambda),\cdots,f_n(\lambda)$变为法式.
+  依次将第$(1,1)$元素与$(2,2)$元素,第$(3,3)$元素,\ldots,第$(n,n)$元素
+  进行Step 1的操作，从而使第$(1,1)$元素的多项式幂次均是最小的.
+  一般地,设第$(1,1)$元素,\ldots,第$(i-1,i-1)$元素已完成如上操作,
+  第$(i,i)$元素,第$(i+1,i+1)$元素,\ldots,第$(n,n)$元素重复进行Step 1的操作,
+  可使原矩阵相抵于$\diag\{d_1(\lambda),d_2(\lambda),
+  \cdots,d_n(\lambda)\}$且满足
+  $d_1(\lambda)\mid d_2(\lambda)\mid \cdots \mid d_n(\lambda)$,
+  即原矩阵和其法式相抵.
+\end{proof}
+\begin{example}\label{exl:JD1}
+  $\lambda I-A$相抵于$\diag\{1,(\lambda-1)^2(\lambda+2),\lambda+2,1,\lambda-1\}$,
+  求它的所有初等因子.
+\end{example}
+\begin{solution}
+  由引理\ref{thr:JD2}可知,
+  初等因子为$\lambda-1,(\lambda-1)^2,\lambda+2,\lambda+2$.
+\end{solution}
+\begin{theory}\label{thr:JD3}
+  设$A=\diag\{J_{r_1}(\lambda_1),J_{r_2}(\lambda_2),\cdots,J_{r_k}(\lambda_k)\}$,
+  则$A$的初等因子组为$(\lambda-\lambda_1)^{r_1},(\lambda-\lambda_2)^{r_2},\cdots,J_{r_k}(\lambda)^{r_k}$.
+\end{theory}
+\begin{proof}
+  \begin{equation}\label{eq:JD9}
+    \lambda I-A=
+    \begin{pmatrix}
+      \lambda I-J_{r_1}(\lambda_1)&&&\\
+                                  &\lambda I-J_{r_2}(\lambda_2)&&\\
+                                  &&\ddots&\\
+      &&&\lambda I-J_{r_k}(\lambda_k)
+    \end{pmatrix}
+  \end{equation}
+  由引理\ref{thr:JD1}可推出
+   $\lambda I -J_{r_i}(\lambda_i) \sim
+   \diag\{1,\cdots,1,(\lambda-\lambda_i)^{r_i}\}$,因此
+   \[\lambda I-A \sim
+     \diag\{1,\cdots,1,(\lambda-\lambda_1)^{r_1};
+     1,\cdots,1,(\lambda-\lambda_2)^{r_2};
+     \cdots;1,\cdots,1,(\lambda-\lambda_k)^{r_k}\},\]
+   由引理\ref{thr:JD2}可推出,
+   $A$的初等因子组为
+   $(\lambda-\lambda_1)^{r_1},(\lambda-\lambda_2)^{r_2},\cdots,(\lambda-\lambda_k)^{r_k}$.
+ \end{proof}
+ \begin{theorem}\label{thm:JD1}
+   设$A\in M_n(\mathbb{C})$的初等因子组为
+   $(\lambda-\lambda_1)^{r_1},(\lambda-\lambda_2)^{r_2},\cdots,(\lambda-\lambda_k)^{r_k}$,
+   则$A$相似于
+   $J=\diag\{J_{r_1}(\lambda_1),J_{r_2}(\lambda_2),\cdots,J_{r_k}(\lambda_k)\}$.
+ \end{theorem}
+ \begin{proof}
+   由引理\ref{thr:JD3}可知$J$的初等因子组也为
+   $(\lambda-\lambda_1)^{r_1},(\lambda-\lambda_2)^{r_2},\cdots,(\lambda-\lambda_k)^{r_k}$,
+   从而
+   \[A \simeq J.\]
+ \end{proof}
+ \begin{definition}
+   定理\ref{thm:JD1}中的
+   $J=\diag\{J_{r_1}(\lambda_1),J_{r_2}(\lambda_2),\cdots,J_{r_k}(\lambda_k)$
+   称为$A$的Jordan标准型, $J_{r_i}(\lambda_i)$称为Jordan块.
+ \end{definition}
+ \begin{notice}
+   Jordan标准型中, Jordan块次序可以互换.
+   每个Jordan块由一个初等因子唯一确定.
+   \[J_{r}(\lambda_0)\longleftrightarrow (\lambda-\lambda_0)^r,\]
+   从而在不考虑Jordan块的次序时, Jordan标准型
+   由$A$唯一确定.
+ \end{notice}
+ \begin{theorem}\label{thm:JD2}
+   设$\varphi\in \mathcal{L}(V^n_{\mathbb{C}})$,
+   则存在$V$的一组基
+   $\{e_1,e_2,\cdots,e_n\}$,
+   使得$\varphi$在这组基下的表示矩阵为Jordan标准型
+   $J=\diag\{J_{r_1}(\lambda_1),\cdots,J_{r_k}(\lambda_k)\}$.
+ \end{theorem}
+ \begin{deduction}
+   设$A\in M_n(\mathbb{C})$,则下列结论等价:
+
+   (1) $A$可对角化;
+
+   (2) $A$的极小多项式无重根;
+
+   (3) $A$的初等因子都是一次多项式.
+ \end{deduction}\label{dd:JD1}
+ \begin{proof}
+   (1)$\Longrightarrow$(2):由例题\ref{exl:CH1}可得.
+
+   (2)$\Longrightarrow$(3):设$A$的不变因子组为
+   $1,\cdots,1,d_1(\lambda),\cdots,d_k(\lambda)$,
+   由有理标准型理论可知, $A$的极小多项式为
+   $m(\lambda)=d_k(\lambda)$,
+   从而$d_k(\lambda)$无重根,
+   因此$d_1(\lambda),\cdots,d_k(\lambda)$均无重根,
+   由此可推出, $d_i(\lambda)$的准素因子都是一次的，
+   即$A$的初等因子都是一次多项式.
+
+   (3)$\Longrightarrow$(1):设$A$的初等因子组为
+   $\lambda-\lambda_1,\lambda-\lambda_2,\cdots,\lambda-\lambda_n$,
+   由定理\ref{thm:JD2}可知,
+   \[A \simeq J=
+     \begin{pmatrix}
+       \lambda_1&&&\\
+                &\lambda_2&&\\
+                &&\ddots&\\
+       &&&\lambda_n
+     \end{pmatrix},\]
+   所以，$A$可对角化,即$A$的Jordan块都是一阶的.
+ \end{proof}
+ 
+ \begin{question}\label{qs:JD1}
+   设$\varphi\in \mathcal{L}(V^n_{\mathbb{C}})$,
+   $V_o$ 是$\varphi$的不变子空间.
+   若$\varphi$可对角化,则
+   $\varphi|_{V_0}$也可对角化.
+ \end{question}
+ \begin{proof}
+   设$\varphi$的极小多项式为$m(\lambda)$,
+   $\varphi|_{V_0}$的极小多项式为$g(\lambda)$,则
+   \[m(\varphi|_{V_0})=m(\varphi)|_{V_0}=0.\]
+   \begin{align*}
+     \text{由极小多项式性质} \Longrightarrow & g(\lambda)|m(\lambda)\\
+     \varphi\text{可对角化、推论\ref{dd:JD1}} \Longrightarrow & m(\lambda)\text{无重根}
+                                                 \Longrightarrow g(\lambda)\text{也无重根}\\
+     \xLongrightarrow{\text{推论}\ref{dd:JD1}} & \varphi|_{V_0}\text{也可对角化}.
+   \end{align*}
+ \end{proof}
+ 
+ \begin{deduction}\label{dd:JD2}
+   若
+   \[M=
+     \begin{pmatrix}
+       A^{m\times m} & C^{m\times n}\\
+       O & B^{n\times n}
+     \end{pmatrix}\]
+   可对角化,则$A, B$均可对角化.
+ \end{deduction}
+ \begin{proof}
+   设$M$的极小多项式为$m(\lambda)$,则
+   \[0=m(M)=
+     \begin{pmatrix}
+       m(A)& *\\
+       O & m(B)
+     \end{pmatrix},\]
+   从而
+   \[m(A)=m(B)=0.\]
+   由极小多项式性质可以推出
+   \[m_A(\lambda)\mid m(\lambda), m_B(\lambda)\mid m(\lambda).\]
+   \[\text{由推论\ref{dd:JD1}} \Longrightarrow
+     m(\lambda)\text{无重根} \Longrightarrow
+     m_A(\lambda),m_B(\lambda)\text{无重根} \Longrightarrow
+     A, B\text{可对角化}.\]
+ \end{proof}
+
+ \begin{question}\label{qs:JD2}
+   $\varphi\in \mathcal{L}(V), V=V_1\oplus V_2\oplus\cdots\oplus V_k$,
+   $V_i$为$\varphi$的不变子空间.则
+   \[\varphi\text{可对角化} \Longleftrightarrow
+     \varphi|_{V_i}\text{均可对角化}.\]
+\end{question}
+\begin{proof}
+  {\heiti 必要性}由命题\ref{qs:JD1}可得结论.
+
+  {\heiti 充分性}$\exists V_i$的一组基
+  $\{e_{i1},e_{i2},\cdots,e_{in_i}\} \st \varphi|_{V_i}$
+  的表示矩阵为对角阵.
+  \[V=V_1\oplus V_2\oplus\cdots\oplus V_k \Longrightarrow V_i\text{的基可拼成}V\text{的一组基},\]
+  $\because \varphi$在每个$\varphi|_{V_i}$的表示矩阵在对应的基下都是对角阵,\\
+  $\therefore \varphi$在这组基下的表示矩阵也为对角阵.
+\end{proof}
+\begin{deduction}\label{dd:JD3}
+  \[A=
+    \begin{pmatrix}
+      A_1 &&&\\
+          & A_2 &&\\
+          &&\cdots&\\
+      &&&A_k
+    \end{pmatrix},\]
+  则$A$可对角化 $\Longleftrightarrow$
+  $A_1,A_2,\cdots,A_k$均可对角化.
+\end{deduction}
+\begin{proof}
+  \[m_A(\lambda)=[m_{A_1}(\lambda),m_{A_2}(\lambda),\cdots,m_{A_k}(\lambda)].\]
+\end{proof}
+
+\begin{deduction}\label{dd:JD4}
+  设$A\in M_n(\mathbb{K})$的特征值全部在$\mathbb{K}$中,
+  则$A$在$\mathbb{K}$上相似于其Jordan标准型.
+\end{deduction}
+\begin{proof}
+  有定理\ref{thm:JD1}可推出,在复数域上
+  \[A \simeq J=\diag\{J_{r_1}(\lambda_1),\cdots,J_{r_K}(\lambda_k)\},\]
+  由相似关系的基域扩张不变形可知,在数域$\mathbb{K}$上
+  \[A \simeq J.\]
+\end{proof}
+
+\begin{example}\label{exl:JD2}
+  $A$的初等因子组为$(\lambda-1),(\lambda-1)^3,(\lambda+2)^2,(\lambda+2)^3$,
+  求$A$的Jordan标准型.
+\end{example}
+\begin{solution}
+  \[J=\diag\left\{1,
+    \begin{pmatrix}
+      1&1&\\
+       &1&1\\
+      &&1
+    \end{pmatrix},
+    \begin{pmatrix}
+      -2 & 1\\
+      &-2
+    \end{pmatrix},
+    \begin{pmatrix}
+      -2&1&\\
+        &-2&1\\
+      &&-2
+    \end{pmatrix}\right\}\]
+\end{solution}
+
+\begin{example}\label{exl:JD3}
+  设$\varphi\in \mathcal{L}(V^4_{\mathbb{C}})$
+  在基$\{e_1,e_2,e_3,e_4\}$下的表示矩阵为
+  \[A=
+    \begin{pmatrix}
+      3&1&0&0\\
+      -4&-1&0&0\\
+      6&1&2&1\\
+      -14&-5&-1&0
+    \end{pmatrix},\]
+  $\varphi$在新基$\{f_1,f_2,f_3,f_4\}$下的表示矩阵为
+  Jordan标准型$J$,求过渡矩阵$P$.
+\end{example}
+\begin{solution}
+  \[P^{-1}AP=J,\]
+  \[\lambda I-A \longrightarrow \cdots
+    \longrightarrow \diag\{1,1,(\lambda-1)^2,(\lambda-1)^2\},\]
+  所以$A$的初等因子组为$(\lambda-1)^2,(\lambda-1)^2$,
+  由此可算出
+  \[J=
+    \begin{pmatrix}
+      1&1&&\\
+      0&1&&\\
+       &&1&1\\
+      &&0&1
+    \end{pmatrix}
+  \]
+  设$P=(\alpha_1,\alpha_2,\alpha_3,\alpha_4)$,
+  \begin{align*}
+    & P^{-1}AP=J \Longrightarrow AP=PJ \Longrightarrow
+    (A\alpha_1,A\alpha_2,A\alpha_3,A\alpha_4)=
+    (\alpha_1,\alpha_2,\alpha_3,\alpha_4)
+    \begin{pmatrix}
+            1&1&&\\
+      0&1&&\\
+       &&1&1\\
+      &&0&1
+    \end{pmatrix}\\
+    \Longrightarrow &
+                      \left\{
+                      \begin{aligned}
+    A\alpha_1& =\alpha_1\\
+    A\alpha_2& =\alpha_1+\alpha_2 \Longrightarrow
+                        (A-I_4)\alpha_2=\alpha_1\\
+    A\alpha_3& =\alpha_3\\
+    A\alpha_4& =\alpha_3+\alpha_4 \Longrightarrow
+                        (A-I_4)\alpha_4=\alpha_3
+                      \end{aligned}
+                      \right.   \Longrightarrow
+   \alpha_1=
+                      \begin{pmatrix}
+                        -1\\
+                        2\\
+                        4\\
+                        0
+                      \end{pmatrix},
+   \alpha_3=
+                      \begin{pmatrix}
+                        -1\\
+                        2\\
+                        0\\
+                        4
+                      \end{pmatrix},\\
+    \Longrightarrow & \alpha_2=
+      \begin{pmatrix}
+        \frac{5}{4}\\
+        -\frac{7}{2}\\
+        0\\
+        0
+      \end{pmatrix}, 
+      \alpha_4=
+      \begin{pmatrix}
+        \frac{1}{4}\\
+        -\frac{3}{2}\\
+        0\\
+        0
+      \end{pmatrix}\Longrightarrow
+      P=(\alpha_1,\alpha_2,\alpha_3,\alpha_4)=
+    \begin{pmatrix}
+      -1&\frac{5}{4}&-1&\frac{1}{4}\\
+      2&-\frac{7}{2}&2&-\frac{3}{2}\\
+      4&0&0&0\\
+      0&0&4&0
+    \end{pmatrix}
+  \end{align*}
+\end{solution}
+
+\subsection{Jordan标准型的进一步讨论和应用}
+
+设$V$是$n$维复线性空间, $\varphi$是$V$上的线性变换.
+设$\varphi$的初等因子组为
+\begin{equation}\label{eq:JDapp1}
+  (\lambda-\lambda_1)^{r_1},(\lambda-\lambda_2)^{r_2},\cdots,
+  (\lambda-\lambda_k)^{r_k},
+\end{equation}
+由定理\ref{thm:JD2}可知,存在$V$的一组基
+$\{e_{11},e_{12},\cdots,e{1r_1};e_{21},e_{22},\cdots,e_{2r_2};\cdots;e_{k1},e_{k2},\cdots,e_{kr_k}\}$,
+使得$\varphi$在这组基下的表示矩阵为
+\[J=
+  \begin{pmatrix}
+    J_1&&&\\
+       &J_2&&\\
+       &&\cdots&\\
+    &&&J_k
+  \end{pmatrix}.\]
+上式中每个$J_i$是相应于初等因子$(\lambda-\lambda_i)^{r_i}$的Jordan块,其阶正好为$r_i$.
+令$V_i$是由基元$e_{i1}, e_{i2},\\ \cdots, e_{ir_i}$生成的子空间,则
+\begin{equation}\label{eq:JDapp2}
+  \begin{split}
+   & \varphi(e_{i1})  = \lambda_ie_{i1},\\
+   & \varphi(e_{i2})  = e_{i1}+\lambda_ie_{i2},\\
+                   &\hspace{2em} \cdots\cdots\\
+   & \varphi(e_{ir_i})  = e_{ir_i-1}\lambda_ie_{ir_i}.\\
+  \end{split}
+\end{equation}
+这表明$\varphi(V_i)\subseteq V_i$,
+即$V_i(i=1,2,\cdots,k)$是$\varphi$的不变子空间,且有
+\[V=V_1\oplus V_2 \oplus\cdots\oplus V_k.\]
+
+\begin{theorem}
+  线性变换$\varphi$的特征值$\lambda_1$的代数重数等于
+  属于$\lambda_1$的Jordan块的阶数之和;
+  $\lambda_1$的几何重数等于属于$\lambda_1$的Jordan块的个数.
+\end{theorem}
+
+令$\psi=\varphi-\lambda_i I_V$,
+则\eqref{eq:JDapp2}式可化为下式:
+\begin{equation}\label{eq:JDapp3}
+  \begin{split}
+    & \psi(e_{i1})=0,\\
+    & \psi(e_{i2})=e_{i1},\\
+    & \hspace{2em} \cdots\cdots\\
+    & \psi(e_{ir_i})=e_{ir_i-1}.
+  \end{split}
+\end{equation}
+即有如下循环链:
+\[e_{ir_i} \xlongrightarrow {\psi} e_{ir_i-1} \xlongrightarrow {\psi}
+  e_{ir_i-2} \xlongrightarrow {\psi} \cdots \xlongrightarrow {\psi}
+  e_{i2} \xlongrightarrow {\psi} e_{i1} \xlongrightarrow {\psi} 0.\]
+从而
+\[\{e_{ir_i},\psi(e_{ir_i}),\cdots,\psi^{r_i-1}(e_{ir_i})\}\]
+构成了$V_i$的一组基.从以下定义可知, $V_i$是关于
+$\psi=\varphi-\lambda_i I_V$的循环子空间.
+
+\begin{definition}
+  设$\varphi \in \mathcal{L}(V)$, $V_0$是$r$维$\varphi-$不变子空间.
+  若存在$0 \neq \alpha \in V_0$使得
+  $\{\alpha,\varphi(\alpha),\cdots,\\
+  \varphi^{r-1}(\alpha)\}$
+  是$V_0$的一组基,则称$V_0$为关于关于$\varphi$的循环子空间,
+  $\alpha$称为循环向量.
+\end{definition}
+
+\begin{theory}\label{thr:JDapp1}
+  设$R(\lambda_1)=V_1\oplus V_2 \oplus \cdots \oplus V_s$,则
+  \[R(\lambda_1)=\KER(\varphi-\lambda_1 I_V)^n=
+  \{v\in V \mid (\varphi-\lambda_1 I_v)^n(v)=0\}.\]
+\end{theory}
+
+\begin{proof}
+  先证$R(\lambda_1) \subseteq \KER(\varphi-\lambda_i I_V)^n$:
+
+  任取$v\in R(\lambda_1), v=v_1+v_2+\cdots+v_s, v_i\in V_i$,
+  则$V_i$的基有如下循环链:
+  \[e_{ir_i} \xlongrightarrow {\varphi-\lambda_1 I_V} e_{ir_i-1} \xlongrightarrow {\varphi-\lambda_1 I_V}
+  e_{ir_i-2} \xlongrightarrow {\varphi-\lambda_1 I_V} \cdots \xlongrightarrow {\varphi-\lambda_1 I_V}
+  e_{i2} \xlongrightarrow {\varphi-\lambda_1 I_V} e_{i1} \xlongrightarrow {\varphi-\lambda_1 I_V} 0.\]
+可得以下结论:
+\begin{align*}
+  & (\varphi-\lambda_1 I_V)^{r_i}(e_{ij})=0, \forall j \Longrightarrow
+  (\varphi-\lambda_1 I_V)^{r_i}(v_i)=0\\
+  \Longrightarrow & (\varphi-\lambda_1 I_V)^n(v)=
+  (\varphi-\lambda_1 I_V)^n(v_1)+\cdots+(\varphi-\lambda_1 I_V)^n(v_s)=0
+\end{align*}
+上式中的$n$可缩小到$\max\{r_1,r_2,\cdots,r_s\}$.
+
+再证$\KER(\varphi-\lambda_1 I)^n\subseteq R(\lambda_1)$:
+
+设$v\in V$在上述基下的坐标向量$x=(x_{11},x_{12},\cdots,x_{1r_1},\cdots)'$,
+求$(J-\lambda_1 I_n)^nx=0$的解.
+\[ (J_{r_i}(\lambda_i)-\lambda_1 I_{r_i})^n=
+  \begin{pmatrix}
+    \lambda_i-\lambda_1&1&&&\\
+                       &\lambda_i-\lambda_1&1&&\\
+                       &&\ddots&\ddots&\\
+                       &&&\ddots&1\\
+    &&&&\lambda_i-\lambda_1
+  \end{pmatrix}^n=\left\{
+    \begin{aligned}
+      0& , 1 \leq i \leq s\\
+      \text{非异}& , s < i \leq k
+    \end{aligned}\right.
+\]
+由上式可推出
+\[
+\left\{
+  \begin{aligned}
+    & x_{i1}-x_{i2}=\cdots=x_{ir_i}=0 , s < i \leq k\\
+    & (x_{11},x_{12}\cdots,x_{1r_1};\cdots;x_{s1},x_{s2},\cdots,x_{sr_s})
+    \text{为任意解}
+  \end{aligned}\right.
+\]
+由上式可得
+\[\KER(\varphi-\lambda_1 I)^n \subseteq
+  V_1\oplus V_2 \oplus \cdots \oplus V_s=R(\lambda_1).\]
+\end{proof}
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../main"
+%%% End:

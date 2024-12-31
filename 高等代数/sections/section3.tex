@@ -1,0 +1,238 @@
+\section{线性空间}
+
+\subsection{矩阵的秩}
+
+\begin{example}
+  设\(C=\left(\begin{smallmatrix}
+      A & O \\
+      O & B \end{smallmatrix}\right)\)，求证：
+  \(\rank(C)=\rank(A)+\rank(B)\).
+\end{example}
+
+\begin{proof}
+  设初等矩阵\(P_1,P_2,Q_1,Q_2 \st P_1AQ_1=\left(\begin{smallmatrix}
+      I_{r_1} & O \\
+      O & O \end{smallmatrix}\right)\),
+  \(P_2BQ_2=\left(\begin{smallmatrix}
+      I_{r_{2}} & O \\
+      O & O \end{smallmatrix}\right)\).于是，
+  \begin{align*}\begin{pmatrix}
+      P_1 & O \\
+      O & P_2 \end{pmatrix} \begin{pmatrix}
+      A & O \\
+      O & B \end{pmatrix} \begin{pmatrix}
+      Q_1 & O \\
+      O & Q_2 \end{pmatrix} = \begin{pmatrix}
+      P_1AQ_1 & O \\
+      O & P_2BQ_2 \end{pmatrix}  = & \begin{pmatrix}
+      I_{r_1} & O & O & O \\
+      O & O & O & O \\
+      O & O & I_{r_2} & O \\
+      o & O & O & O\end{pmatrix} \\
+      \longrightarrow & \begin{pmatrix}
+      I_{r_1} & O & O & O \\
+      O & I_{r_2} & O & O \\
+      O & O & O & O \\
+      o & O & O & O\end{pmatrix}.\end{align*}
+  由矩阵乘以非异阵其秩不变以及分块矩阵在分块初等变换下秩不变，可得
+  \[\rank(C)=r_1+r_2=\rank(A)+\rank(B).\]
+\end{proof}
+
+\begin{example}
+  设\( C=\left(\begin{smallmatrix}
+      A & D \\
+      O & B \end{smallmatrix}\right)\)或\( \left(\begin{smallmatrix}
+      A & O \\
+      D & B \end{smallmatrix}\right)\)，求证：\(\rank(C) \geq \rank(A)+\rank(B)\).
+\end{example}
+
+\begin{proof}
+  \begin{align*} & \begin{pmatrix}
+      P_1 & O \\
+      O & P_2 \end{pmatrix}\begin{pmatrix}
+      A & D \\
+      O & B \end{pmatrix}\begin{pmatrix}
+      Q_1 & O \\
+      O & Q_2 \end{pmatrix}= \begin{pmatrix}
+      P_1AQ_1 & P_1DQ_2 \\
+      O & P_2BQ_2 \end{pmatrix} \\
+    = & \begin{pmatrix}
+      I_{r_{1}} & O & D_{11} & D_{12}\\
+      O & O & D_{21} & D_{22}\\
+      O & O & I_{r_2} & O\\
+      O & O & O & O\end{pmatrix}\longrightarrow \begin{pmatrix}
+      I_{r_{1}} & O & O & O\\
+      O & O & O & D_{22}\\
+      O & O & I_{r_2} & O\\
+      O & O & O & O\end{pmatrix} \longrightarrow \begin{pmatrix}
+      I_{r_{1}} & O & O & O\\
+      O & D_{22} & O & O\\
+      O & O & I_{r_2} & O\\
+      O & O & O & O\end{pmatrix}\end{align*}
+  由上例可知，\(\rank(C)=r_1+\rank(D_{22})+r_2\geq r_1+r_2=\rank(A)+\rank(B)\)，当\(D_{22}=O\)时等号成立.
+\end{proof}
+
+\begin{example}
+  设\( A \in M_{m\times n}(\mathbb{K}) \)，\( B \in M_{n\times p}(\mathbb{K}) \)，
+  求证：\( \rank(A)+\rank(B)-n\leq \rank(AB)\leq \min\{\rank(A),\rank(B)\} \).
+\end{example}
+
+\begin{proof}
+  先证右边.令\( B=(\beta_1,\beta_2,\cdots,\beta_p) \)，
+  设\(\{\beta_{i1},\beta_{i2},\cdots,\beta_{ir}\}\)是其极大无关组且断言
+  \( \forall ~1 \leq j \leq p \)，
+  \( A\beta_j \)是\(A\beta_{i1},\beta_{i2},\cdots,\beta_{ir}\)的线性组合.
+  因为\( \forall ~\beta_j \)，
+  \(\beta_j = \lambda_1\beta_{i1}+\lambda_2\beta_{i2}+\cdots+\lambda_r\beta_{ir}
+  \Longrightarrow
+  A\beta_j=\lambda_1 A \beta_{i1}+\lambda_2 A \beta_{i2}+\cdots+\lambda_r A \beta_{ir}\)
+  所以，\( AB=(A\beta_1,A\beta_2,\cdots,A\beta_p)\)的每一个列向量都可由
+  \( \{A\beta_{i1},A\beta_{i2},\cdots,A\beta_{ir})\} \)线性表示
+  \( \Longrightarrow \rank(AB) \leq r = \rank(B)\).
+  同理，\( \rank(AB)=\rank(B'A')\leq \rank(A')=\rank(A) \Longrightarrow
+  \rank(AB) \leq \min\{\rank(A),\rank(B)\}\)
+
+  再证左边.
+
+  \( \left(\begin{smallmatrix}
+      A & O \\
+      -I_n & B \end{smallmatrix}\right) \longrightarrow
+      \left(\begin{smallmatrix}
+      O & AB \\
+      -I_n & B \end{smallmatrix}\right) \longrightarrow
+      \left(\begin{smallmatrix}
+      O & AB \\
+      -I_n & O \end{smallmatrix}\right) \longrightarrow
+      \left(\begin{smallmatrix}
+      AB & O \\
+      O  & I_n \end{smallmatrix}\right)\).
+  由最右边矩阵可知， \( \rank\left(\begin{smallmatrix}
+      AB & O \\
+      O  & I_n\end{smallmatrix}\right) = \rank(AB)+n=
+      r\left(\begin{smallmatrix}
+      A & O \\
+      -I_n & B \end{smallmatrix}\right) \geq \rank(A) + \rank(B) \Longrightarrow
+  \rank(AB)\geq \rank(A)+\rank(B)-n \). 
+\end{proof}
+
+\begin{example}
+  （秩的降阶公式）\( M=\begin{pmatrix}
+    A & B\\
+    C & D\end{pmatrix}\)，则：
+
+  （1）若\(A\)非异，则\(\rank(M)=\rank(A)+\rank(D-CA^{-1}B)\)；
+
+  （2）若\(D\)非异，则\(\rank(M)=\rank(D)+\rank(A-BD^{-1}C)\)；
+
+  （3）若\(A,D\)非异，则\(\rank(A)+\rank(D-CA^{-1}B)=\rank(D)+\rank(A-BD^{-1}C)\).
+\end{example}
+
+\begin{proof}
+  只证（1）即可，其余类似可证。
+  \[\begin{pmatrix}
+      A & B\\
+      C & D\end{pmatrix}\longrightarrow \begin{pmatrix}
+      A & B\\
+      O & D-CA^{-1}B\end{pmatrix}\longrightarrow \begin{pmatrix}
+      A & O\\
+      O & D-CA^{-1}B\end{pmatrix}\]
+  由前面例题可知，\(\rank(M)=\rank(A)+\rank(D-CA^{-1}B)\)
+\end{proof}
+
+\subsection{线性方程组的解}
+\begin{example}
+  设\(Ax=\beta(\beta\neq 0)\)的特解为\(\gamma\),相伴齐次线性方程组
+  \(Ax=0\)的基础解系为$\eta_1$, $\eta_2$, $\cdots$, $\eta_{n-r}$, 求证：
+
+  （1）\(\gamma,\gamma+\eta_1,\gamma+\eta_2,\cdots,\gamma+\eta_{n-r}\)
+  线性无关；
+
+  （2）\(Ax=\beta\)的任一解必为如下形式：
+  \(c_0\gamma+c_1(\gamma+\eta_1)+c_2(\gamma+\eta_2)+
+  \cdots+c_{n-r}(\gamma+\eta_{n-r})\),其中\(c_0+c_1+\cdots+c_{n-r}=1\).
+\end{example}
+
+\begin{proof}
+
+  （1）设\(\lambda_0\gamma+\lambda_1(\gamma+\eta_1)+\lambda_2(\gamma+\eta_2)+
+  \lambda_2(\gamma+\eta_2)+\cdots+\lambda_{n-r}(\gamma+\eta_{n-r})=0\),合并整理得下式：
+  \begin{equation}\label{line_equation:1}
+    (\sum_{i=0}^{n-r}\lambda_i)\gamma+\lambda_1\eta_1+
+    \lambda_2\eta_2+\cdots+\lambda_{n-r}\eta_{n-r}=0,
+  \end{equation}
+  将\(A\)作用到上式两边，得
+  \[
+    (\sum_{i=0}^{n-r}\lambda_i)A\gamma+\lambda_1A\eta_1+\lambda_2A\eta_2+
+    \cdots+\lambda_{n-r}A\eta_{n-r}=0,
+  \]
+  \(A\eta_i=0 \Longrightarrow (\displaystyle\sum_{i=0}^{n-r}\lambda_i)A\gamma=0
+  \xLongrightarrow{A\gamma=\beta}(\displaystyle\sum_{i=0}^{n-r}\lambda_i)\beta=0
+  \xLongrightarrow{\beta \neq 0}\displaystyle\sum_{i=0}^{n-r}\lambda_i=0\),\\
+  将\(\displaystyle\sum_{i=0}^{n-r}\lambda_i=0\)代入\eqref{line_equation:1}式，可得
+  \(\lambda_1\eta_1+\lambda_2\eta_2+\cdots+\lambda_{n-r}\eta_{n-r}=0\),\\
+  \(\because \eta_1,\eta_2,\cdots,\eta_{n-r}\)是基础解系,
+  \(\therefore \lambda_1=\lambda_2=\cdots=\lambda_{n-r}=0\) ,\\
+  由\eqref{line_equation:1}式可知，\(\gamma,\gamma+\eta_1,\gamma+\eta_2,\cdots,
+  \gamma+\eta_{n-r}\)线性无关.
+
+  (2)设\(\alpha\)为线性方程组\(Ax=\beta\)的任一解，\(k_i \in \mathbb{K}\),那么
+  \begin{align*}
+    \alpha & = \gamma+k_1\eta_1+k_2\eta_2+\cdots+k_{n-r}\eta_{n-r}\\
+           & = (1-k_1-k_2-\cdots-k_{n-r})\gamma+k_1(\gamma+\eta_1)+k_2(\gamma+\eta_2)+\cdots+k_{n-r}(\gamma+\eta_{n-r})
+  \end{align*}
+  令：
+  \begin{align*}
+    c_0 & = 1-k_1-k_2-\cdots-k_{n-r} \\
+    c_1 & = k_1\\
+    c_2 & = k_2\\
+    & \cdots\\
+    c_{n-r}& = k_{n-r}
+  \end{align*}
+  显然，\(\displaystyle\sum_0^{n-r}c_i=1\).
+\end{proof}
+
+\begin{example}
+  \(A^2-A-3I_n=0\),求证：\(A-2I_n\)非异.
+\end{example}
+
+\begin{proof}
+
+  1、凑因子法：\((A-2I_n)(A+I_n)=I_n\),所以\(A-2I_n\)非异。
+
+  2、线性方程组解法：只要证明\((A-2I_n)x=0\)只有零解。\\
+  设\(x_0\)是线性方程组\((A-2I_n)x=0\)的解，那么\\
+  \(Ax_0=2x_0\), \(A^2x_0=2Ax_0=4x_0\),\\
+  \((A^2-A-3I_n)x_0=0\Longrightarrow -x_0=0 \Longrightarrow x_0=0\).
+\end{proof}
+
+\begin{example}
+  假设\(A\in M_{m\times n}(\mathbb{R})\),证明:\(\rank(AA')=\rank(A'A)=\rank(A)\).
+\end{example}
+
+\begin{proof}
+  因为\(\rank(AA')=\rank(A'A)\),故只需证明右边的等式。
+
+  设\(Ax=0\)的解空间为\(V_A\), \(A'Ax=0\)的解空间为\(V_A'A\). \(Ax=0\)时, \(A'Ax\)必为\(0\),
+  所以\(V_A\subseteq V_{A'A}\).
+
+  任取\(x_0\in V_{A'A}\),此时\(x_0\in\mathbb{R}_n\)且\(A'Ax_0=0\).\\
+  令\(Ax_0=\left(\begin{smallmatrix}a_1\\
+                                    a_2\\
+                                    \cdots\\
+                                    a_m\end{smallmatrix}\right)\in\mathbb{R}_m
+                                \Longrightarrow (Ax_0)'(Ax_0)=0 \Longrightarrow
+                                (a_1,a_2,\cdots,a_m)\left(\begin{smallmatrix}a_1\\
+                                    a_2\\
+                                    \cdots\\
+                                    a_m\end{smallmatrix}\right)=0\\
+                                \Longrightarrow \displaystyle\sum_1^ma_i^2=0
+                                \Longrightarrow \forall i, a_i=0
+                                \Longrightarrow Ax_0=0
+                                \Longrightarrow V_A'A\subseteq V_A
+                                \xLongrightarrow{V_A\subseteq V_{A'A}}V_A=V_{A'A}\\
+                                \Longrightarrow \rank(A)=\rank(A'A)\)
+\end{proof}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

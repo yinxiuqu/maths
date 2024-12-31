@@ -1,0 +1,451 @@
+\section{行列式}
+
+\subsection{行列式的展开和转置}
+\begin{theorem}\label{thm:1-1}
+  若
+  \begin{equation}
+    \label{eq:0-1}
+  |A|=
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n}\\
+    a_{21} & a_{22} & \cdots & a_{2n}\\
+    \vdots & \vdots & & \vdots\\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix},
+\end{equation}
+第$i$行第$j$列元素$a_{ij}$的代数余子式记为$A_{ij}$,
+则对任意的$r(r=1,2,\cdots,n)$列有展开式：
+  \begin{equation}
+    \label{eq:0-2}
+    |A|=a_{1r}A_{1r}+ a_{2r}A_{2r}+\cdots+a_{nr}A_{nr}.
+  \end{equation}
+  又对任意的$s \neq r$,有
+  \begin{equation}
+    \label{eq:0-3}
+    a_{1r}A_{1s}+a_{2r}A_{2s}+\cdots+a_{nr}A_{ns}=0
+  \end{equation}
+\end{theorem}
+
+\begin{proof}
+  \begin{equation*}
+    \begin{split}
+      |A| =
+    \begin{vmatrix}
+    a_{11} & \cdots & a_{1r}& \cdots & a_{1n}\\
+    a_{21} & \cdots & 0 & \cdots & a_{2n}\\
+    \vdots & \vdots & \vdots & \vdots & \vdots\\
+    a_{n1} & \cdots & 0 & \cdots &a_{nn}
+    \end{vmatrix} & +
+    \begin{vmatrix}
+    a_{11} & \cdots & 0 & \cdots & a_{1n}\\
+    a_{21} & \cdots & a_{2r} & \cdots & a_{2n}\\
+    \vdots & \vdots & \vdots & \vdots & \vdots\\
+    a_{n1} & \cdots & 0 & \cdots &a_{nn}
+  \end{vmatrix}\\
+    + \cdots & +
+  \begin{vmatrix}
+    a_{11} & \cdots & 0 & \cdots & a_{1n}\\
+    a_{21} & \cdots & 0 & \cdots & a_{2n}\\
+    \vdots & \vdots & \vdots & \vdots & \vdots\\
+    a_{n1} & \cdots & a_{nr} & \cdots &a_{nn}
+  \end{vmatrix}\\
+  =a_{1r}A_{1r}+ a_{2r}A_{2r}+\cdots+a_{nr}A_{nr}.
+  \end{split}  
+\end{equation*}
+所以，\eqref{eq:0-2}式成立。
+再在\eqref{eq:0-1}式基础上，将其第s列换成第r列，构建一个新行列式，其值为0,即：
+\begin{equation*}
+  \begin{vmatrix}
+    a_{11} & \cdots & a_{1r} & \cdots & a_{1r} & \cdots & a_{1n}\\
+    a_{21} & \cdots & a_{2r} & \cdots & a_{2r} & \cdots & a_{2n}\\
+    \vdots && \vdots && \vdots && \vdots\\
+    a_{n1} & \cdots & a_{nr} & \cdots & a_{nr} & \cdots & a_{nn}
+  \end{vmatrix}=0
+\end{equation*}
+将上面行列式按第s列展开：
+\begin{equation*}
+  a_{1r}A_{1s}+a_{2r}A_{2s}+\cdots+a_{nr}A_{ns}=0
+\end{equation*}
+所以\eqref{eq:0-3}式成立。
+
+同理可证，按照任意$r(r=1,2,\cdots,n)$行展开有展开式：
+\begin{equation}
+    \label{eq:0-4}
+    |A|=a_{r1}A_{1r}+ a_{r2}A_{r2}+\cdots+a_{rn}A_{rn}.
+  \end{equation}
+  又对任意的$s \neq r$,有
+  \begin{equation}
+    \label{eq:0-5}
+    a_{r1}A_{s1}+a_{r2}A_{s2}+\cdots+a_{rn}A_{sn}=0
+  \end{equation}
+\end{proof}
+
+\subsection{Gramer法则}
+
+\begin{theorem}[Gramer法则]
+  设有方程组
+  \begin{equation}\label{eq:1-1}
+    \begin{cases}
+      a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1,\\
+      a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2,\\
+      \hspace{5em}\cdots\cdots\cdots\cdots\\
+      a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n=b_n,\\
+    \end{cases}
+  \end{equation}
+  记这个方程组的系数行列式为$|A|$,若$|A|\neq 0$, 则方程组有且仅有一组解：
+  \begin{align}\label{eq:1-2}
+    x_1=\frac{|A_1|}{|A|},x_2=\frac{|A_2|}{|A|},
+    \cdots,x_n=\frac{|A_n|}{|A|},
+  \end{align}
+  其中$|A_j|(j=1,2,\cdots,n)$是一个$n$阶行列式,
+  它由$|A|$去掉第$j$列换上方程组的常数项$b_1$, $b_2$, $\cdots$, $b_n$组成的列而成.
+\end{theorem}
+
+\begin{proof}
+
+  方法一：只需验证\eqref{eq:1-2}式确为方程组\eqref{eq:1-1}的解.
+
+  将$|A_j|$按第$j$列展开,得
+  \begin{equation}\label{eq:1-3}
+    |A_j|=b_1A_{1j}+b_2A_{2j}+\cdots+b_nA_{nj}=\sum\limits_{i=1}^nb_iA_{ij},
+  \end{equation}
+
+  根据式\eqref{eq:1-2}和式\eqref{eq:1-3},
+  \begin{equation}\label{eq:1-4}
+    x_j=\frac{|A_j|}{|A|}=\frac{1}{|A|}\sum\limits_{i=1}^nb_iA_{ij},
+    j=1,2,\cdots,n.
+  \end{equation}
+
+  方程组\eqref{eq:1-1}第$k$个方程为
+  \begin{equation}\label{eq:1-5}
+    \sum\limits_{j=1}^na_{kj}x_j=b_k, 1 \leq k \leq n.
+  \end{equation}
+  将\eqref{eq:1-4}代入\eqref{eq:1-5}左边得
+  \begin{equation*}
+    \begin{split}
+    \sum\limits_{j=1}^na_{kj}x_j & =
+    \sum\limits_{j=1}^n(a_{kj}\frac{1}{|A|}\sum\limits_{i=1}^nb_iA_{ij})\\
+    & = \frac{1}{|A|}\sum\limits_{j=1}^n\sum\limits_{i=1}^na_{kj}b_iA_{ij}\\
+    & = \frac{1}{|A|}\sum\limits_{i=1}^nb_i(\sum\limits_{j=1}^na_{kj}A_{ij})
+    \end{split}
+  \end{equation*}
+
+  上式最后一个等式里$\sum\limits_{j=1}^na_{kj}A_{ij}$部分的值如下：
+
+  当$i \neq k$时,为行列式$|A|$第$k$行每个元素与第$i$行同列元素对应的代数余子式的乘积之和,
+  其值为0;
+
+  当$i = k$时,为行列式$|A|$按第k行元素展开,
+  即第k行每个元素与其对应代数余子式的乘积之和,
+  其值为$|A|$.所以,
+  \begin{equation*}
+    \sum\limits_{j=1}^na_{kj}x_j
+    = \frac{1}{|A|}b_k\sum\limits_{j=1}^na_{kj}A_{kj}
+    = \frac{b_k}{|A|}|A|
+    = b_k
+  \end{equation*}
+
+  由于$k$为任意$1$至$n$的自然数,
+  因此\eqref{eq:1-2}式是\eqref{eq:1-1}式的解.
+
+  方法二：利用系数矩阵求逆的方法。
+  方程组\eqref{eq:1-1}可以写成矩阵形式
+  \begin{equation*}
+    Ax=\beta,
+  \end{equation*}
+  其中，$A=(a_{ij})$.若$|A| \neq 0$,则$A^-1$必存在，因此
+  \begin{equation*}
+    A^{-1}(Ax)=A^{-1}\beta, 
+  \end{equation*}
+  即
+  \begin{equation*}
+    x=A^{-1}\beta
+  \end{equation*}
+  将上式中的矩阵写出来就是
+  \begin{equation*}
+    \begin{pmatrix}
+      x_1\\
+      x_2\\
+      \vdots\\
+      x_n
+    \end{pmatrix}=\frac{1}{|A|}
+    \begin{pmatrix}
+      A_{11} & A_{21} & \cdots & A_{n1}\\
+      A_{12} & A_{22} & \cdots & A_{n2}\\
+      \vdots & \vdots & & \vdots\\
+      A_{1n} & A_{2n} & \cdots & A_{nn}
+    \end{pmatrix}
+    \begin{pmatrix}
+      b_1\\
+      b_2\\
+      \vdots\\
+      b_n
+    \end{pmatrix}.
+  \end{equation*}
+  于是
+  \begin{equation*}
+    x_1=\frac{1}{|A|}(b_1A_{11}+b_2A_{21}+\cdots+b_nA_{n1})
+  \end{equation*}
+其中
+\begin{equation*}
+  |A_1|=
+  \begin{vmatrix}
+    b_1 & a_{12} & \cdots & a_{1n}\\
+    b_2 & a_{22} & \cdots & a_{2n}\\
+    \vdots & \vdots & & \vdots\\
+    b_n & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}.
+\end{equation*}
+其余$x_i$同理可得.
+\end{proof}
+
+\subsection{行列式的计算}
+\begin{example}
+  计算$n$阶$Vander Monde$（范德蒙德）行列式：
+  \begin{equation*}
+    V_n=
+    \begin{vmatrix}
+      1 & x_1 & x_1^2 & \cdots & x_1^{n-2} & x_1^{n-1}\\[3pt]
+      1 & x_2 & x_2^2 & \cdots & x_2^{n-2} & x_2^{n-1}\\[3pt]
+      \vdots & \vdots & \vdots & & \vdots & \vdots\\[3pt]
+      1 & x_{n-1} & x_{n-1}^2 & \cdots & x_{n-1}^{n-2} & x_{n-1}^{n-1}\\[3pt]
+      1 & x_{n-2} & x_{n-2}^2 & \cdots & x_{n-2}^{n-2} & x_{n-2}^{n-1}
+    \end{vmatrix}
+  \end{equation*}
+\end{example}
+\begin{solution}
+  将第$n-1$列乘以$-x_n$后加到第$n$列上,再将第$n-2$列乘以$-x_n$
+  加到第$n-1$列上.这样一直做下去,直到将第一列乘以$-x_n$加到第二列上为止.
+  这样变形后行列式值不变.得到
+  \begin{equation*}
+    V_n  =
+    \begin{vmatrix}
+    1 & x_1-x_n & x_1^2-x_1x_n & \cdots & x_1^{n-2}-x_1^{n-3}x_n & x_1^{n-1}-x_1^{n-2}x_n\\[3pt]
+    1 & x_2-x_n & x_2^2-x_2x_n & \cdots & x_2^{n-2}-x_2^{n-3}x_n & x_2^{n-1}-x_2^{n-2}x_n\\[3pt]
+    \vdots & \vdots & \vdots & & \vdots & \vdots\\[3pt]
+    1 & x_{n-1}-x_n & x_{n-1}^2-x_{n-1}x_n & \cdots & x_{n-1}^{n-2}-x_{n-1}^{n-3}x_n & x_{n-1}^{n-1}-x_{n-1}^{n-2}x_n\\[3pt]
+    1 & 0 & 0 & \cdots & 0 & 0
+    \end{vmatrix}
+  \end{equation*}
+  \begin{equation*}
+   = (-1)^{n+1}
+    \begin{vmatrix}
+    x_1-x_n & x_1(x_1-x_n) & \cdots & x_1^{n-3}(x_1-x_n) & x_1^{n-2}(x_1-x_n)\\[3pt]
+    x_2-x_n & x_2(x_2-x_n) & \cdots & x_2^{n-3}(x_2-x_n) & x_2^{n-2}(x_2-x_n)\\[3pt]
+    \vdots & \vdots &  & \vdots & \vdots\\[3pt]
+    x_{n-1}-x_n & x_{n-1}(x_{n-1}-x_n) & \cdots & x_{n-1}^{n-3}(x_{n-1}-x_n) & x_{n-1}^{n-2}(x_{n-1}-x_n)\\[3pt]
+    \end{vmatrix}.
+  \end{equation*}
+  提取每行公因子后得到$n-1$阶行列式恰好是一个
+  $x_1,x_2,\cdots,x_{n-1}$的$n-1$阶$Vander Monde$行列式,
+  将其标记为$V_{n-1}$.得到递推公式
+  \begin{equation*}
+    \begin{split}
+    V_n &  =
+    (-1)^{n+1}(x_1-x_n)(x_2-x_n)\cdots(x_{n-1}-x_n)\cdot
+    \begin{vmatrix}
+      1 & x_1 & x_1^2 & \cdots & x_1^{n-2}\\[3pt]
+      1 & x_2 & x_2^2 & \cdots & x_2^{n-2}\\[3pt]
+      \vdots & \vdots & \vdots & & \vdots\\[3pt]
+      1 & x_{n-1} & x_{n-1}^2 & \cdots & x_{n-1}^{n-2}\\[3pt]
+      1 & x_{n-2} & x_{n-2}^2 & \cdots & x_{n-2}^{n-2}
+    \end{vmatrix}\\
+    & = (x_n-x_1)(x_n-x_2)\cdots(x_n-x_{n-1})V_{n-1}
+   \end{split}
+  \end{equation*}
+   即
+   \begin{equation*}
+     V_n= \prod_{1 \leq i <j \leq n}(x_j-x_i)
+   \end{equation*}
+\end{solution}
+
+\begin{example}
+  求下列行列式的值：
+  \begin{equation*}
+    F_n =
+    \begin{vmatrix}
+      \lambda & 0 & 0 & \cdots & 0 & a_n\\
+      -1 & \lambda & 0 & \cdots & 0 & a_{n-1}\\
+      0 & -1 & \lambda & \cdots & 0 & a_{n-2}\\
+      \vdots & \vdots & \vdots &  & \vdots & \vdots\\
+      0 & 0 & 0 & \cdots & \lambda & a_2\\
+      0 & 0 & 0 & \cdots & -1 & \lambda + a_1
+    \end{vmatrix}
+  \end{equation*}
+\end{example}
+
+\begin{solution}
+  按第一行展开,$a_n$的余子式是一个上三角行列式,其值等于$(-1)^{n-1}$,
+  $\lambda$的余子式是与$F_n$相类似的$n-1$阶行列式,记之为$F_{n-1}$,
+  于是得到递推关系式：
+  \begin{equation*}
+    F_n = \lambda F_{n-1}+(-1)^{1+n}(-1)^{n-1}a_n= \lambda F_{n-1}+a_n.
+  \end{equation*}
+  将递推公式不断代入,最后求得
+  \begin{equation*}
+    F_n=\lambda^n+a_1\lambda^{n-1}+a_2\lambda^{n-2}+\cdots+a_n.
+  \end{equation*}
+\end{solution}
+
+\subsection{\texorpdfstring{$Laplace$}{\textit{Laplace}}定理}
+\begin{theorem}[$Laplace$定理]
+  设$|A|$是$n$阶行列式,在$|A|$中任取$k$行（列）,
+  那么包含于这$k$行（列）的全部$k$阶子式与它们对应的代数余子式的成绩之和
+  等于$|A|$.即若取定$k$个行：$1 \leq i_1 < i_2 < \cdots < i_k \leq n$,则
+  \begin{equation}
+    \label{eq:1-6}
+    |A|=\sum\limits_{1 \leq j_1 < j_2 < \cdots < j_k \leq n}
+    A\begin{pmatrix}i_1 & i_2 & \cdots & i_k & n\\
+        j_1 & j_2 & \cdots & j_k & n\end{pmatrix}
+    \widehat{A}\begin{pmatrix}i_1 & i_2 & \cdots & i_k & n\\
+        j_1 & j_2 & \cdots & j_k & n\end{pmatrix}
+  \end{equation}
+  同样若取定$k$个列：$1 \leq j_1 < j_2 < \cdots < j_k \leq n$,则
+  \begin{equation}
+    \label{eq:1-7}
+    |A|=\sum\limits_{1 \leq i_1 < i_2 < \cdots < i_k \leq n}
+    A\begin{pmatrix}i_1 & i_2 & \cdots & i_k & n\\
+        j_1 & j_2 & \cdots & j_k & n\end{pmatrix}
+    \widehat{A}\begin{pmatrix}i_1 & i_2 & \cdots & i_k & n\\
+        j_1 & j_2 & \cdots & j_k & n\end{pmatrix}
+  \end{equation}
+\end{theorem}
+
+\begin{proof}
+  如果能证明$|A|$的每个$k$阶子式与其代数余子式之积的展开式中的每一项
+  都互不相同且都属于$|A|$的展开式,两者总项数相等,那么就证明
+  了$Laplace$定理.
+
+  首先证明$|A|$的任意$k$阶子式与其代数余子式之积的展开式中
+  的每一项都属于$|A|$的展开式.
+
+  先证明特殊情形：$i_1=1,i_2=2,\cdots,
+  ,i_k=k;j_1=1,j_2=2,\cdots,j_k=k$.这时$|A|$可写为：
+  \begin{equation}
+    \label{eq:1-8}
+    \begin{vmatrix}
+      A_1 & *\\
+      * & A_2
+    \end{vmatrix},
+  \end{equation}
+  其中
+  \begin{equation}
+    \label{eq:1-9}
+    |A_1|=A
+    \left(\begin{smallmatrix}
+      1 & 2 & \cdots & k\\
+      1 & 2 & \cdots & k
+    \end{smallmatrix}\right)=
+    \begin{vmatrix}
+      a_{11}& \cdots & a{1k}\\
+      \vdots & & \vdots\\
+      a_{k1}& \cdots & a_{kk}
+    \end{vmatrix},
+  \end{equation}
+  \begin{equation}
+    \label{eq:1-10}
+    |A_2|=\widehat{A}
+    \left(\begin{smallmatrix}
+      1 & 2 & \cdots & k\\
+      1 & 2 & \cdots & k
+    \end{smallmatrix}\right)=
+    \begin{vmatrix}
+      a_{k+1,k+1}& \cdots & a{k+1,n}\\
+      \vdots & & \vdots\\
+      a_{n,k+1}& \cdots & a_{nn}
+    \end{vmatrix}.
+  \end{equation}
+  \eqref{eq:1-9}式中的任一项具有形式：
+  \begin{equation*}
+    (-1)^{N(j_1,j_2,\cdots,j_k)}a_{j_11}a_{j_22}\cdots a_{j_kk},
+  \end{equation*}
+  其中$N(j_1,j_2,\cdots,j_k)$是排列$(j_1,j_2,\cdots,j_k)$的逆序数.
+  \eqref{eq:1-10}式中的任一项具有形式：
+  \begin{equation*}
+    (-1)^{N(j_{k+1},j_{k+2},\cdots,j_n)}a_{j_{k+1},k+1}a_{j_{k+2},k+2}\cdots a_{j_nn},
+  \end{equation*}
+  所以
+  \begin{equation*}
+    A
+    \left(\begin{smallmatrix}
+      1 & 2 & \cdots & k\\
+      1 & 2 & \cdots & k
+    \end{smallmatrix}\right)
+    \widehat{A}
+    \left(\begin{smallmatrix}
+      1 & 2 & \cdots & k\\
+      1 & 2 & \cdots & k
+    \end{smallmatrix}\right)
+  \end{equation*}
+  中的任一项具有下列形式：
+  \begin{equation}\label{eq:1-11}
+    (-1)^\sigma a_{j_11}a_{j_22}\cdots a_{j_kk}a_{j_{k+1}k+1}\cdots a_{j_nn},
+  \end{equation}
+  其中$\sigma = N(j_1,\cdots,j_k)+N(j_{k+1},\cdots,j_n)$. 
+  注意$(j_1,\cdots,j_k)$是$(1,\cdots,k)$的一个排列, 
+  ($j_{k+1}$, $\cdots$, $j_n$)是$(k+1,\cdots,n)$的一个排列,因此
+  $(j_1,\cdots,j_k,j_{k+1},\cdots,j_n)$是$(1,2,\cdots,n)$的一个排列且
+  \begin{equation*}    N(j_1,\cdots,j_k,j_{k+1},\cdots,j_n)=N(j_1,\cdots,j_k)+N(j_{k+1},\cdots,j_n).
+  \end{equation*}
+  因此,\eqref{eq:1-11}式是$|A|$中的某一项.
+
+  再证明一般情况,设
+  \[ 1 \leq i_1 < i_2 < \cdots < i_k \leq n;1 \leq j_1 < j_2 < \cdots < j_k \leq n.\]
+  经过$i_1-1$次相邻两行的对换,可把$i_1$行调到第一行,
+  经过$i_2-2$次相邻两行的对换,可把$i_2$行调到第二行,$\cdots$,
+  经过$(i_1+\cdots+i_k)-\frac{1}{2}k(k+1)$次对换,可把
+  第$i_1,i_2,\cdots,i_k$行调至前$k$行.同理,
+  经过$(j_1+\cdots+j_k)-\frac{1}{2}k(k+1)$次对换,可把
+  第$j_1,j_2,\cdots,j_k$行调至前$k$列.因此,$|A|$经过
+  $(i_1+\cdots+i_k)+(j_1+\cdots+j_k)-k(k+1)$次行列的对换
+  (其中$k(k+1)$必为偶数),得到了一个新的行列式：
+  \[
+    |C|=\begin{vmatrix}
+        D & *\\
+        * & B%
+        \end{vmatrix}
+  \]
+  其中
+  \[
+    |D|=A
+    \begin{pmatrix}
+      i_1 & i_2 & \cdots & i_k\\
+      j_1 & j_2 & \cdots & j_k
+    \end{pmatrix}
+  \]
+  由以上分析可知,$|C|=(-1)^{p+q}|A|,p=i_1+\cdots+i_k,q=j_1+\cdots+j_k.$
+  $|B|$是子式$|D|$在$|C|$中的代数余子式,由前面特殊情况的分析可知,
+  $|D||B|$中的任一项都是$|C|$中的项.由于
+  \[\widehat{A}
+    \begin{pmatrix}
+      i_1 & i_2 & \cdots & i_k\\
+      j_1 & j_2 & \cdots & j_k
+    \end{pmatrix}
+    =(-1)^{p+q}|B|,\]
+  因此,
+  \begin{equation}\label{eq:1-12}
+  A
+    \begin{pmatrix}
+      i_1 & i_2 & \cdots & i_k\\
+      j_1 & j_2 & \cdots & j_k
+    \end{pmatrix}
+    \widehat{A}
+    \begin{pmatrix}
+      i_1 & i_2 & \cdots & i_k\\
+      j_1 & j_2 & \cdots & j_k
+    \end{pmatrix}\end{equation}
+  中的任一项都是$(-1)^{p+q}|C|=|A|$中的项.
+
+  以上分析了\eqref{eq:1-12}式中任一项均属于$|A|$的展开式。
+
+  最后证明二者总项数相等：当$i_1,i_2,\cdots,i_k$固定时,对
+  不同的$1 \leq j_1 < j_2 < \cdots < j_k \leq n$共有$C_n^k$个
+  不同子式,每个子式完全展开后均含有$k!$项，相应的余子式也有$C_n^k$个，
+  每个余子式展开后均含有$(n-k)!$项.由\eqref{eq:1-12}式
+  展开得到的项是没有重复的,且一共有$C_n^k\cdot k!(n-1)!=n!$项.$|A|$的展开式也有$n!$项,
+  因此\eqref{eq:1-6}式成立.\eqref{eq:1-7}式同理可证.
+\end{proof}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

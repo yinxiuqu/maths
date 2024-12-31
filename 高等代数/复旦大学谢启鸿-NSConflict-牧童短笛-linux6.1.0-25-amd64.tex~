@@ -1,0 +1,1015 @@
+\documentclass [mode=geye, color=green, lang=cn, device=pad, 11pt]{elegantnote}
+\usepackage{datetime}
+\usepackage{amssymb}% 用于$\square$符号
+\usepackage{amsmath}% 用于数学公式环境
+\usepackage{tikz}
+\usepackage{extarrows}% 产生可变长的箭头符号
+
+% 公式按节编号
+\numberwithin{equation}{section}
+% 图片按节编号
+\numberwithin{figure}{section}
+
+% 重定义三大定理环境风格，名称前空两格
+\newtheoremstyle{plain}{\topsep}{\topsep}{\citshape}{}{%
+  \hspace*{2em}\color{ecolor}\bfseries}{}{%
+  0.5em}{%
+  \thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+\newtheoremstyle{definition}{\topsep}{\topsep}{\citshape}{}{%
+  \hspace*{2em}\color{ecolor}\bfseries}{}{%
+  0.5em}{}
+
+\newtheoremstyle{remark}{\topsep}{\topsep}{\cnormal}{}{
+  \hspace*{2em}\color{ecolor}\bfseries}{}{
+  0.5em}{}
+
+% 设置目录居中
+\renewcommand\contentsname{\begin{center}\color{ecolor}目\hspace{1em}录\end{center}}
+
+% 重定义proof环境,去掉证明后的实心点变为冒号
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+\pushQED{\qed}%
+\normalfont \topsep6\p@\@plus6\p@\relax
+\trivlist
+\item\relax
+{\hspace{2em}\itshape
+#1\@addpunct{:}}\hspace\labelsep\ignorespaces
+}{%
+  % \rightline{$\square$}\popQED\endtrivlist\@endpefalse
+  \popQED\qedsymbol{$\square$}\endtrivlist\@endpefalse
+}
+\makeatother
+
+% 定义solution环境和名称
+\newenvironment{solution}{\par\textbf{\color{ecolor}\solutionname}}{\par}
+\newcommand{\solutionname}{解}
+
+% 定义常用的数学符号
+\DeclareMathOperator{\st}{s.t.}
+
+
+\begin{document}
+
+\title{高等代数笔记}
+\author{讲课：谢启鸿\\记录：尹修渠}
+\date{\zhtoday\currenttime}
+
+
+\maketitle
+\newpage
+\pagenumbering{Roman}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+
+\section{行列式}
+
+\subsection{行列式的展开和转置}
+\begin{theorem}\label{thm:1-1}
+  若
+  \begin{equation}
+    \label{eq:0-1}
+  |A|=
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n}\\
+    a_{21} & a_{22} & \cdots & a_{2n}\\
+    \vdots & \vdots & & \vdots\\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix},
+\end{equation}
+第$i$行第$j$列元素$a_{ij}$的代数余子式记为$A_{ij}$,
+则对任意的$r(r=1,2,\cdots,n)$列有展开式：
+  \begin{equation}
+    \label{eq:0-2}
+    |A|=a_{1r}A_{1r}+ a_{2r}A_{2r}+\cdots+a_{nr}A_{nr}.
+  \end{equation}
+  又对任意的$s \neq r$,有
+  \begin{equation}
+    \label{eq:0-3}
+    a_{1r}A_{1s}+a_{2r}A_{2s}+\cdots+a_{nr}A_{ns}=0
+  \end{equation}
+\end{theorem}
+
+\begin{proof}
+  \begin{equation*}
+    \begin{split}
+      |A| =
+    \begin{vmatrix}
+    a_{11} & \cdots & a_{1r}& \cdots & a_{1n}\\
+    a_{21} & \cdots & 0 & \cdots & a_{2n}\\
+    \vdots & \vdots & \vdots & \vdots & \vdots\\
+    a_{n1} & \cdots & 0 & \cdots &a_{nn}
+    \end{vmatrix} & +
+    \begin{vmatrix}
+    a_{11} & \cdots & 0 & \cdots & a_{1n}\\
+    a_{21} & \cdots & a_{2r} & \cdots & a_{2n}\\
+    \vdots & \vdots & \vdots & \vdots & \vdots\\
+    a_{n1} & \cdots & 0 & \cdots &a_{nn}
+  \end{vmatrix}\\
+    + \cdots & +
+  \begin{vmatrix}
+    a_{11} & \cdots & 0 & \cdots & a_{1n}\\
+    a_{21} & \cdots & 0 & \cdots & a_{2n}\\
+    \vdots & \vdots & \vdots & \vdots & \vdots\\
+    a_{n1} & \cdots & a_{nr} & \cdots &a_{nn}
+  \end{vmatrix}\\
+  =a_{1r}A_{1r}+ a_{2r}A_{2r}+\cdots+a_{nr}A_{nr}.
+  \end{split}  
+\end{equation*}
+所以，\eqref{eq:0-2}式成立。
+再在\eqref{eq:0-1}式基础上，将其第s列换成第r列，构建一个新行列式，其值为0,即：
+\begin{equation*}
+  \begin{vmatrix}
+    a_{11} & \cdots & a_{1r} & \cdots & a_{1r} & \cdots & a_{1n}\\
+    a_{21} & \cdots & a_{2r} & \cdots & a_{2r} & \cdots & a_{2n}\\
+    \vdots && \vdots && \vdots && \vdots\\
+    a_{n1} & \cdots & a_{nr} & \cdots & a_{nr} & \cdots & a_{nn}
+  \end{vmatrix}=0
+\end{equation*}
+将上面行列式按第s列展开：
+\begin{equation*}
+  a_{1r}A_{1s}+a_{2r}A_{2s}+\cdots+a_{nr}A_{ns}=0
+\end{equation*}
+所以\eqref{eq:0-3}式成立。
+
+同理可证，按照任意$r(r=1,2,\cdots,n)$行展开有展开式：
+\begin{equation}
+    \label{eq:0-4}
+    |A|=a_{r1}A_{1r}+ a_{r2}A_{r2}+\cdots+a_{rn}A_{rn}.
+  \end{equation}
+  又对任意的$s \neq r$,有
+  \begin{equation}
+    \label{eq:0-5}
+    a_{r1}A_{s1}+a_{r2}A_{s2}+\cdots+a_{rn}A_{sn}=0
+  \end{equation}
+\end{proof}
+
+
+\subsection{$Gramer$法则}
+
+\begin{theorem}[$Gramer$法则]
+  设有方程组
+  \begin{equation}\label{eq:1-1}
+    \begin{cases}
+      a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1,\\
+      a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2,\\
+      \hspace{5em}\cdots\cdots\cdots\cdots\\
+      a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n=b_n,\\
+    \end{cases}
+  \end{equation}
+  记这个方程组的系数行列式为$|A|$,若$|A|\neq 0$,则方程组有且仅有一组解：
+  \begin{align}\label{eq:1-2}
+    x_1=\frac{|A_1|}{|A|},x_2=\frac{|A_2|}{|A|},
+    \cdots,x_n=\frac{|A_n|}{|A|},
+  \end{align}
+  其中$|A_j|(j=1,2,\cdots,n)$是一个$n$阶行列式,
+  它由$|A|$去掉第$j$列换上方程组的常数项$b_1,b_2,\cdots,b_n$组成的列而成.
+\end{theorem}
+
+\begin{proof}
+
+  方法一：只需验证\eqref{eq:1-2}式确为方程组\eqref{eq:1-1}的解.
+
+  将$|A_j|$按第$j$列展开,得
+  \begin{equation}\label{eq:1-3}
+    |A_j|=b_1A_{1j}+b_2A_{2j}+\cdots+b_nA_{nj}=\sum\limits_{i=1}^nb_iA_{ij},
+  \end{equation}
+
+  根据式\eqref{eq:1-2}和式\eqref{eq:1-3},
+  \begin{equation}\label{eq:1-4}
+    x_j=\frac{|A_j|}{|A|}=\frac{1}{|A|}\sum\limits_{i=1}^nb_iA_{ij},
+    j=1,2,\cdots,n.
+  \end{equation}
+
+  方程组\eqref{eq:1-1}第$k$个方程为
+  \begin{equation}\label{eq:1-5}
+    \sum\limits_{j=1}^na_{kj}x_j=b_k, 1 \leq k \leq n.
+  \end{equation}
+  将\eqref{eq:1-4}代入\eqref{eq:1-5}左边得
+  \begin{equation*}
+    \begin{split}
+    \sum\limits_{j=1}^na_{kj}x_j & =
+    \sum\limits_{j=1}^n(a_{kj}\frac{1}{|A|}\sum\limits_{i=1}^nb_iA_{ij})\\
+    & = \frac{1}{|A|}\sum\limits_{j=1}^n\sum\limits_{i=1}^na_{kj}b_iA_{ij}\\
+    & = \frac{1}{|A|}\sum\limits_{i=1}^nb_i(\sum\limits_{j=1}^na_{kj}A_{ij})
+    \end{split}
+  \end{equation*}
+
+  上式最后一个等式里$\sum\limits_{j=1}^na_{kj}A_{ij}$部分的值如下：
+
+  当$i \neq k$时,为行列式$|A|$第$k$行每个元素与第$i$行同列元素对应的代数余子式的乘积之和,
+  其值为0;
+
+  当$i = k$时,为行列式$|A|$按第k行元素展开,
+  即第k行每个元素与其对应代数余子式的乘积之和,
+  其值为$|A|$.所以,
+  \begin{equation*}
+    \sum\limits_{j=1}^na_{kj}x_j
+    = \frac{1}{|A|}b_k\sum\limits_{j=1}^na_{kj}A_{kj}
+    = \frac{b_k}{|A|}|A|
+    = b_k
+  \end{equation*}
+
+  由于$k$为任意$1$至$n$的自然数,
+  因此\eqref{eq:1-2}式是\eqref{eq:1-1}式的解.
+
+  方法二：利用系数矩阵求逆的方法。
+  方程组\eqref{eq:1-1}可以写成矩阵形式
+  \begin{equation*}
+    Ax=\beta,
+  \end{equation*}
+  其中，$A=(a_{ij})$.若$|A| \neq 0$,则$A^-1$必存在，因此
+  \begin{equation*}
+    A^{-1}(Ax)=A^{-1}\beta, 
+  \end{equation*}
+  即
+  \begin{equation*}
+    x=A^{-1}\beta
+  \end{equation*}
+  将上式中的矩阵写出来就是
+  \begin{equation*}
+    \begin{pmatrix}
+      x_1\\
+      x_2\\
+      \vdots\\
+      x_n
+    \end{pmatrix}=\frac{1}{|A|}
+    \begin{pmatrix}
+      A_{11} & A_{21} & \cdots & A_{n1}\\
+      A_{12} & A_{22} & \cdots & A_{n2}\\
+      \vdots & \vdots & & \vdots\\
+      A_{1n} & A_{2n} & \cdots & A_{nn}
+    \end{pmatrix}
+    \begin{pmatrix}
+      b_1\\
+      b_2\\
+      \vdots\\
+      b_n
+    \end{pmatrix}.
+  \end{equation*}
+  于是
+  \begin{equation*}
+    x_1=\frac{1}{|A|}(b_1A_{11}+b_2A_{21}+\cdots+b_nA_{n1})
+  \end{equation*}
+其中
+\begin{equation*}
+  |A_1|=
+  \begin{vmatrix}
+    b_1 & a_{12} & \cdots & a_{1n}\\
+    b_2 & a_{22} & \cdots & a_{2n}\\
+    \vdots & \vdots & & \vdots\\
+    b_n & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}.
+\end{equation*}
+其余$x_i$同理可得.
+\end{proof}
+
+
+\subsection{行列式的计算}
+\begin{example}
+  计算$n$阶$Vander Monde$（范德蒙德）行列式：
+  \begin{equation*}
+    V_n=
+    \begin{vmatrix}
+      1 & x_1 & x_1^2 & \cdots & x_1^{n-2} & x_1^{n-1}\\[3pt]
+      1 & x_2 & x_2^2 & \cdots & x_2^{n-2} & x_2^{n-1}\\[3pt]
+      \vdots & \vdots & \vdots & & \vdots & \vdots\\[3pt]
+      1 & x_{n-1} & x_{n-1}^2 & \cdots & x_{n-1}^{n-2} & x_{n-1}^{n-1}\\[3pt]
+      1 & x_{n-2} & x_{n-2}^2 & \cdots & x_{n-2}^{n-2} & x_{n-2}^{n-1}
+    \end{vmatrix}
+  \end{equation*}
+\end{example}
+\begin{solution}
+  将第$n-1$列乘以$-x_n$后加到第$n$列上,再将第$n-2$列乘以$-x_n$
+  加到第$n-1$列上.这样一直做下去,直到将第一列乘以$-x_n$加到第二列上为止.
+  这样变形后行列式值不变.得到
+  \begin{equation*}
+    V_n  =
+    \begin{vmatrix}
+    1 & x_1-x_n & x_1^2-x_1x_n & \cdots & x_1^{n-2}-x_1^{n-3}x_n & x_1^{n-1}-x_1^{n-2}x_n\\[3pt]
+    1 & x_2-x_n & x_2^2-x_2x_n & \cdots & x_2^{n-2}-x_2^{n-3}x_n & x_2^{n-1}-x_2^{n-2}x_n\\[3pt]
+    \vdots & \vdots & \vdots & & \vdots & \vdots\\[3pt]
+    1 & x_{n-1}-x_n & x_{n-1}^2-x_{n-1}x_n & \cdots & x_{n-1}^{n-2}-x_{n-1}^{n-3}x_n & x_{n-1}^{n-1}-x_{n-1}^{n-2}x_n\\[3pt]
+    1 & 0 & 0 & \cdots & 0 & 0
+    \end{vmatrix}
+  \end{equation*}
+  \begin{equation*}
+   = (-1)^{n+1}
+    \begin{vmatrix}
+    x_1-x_n & x_1(x_1-x_n) & \cdots & x_1^{n-3}(x_1-x_n) & x_1^{n-2}(x_1-x_n)\\[3pt]
+    x_2-x_n & x_2(x_2-x_n) & \cdots & x_2^{n-3}(x_2-x_n) & x_2^{n-2}(x_2-x_n)\\[3pt]
+    \vdots & \vdots &  & \vdots & \vdots\\[3pt]
+    x_{n-1}-x_n & x_{n-1}(x_{n-1}-x_n) & \cdots & x_{n-1}^{n-3}(x_{n-1}-x_n) & x_{n-1}^{n-2}(x_{n-1}-x_n)\\[3pt]
+    \end{vmatrix}.
+  \end{equation*}
+  提取每行公因子后得到$n-1$阶行列式恰好是一个
+  $x_1,x_2,\cdots,x_{n-1}$的$n-1$阶$Vander Monde$行列式,
+  将其标记为$V_{n-1}$.得到递推公式
+  \begin{equation*}
+    \begin{split}
+    V_n &  =
+    (-1)^{n+1}(x_1-x_n)(x_2-x_n)\cdots(x_{n-1}-x_n)\cdot
+    \begin{vmatrix}
+      1 & x_1 & x_1^2 & \cdots & x_1^{n-2}\\[3pt]
+      1 & x_2 & x_2^2 & \cdots & x_2^{n-2}\\[3pt]
+      \vdots & \vdots & \vdots & & \vdots\\[3pt]
+      1 & x_{n-1} & x_{n-1}^2 & \cdots & x_{n-1}^{n-2}\\[3pt]
+      1 & x_{n-2} & x_{n-2}^2 & \cdots & x_{n-2}^{n-2}
+    \end{vmatrix}\\
+    & = (x_n-x_1)(x_n-x_2)\cdots(x_n-x_{n-1})V_{n-1}
+   \end{split}
+  \end{equation*}
+   即
+   \begin{equation*}
+     V_n= \prod_{1 \leq i <j \leq n}(x_j-x_i)
+   \end{equation*}
+\end{solution}
+
+\begin{example}
+  求下列行列式的值：
+  \begin{equation*}
+    F_n =
+    \begin{vmatrix}
+      \lambda & 0 & 0 & \cdots & 0 & a_n\\
+      -1 & \lambda & 0 & \cdots & 0 & a_{n-1}\\
+      0 & -1 & \lambda & \cdots & 0 & a_{n-2}\\
+      \vdots & \vdots & \vdots &  & \vdots & \vdots\\
+      0 & 0 & 0 & \cdots & \lambda & a_2\\
+      0 & 0 & 0 & \cdots & -1 & \lambda + a_1
+    \end{vmatrix}
+  \end{equation*}
+\end{example}
+
+\begin{solution}
+  按第一行展开,$a_n$的余子式是一个上三角行列式,其值等于$(-1)^{n-1}$,
+  $\lambda$的余子式是与$F_n$相类似的$n-1$阶行列式,记之为$F_{n-1}$,
+  于是得到递推关系式：
+  \begin{equation*}
+    F_n = \lambda F_{n-1}+(-1)^{1+n}(-1)^{n-1}a_n= \lambda F_{n-1}+a_n.
+  \end{equation*}
+  将递推公式不断代入,最后求得
+  \begin{equation*}
+    F_n=\lambda^n+a_1\lambda^{n-1}+a_2\lambda^{n-2}+\cdots+a_n.
+  \end{equation*}
+\end{solution}
+
+\subsection{$Laplace$定理}
+\begin{theorem}[$Laplace$定理]
+  设$|A|$是$n$阶行列式,在$|A|$中任取$k$行（列）,
+  那么包含于这$k$行（列）的全部$k$阶子式与它们对应的代数余子式的成绩之和
+  等于$|A|$.即若取定$k$个行：$1 \leq i_1 < i_2 < \cdots < i_k \leq n$,则
+  \begin{equation}
+    \label{eq:1-6}
+    |A|=\sum\limits_{1 \leq j_1 < j_2 < \cdots < j_k \leq n}
+    A\begin{pmatrix}i_1 & i_2 & \cdots & i_k & n\\
+        j_1 & j_2 & \cdots & j_k & n\end{pmatrix}
+    \widehat{A}\begin{pmatrix}i_1 & i_2 & \cdots & i_k & n\\
+        j_1 & j_2 & \cdots & j_k & n\end{pmatrix}
+  \end{equation}
+  同样若取定$k$个列：$1 \leq j_1 < j_2 < \cdots < j_k \leq n$,则
+  \begin{equation}
+    \label{eq:1-7}
+    |A|=\sum\limits_{1 \leq i_1 < i_2 < \cdots < i_k \leq n}
+    A\begin{pmatrix}i_1 & i_2 & \cdots & i_k & n\\
+        j_1 & j_2 & \cdots & j_k & n\end{pmatrix}
+    \widehat{A}\begin{pmatrix}i_1 & i_2 & \cdots & i_k & n\\
+        j_1 & j_2 & \cdots & j_k & n\end{pmatrix}
+  \end{equation}
+\end{theorem}
+
+\begin{proof}
+  如果能证明$|A|$的每个$k$阶子式与其代数余子式之积的展开式中的每一项
+  都互不相同且都属于$|A|$的展开式,两者总项数相等,那么就证明
+  了$Laplace$定理.
+
+  首先证明$|A|$的任意$k$阶子式与其代数余子式之积的展开式中
+  的每一项都属于$|A|$的展开式.
+
+  先证明特殊情形：$i_1=1,i_2=2,\cdots,
+  ,i_k=k;j_1=1,j_2=2,\cdots,j_k=k$.这时$|A|$可写为：
+  \begin{equation}
+    \label{eq:1-8}
+    \begin{vmatrix}
+      A_1 & *\\
+      * & A_2
+    \end{vmatrix},
+  \end{equation}
+  其中
+  \begin{equation}
+    \label{eq:1-9}
+    |A_1|=A
+    \left(\begin{smallmatrix}
+      1 & 2 & \cdots & k\\
+      1 & 2 & \cdots & k
+    \end{smallmatrix}\right)=
+    \begin{vmatrix}
+      a_{11}& \cdots & a{1k}\\
+      \vdots & & \vdots\\
+      a_{k1}& \cdots & a_{kk}
+    \end{vmatrix},
+  \end{equation}
+  \begin{equation}
+    \label{eq:1-10}
+    |A_2|=\widehat{A}
+    \left(\begin{smallmatrix}
+      1 & 2 & \cdots & k\\
+      1 & 2 & \cdots & k
+    \end{smallmatrix}\right)=
+    \begin{vmatrix}
+      a_{k+1,k+1}& \cdots & a{k+1,n}\\
+      \vdots & & \vdots\\
+      a_{n,k+1}& \cdots & a_{nn}
+    \end{vmatrix}.
+  \end{equation}
+  \eqref{eq:1-9}式中的任一项具有形式：
+  \begin{equation*}
+    (-1)^{N(j_1,j_2,\cdots,j_k)}a_{j_11}a_{j_22}\cdots a_{j_kk},
+  \end{equation*}
+  其中$N(j_1,j_2,\cdots,j_k)$是排列$(j_1,j_2,\cdots,j_k)$的逆序数.
+  \eqref{eq:1-10}式中的任一项具有形式：
+  \begin{equation*}
+    (-1)^{N(j_{k+1},j_{k+2},\cdots,j_n)}a_{j_{k+1},k+1}a_{j_{k+2},k+2}\cdots a_{j_nn},
+  \end{equation*}
+  所以
+  \begin{equation*}
+    A
+    \left(\begin{smallmatrix}
+      1 & 2 & \cdots & k\\
+      1 & 2 & \cdots & k
+    \end{smallmatrix}\right)
+    \widehat{A}
+    \left(\begin{smallmatrix}
+      1 & 2 & \cdots & k\\
+      1 & 2 & \cdots & k
+    \end{smallmatrix}\right)
+  \end{equation*}
+  中的任一项具有下列形式：
+  \begin{equation}
+    \label{eq:1-11}
+    (-1)^\sigma a_{j_11}a_{j_22}\cdots a_{j_kk}a_{j{k+1},k+1}\cdots a_{j_nn},
+  \end{equation}
+  其中$\sigma = N(j_1,\cdots,j_k)+N(j_{k+1},\cdots,j_n).$
+  注意$(j_1,\cdots,j_k)$是$(1,\cdots,k)$的一个排列,
+  $(j_{k+1},\cdots,j_n)$是$(k+1,\cdots,n)$的一个排列,因此
+  $(j_1,\cdots,j_k,j_{k+1},\cdots,j_n)$是$(1,2,\cdots,n)$的一个排列且
+  \begin{equation*}
+    N(j_1,\cdots,j_k,j_{k+1},\cdots,j_n)=N(j_1,\cdots,j_k)+N(j_{k+1},\cdots,j_n).
+  \end{equation*}
+  因此,\eqref{eq:1-11}式是$|A|$中的某一项.
+
+  再证明一般情况,设
+  \[ 1 \leq i_1 < i_2 < \cdots < i_k \leq n;1 \leq j_1 < j_2 < \cdots < j_k \leq n.\]
+  经过$i_1-1$次相邻两行的对换,可把$i_1$行调到第一行,
+  经过$i_2-2$次相邻两行的对换,可把$i_2$行调到第二行,$\cdots$,
+  经过$(i_1+\cdots+i_k)-\frac{1}{2}k(k+1)$次对换,可把
+  第$i_1,i_2,\cdots,i_k$行调至前$k$行.同理,
+  经过$(j_1+\cdots+j_k)-\frac{1}{2}k(k+1)$次对换,可把
+  第$j_1,j_2,\cdots,j_k$行调至前$k$列.因此,$|A|$经过
+  $(i_1+\cdots+i_k)+(j_1+\cdots+j_k)-k(k+1)$次行列的对换
+  (其中$k(k+1)$必为偶数),得到了一个新的行列式：
+  \[
+    |C|=\begin{vmatrix}
+        D & *\\
+        * & B%
+        \end{vmatrix}
+  \]
+  其中
+  \[
+    |D|=A
+    \begin{pmatrix}
+      i_1 & i_2 & \cdots & i_k\\
+      j_1 & j_2 & \cdots & j_k
+    \end{pmatrix}
+  \]
+  由以上分析可知,$|C|=(-1)^{p+q}|A|,p=i_1+\cdots+i_k,q=j_1+\cdots+j_k.$
+  $|B|$是子式$|D|$在$|C|$中的代数余子式,由前面特殊情况的分析可知,
+  $|D||B|$中的任一项都是$|C|$中的项.由于
+  \[\widehat{A}
+    \begin{pmatrix}
+      i_1 & i_2 & \cdots & i_k\\
+      j_1 & j_2 & \cdots & j_k
+    \end{pmatrix}
+    =(-1)^{p+q}|B|,\]
+  因此,
+  \begin{equation}\label{eq:1-12}
+  A
+    \begin{pmatrix}
+      i_1 & i_2 & \cdots & i_k\\
+      j_1 & j_2 & \cdots & j_k
+    \end{pmatrix}
+    \widehat{A}
+    \begin{pmatrix}
+      i_1 & i_2 & \cdots & i_k\\
+      j_1 & j_2 & \cdots & j_k
+    \end{pmatrix}\end{equation}
+  中的任一项都是$(-1)^{p+q}|C|=|A|$中的项.
+
+  以上分析了\eqref{eq:1-12}式中任一项均属于$|A|$的展开式。
+  最后证明二者总项数相等：当$i_1,i_2,\cdots,i_k$固定时,对
+  不同的$1 \leq j_1 < j_2 < \cdots < j_k \leq n$共有$C_n^k$个
+  不同子式,每个子式完全展开后均含有$k!$项，相应的余子式也有$C_n^k$个，
+  每个余子式展开后均含有$(n-k)!$项.由\eqref{eq:1-12}式
+  展开得到的项是没有重复的,且一共有$C_n^k\cdot k!(n-1)!=n!$项.$|A|$的展开式也有$n!$项,
+  因此\eqref{eq:1-6}式成立.\eqref{eq:1-7}式同理可证.
+\end{proof}
+
+\clearpage
+\section{矩阵}
+
+\subsection{矩阵的逆}\label{thm:2.1}
+\begin{theorem}
+设$A$为$n$阶方阵，$A^*$为$A$的伴随矩阵,若$|A| \neq 0$,则$A$是一个非异阵，且
+  \begin{equation}
+  A^{-1}=\frac{1}{|A|}A^*.
+\end{equation}
+
+\end{theorem}
+
+\begin{proof}
+  \begin{equation*}
+    AA^*=
+    \begin{pmatrix}
+      a_{11} & a_{12} & \cdots & a_{1n}\\
+      a_{21} & a_{22} & \cdots & a_{2n}\\
+      \vdots & \vdots & & \vdots\\
+      a_{n1} & a_{n2} & \cdots & a_{nn}
+    \end{pmatrix}
+    \begin{pmatrix}
+      A_{11} & A_{21} & \cdots & A_{n1}\\
+      A_{12} & A_{22} & \cdots & A_{n2}\\
+      \vdots & \vdots & & \vdots\\
+      A_{1n} & A_{2n} & \cdots & A_{nn}
+    \end{pmatrix}.
+    \end{equation*}
+    上式中两个矩阵乘积的第$(i,j)$元素为
+    \begin{equation*}
+      a_{i1}A_{j1}+a_{i2}A_{j2}+\cdots+a_{in}A_{jn}.
+    \end{equation*}
+    按照定理\eqref{thm:1-1}可知：
+    当$i=j$时上式为$|A|$,当$i \neq j$时上式为零。因此
+    \begin{equation*}
+      AA^*=
+      \begin{pmatrix}
+        |A| & 0 & \cdots & 0\\
+        0 & |A| & \cdots & 0\\
+        \vdots & \vdots & \ddots & \vdots\\
+        0 & 0 & \vdots & |A|
+      \end{pmatrix}=|A|\cdot I_n.
+    \end{equation*}
+同理可证
+\begin{equation*}
+  A^*A=|A|\cdot I_n.
+\end{equation*}
+因为$|A|\neq 0$,由以上二式同除以$|A|$可以得到
+\begin{equation*}
+  A(\frac{1}{|A|}A^*)=(\frac{1}{|A|}A^*)A=I_n,
+\end{equation*}
+因此
+\begin{equation*}
+  A^{-1}=\frac{1}{|A|}A^*
+\end{equation*}
+A是非异阵.
+\end{proof}
+
+\subsection{$Cauchy-Binet$公式}
+
+\begin{theorem}[$Cauchy-Binet$公式]\label{thm:Cauchy-Binet}
+  设 $A=(a_{ij})$是$m \times n$矩阵,$B=(b_{ij})$是$n \times m$矩阵.
+  $A\left(\begin{smallmatrix}i_1 & \cdots & i_s \\
+      j_1 & \cdots & j_s \end{smallmatrix}\right)$
+  表示$A$的一个$s$阶子式,它由$A$的第$i_1, \cdots, i_s$行与第
+  $j_1, \cdots, j_s$列交点上的元素按原次序排列组成的行列式,
+  同理可定义$B$的$s$阶子式.\par
+  (1)若$m>n$,则必有$\left\vert AB \right\vert=0$;\par
+  (2)若$m \le n$,则必有\par
+  $|AB|= \sum\limits_{1 \le j_1<j_2<\cdots<j_m \le n}
+  A\left(\begin{smallmatrix}
+      1 & 2 & \cdots & m \\
+      j_1 & j_2 & \cdots & j_m \end{smallmatrix}\right)
+  B\left(\begin{smallmatrix}
+      j_1 & j_2 & \cdots & j_m\\
+      1 & 2 & \cdots & m \end{smallmatrix}\right)$
+
+\end{theorem}
+
+\begin{proof}
+  令$C=\left(\begin{smallmatrix}
+      A & O\\
+      -I_n & B \end{smallmatrix}\right)$.
+  用不同方法表示行列式$|C|$:
+
+  首先,对$C$进行第三类分块初等变换,得到矩阵$M=\left(\begin{smallmatrix}
+      O & AB\\
+      -I_n & B \end{smallmatrix}\right)$,$M$可以改写为
+  $M=\left(\begin{smallmatrix}
+      I_m & A\\
+      O & I_n \end{smallmatrix}\right)C$.
+  因此,$|M|=|C|$.
+
+  用$Laplace$定理来计算$\left\vert M \right\vert$,
+  由于$AB$占据$M$的前$m$行和第$n+1$至第$n+m$列,
+  $M$除$AB$外,前m行的其余列都是0,因此$|M|$按前$m$行展开得
+  \begin{align*}
+    |M| & =(-1)^{(n+1+n+2+\cdots+n+m)+(1+2+\cdots+m)}|-I_n||AB|\\
+        & =(-1)^{nm+m(m+1)+n}|AB|
+  \end{align*}
+  
+  上面第二个等式是因为$|-I_n|=(-1)^n$.
+  由于$m(m+1)$总是偶数,可以去掉该式,且$nm+n=n(m+1)$,所以
+  \begin{equation}\label{eq:5}
+    |M|=(-1)^{n(m+1)}|AB|.
+  \end{equation}  
+
+  再计算$|C|$,用$Laplace$定理按前$m$行展开,分两种情况：
+
+  若$m > n$,则$A$为瘦长型的矩阵,$B$为矮胖型矩阵,如图\eqref{fig:1}所示：\\
+  \begin{figure}[!ht]
+   \begin{center}
+  \begin{tikzpicture}[scale=0.3]
+    \draw (0,0) rectangle (4,4); 
+    \draw (5,5) rectangle (13,13);
+    \draw (0,5) rectangle (4,13);
+    \draw (5,0) rectangle (13,4);
+    \node at (2,9) {$A_{m\times n}$};
+    \node at (2,2) {$-I_{n\times n}$};
+    \node at (9,2) {$B_{n\times m}$};
+    \node at (9,9) {$O_{m\times m}$}; 
+  \end{tikzpicture}
+  \end{center}
+  \caption{瘦长型矩阵$A$\label{fig:1}}
+\end{figure}  前$m$行中任意一个$m$阶子式至少有一列全部为$0$,
+即要从$O$中获取$m-n$列用于构建$m$阶子式,因此整个行列式的值为$0$,
+即$|AB|=0$.
+
+若$m \le n$,则$A$为矮胖型矩阵,$B$为瘦长型的矩阵,如图\eqref{fig:2}所示：
+
+  \begin{figure}[!ht]
+   \begin{center}
+  \begin{tikzpicture}[scale=0.3]
+    \draw (0,0) rectangle (8,8);
+    \draw (9,9) rectangle (13,13);
+    \draw (0,9) rectangle (8,13);
+    \draw (9,0) rectangle (13,8);
+    \node at (4,11) {$A_{m\times n}$};
+    \node at (4,4) {$-I_{n\times n}$};
+    \node at (11,4) {$B_{n\times m}$};
+    \node at (11,11) {$O_{m\times m}$}; 
+  \end{tikzpicture}
+  \end{center}
+  \caption{矮胖型矩阵$A$\label{fig:2}}
+\end{figure}
+由$Laplace$定理得
+\begin{equation}\label{eq:1}
+  |C|= \sum\limits_{1<=j_1<j_2<\cdots<j_m<=n}
+  A\left(\begin{smallmatrix}
+      1 & 2 & \cdots & m \\
+      j_1 & j_2 & \cdots & j_m \end{smallmatrix}\right)
+  \hat C\left(\begin{smallmatrix}
+      1 & 2 & \cdots & m \\
+      j_1 & j_2 & \cdots & j_m
+    \end{smallmatrix}\right),
+\end{equation}
+其中,$\hat C\left(\begin{smallmatrix}
+      1 & 2 & \cdots & m \\
+      j_1 & j_2 & \cdots & j_m
+      \end{smallmatrix}\right)$是$A\left(\begin{smallmatrix}
+      1 & 2 & \cdots & m \\
+      j_1 & j_2 & \cdots & j_m \end{smallmatrix}\right)$
+  在矩阵$C$中的代数余子式.显然,
+  \begin{equation}\label{eq:2}
+    \hat C\left(\begin{smallmatrix}
+      1 & 2 & \cdots & m \\
+      j_1 & j_2 & \cdots & j_m
+    \end{smallmatrix}\right)=(-1)^{\frac{1}{2}m(m+1)+(j_1+j_2+\cdots+j_m)}%
+  |-e_{i_1},-e_{i_2},\cdots,-e_{i_{n-m}},B|,
+  \end{equation}
+  其中$i_1,i_2,\cdots,i_{n-m}$是$C$中前$n$列去掉$j_1,j_2,\cdots,j_m$列后
+  余下的列序数.$e_{i_1},e_{i_2},\\\cdots,e_{i_{n-m}}$是相应的$n$维标准单位列
+  向量.$\hat C$除了包含全部$B$,还需要从$-I_n$中获取$n-m$个列.记
+  \[
+    |N|=|-e_{i_1},-e_{i_2},\cdots,-e_{i_{n-m}},B|,
+  \]
+
+  下面计算$|N|$.$|N|$用$Laplace$定理按前$n-m$列展开,只有一个子式非零,
+  其值等于$|-I_{n-m}|=(-1)^{n-m}$.这个子式的余子式为$B\left(\begin{smallmatrix}
+      j_1 & j_2 & \cdots & j_m\\
+      1 & 2 & \cdots & m \end{smallmatrix}\right)$.因此,
+  \begin{equation}\label{eq:3}
+    |N| = (-1)^{(n-m)+(i_1+i_2+\cdots+i_{n-m})+(1+2+\cdots+n-m)}%
+    B\left(\begin{smallmatrix}
+      j_1 & j_2 & \cdots & j_m\\
+      1 & 2 & \cdots & m \end{smallmatrix}\right).
+  \end{equation}
+
+  将\eqref{eq:3}式代入\eqref{eq:2}式,再将\eqref{eq:2}式代入\eqref{eq:1}式得
+\begin{equation}\label{eq:4}
+  |C|=\sum\limits_{1\le j_1<j_2<\cdots<j_m\le n}
+  (-1)^{l}
+  A\left(\begin{smallmatrix}
+      1 & 2 & \cdots & m \\
+      j_1 & j_2 & \cdots & j_m \end{smallmatrix}\right)
+  B\left(\begin{smallmatrix}
+      j_1 & j_2 & \cdots & j_m\\
+      1 & 2 & \cdots & m \end{smallmatrix}\right)
+\end{equation}
+
+其中,$l=\frac{1}{2}m(m+1)+(j_1+j_2+\cdots+j_m)+(n-m)+(i_1+i_2+\cdots+i_{n-m})+
+(1+2+\cdots+n-m)$.从图\eqref{fig:2}可知,$j_1+j_2+\cdots+j_m$是被选取到
+$A\left(\begin{smallmatrix}
+      1 & 2 & \cdots & m \\
+      j_1 & j_2 & \cdots & j_m \end{smallmatrix}\right)$中的列的序数,则
+  $i_1+i_2+\cdots+i_{n-m}$是前$n$列中剩余的列的序数,所以
+  $j_1+j_2+\cdots+j_m+i_1+i_2+\cdots+i_{n-m}=1+2+\cdots+n$.因此,
+  $l=(1+2+\cdots+m)+(1+2+\cdots+n)+(n-m)+(1+2+\cdots+n-m)$.
+  因为$m \le n$,所以$l=2(1+2+\cdots+m)+2(n-m)+(m+1)+(m+2)+\cdots+n+
+  (1+2+\cdots+n-m-1)$.其中,$2(1+2+\cdots+m)+2(n-m)$为偶数,去掉该式后
+  不影响$l$的奇偶性.令$l'=(m+1)+(m+2)+\cdots+n+(1+2+\cdots+n-m-1)$,
+  则$l$与$l'$有相同的奇偶性.将$l'$首、尾对应项相加,得$l'=n(n-m)$.
+  又$l'+n(m+1)=n(n-m)+n(m+1)=n(n+1)$,因为$n(n+1)$为偶数,因此
+  $l'$与$n(m+1)$有相同的奇偶性,因此,$l$与$n(m+1)$有相同的奇偶性.
+
+  最后,由$|M|=|C|$即\eqref{eq:5}式$=$\eqref{eq:4}式,得
+  \begin{equation*}
+    (-1)^{n(m+1)}|AB|=\sum\limits_{1\le j_1<j_2<\cdots<j_m\le n}
+  (-1)^{l}
+  A\left(\begin{smallmatrix}
+      1 & 2 & \cdots & m \\
+      j_1 & j_2 & \cdots & j_m \end{smallmatrix}\right)
+  B\left(\begin{smallmatrix}
+      j_1 & j_2 & \cdots & j_m\\
+      1 & 2 & \cdots & m \end{smallmatrix}\right)
+\end{equation*}
+因为$l$取值和$j_1 , j_2 , \cdots , j_m$无关,所以
+  \begin{equation*}
+    (-1)^{n(m+1)}|AB| =(-1)^{l}\sum\limits_{1\le j_1<j_2<\cdots<j_m\le n}
+  A\left(\begin{smallmatrix}
+      1 & 2 & \cdots & m \\
+      j_1 & j_2 & \cdots & j_m \end{smallmatrix}\right)
+  B\left(\begin{smallmatrix}
+      j_1 & j_2 & \cdots & j_m\\
+      1 & 2 & \cdots & m \end{smallmatrix}\right)
+  \end{equation*}
+  上式中$l$与$n(m+1)$有相同的奇偶性,所以
+  \[
+    |AB|=\sum\limits_{1\le j_1<j_2<\cdots<j_m\le n}
+  A\left(\begin{smallmatrix}
+      1 & 2 & \cdots & m \\
+      j_1 & j_2 & \cdots & j_m \end{smallmatrix}\right)
+  B\left(\begin{smallmatrix}
+      j_1 & j_2 & \cdots & j_m\\
+      1 & 2 & \cdots & m \end{smallmatrix}\right)
+\]
+当$m=n$时,上式右边只有一个组合.
+\end{proof}
+
+\clearpage
+\section{线性空间}
+
+\subsection{矩阵的秩}
+
+\begin{example}
+  设\(C=\left(\begin{smallmatrix}
+      A & O \\
+      O & B \end{smallmatrix}\right)\)，求证：
+  \(r(C)=r(A)+r(B)\).
+\end{example}
+
+\begin{proof}
+  设初等矩阵\(P_1,P_2,Q_1,Q_2 \st P_1AQ_1=\left(\begin{smallmatrix}
+      I_{r_1} & O \\
+      O & O \end{smallmatrix}\right)\),
+  \(P_2BQ_2=\left(\begin{smallmatrix}
+      I_{r_{2}} & O \\
+      O & O \end{smallmatrix}\right)\).于是，
+  \begin{align*}\begin{pmatrix}
+      P_1 & O \\
+      O & P_2 \end{pmatrix} \begin{pmatrix}
+      A & O \\
+      O & B \end{pmatrix} \begin{pmatrix}
+      Q_1 & O \\
+      O & Q_2 \end{pmatrix} = \begin{pmatrix}
+      P_1AQ_1 & O \\
+      O & P_2BQ_2 \end{pmatrix}  = & \begin{pmatrix}
+      I_{r_1} & O & O & O \\
+      O & O & O & O \\
+      O & O & I_{r_2} & O \\
+      o & O & O & O\end{pmatrix} \\
+      \longrightarrow & \begin{pmatrix}
+      I_{r_1} & O & O & O \\
+      O & I_{r_2} & O & O \\
+      O & O & O & O \\
+      o & O & O & O\end{pmatrix}.\end{align*}
+  由矩阵乘以非异阵其秩不变以及分块矩阵在分块初等变换下秩不变，可得
+  \[r(C)=r_1+r_2=r(A)+r(B).\]
+\end{proof}
+
+\begin{example}
+  设\( C=\left(\begin{smallmatrix}
+      A & D \\
+      O & B \end{smallmatrix}\right)\)或\( \left(\begin{smallmatrix}
+      A & O \\
+      D & B \end{smallmatrix}\right)\)，求证：\(r(C) \geq r(A)+r(B)\).
+\end{example}
+
+\begin{proof}
+  \begin{align*} & \begin{pmatrix}
+      P_1 & O \\
+      O & P_2 \end{pmatrix}\begin{pmatrix}
+      A & D \\
+      O & B \end{pmatrix}\begin{pmatrix}
+      Q_1 & O \\
+      O & Q_2 \end{pmatrix}= \begin{pmatrix}
+      P_1AQ_1 & P_1DQ_2 \\
+      O & P_2BQ_2 \end{pmatrix} \\
+    = & \begin{pmatrix}
+      I_{r_{1}} & O & D_{11} & D_{12}\\
+      O & O & D_{21} & D_{22}\\
+      O & O & I_{r_2} & O\\
+      O & O & O & O\end{pmatrix}\longrightarrow \begin{pmatrix}
+      I_{r_{1}} & O & O & O\\
+      O & O & O & D_{22}\\
+      O & O & I_{r_2} & O\\
+      O & O & O & O\end{pmatrix} \longrightarrow \begin{pmatrix}
+      I_{r_{1}} & O & O & O\\
+      O & D_{22} & O & O\\
+      O & O & I_{r_2} & O\\
+      O & O & O & O\end{pmatrix}\end{align*}
+  由上例可知，\(r(C)=r_1+r(D_{22})+r_2\geq r_1+r_2=r(A)+r(B)\)，当\(D_{22}=O\)时等号成立.
+\end{proof}
+
+\begin{example}
+  设\( A \in M_{m\times n}(\mathbb{K}) \)，\( B \in M_{n\times p}(\mathbb{K}) \)，
+  求证：\( r(A)+r(B)-n\leq r(AB)\leq \min\{r(A),r(B)\} \).
+\end{example}
+
+\begin{proof}
+  先证右边.令\( B=(\beta_1,\beta_2,\cdots,\beta_p) \)，
+  设\(\{\beta_{i1},\beta_{i2},\cdots,\beta_{ir}\}\)是其极大无关组且断言
+  \( \forall ~1 \leq j \leq p \)，
+  \( A\beta_j \)是\(A\beta_{i1},\beta_{i2},\cdots,\beta_{ir}\)的线性组合.
+  因为\( \forall ~\beta_j \)，
+  \(\beta_j = \lambda_1\beta_{i1}+\lambda_2\beta_{i2}+\cdots+\lambda_r\beta_{ir}
+  \Longrightarrow
+  A\beta_j=\lambda_1 A \beta_{i1}+\lambda_2 A \beta_{i2}+\cdots+\lambda_r A \beta_{ir}\)
+  所以，\( AB=(A\beta_1,A\beta_2,\cdots,A\beta_p)\)的每一个列向量都可由
+  \( \{A\beta_{i1},A\beta_{i2},\cdots,A\beta_{ir})\} \)线性表示
+  \( \Longrightarrow r(AB) \leq r = r(B)\).
+  同理，\( r(AB)=r(B'A')\leq r(A')=r(A) \Longrightarrow
+  r(AB) \leq \min\{r(A),r(B)\}\)
+
+  再证左边.\( \left(\begin{smallmatrix}
+      A & O \\
+      -I_n & B \end{smallmatrix}\right) \longrightarrow
+      \left(\begin{smallmatrix}
+      O & AB \\
+      -I_n & B \end{smallmatrix}\right) \longrightarrow
+      \left(\begin{smallmatrix}
+      O & AB \\
+      -I_n & O \end{smallmatrix}\right) \longrightarrow
+      \left(\begin{smallmatrix}
+      AB & O \\
+      O  & I_n \end{smallmatrix}\right)\).
+  由最右边矩阵可知，\( r\left(\begin{smallmatrix}
+      AB & O \\
+      O  & I_n\end{smallmatrix}\right) = r(AB)+n=
+      r\left(\begin{smallmatrix}
+      A & O \\
+      -I_n & B \end{smallmatrix}\right) \geq r(A) + r(B) \Longrightarrow
+  r(AB)\geq r(A)+r(B)-n \).
+\end{proof}
+
+\begin{example}
+  （秩的降阶公式）\( M=\begin{pmatrix}
+    A & B\\
+    C & D\end{pmatrix}\)，则：
+
+  （1）若\(A\)非异，则\(r(M)=r(A)+r(D-CA^{-1}B)\)；
+
+  （2）若\(D\)非异，则\(r(M)=r(D)+r(A-BD^{-1}C)\)；
+
+  （3）若\(A,D\)非异，则\(r(A)+r(D-CA^{-1}B)=r(D)+r(A-BD^{-1}C)\).
+\end{example}
+
+\begin{proof}
+  只证（1）即可，其余类似可证。
+  \[\begin{pmatrix}
+      A & B\\
+      C & D\end{pmatrix}\longrightarrow \begin{pmatrix}
+      A & B\\
+      O & D-CA^{-1}B\end{pmatrix}\longrightarrow \begin{pmatrix}
+      A & O\\
+      O & D-CA^{-1}B\end{pmatrix}\]
+  由前面例题可知，\(r(M)=r(A)+r(D-CA^{-1}B)\)
+\end{proof}
+
+\subsection{线性方程组的解}
+\begin{example}
+  设\(Ax=\beta(\beta\neq 0)\)的特解为\(\gamma\),相伴齐次线性方程组
+  \(Ax=0\)的基础解系为\(\eta_1,\eta_2,\cdots,\eta_{n-r}\),求证：
+
+  （1）\(\gamma,\gamma+\eta_1,\gamma+\eta_2,\cdots,\gamma+\eta_{n-r}\)
+  线性无关；
+
+  （2）\(Ax=\beta\)的任一解必为如下形式：
+  \(c_0\gamma+c_1(\gamma+\eta_1)+c_2(\gamma+\eta_2)+
+  \cdots+c_{n-r}(\gamma+\eta_{n-r})\),其中\(c_0+c_1+\cdots+c_{n-r}=1\).
+\end{example}
+
+\begin{proof}
+
+  （1）设\(\lambda_0\gamma+\lambda_1(\gamma+\eta_1)+\lambda_2(\gamma+\eta_2)+
+  \lambda_2(\gamma+\eta_2)+\cdots+\lambda_{n-r}(\gamma+\eta_{n-r})=0\),合并整理得下式：
+  \begin{equation}\label{line_equation:1}
+    (\sum_{i=0}^{n-r}\lambda_i)\gamma+\lambda_1\eta_1+
+    \lambda_2\eta_2+\cdots+\lambda_{n-r}\eta_{n-r}=0,
+  \end{equation}
+  将\(A\)作用到上式两边，得
+  \[
+    (\sum_{i=0}^{n-r}\lambda_i)A\gamma+\lambda_1A\eta_1+\lambda_2A\eta_2+
+    \cdots+\lambda_{n-r}A\eta_{n-r}=0,
+  \]
+  \(A\eta_i=0 \Longrightarrow (\displaystyle\sum_{i=0}^{n-r}\lambda_i)A\gamma=0
+  \xLongrightarrow{A\gamma=\beta}(\displaystyle\sum_{i=0}^{n-r}\lambda_i)\beta=0
+  \xLongrightarrow{\beta \neq 0}\displaystyle\sum_{i=0}^{n-r}\lambda_i=0\),\\
+  将\(\displaystyle\sum_{i=0}^{n-r}\lambda_i=0\)代入\eqref{line_equation:1}式，可得
+  \(\lambda_1\eta_1+\lambda_2\eta_2+\cdots+\lambda_{n-r}\eta_{n-r}=0\),\\
+  \(\because \eta_1,\eta_2,\cdots,\eta_{n-r}\)是基础解系,
+  \(\therefore \lambda_1=\lambda_2=\cdots=\lambda_{n-r}=0\) ,\\
+  由\eqref{line_equation:1}式可知，\(\gamma,\gamma+\eta_1,\gamma+\eta_2,\cdots,
+  \gamma+\eta_{n-r}\)线性无关.
+
+  (2)设\(\alpha\)为线性方程组\(Ax=\beta\)的任一解，\(k_i \in \mathbb{K}\),那么
+  \begin{align*}
+    \alpha & = \gamma+k_1\eta_1+k_2\eta_2+\cdots+k_{n-r}\eta_{n-r}\\
+           & = (1-k_1-k_2-\cdots-k_{n-r})\gamma+k_1(\gamma+\eta_1)+k_2(\gamma+\eta_2)+\cdots+k_{n-r}(\gamma+\eta_{n-r})
+  \end{align*}
+  令：
+  \begin{align*}
+    c_0 & = 1-k_1-k_2-\cdots-k_{n-r} \\
+    c_1 & = k_1\\
+    c_2 & = k_2\\
+    & \cdots\\
+    c_{n-r}& = k_{n-r}
+  \end{align*}
+  显然，\(\displaystyle\sum_0^{n-r}c_i=1\).
+\end{proof}
+
+\begin{example}
+  \(A^2-A-3I_n=0\),求证：\(A-2I_n\)非异.
+\end{example}
+
+\begin{proof}
+
+  1、凑因子法：\((A-2I_n)(A+I_n)=I_n\),所以\(A-2I_n\)非异。
+
+  2、线性方程组解法：只要证明\((A-2I_n)x=0\)只有零解。\\
+  设\(x_0\)是线性方程组\((A-2I_n)x=0\)的解，那么\\
+  \(Ax_0=2x_0\), \(A^2x_0=2Ax_0=4x_0\),\\
+  \((A^2-A-3I_n)x_0=0\Longrightarrow -x_0=0 \Longrightarrow x_0=0\).
+\end{proof}
+
+\begin{example}
+  假设\(A\in M_{m\times n}(\mathbb{R})\),证明:\(r(AA')=r(A'A)=r(A)\).
+\end{example}
+
+\begin{proof}
+  因为\(r(AA')=r(A'A)\),故只需证明右边的等式。
+
+  设\(Ax=0\)的解空间为\(V_A\), \(A'Ax=0\)的解空间为\(V_A'A\). \(Ax=0\)时, \(A'Ax\)必为\(0\),
+  所以\(V_A\subseteq V_{A'A}\).
+
+  任取\(x_0\in V_{A'A}\),此时\(x_0\in\mathbb{R}_n\)且\(A'Ax_0=0\).\\
+  令\(Ax_0=\left(\begin{smallmatrix}a_1\\
+                                    a_2\\
+                                    \cdots\\
+                                    a_m\end{smallmatrix}\right)\in\mathbb{R}_m
+                                \Longrightarrow (Ax_0)'(Ax_0)=0 \Longrightarrow
+                                (a_1,a_2,\cdots,a_m)\left(\begin{smallmatrix}a_1\\
+                                    a_2\\
+                                    \cdots\\
+                                    a_m\end{smallmatrix}\right)=0\\
+                                \Longrightarrow \displaystyle\sum_1^ma_i^2=0
+                                \Longrightarrow \forall i, a_i=0
+                                \Longrightarrow Ax_0=0
+                                \Longrightarrow V_A'A\subseteq V_A
+                                \xLongrightarrow{V_A\subseteq V_{A'A}}V_A=V_{A'A}\\
+                                \Longrightarrow r(A)=r(A'A)\)
+\end{proof}
+
+
+
+
+
+
+
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

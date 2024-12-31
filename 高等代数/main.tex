@@ -1,0 +1,33 @@
+\documentclass [mode=geye, color=green, lang=cn,
+device=normal, 11pt]{elegantnote}
+
+%% 插入usepackages
+\input{./sections/usepackages}
+%% 插入引导区设置
+\input{./sections/preamble}
+
+\begin{document}
+
+%% 插入封面
+\include{./sections/cover}
+
+%% 插入目录
+\pagenumbering{roman}
+\include{./sections/contents}
+
+%% 插入各章节
+\pagenumbering{arabic}
+\include{./sections/section1}
+\include{./sections/section2}
+\include{./sections/section3}
+\include{./sections/section4}
+\include{./sections/section5}
+\include{./sections/section6}
+\include{./sections/section7}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
