@@ -1135,7 +1135,7 @@ $\{e_{11},e_{12},\cdots,e{1r_1};e_{21},e_{22},\cdots,e_{2r_2};\cdots;e_{k1},e_{k
 即$V_i(i=1,2,\cdots,k)$是$\varphi$的不变子空间,且有
 \[V=V_1\oplus V_2 \oplus\cdots\oplus V_k.\]
 
-\begin{theorem}
+\begin{theorem}\label{thm:JDapp1}
   线性变换$\varphi$的特征值$\lambda_1$的代数重数等于
   属于$\lambda_1$的Jordan块的阶数之和;
   $\lambda_1$的几何重数等于属于$\lambda_1$的Jordan块的个数.
@@ -1171,12 +1171,12 @@ $\psi=\varphi-\lambda_i I_V$的循环子空间.
 
 \begin{theory}\label{thr:JDapp1}
   设$R(\lambda_1)=V_1\oplus V_2 \oplus \cdots \oplus V_s$,则
-  \[R(\lambda_1)=\KER(\varphi-\lambda_1 I_V)^n=
+  \[R(\lambda_1)=\ker(\varphi-\lambda_1 I_V)^n=
   \{v\in V \mid (\varphi-\lambda_1 I_v)^n(v)=0\}.\]
 \end{theory}
 
 \begin{proof}
-  先证$R(\lambda_1) \subseteq \KER(\varphi-\lambda_i I_V)^n$:
+  先证$R(\lambda_1) \subseteq \ker(\varphi-\lambda_i I_V)^n$:
 
   任取$v\in R(\lambda_1), v=v_1+v_2+\cdots+v_s, v_i\in V_i$,
   则$V_i$的基有如下循环链:
@@ -1192,7 +1192,7 @@ $\psi=\varphi-\lambda_i I_V$的循环子空间.
 \end{align*}
 上式中的$n$可缩小到$\max\{r_1,r_2,\cdots,r_s\}$.
 
-再证$\KER(\varphi-\lambda_1 I)^n\subseteq R(\lambda_1)$:
+再证$\ker(\varphi-\lambda_1 I)^n\subseteq R(\lambda_1)$:
 
 设$v\in V$在上述基下的坐标向量$x=(x_{11},x_{12},\cdots,x_{1r_1},\cdots)'$,
 求$(J-\lambda_1 I_n)^nx=0$的解.
@@ -1219,9 +1219,762 @@ $\psi=\varphi-\lambda_i I_V$的循环子空间.
   \end{aligned}\right.
 \]
 由上式可得
-\[\KER(\varphi-\lambda_1 I)^n \subseteq
+\[\ker(\varphi-\lambda_1 I)^n =
   V_1\oplus V_2 \oplus \cdots \oplus V_s=R(\lambda_1).\]
 \end{proof}
+
+\begin{definition}
+  $R(\lambda_1)=\ker(\varphi-\lambda_1 I)^n=V_1\oplus V_2\oplus \cdots \oplus V_s$
+  称为特征值$\lambda_1$的根子空间.
+\end{definition}
+
+\begin{notice}
+  (1) $R(\lambda_1)=\ker(\varphi-\lambda_1 I)^m,
+  m=\max\{r_1,r_2,\cdots,r_s\}$或
+  $m$为$\lambda_1$的代数重数.
+
+  (2)特征子空间$V_{\lambda_1}=\ker(\varphi-\lambda_1 I_V)\subseteq R(\lambda_1)$.
+\end{notice}
+
+\begin{deduction}\label{ddn:JDapp1}
+  $\varphi\in \mathcal{L}(V_{\mathbb{C}})$可对角化 $\Longleftrightarrow$
+  对任意特征值$\lambda_0$,
+  $R(\lambda_0)=V_{\lambda_0}$.
+\end{deduction}
+\begin{proof}
+  \begin{align*}
+    & \forall \lambda_0, R(\lambda_0)=V_{\lambda_0}
+    \Longleftrightarrow \dim R(\lambda_0)=\dim V_{\lambda_0}\\
+    \Longleftrightarrow & \lambda_0\text{的代数重数}=\text{几何重数}\\
+    \Longleftrightarrow & \varphi\text{有完全的特征向量系}
+    \Longleftrightarrow \varphi\text{可对角化}
+  \end{align*}
+\end{proof}
+
+\begin{theorem}\label{thm:JDapp2}
+  $\varphi \in \mathcal{L}(V^n_{\mathbb{C}})$.
+
+  (1)设$\varphi$的初等因子组为 $(\lambda-\lambda_1)^{r_1},(\lambda-\lambda_1)^{r_2},
+  \cdots,(\lambda-\lambda_1)^{r_k}$,
+  则$V=V_1 \oplus V_2 \oplus \cdots \oplus V_K$,
+  $V_i$是关于$\varphi-\lambda_i I_V$的循环子空间;
+
+  (2)设$\varphi$的不同特征值为$\lambda_1,\cdots,\lambda_s$,
+  则$V=R(\lambda_1)\oplus R(\lambda_2)\oplus\cdots\oplus R(\lambda_s)$.
+\end{theorem}
+
+\begin{remark}
+  矩阵问题,如果条件和结论在相似关系不改变,
+  则可将此问题化简到Jordan标准型,
+  进一步化简到Jordan块进行证明.
+
+  {\heiti 三段论:} Jordan块成立 $\Longrightarrow$ Jordan标准型成立
+  $\Longrightarrow$ 一般矩阵成立.
+\end{remark}
+
+\begin{example}
+  设$A \in M_n(\mathbb{C})$,
+  则$A=BC$,其中$B,C$为对称阵.
+\end{example}
+
+\begin{proof}
+  $\forall$非异阵$P \st P^{-1}AP=J=
+  \diag\{J_{r_1}(\lambda_1),\cdots,J_{r_k}(\lambda_k)$,
+  \[ J_{r_i}(\lambda_i)=
+    \begin{pmatrix}
+      \lambda_i&1&&&\\
+               &\lambda_i&1&&\\
+               &&\ddots&\ddots&\\
+               &&&\ddots&1\\
+      &&&&\lambda_i
+    \end{pmatrix}=
+    \begin{pmatrix}
+      &&&1&\lambda_i\\
+      &&1&\lambda_i&\\
+      &\iddots&\iddots&&\\
+      1&\iddots&&&\\
+      \lambda_i&&&&
+    \end{pmatrix}
+    \begin{pmatrix}
+      &&&1\\
+      &&\iddots&\\
+      &1&&\\
+      1&&&
+    \end{pmatrix}=S_i\cdot T_i. \]
+  令
+  \begin{align*}
+    & S=\diag\{S_1,S_2,\cdots,S_k\}, 
+      T=\diag\{T_1,T_2,\cdots,T_k\}\\
+    \Longrightarrow J & =S\cdot T
+  \end{align*}
+  上式中, $S, T$为对称阵.
+  \[ \therefore A=PJP^{-1}=PSTP^{-1}=(PSP')((P^{-1})'TP^{-1}), \]
+  上式中, $PSP'$和$(P^{-1})'TP^{-1}$皆为对称阵.
+\end{proof}
+
+\begin{example}
+  $A \in M_n(\mathbb{C})$,求$A^{k}(k \geq 1)$.
+\end{example}
+
+\begin{solution}
+  $\exists$非异阵
+  $P \st P^{-1}AP=J=\diag\{J_{r_1}(\lambda_1),J_{r_2}(\lambda_2),
+    \cdots,J_{r_k}(\lambda_k)\}$,
+    \begin{equation}\label{eq:JDapp4}
+      A^k = (PJP^{-1})^k=PJ^kP{-1} =
+      P\diag \{J_{r_1}(\lambda_1)^k, \cdots, J_{r_k}(\lambda_k)^k \}P^{-1},
+    \end{equation}
+
+    \begin{equation}\label{eq:JDapp5}
+      J_n(\lambda_0) =
+      \begin{pmatrix}
+        \lambda_0&1&&&\\
+                 &\lambda_0&1&&\\
+                 &&\ddots&\ddots&\\
+                 &&&\ddots&1\\
+        &&&&\lambda_0
+      \end{pmatrix} = \lambda_0 I_n + N
+    \end{equation}
+
+    \begin{equation}\label{eq:JDapp6}
+      N=J_n(0)=
+      \begin{pmatrix}
+        0&1&&&\\
+         &0&1&&\\
+         &&\ddots&\ddots&\\
+         &&&\ddots&1\\
+        &&&&0
+      \end{pmatrix} \Longrightarrow N^n = 0
+    \end{equation}
+    $N$为幂零矩阵,且有如下性质:
+    \begin{equation}\label{eq:JDapp7}
+      N^2 =
+      \begin{pmatrix}
+         0&0&1&0&0\\
+         &0&0&1&0\\
+         &&\ddots&\ddots&1\\
+         &&&\ddots&0\\
+        &&&&0
+      \end{pmatrix}, \cdots, N^{n-1} =
+      \begin{pmatrix}
+         0&0&0&0&1\\
+         &0&0&0&0\\
+         &&\ddots&\ddots&0\\
+         &&&\ddots&0\\
+        &&&&0
+      \end{pmatrix}
+    \end{equation}
+    因为$I$与$N$可互相交换位置相乘结果不变,所以
+    \begin{align}
+      J_n(\lambda_0)^k & = (\lambda_0 I_n +N)^k, k \geq n-1 \notag\\
+                       & = \lambda_0^k I_n+C_k^1\lambda_0^{k-1}N +
+                         C_k^2\lambda_0^{k-2}N^2+\cdots+C_k^{n-1}\lambda_0^{k-n+1}N^{n-1} \notag\\
+                       & = \begin{pmatrix}\label{eq:JDapp8}
+                           \lambda_0^k&C_k^1\lambda_0^{k-1}&C_k^2\lambda_0^{k-2}&\cdots&C_k^{n-1}\lambda_0^{k-n+1}\\
+                                      &\lambda_0^k&C_k^1\lambda_0^{k-1}&&\vdots\\
+                                      &&\ddots&\ddots&C_k^2\lambda_0^{k-2}\\
+                                      &&&\ddots&C_k^1\lambda_0^{k-1}\\
+                           &&&&\lambda_0^k
+                         \end{pmatrix}
+    \end{align}
+    上式中如果$k < n-1$,则右上角某些斜排会全为$0$,且$k$越小,右上角的$0$斜行会越多.
+    将上式代入\eqref{eq:JDapp4}式右边,替换各$J_{r_i}(\lambda_i)$,
+    即可求出$A^k$.
+  \end{solution}
+
+  \begin{theory}\label{thr:JDapp2}
+    设$A, B \in M_n(\mathbb{C})$, $A, B$均可对角化,
+    且$AB = BA$,则$A, B$可同时对角化,即
+    $\exists$非异阵$P \st P^{-1}AP, P^{-1}BP$均为对角阵.
+  \end{theory}
+
+  \begin{proof}
+    将引理换成几何语言: $\varphi, \psi \in \mathcal{L}(V^n_{\mathbb{C}})$, 
+    $\varphi, \psi$可对角化且$\varphi\cdot\psi=\psi\cdot\varphi$,则
+    $\varphi, \psi$可同时对角化,即$\exists$公共基
+    $\st \varphi, \psi$表示矩阵都为对角阵.
+
+    对维数$n$进行归纳. $n=1$时,显然成立.设维数$< n$时成立,
+    现证维数为$n$时的情形.
+
+    设$\varphi$的全体特征值为
+    $\lambda_1,\cdots,\lambda_s$:
+
+    Case 1:若$s=1 \Longrightarrow \varphi=\lambda_1 I_V$为纯量阵.
+    \[\psi\text{可对角化} \Longrightarrow \exists \text{一组基}
+      \{e_1,\cdots,d_n\} \st \psi \
+      \text{的表示矩阵为对角阵}.\]
+    由于纯量变换在任何基下表示矩阵都为对角阵,
+    $\therefore \text{在基}\{e_1,\cdots,e_n\}\text{下}\varphi
+    \text{的表示矩阵也为对角阵}$.
+
+    Case 2: $s>1$,设$\varphi$的各特征子空间为
+    $V_1,\cdots,V_s$.
+    \[\varphi\text{可对角化} \Longrightarrow
+      V = V_1\oplus V_2 \oplus \cdots \oplus V_s
+      \Longrightarrow \dim V_i <n \]
+
+    下面证明 $\varphi\psi=\psi\varphi \Longrightarrow V_i$
+    都是$\psi-$不变子空间:
+
+    $\because$任取$v_i \in V_i$,即$\varphi(v_i)=\lambda_i v_i$,
+    \begin{align*}
+      & \varphi(\psi(v_i))=\psi(\varphi(v_i))=\psi(\lambda_i v_i)=\lambda_i\psi(v_i)\\
+      \Longrightarrow & \psi(v_i)\in V_i
+    \end{align*}
+
+    做限制: $\varphi|_{V_i}, \psi|_{V_i}$都可对角化.
+    \[\because \varphi\psi=\psi\varphi \Longrightarrow
+      \varphi|_{V_i}\psi|_{V_i} = \psi|_{V_i}\varphi|_{V_i}, \]
+    由归纳假设可知,
+    $\exists V_i$的一组基$\st \varphi|_{V_i}, \psi|_{V_i}$
+    在该基下的表示矩阵为对角阵.
+
+    将$V_i$的基拼成$V$的基，
+    $\varphi, \psi$的表示矩阵均为对角阵.
+  \end{proof}
+
+  \begin{theorem}[Jordan-Chevalley分解定理]\label{thm:JDapp3}
+    设$A \in M_n(\mathbb{C})$,则$A=B+C$,其中:
+
+    (1) $B$可对角化;
+
+    (2) $C$为幂零阵;
+
+    (3) $BC=CB$;
+
+    (4) $B, C$均可表示为$A$的多项式.
+
+    并且满足条件(1)~(3)的分解必定唯一.
+  \end{theorem}
+
+  \begin{proof}
+    {\heiti 先证存在性:}
+    设$P$为非异阵$\st P^{-1}AP=J=\diag\{J_1,J_2,\cdots,J_s\}$,
+    其中$\lambda_1,\lambda_2,\cdots,\\\lambda_s$是$A$的全体
+    不同特征值,$J_1,J_2,\cdots,J_s$是
+    $\lambda_1,\lambda_2,\cdots,\lambda_s$对应的
+    根子空间的块.
+    \[ J_i=
+      \begin{pmatrix}
+        J_{r_1}(\lambda_i)&&&\\
+                          &J_{r_2}(\lambda_i)&&\\
+                          &&\ddots&\\
+        &&&J_{r_k}(\lambda_i)
+      \end{pmatrix}=\lambda_i I +
+      \begin{pmatrix}
+        0&1&&&&&&&\\
+         &0&1&&&&&&\\
+         &&0&0&&&&&\\
+         &&&0&1&&&&\\
+         &&&&0&1&&&\\
+         &&&&&0&0&&\\
+         &&&&&&\ddots&\ddots&\\
+         &&&&&&&0&1\\
+        &&&&&&&&0
+      \end{pmatrix}\]
+    上式右边$\lambda_i I$为纯量阵可对角化,令其为$M_i$;
+    上式右边最后的矩阵主对角线上全部为$0$,
+    上次对角线上在Jordan块交界处的元素为$0$,
+    其余元素全部为1,显然为幂零阵,令其为$N_i$.
+    又因为纯量阵与其他方阵相乘时皆可交换位置,所以
+    $M_iN_i=N_iM_i$.令
+    \[ M=\diag\{M_1,M_2,\cdots,M_s\},
+      N=\diag\{N_1,N_2,\cdots,N_s\}, \]
+    则$M$为对角阵, $N$为幂零阵,且
+    \[ MN=NM, J=M+N. \]
+    \begin{equation}\label{eq:JDapp9}
+      J_i\text{的特征多项式} = (\lambda-\lambda_i)^{m_i}
+      \xLongrightarrow {\text{Cayley-Hamilton定理}}
+      (J_i-\lambda_i I)^{m_i}=0,
+    \end{equation}
+    又因为$(\lambda-\lambda_1)^{m_1},\cdots,(\lambda-\lambda_s)^{m_s}$
+    两两互素,根据中国剩余定理可知: 
+    \[ \exists g(\lambda) \st
+      g(\lambda)=(\lambda-\lambda_i)^{m_i}q_i(\lambda)+\lambda_i,
+      \forall 1 \leq i \leq s.\]
+    将$J_i$代入上式可得:
+    \[ g(J_i)=(J_i-\lambda_i I)^{m_i}q_i(J_i)+\lambda_iI \]
+    由\eqref{eq:JDapp9}式可知 $(J_i-\lambda_i I)^{m_i}=0$,代入上式可得:
+    \[ g(J_i)=\lambda_iI=M_i \]
+    所以
+    \[ g(J) = \diag\{g(J_1),\cdots,g(J_s)\}=
+      \diag\{M_1,\cdots,M_s\}=M,\]
+    \[ N=J-M=J-g(J),\]
+    从而$M, N$均可表示为$J$的多项式.所以
+    \[ A=PJP^{-1}=P(M+N)P^{-1}=PMP^{-1}+PNP^{-1}, \]
+    令$B=PMP^{-1}, C=PNP^{-1}$,
+    则$A$仍为可对角化矩阵,$B$仍为幂零矩阵.
+    \[ BC=(PMP^{-1})(PNP^{-1})=PMNP^{-1}=PNMP^{-1}=(PNP^{-1})(PMP^{-1})=CB. \]
+    \[ g(A)=g(PJP^{-1})Pg(J)P^{-1}=PMP^{-1}=B,
+      C=A-B=A-g(A).\]
+    从而$B, C$均可表示为$A$的多项式.
+
+    {\heiti 再证唯一性:}
+    设$A=B_1+C_1$满足条件(1)~(3).
+    \[ B_1C_1=C_1B_1 \Longrightarrow
+      AB_1=(B_1+C_1)B_1=B_1^2+C_1B_1=B_1^2+B_1C_1=
+      B_1(B_1+C_1)=B_1A.\]
+    \[ B=g(A)\Longrightarrow BB_1=B_1B, \]
+    同理可推出$CC_1=C_1C$.
+    \[ A=B+C=B_1+C_1 \Longrightarrow B-B_1=C_1-C.\]
+    令$C_1^r=0, C^s=0$,则
+    \[(C_1-C)^{r+s}=
+      \sum_{i+j=r+s}C_{r+s}^iC_1^iC^j
+    \]
+    上式中,若$i \geq r$,则$C_1^i=0$,
+    若$j \geq s$,则$C^j=0$;
+    且若$i \leq r$,则$j \geq s$,
+    若$j \leq s$,则$i \geq r$.
+    \[\therefore (C_1-C)^{r+s}\equiv 0,\]
+    同理可得$(B-B_1)^{r+s}\equiv 0$.
+    由引理\ref{thr:JDapp2}可知,$\exists$非异阵$P \st$
+    \[P^{-1}BP=
+      \begin{pmatrix}
+        a_1&&&\\
+           &a_2&&\\
+           &&\ddots&\\
+        &&&a_n
+      \end{pmatrix}, P^{-1}B_1P=
+      \begin{pmatrix}
+        b_1&&&\\
+           &b_2&&\\
+           &&\ddots&\\
+        &&&b_n
+      \end{pmatrix}\]
+    \begin{align*}
+    0& =P^{-1}(B-B_1)^{r+s}P=(P^{-1}BP-P^{-1}B_1P)^{r+s}\\
+     & =
+      \begin{pmatrix}
+        (a_1-b_1)^{r+s}&&&\\
+                       &(a_2-b_2)^{r+s}&&\\
+                       &&\ddots&\\
+        &&&(a_n-b_n)^{r+s}
+      \end{pmatrix}\\
+     & \Longrightarrow a_i=b_i, \forall i
+       \Longrightarrow B = B_1.
+    \end{align*}
+    同理可证$C_1=C$.
+  \end{proof}
+
+\subsection{Jordan标准型练习题}
+
+\subsubsection{TOPIC 1}
+如何合理选取特征向量求出广义特征向量.
+
+\begin{example}\label{exl:JDexl1}
+  $A=
+  \begin{pmatrix}
+    2&6&-15\\
+    1&1&-5\\
+    1&2&-6
+  \end{pmatrix}$,
+  求$P \st P^{-1}AP$为Jordan型.
+\end{example}
+
+\begin{solution}
+  经计算可得$A$的初等因子组为$(\lambda+1), (\lambda+1)^2$,
+  由此可推出$A$的Jordan标准型为
+  \[ J=
+    \begin{pmatrix}
+      -1&&\\
+        &-1&1\\
+      &&-1
+    \end{pmatrix}. \]
+  设$P=(\alpha_1, \alpha_2, \alpha_3)$,
+  由$AP=PJ$可得
+  \[ A\alpha_1=-\alpha_1, A\alpha_2=-\alpha_2, A\alpha_3=\alpha_2-\alpha_3.\]
+  由上式可知,
+  $\alpha_1, \alpha_2$是$A$的特征向量且
+  \begin{equation}\label{eq:JDexl1}
+    (A+I_3)\alpha_3=\alpha_2
+  \end{equation}
+  其中$\alpha_3$即广义特征向量.
+  \begin{align*}
+    & A+I_3=
+    \begin{pmatrix}
+      3&6&-15\\
+      1&2&-5\\
+      1&2&-5
+    \end{pmatrix} \longrightarrow
+    \begin{pmatrix}
+      1&2&-5\\
+      0&0&0\\
+      0&0&0
+    \end{pmatrix}\\
+    \Longrightarrow & A\text{的两个无关特征向量为}
+    \beta_1=
+    \begin{pmatrix}
+      -2\\
+      1\\
+      0
+    \end{pmatrix}, \beta_2=
+    \begin{pmatrix}
+      5\\
+      0\\
+      1
+    \end{pmatrix}.
+  \end{align*}
+  将$\beta_1$或$\beta_2$代入\eqref{eq:JDexl1}式代替$\alpha_2$,
+  例如
+  \[
+    \begin{pmatrix}
+      \begin{BMAT}{c.c}{c}
+        A+I_3&\beta_2
+      \end{BMAT}
+    \end{pmatrix}=
+    \begin{pmatrix}
+      \begin{BMAT}{ccc.c}{ccc}
+        3&6&-15&5\\
+        1&2&-5&0\\
+        1&2&-5&0
+      \end{BMAT}
+    \end{pmatrix}
+  \]
+  上式代表的线性方程组无解,将$\beta_1$代入也同样无解.
+
+  令$\alpha_2=k_1\beta_1+k_2\beta_2=(-2k_1+5k_2,k_1,k_2)$,
+  要使\eqref{eq:JDexl1}式有解,则
+  \[ \rank
+    \begin{pmatrix}
+      \begin{BMAT}{ccc.c}{ccc}
+        3&6&-15&-2k_1+5k_2\\
+        1&2&-5&k_1\\
+        1&2&-5&k_2
+      \end{BMAT}
+    \end{pmatrix}=1 \Longrightarrow k_1=k_2.  \]
+  因此,可令$\alpha_2=\beta_1+\beta_2=(3,1,1)$,
+  可解出$\alpha_3=(1,0,0)'$,令$\alpha_1=\beta_1$,
+  可求出
+  \[P=
+    \begin{pmatrix}
+      -2&3&1\\
+      1&1&0\\
+      0&1&0
+    \end{pmatrix}.\]
+\end{solution}
+
+\subsubsection{TOPIC 2}
+带参数矩阵Jordan标准型的确定.
+
+(1)选取特殊子式求出行列式因子;
+
+(2)计算几何重数以确定Jordan块的个数;
+
+(3)计算极小多项式以确定最大Jordan块的阶数.
+
+\begin{example}[教材P303第3题]\label{exl:JDexl2}
+  求下列$n$阶上三角阵的行列式因子和不变因子：
+  \[ A=\begin{pmatrix}
+    a&1&1&\cdots&1\\
+    0&a&1&\cdots&1\\
+    0&0&a&\cdots&1\\
+    \vdots&\vdots&\vdots&&\vdots\\
+    0&0&0&\cdots&a
+  \end{pmatrix}. \]
+\end{example}
+
+\begin{solution}
+  {\heiti 方法一:}
+
+  \begin{align}
+    & \lambda I -A =
+    \begin{pmatrix}
+      \lambda-a & -1 & -1 & \cdots & -1\\
+                & \lambda-a & -1 &\cdots & -1\\
+                & & \lambda-a & \cdots & -1\\
+                & & & \ddots & \vdots\\
+      &&&&\lambda-a
+    \end{pmatrix},\notag\\
+    & (\lambda I-A)
+    \begin{pmatrix}
+      1&\cdots&n-1\\
+      1&\cdots&n-1
+    \end{pmatrix}=(\lambda-a)^{n-1},\label{eq:JDexl2}\\
+    & (\lambda I-A)
+    \begin{pmatrix}
+      1&\cdots&n-1\\
+      2&\cdots&n
+    \end{pmatrix}=g(\lambda).\label{eq:JDexl3}
+  \end{align}
+  因为$g(a)=(-1)^{n-1}\neq 0$,
+  所以\eqref{eq:JDexl2}式和\eqref{eq:JDexl3}式无公根,
+  从而\eqref{eq:JDexl2}式和\eqref{eq:JDexl3}式互素.
+  由此可知,
+  \[ D_{n-1}(\lambda)=1, D_n(\lambda)=(\lambda-a)^n \Longrightarrow
+    A\text{的行列式因子为}1,\cdots,1,(\lambda-a)^n, \text{Jordan标准型为}J_n(a).
+  \]
+
+  {\heiti 方法二:}
+
+  $A$的特征值为$a$,代数重数为$n$,
+  其几何重数$=n-\rank(A-aI_n)=n-(n-1)=1$.
+  由此可知$A$的Jordan块的个数为$1$,
+  其Jordan标准型为$J_n(a)$.
+
+  {\heiti 方法三:}
+
+  $A$的特征多项式为$f(\lambda)=(\lambda-a)^n$,
+  设其极小多项式为$m(\lambda)=(\lambda-a)^k, k \leq n$.
+  \begin{align*}
+    & A=aI_n+N+N^2+\cdots+N^{n-1}, \text{其中} N=J_n(0)\\
+    \Longrightarrow & (A-aI_n)^{n-1}=(N+N^2+\cdots+N^{n-1})^{n-1}=N^{n-1}\neq 0\\
+    \Longrightarrow & m(\lambda)=(\lambda-a)^n\\
+    \Longrightarrow & A\text{的不变因子为}1,\cdots,1,(\lambda-a)^n\\
+    \Longrightarrow & A\text{的Jordan标准型为}J_n(a).
+  \end{align*}
+\end{solution}
+
+\begin{example}\label{exl:JDexl3}
+  \[ A=
+    \begin{pmatrix}
+      1&&&\\
+      a+2&1&&\\
+      5&3&1&\\
+      7&6&b+4&1
+    \end{pmatrix},\]
+  求$A$的Jordan标准型.
+\end{example}
+
+\begin{solution}
+  $A$的特征值全为$1$,
+  \begin{equation*}
+    \text{特征值$1$的几何重数}=4-\rank(A-I_4)=
+    \begin{cases}
+      1, \text{若$a+2\neq 0$且$b+4\neq0$}\\
+      2, \text{若$a+2=0$或$b+4=0$}
+    \end{cases}
+  \end{equation*}
+
+  当几何重数为$1$时,只有一个Jordan块, $J=J_4(1)$.
+
+  当几何重数为$2$时, 有两个Jordan块,设
+  \[ J=\diag\{J_k(1), J_l(1)\},
+    \text{其中} 1\leq k\leq l, k+l=4 \Longrightarrow
+    2 \leq l \leq 3, \]
+  此时,如果$l=2$,则将$A$代入极小多项式$(\lambda-1)^2$将等于0,
+  否则$l=3$.
+  \begin{align*}
+    & (A-I_4)^2 =
+                \begin{pmatrix}
+                  0 & 0 & 0 & 0\\
+                  0 & 0 & 0 & 0\\
+                  3(a+2)& 0 & 0 & 0\\
+                  6(a+2)+5(b+4)&3(b+4)& 0 & 0
+                \end{pmatrix}\\
+              & =
+                \begin{cases}
+                  0, & \text{若$a+2=0$且$b+4=0$}\Longrightarrow k=l=2 \Longrightarrow J=\diag\{J_2(1), J_2(1)\}\\
+                  \neq 0,& \text{若$a+2=0$和$b+4=0$之一成立}\Longrightarrow k=1, l=3 \Longrightarrow J=\diag\{1, J_3(1)\}
+                \end{cases}
+  \end{align*}
+\end{solution}
+
+\subsubsection{TOPIC 3}
+
+循环子空间的应用
+
+\begin{definition}
+  设$\varphi \in \mathcal{L}(V^n_{\mathbb{K}})$,
+  $0 \neq \alpha \in V$,
+  由$\{\alpha, \varphi(\alpha), \varphi^2(\alpha),\cdots\}$
+  张成的子空间记为$C(\varphi,\alpha)$,
+  称为$\varphi$关于循环向量$\alpha$的循环子空间.
+\end{definition}
+
+\begin{theory}
+  设$\dim C(\varphi,\alpha)=m$,则
+  $\{\alpha, \varphi(\alpha), \cdots, \varphi^{m-1}(\varphi)\}$
+  是$C(\varphi,\alpha)$的一组基.
+\end{theory}
+
+\begin{proof}
+  设$k=\max\{i\in \mathbb{Z}^+ \mid \alpha,\varphi(\alpha),\cdots,\varphi^{i-1}(\alpha)\text{线性无关}\}$
+  \begin{align*}
+      \Longrightarrow &
+                        \begin{cases}
+                          \alpha, \varphi(\alpha),\cdots,\varphi^{k-1}(\alpha)\text{线性无关}\\
+                          \alpha,\varphi(\alpha),\cdots,\varphi^{k-1}(\alpha),\varphi^k(\alpha)\text{线性相关}
+                        \end{cases}\\
+    \Longrightarrow & \varphi^k(\alpha)\text{是}\alpha, \varphi(\alpha), \cdots, \varphi^{k-1}(\alpha)\text{的线性组合}                    
+  \end{align*}
+  用数学归纳法可证明: 
+  $\forall i \geq k,
+  \varphi^i(\alpha)\text{是}\alpha, \varphi(\alpha), \cdots, \varphi^{k-1}(\alpha)\text{的线性组合}$,
+  \begin{align*}
+    \Longrightarrow & \{\alpha, \varphi(\alpha),\cdots,\varphi^{k-1}(\alpha)\}
+                      \text{是$C(\varphi,\alpha)$的一组基}\\
+    \Longrightarrow & \dim C(\varphi,\alpha)=k=m.
+  \end{align*}
+\end{proof}
+
+\begin{notice}
+  设
+  \[\varphi^m(\alpha)=-a_0\alpha-a_1\varphi(\alpha)-\cdots-a_{m-1}\varphi^{m-1}(\alpha),\]
+  令
+  \[g(x)=x^m+a_{m-1}x^{m-1}+\cdots+a_1x+a_0 \in k[x].\]
+  $C(\varphi,\alpha)$实际上是包含$\alpha$的最小的$\varphi-$不变子空间,
+  $\varphi|_{C(\varphi,\alpha)}$在基$\{\alpha,\varphi(\alpha),\cdots,\varphi^{m-1}(\alpha)\}$
+  下的表示矩阵为
+  \[F=F(g(\lambda))=
+    \begin{pmatrix}
+      &&&-a_0\\
+      1&&&-a_1\\
+      &\ddots&&\vdots\\
+      &&1&-a_{m-1}
+    \end{pmatrix},
+  \]
+  即$g(x)$的友阵.
+\end{notice}
+
+\begin{example}
+  (1) $\varphi(\alpha)=\lambda_0\alpha, (\lambda_0\in\mathbb{K},\alpha\neq 0)$,
+  则$C(\varphi,\alpha)=L(\alpha)$.
+
+  (2) $\varphi(\alpha_i)=\lambda_i\alpha_i,
+  \lambda_1,\cdots,\lambda_n \in\mathbb{K}$且互异,
+  $\alpha\neq 0$,令$\alpha=\alpha_1+\alpha_2+\cdots+\alpha_n$,则
+  $C(\varphi,\alpha)=V$.
+
+  (3) $\varphi \in \mathcal{L}(V_k^n)$,
+  不变因子为$1,\cdots,1,d_1(\lambda),\cdots,d_k(\lambda)$,则
+  \begin{equation}\label{eq:JDexl4}
+    \exists \text{一组基}\{e_1,\cdots,e_n\}
+    \st \varphi \text{的表示矩阵为}
+    F=\diag\{F(d_1(\lambda)),\cdots,F(d_k(\lambda))\}.
+  \end{equation}
+
+  如果一个线性映射的表示矩阵为一个友阵,
+  则其特征子空间必是循环子空间.
+  \begin{align*}
+    & (\varphi(e_1),\cdots,\varphi(e_n))=(e_1,\cdots,e_n)
+    \begin{pmatrix}
+      &&&-a_0\\
+      1&&&-a_1\\
+      &\ddots&&\vdots\\
+      &&1&-a_{m-1}      
+    \end{pmatrix}\\
+    & \varphi(e_1)=e_2,\varphi(e_2)=e_3,\cdots,\varphi(e_{n-1})=e_n,\\
+    & \varphi(e_n)=-a_0e_1-a_1e_2-\cdots-a_{n-1}e_n\\
+    & e_1 \xlongrightarrow {\varphi}e_2 \xlongrightarrow {\varphi}e_3 \xlongrightarrow {\varphi}
+      \cdots \xlongrightarrow {\varphi} e_n \xlongrightarrow {\varphi} -\sum_{i=1}^na_{i-1}e_i
+  \end{align*}
+  \[ \text{由\eqref{eq:JDexl4}} \Longrightarrow
+    V=C(\varphi,e_{i1})\oplus C(\varphi,e_{i2})\oplus\cdots\oplus C(\varphi,e_{ik}) \]
+\end{example}
+
+(4) $\varphi\in \mathcal{L}(V^n_{\mathbb{C}})$,
+初等因子为$(\lambda-\lambda_1)^{r_1},\cdots,(\lambda-\lambda_k)^{r_k}$,
+$\exists\text{一组基}\{e_1,\cdots,e_n\} \st \varphi$的表示矩阵为
+$J=\diag\{J_{r_1}(\lambda_1),\cdots,J_{r_k}(\lambda_k)\}
+\Longrightarrow V=C(\varphi-\lambda_1Ie_{i_1})\oplus C(\varphi-\lambda_2Ie_{i_2})\oplus\cdots\oplus C(\varphi-\lambda_kIe_{i_k})$.
+
+\begin{question}\label{qsn:JDexl1}
+  设$V=C(\varphi,\alpha)$为循环空间,$\psi\in\mathcal{L}(V)$
+  且$\varphi\psi=\psi\varphi$,则
+
+  (1) $\psi$由$\psi(\alpha)$的值唯一决定;
+
+  (2) $\exists g(\lambda)\in \mathbb{K}[\lambda] \st \psi=g(\varphi)$.
+\end{question}
+
+\begin{proof}
+  (1) $V=C(\varphi,\alpha)$的基为$\{\alpha, \varphi(\alpha), \cdots, \varphi^{n-1}(\alpha)\}$,
+  $\psi$由$\psi$在基上的作用唯一决定.
+  \begin{align*}
+    & \psi(\varphi^i(\alpha))=\varphi^i(\psi(\alpha)), 0\leq i \leq n-1\\
+    \Longrightarrow & \psi\text{由}\psi(\alpha)\text{唯一决定}.
+  \end{align*}
+
+  (2) \[ \psi(\alpha)=a_0\alpha+a_1\varphi(\alpha)+\cdots+a_{n-1}\varphi^{n-1}(\alpha), \]
+  令$g(x)=a_0+a_1x+\cdots+a_{n-1}x^{n-1}$,
+  \[
+    \begin{rcases}
+      \psi,g(\varphi)\text{可交换}\\
+      \psi(\alpha)=g(\varphi)(\alpha)
+    \end{rcases}\Longrightarrow \psi = g(\varphi).
+    \]
+  \end{proof}
+
+  \begin{deduction}
+    $A=F(g(\lambda)), AB=BA$,则
+    $B=g(A)$.
+  \end{deduction}
+
+  \begin{deduction}
+    $A=J_n(\lambda_0), AB=BA$,则
+    $B=g(A)$.
+  \end{deduction}
+
+  \subsection{矩阵函数}
+  \begin{theorem}
+    幂级数$f(x)=\sum\limits^{\infty}_{n=0}$在
+    $|x|<r$时逐项可导,即
+    \[ f'(x)=\frac{d}{dx}(\sum_{n=0}^{\infty}a_nx^n)=
+      \sum_{n=0}^{\infty}\frac{d}{dx}(a_nx^n)=\sum_{n=1}^{\infty}na_nx^{n-1},
+    \]
+    且$f'(x)$的收敛半径也是$r$.
+  \end{theorem}
+
+  \begin{definition}
+      $f(z)=a_0+a_1z+\cdots+a_pz^p \in \mathbb{C}[z]$,
+      $A \in M_n(\mathbb{C})$,则
+      $f(A) \xlongequal {\text{def}} a_0I_n+a_1A+\cdots+a_pA^p $.
+  \end{definition}
+
+  设$P$为非异阵$\st P^{-1}AP=J=\diag\{J_{r_1}(\lambda_1),\cdots,J_{r_k}(\lambda_k)\}$,则
+  \[ f(A)=f(PJP^{-1})=Pf(J)P^{-1}=P\diag\{f(J_{r_1}(\lambda_1)),\cdots,f(J_{r_k}(\lambda_k))\}P^{-1}, \]
+  其中
+  \[ J_{r_i}(\lambda_i)=\lambda_iI+N, N=J_{r_i}(0), N^{r_i}=0. \]
+  在$z=\lambda_i$处对$f(z)$进行泰勒展开:
+  \[ f(z)=f(\lambda_i)+\frac{f'(\lambda_i)}{1!}(z-\lambda_i)+\cdots+
+    \frac{f^{(p)}(\lambda_i)}{p!}(z-\lambda_i)^p, \]
+  将$z=J_{r_i}(\lambda_i), J_{r_i}(\lambda_i)=\lambda_iI+N$代入上式可得
+  \begin{equation}\label{eq:MF1}
+    f(J_{r_i}(\lambda_i))=f(\lambda_i)I+\frac{f'(\lambda_i)}{1!}N+\cdots+
+    \frac{f^{(r_i-1)}(\lambda_i)}{(r_i-1)!}N^{r_i-1} =
+    \begin{pmatrix}
+      f(\lambda_i)&\frac{f'(\lambda_i)}{1!}&\cdots&\frac{f^{(r_i-1)}(\lambda_i)}{(r_i-1)!}\\
+                  &f(\lambda_i)&\cdots&\frac{f^{(r_i-2)}(\lambda_i)}{(r_i-2)!}\\
+                  &&\ddots&\vdots\\
+      &&&f(\lambda_i)
+    \end{pmatrix}
+  \end{equation}
+
+  \begin{example}
+    设$A\in M_n(\mathbb{C})$,求$e^{tA}$,其中$t$是数值变量.
+  \end{example}
+
+  \begin{solution}
+    设$f(z)=e^{tz}$,则$f^{(i)}(z)=t^ie^{tz}$,再设
+    \[P^{-1}AP = J = \diag\{J_{r_1}(\lambda_1),\cdots,J_{r_k}(\lambda_k)\},\]
+    则
+    \begin{equation}\label{eq:MF2}
+      e^{tA}=f(z)=Pf(J)P^{-1}=P\{f(J_{r_1}(\lambda_1)),\cdots,f(J_{r_k}(\lambda_k))\}P^{-1},
+    \end{equation}
+    上式中$f(J_{r_i}(\lambda_i))=e^{tJ_{r_i}(\lambda_i)}$,
+    根据\eqref{eq:MF1}式可得
+    \begin{align}
+       f(J_{r_i}(\lambda_i))=e^{tJ_{r_i}(\lambda_i)}= &
+       \begin{pmatrix}
+         e^{t\lambda_i}&\frac{t}{1!}e^{t\lambda_i}&\frac{t^2}{2!}e^{t\lambda_i}&\cdots&\frac{t^{r_i-1}}{(r_i-1)!}e^{t\lambda_i}\\
+                       &e^{t\lambda_i}&\frac{t}{1!}e^{t\lambda_i}&\cdots&\frac{t^{r_i-2}}{(r_i-2)!}e^{t\lambda_i}\\
+                       &&e^{t\lambda_i}&\cdots&\frac{t^{r_i-2}}{(r_i-2)!}e^{t\lambda_i}\\
+                       &&&\ddots&\vdots\\
+         &&&&e^{t\lambda_i}
+       \end{pmatrix}\notag\\
+       = & e^{t\lambda_i}\cdot
+       \begin{pmatrix}
+         1&\frac{t}{1!}&\frac{t^2}{2!}&\cdots&\frac{t^{r_i-1}}{(r_i-1)!}\\
+          &1&\frac{t}{1!}&\cdots&\frac{t^{r_i-2}}{(r_i-2)!}\\
+          &&1&\cdots&\frac{t^{r_i-3}}{(r_i-3)!}\\
+          &&&\ddots&\vdots\\
+         &&&&1
+       \end{pmatrix}.\label{eq:MF3}
+    \end{align}
+    将每个\eqref{eq:MF3}式代入\eqref{eq:MF2}式,
+    即可求出$e^{tA}$的表达式.
+  \end{solution}
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "../main"

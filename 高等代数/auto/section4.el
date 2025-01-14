@@ -12,6 +12,8 @@
     "thm:ImKer5"
     "eq:ImKer1"
     "eq:ImKer2"
-    "eq:ImKer3"))
+    "eq:ImKer3")
+   (LaTeX-add-environments
+    '("proof" LaTeX-env-args ["argument"] 0)))
  :latex)
 

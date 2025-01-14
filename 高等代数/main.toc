@@ -28,3 +28,8 @@
 \contentsline {subsection}{\numberline {7.5}初等因子}{46}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Jordan标准型}{47}{subsection.7.6}%
 \contentsline {subsection}{\numberline {7.7}Jordan标准型的进一步讨论和应用}{53}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}Jordan标准型练习题}{59}{subsection.7.8}%
+\contentsline {subsubsection}{\numberline {7.8.1}TOPIC 1}{59}{subsubsection.7.8.1}%
+\contentsline {subsubsection}{\numberline {7.8.2}TOPIC 2}{60}{subsubsection.7.8.2}%
+\contentsline {subsubsection}{\numberline {7.8.3}TOPIC 3}{62}{subsubsection.7.8.3}%
+\contentsline {subsection}{\numberline {7.9}矩阵函数}{64}{subsection.7.9}%
