@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Debian) (preloaded format=xelatex 2025.1.13)  14 JAN 2025 18:15
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Debian) (preloaded format=xelatex 2025.1.13)  28 JAN 2025 21:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1712,13 +1712,14 @@ th.
 \c@theory=\count545
 \c@question=\count546
 \c@application=\count547
+\c@property=\count548
 )
-\@quotelevel=\count548
-\@quotereset=\count549
+\@quotelevel=\count549
+\@quotereset=\count550
  (./main.aux (./sections/cover.aux)
 (./sections/contents.aux) (./sections/section1.aux) (./sections/section2.aux)
 (./sections/section3.aux) (./sections/section4.aux) (./sections/section5.aux)
-(./sections/section6.aux) (./sections/section7.aux))
+(./sections/section6.aux) (./sections/section7.aux) (./sections/section8.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -1802,7 +1803,7 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count550
+\c@lstlisting=\count551
 (/usr/share/texlive/texmf-dist/tex/latex/fmtcount/fc-english.def
 Invalid UTF-8 byte or sequence at line 10 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 22 replaced by U+FFFD.
@@ -1916,23 +1917,31 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
 
 ] [38] [39] [40] [41] [42] [43] [44] [45]
 [46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60]
-[61] [62] [63] [64]) [65] (./main.aux (./sections/cover.aux)
-(./sections/contents.aux) (./sections/section1.aux) (./sections/section2.aux)
+[61] [62] [63] [64]) [65]
+\openout2 = `./sections/section8.aux'.
+
+ (./sections/section8.tex [66
+
+
+
+] [67] [68] [69] [70]
+[71] [72] [73] [74] [75] [76] [77] [78]) [79] (./main.aux (./sections/cover.aux
+) (./sections/contents.aux) (./sections/section1.aux) (./sections/section2.aux)
 (./sections/section3.aux) (./sections/section4.aux) (./sections/section5.aux)
-(./sections/section6.aux) (./sections/section7.aux))
+(./sections/section6.aux) (./sections/section7.aux) (./sections/section8.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D912AEFB934588FBA1B63CAA58864AAB;3613.
+(rerunfilecheck)             Checksum: 5B55E76FBC382C9CCD9ECAD37301D799;4808.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45924 strings out of 476775
- 996283 string characters out of 5808212
+ 45980 strings out of 476775
+ 997630 string characters out of 5808212
  1889991 words of memory out of 5000000
- 65113 multiletter control sequences out of 15000+600000
+ 65162 multiletter control sequences out of 15000+600000
  521683 words of font info for 115 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,25n,107p,1223b,1114s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (68 pages).
+Output written on main.pdf (82 pages).

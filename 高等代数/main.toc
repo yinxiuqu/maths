@@ -33,3 +33,17 @@
 \contentsline {subsubsection}{\numberline {7.8.2}TOPIC 2}{60}{subsubsection.7.8.2}%
 \contentsline {subsubsection}{\numberline {7.8.3}TOPIC 3}{62}{subsubsection.7.8.3}%
 \contentsline {subsection}{\numberline {7.9}矩阵函数}{64}{subsection.7.9}%
+\contentsline {section}{\numberline {8}二次型}{66}{section.8}%
+\contentsline {subsection}{\numberline {8.1}二次型的化简与矩阵的合同}{66}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}二次型的化简}{67}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}配方法}{67}{subsubsection.8.2.1}%
+\contentsline {paragraph}{基本公式}{67}{subsubsection.8.2.1}%
+\contentsline {paragraph}{步骤}{67}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}对称初等变换法}{67}{subsubsection.8.2.2}%
+\contentsline {paragraph}{方法}{67}{subsubsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.3}惯性定理}{67}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}实二次型}{68}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}复二次型}{68}{subsubsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.4}正定型与正定矩阵}{69}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}半正定型和半正定矩阵}{73}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Hermite型}{75}{subsection.8.6}%

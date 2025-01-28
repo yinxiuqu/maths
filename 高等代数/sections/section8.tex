@@ -1,0 +1,916 @@
+\section{二次型}
+
+\subsection{二次型的化简与矩阵的合同}
+
+\begin{theory}
+  下列变换都是合同变换,称为对称的初等变换:
+
+  (1)对换$A$的第$i$行与第$j$行,再对换第$i$列与第$j$列,即$P_{ij}AP_{ij}, P'_{ij}=P_{ij}$;
+
+  (2) $A$的第$i$行乘以常数$C$,再将第$i$列乘以常数$C$,即$P_i(C)AP_i(C),P'_i(C)=P_i(C)$;
+
+  (3) $A$的第$i$行乘以常数$C$加到第$j$行上,再将第$i$列乘以常数$C$加到第$j$列上,
+  即
+  \[T_{ij}(C)AT_{ji}(C), T'_{ij}(C)=T_{ji}(C).\]
+\end{theory}
+
+\begin{theory}
+  设$A$是数域$\mathbb{K}$上的非零对称阵,则必存在非异阵$C$,
+  使$C'AC$的第$(1,1)$元素不等于零.
+\end{theory}
+
+\begin{proof}
+  设$A=(a_{ij})_{n\times n}$, 若$a_{11}\neq 0$,
+  则结论成立;
+
+  下设$a_{11}=0$,若$\exists 2 \leq i \leq n \st a_{ii}\neq 0$,则
+  \begin{equation}\label{eq:Congruence1}
+    A= 
+    \begin{pmatrix}
+      0&&&\\
+       &\ddots&&\\
+       &&a_{ii}&\\
+      &&&\ddots
+    \end{pmatrix} \xlongrightarrow[P_{ij}AP_{ij}] {\text{第(1)类合同变换}}
+    \begin{pmatrix}
+      a_{ii}&&&\\
+            &\ddots&&\\
+            &&0&\\
+      &&&\ddots
+    \end{pmatrix};
+  \end{equation}
+
+  下设$\forall i, a_{ii}=0$,由$A\neq 0$可知$\exists a_{ij}\neq 0, 1\leq i < j \leq n$,则
+  \[
+    A =
+    \begin{pmatrix}
+      &\vdots&&\vdots&\\
+      \cdots&0&\cdots&a_{ij}&\cdots\\
+      &\vdots&&\vdots&\\
+      \cdots&a_{ji}&\cdots&0&\cdots\\
+      &\vdots&&\vdots&
+    \end{pmatrix} \xLongrightarrow [T_{ji}(1)AT_{ij}(1)]{\text{第(3)类合同变换}}
+    \begin{pmatrix}
+      &\vdots&&\vdots&\\
+      \cdots&2a_{ij}&\cdots&a_{ij}&\cdots\\
+      &\vdots&&\vdots&\\
+      \cdots&a_{ji}&\cdots&0&\cdots\\
+      &\vdots&&\vdots&
+    \end{pmatrix},
+  \]
+  再重复\eqref{eq:Congruence1}式的操作即可得结论.
+\end{proof}
+
+\begin{theorem}
+  设$A$是数域$\mathbb{K}$上的$n$阶对称阵,则必存在$\mathbb{K}$上的$n$阶非异阵$C$,
+  使$C'AC$为对角阵.
+\end{theorem}
+
+\begin{deduction}
+  合同变换是若干次对称初等变换的复合.
+\end{deduction}
+
+\begin{proof}
+  设矩阵$A$可通过合同变换$C'AC$化为对角阵,
+  其中$C$为非异阵.
+  \begin{align}
+    & \because C \text{为非异阵},
+      \text{故可令}C=P_1P_2\cdots P_r, P_i\text{为初等矩阵},\notag\\
+    & \therefore C'AC = (P_1P_2\cdots P_r)'A(P_1P_2\cdots P_r)
+      = (P'_r\cdots(P'_2(P'_1AP_1)P_2)\cdots P_r)\label{eq:Congruence2}
+    \end{align}
+  \end{proof}
+
+  \begin{definition}
+    下列变换为合同变换,称为分块对称初等变换:
+
+    (1)对换$A$的第$i$分块行与第$j$分块行,
+    再对换第$i$分块列与第$j$分块列,
+    即$P_{ij}AP'{ij}$;
+
+    (2)第$i$分块行左乘非异阵$M$,
+    第$i$分块列右乘$M'$,
+    即$P_i(M)AP_i(M'),P'_i(M)=P_i(M')$;
+
+    (3) $A$的第$i$分块行左乘矩阵$M$加到第$j$分块行上,
+    第$i$分块列右乘$M'$加到第$j$分块列上,
+    即$T_{ij}(M)AT_{ji}(M'), T_{ij}(M)'=T_{ji}(M')$.
+  \end{definition}
+
+\subsection{二次型的化简}
+
+\subsubsection{配方法}
+
+\paragraph{基本公式}
+
+\[ (\sum_{i=1}^nx_i)^2=\sum_{i=1}^nx_i^2+2\sum_{1\leq i < j\leq n}x_ix_j
+\]
+
+\paragraph{步骤}
+
+(1)将含$x_1$的所有项凑成完全平方式(消去$x_1$);
+
+(2)剩余项中将含$x_2$的所有项凑成完全平方式(消去$x_2$);
+
+\ldots\ldots
+
+(n-1)剩余项中将含含$x_{n-1}$的所有项凑成完全平方式.
+
+\subsubsection{对称初等变换法}
+
+$A$为对称阵,则$\exists$非异阵$C \st C'AC=\Lambda$为对角阵,
+$C$的形式如\eqref{eq:Congruence2}所示.
+
+\paragraph{方法}
+
+(1)构造一个$n\times 2n$的矩阵$(\begin{smallmatrix}\begin{BMAT}{c.c}{c}A&I\end{BMAT}\end{smallmatrix})$,
+对该矩阵整体实施行变换;
+
+(2)对左边的分块矩阵$A$实施对称的列变换,
+直到左边的分块矩阵变为对角阵$\Lambda$,
+此时右边的分块阵是过度阵$C$的转置,即$C'$.
+\begin{align*}
+  & \begin{pmatrix}
+    \begin{BMAT}{c.c}{c}
+      A&I_n
+    \end{BMAT}
+  \end{pmatrix} \xlongrightarrow[\text{整体实施行变换}]{\text{整体左乘}P'_1}
+  \begin{pmatrix}
+    \begin{BMAT}{c.c}{c}
+      P'_{1}A&P'_{1}
+    \end{BMAT}
+  \end{pmatrix}
+  \xlongrightarrow[\text{对左边分块矩阵实施对称的列变换}]{\text{仅对左边分块矩阵右乘}P_1}
+  \begin{pmatrix}
+    \begin{BMAT}{c.c}{c}
+      P'_{1}AP_{1}&P'_{1}
+    \end{BMAT}
+  \end{pmatrix}\\
+  & \xlongrightarrow {\text{多次实施对称初等变换}} \cdots \longrightarrow
+  \begin{pmatrix}
+    \begin{BMAT}{c.c}{c}
+      P'_r\cdots P'_2P'_1AP_1P_2\cdots P_r&P'_r\cdots P'_2P'_1
+    \end{BMAT}
+  \end{pmatrix}
+\end{align*}
+此时,左边的分块矩阵即为对角阵$\Lambda$,
+右边的分块矩阵即为$C'$.
+
+\subsection{惯性定理}
+
+\subsubsection{实二次型}
+
+设是对称阵$A=\diag\{d_1,d_2,\cdots,d_r,0,\cdots,0\}$,
+把正项和负项分别放在一起,可设
+$d_1>0,\cdots,d_p>0;d_{p+1}<0,\cdots,d_r<0.$
+$A$所代表的二次型为
+\begin{equation}\label{eq:inertia1}
+  f(x_1,x_2,\cdots,x_n)=d_1x_1^2+d_2x_2^2+\cdots+d_rx_r^2.
+\end{equation}
+令
+\[ y_1=\sqrt{d_1}x_11,\cdots,y_p=\sqrt{d_p}x_p; \]
+\[ y_{p+1}=\sqrt{-d_{p+1}}x_{p+1},\cdots,y_r=\sqrt{-d_r}x_r; \]
+\[ y_j=x_j(j=r+1,\cdots,n), \]
+则\eqref{eq:inertia1}式变为
+\begin{equation}\label{eq:inertia2}
+  f=y_1^2+\cdots+y_p^2-y_{p+1}^2-\cdots-y_r^2.
+\end{equation}
+该事实等价于$A$合同于下列对角阵:
+\begin{equation}\label{eq:inertia3}
+  \diag\{1,\cdots,1;-1,\cdots,-1;0,\cdots,0\},
+\end{equation}
+上式中有$p$个$1$,$q$个$-1$,$n-r$个零.
+\eqref{eq:inertia2}式中的二次型称为$f$的{\heiti 规范标准型}.
+\begin{theorem}
+  设$f(x_1,x_2,\cdots,x_n)$是一个$n$元实二次型,且$f$可化为两个标准型:
+  \begin{align*}
+    &c_1y_1^2+\cdots+c_py_p^2-c_{p+1}y_{p+1}^2-\cdots-c_ry_r^2,&\\
+    &d_1z_1^2+\cdots+d_kz_k^2-d_{k+1}z_{k+1}^2-\cdots-d_rz_r^2,&
+  \end{align*}
+  其中$c_i>0, d_i>0$,则必有$p=k$.
+\end{theorem}
+
+\begin{definition}
+  设$f(x_1,x_2\cdots,x_n)$是一个实二次型,若它能化为
+  形如\eqref{eq:inertia2}式的形状,则称
+  $r$是该二次型的秩, $p$是它的正惯性指数,
+   $q=r-p$是它的负惯性指数, $s=p-q$称为$f$的符号差.
+ \end{definition}
+
+ \begin{theorem}
+   秩与符号差(或正负惯性指数)是是对称阵在合同关系下的全系不变量.
+ \end{theorem}
+
+\subsubsection{复二次型}
+因为复二次型
+\[ f(x_1,x_2,\cdots,x_n)=d_1x_1^2+d_2x_2^2+\cdots+d_rx_r^2 \]
+必可化为
+\[ z_1^2+z_2^2+\cdots+z_r^2, \]
+其中$z_i=\sqrt{d_i}x_i (i=1,2,\cdots,r), z_j=x_j (j=r+1,\cdots,n)$.
+所以复对称阵的合同关系只有一个全系不变量,那就是秩$r$.
+
+\subsection{正定型与正定矩阵}
+
+\begin{example}
+  \begin{align*}
+    & (1) f=x_1^2+x_2^2+\cdots+x_n^2 && \text{正定型}\\
+    & (2) f=x_1^2+x_2^2+\cdots+x_r^2(r \leq n) && \text{半正定型}\\
+    & (3) f=-x_1^2-x_2^2-\cdots-x_n^2 && \text{负定型}\\
+    & (4) f=-x_1^2-x_2^2-\cdots-x_r^2(r \leq n) && \text{半负定型}\\
+    & (5) f=x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x_r^2(1\leq p < r \leq n) && \text{不定型}
+  \end{align*}
+\end{example}
+
+\begin{theorem}\label{thm:PN1}
+  设实二次型$f(x_1,\cdots,x_n)$的秩为$r$,正负惯性指数分别为$p, q$,则
+
+  (1) $f$正定 $\Longleftrightarrow$ $p=n$;
+
+  (2) $f$半正定 $\Longleftrightarrow$ $p=r$;
+
+  (3) $f$负定 $\Longleftrightarrow$ $q=n$;
+
+  (4) $f$半负定 $\Longleftrightarrow$ $q=r$;
+
+  (5) $f$不定 $\Longleftrightarrow$ $p>0$且$q>0$.
+\end{theorem}
+
+\begin{proof}
+  (1)充分性:设$p=n$,则存在非异线性变换
+  \[ x=Cy \st f=y_1^2+y_2^2=\cdots+y_n^2. \]
+  任取$0 \neq \alpha = (a_1,a_2,\cdots,a_n) \in \mathbb{R}$,从而
+  \[ \beta = C^{-1}\alpha\text{是非零实列向量}, \beta=(b_1,b_2,\cdots,b_n)', \]
+  则
+  \[ f(a_1,a_2,\cdots,a_n)=b_1^2+b_2^2+\cdots+b_n^2 >0 \Longrightarrow f \text{正定}. \]
+
+  必要性:用反证法,设$p<n$,则
+  $\exists$非异线性变换$x=Cy$使得
+  \[ f=y_1^2+\cdots+y_p^2-y_{p+1}^2-\cdots-y_r^2(p \leq r). \]
+  令
+  \[b_1=\cdots=b_p=0, b_{p+1}=\cdots=b_n=1, \]
+  从而$\beta=(b_1,b_2,\cdots,b_n)$是非零实列向量,故
+  \[ \alpha = (a_1,a_2,\cdots,a_n)'=C\beta \neq 0 \text{是非零列向量} , \]
+  于是
+  \[ f(a_1,a_2,\cdots,a_n)=b_1^2+\cdots+b_p^2-b_{p+1}^2-\cdots-b_r^2 \leq 0, \]
+  这与$f$是正定型矛盾.
+
+  (2)(3)(4)(5)可类似证明.
+\end{proof}
+
+\begin{theorem}\label{thm:PN2}
+  设$A$为实对称阵, $\rank(A)=r$,则
+
+  (1) $A$正定阵 $\Leftrightarrow A$合同于$I_n$;
+
+  (2) $A$半正定阵 $\Longleftrightarrow A$合同于
+  $\left(\begin{smallmatrix}
+    I_r&O\\O&O
+  \end{smallmatrix}\right)$;
+
+(3) $A$负定阵 $\Longleftrightarrow A$合同于$-I_n$;
+
+(4) $A$半负定阵 $\Longleftrightarrow A$合同于
+  $\left(\begin{smallmatrix}
+    -I_r&O\\O&O
+  \end{smallmatrix}\right)$;
+
+(5) $A$不定阵 $\Longleftrightarrow A$合同于
+  $\left(\begin{smallmatrix}
+    I_p&&\\&-I_q&\\&&O
+  \end{smallmatrix}\right)$.
+\end{theorem}
+
+\begin{remark}
+  \begin{align*}
+    & f(A)  \text{负定} && \Longleftrightarrow && -f(-A) \text{正定};\\
+    & f(A)  \text{半负定} && \Longleftrightarrow && -f(-A) \text{半正定}.
+  \end{align*}
+\end{remark}
+
+\begin{theorem}\label{thm:PN3}
+  设$A$为$n$阶是对称阵,则
+  \[ A\text{正定} \Longleftrightarrow A \text{的$n$个顺序主子式全大于零}. \]
+\end{theorem}
+
+\begin{proof}
+  必要性:设$A=(a_{ij})$为正定阵,则
+  \[ f(x_1,\cdots,x_n)=x'Ax=\sum_{j=1}^n\sum_{i=1}^na_{ij}x_ix_j \]
+  为正定型,令
+  \[ f_k(x_1,\cdots,x_k) \xlongequal {\text{def}} f(x_1,\cdots,x_k,0,\cdots,0)
+    = \sum_{j=1}^k\sum_{i=1}^ka_{ij}x_ix_j
+  \]
+  $f_k$的相伴对称矩阵为$A_k$,对$\forall 0 \neq (C_1,C_2,\cdots,C_k)' in \mathbb{R}^k$,有
+  \[ f_k(C_1,C_2,\cdots,C_k)=f(C_1,\cdots,C_k,0,\cdots,0) > 0, \]
+  注意到$(C_1,C_2,\cdots,C_k,0,\cdots,0)'$为非零$n$维列向量,
+  由此可知
+  \[f_k\text{为正定型} \Longleftrightarrow A_k\text{为正定阵}(1\leq k \leq n).\]
+  由定理\ref{thm:PN2}(1)可知,存在非异阵$B_k \in M_k(\mathbb{R}) \st$
+  \begin{align*}
+    & B'_kA_kB_k=I_k \Longrightarrow 1 = |I_k|=|B'_kA_kB_k|=|B_k|^2\cdot|A_k|\\
+    \Longrightarrow & |A_k| > 0 (1 \leq k \leq n)
+  \end{align*}
+
+  充分性:设$A$的$n$个顺序主子式全大于零,
+  对$n$进行归纳.
+  当$n=1$时,$A=(a_{11}) \Longleftrightarrow f=a_{11}x_1^2$,
+  由$a_{11}>0$可知$f=a_{11}x_1^2$为正定型,即$A$为正定型.
+  设阶数$<n$时结论成立,现证$n$阶的情形.此时$A$可写成如下形式:
+  \begin{align*}
+    & A =
+    \begin{pmatrix}
+      A_{n-1}& \alpha\\
+      \alpha'&a_{nn}
+    \end{pmatrix} \xlongrightarrow {\text{第一分块行乘以$-\alpha'A_{n-1}^{-1}$加到第二分块行}}
+    \begin{pmatrix}
+      A_{n-1}& \alpha\\
+      O&a_{nn}-\alpha'A_{n-1}^{-1}\alpha
+    \end{pmatrix}\\
+    & \xlongrightarrow {\text{第一分块列乘以$-A_{n-1}^{-1}\alpha$加到第二分块列}}
+    \begin{pmatrix}
+      A_{n-1}&O\\
+      O&a_{nn}-\alpha'A_{n-1}^{-1}\alpha
+    \end{pmatrix}=B
+  \end{align*}
+  $A_{n-1}$的$n-1$个顺序主子式是$A$的前$n-1$个顺序主子式,
+  从而它们全大于零,由归纳假设可知$A_{n-1}$为正定阵.
+  上式是是合同变换,属于第三类分块对称初等变换,
+  所以不改变行列式的值.因此
+  \[ |A|=|A_{n-1}|\cdot(a_{nn}-\alpha'A_{n-1}^{-1}\alpha)=|B|. \]
+  上式中,
+  \[\because |A|>0, |A_{n-1}|>0, 
+    \therefore \alpha'A_{n-1}^{-1}\alpha>0. \]
+  因为$A_{n-1}$正定,故存在非异阵
+  $C_{n-1} \in M_{n-1}(\mathbb{R}) \st C'_{n-1}A_{n-1}C_{n-1}=I_{n-1}$,因此
+  \begin{align*}
+    & \begin{pmatrix}
+      C'_{n-1}&O\\
+      O&1
+    \end{pmatrix}\cdot B\cdot
+    \begin{pmatrix}
+      C_{n-1}&O\\
+      O&1
+    \end{pmatrix}=
+    \begin{pmatrix}
+      I_{n-1}&O\\
+      O&a_{nn}-\alpha'A_{n-1}^{-1}\alpha
+    \end{pmatrix}\\
+    & \Longrightarrow A \text{的正惯性指数}=n
+  \end{align*}
+  即$A$为正定阵.
+\end{proof}
+
+\begin{example}
+  试求$t$的取值范围,使下列二次型为正定型:
+  \[ f(x_1,x_2,x_3,x_4)=x_1^2+4x_2^2+4x_3^2+3x_4^2+2tx_1x_2-2x_1x_3+4x_2x_3. \]
+\end{example}
+
+\begin{solution}
+  该二次型的相伴矩阵为
+  \[ A =
+    \begin{pmatrix}
+      1&t&-1&0\\
+      t&4&2&0\\
+      -1&2&4&0\\
+      0&0&0&3
+    \end{pmatrix}. \]
+  $A$的顺序主子式为
+  \[ |A_1|=1>0,
+    |A_2|=
+    \begin{vmatrix}
+      1&t\\
+      t&4
+    \end{vmatrix}=4-t^2,
+  \]
+  \[ |A_3|=
+    \begin{vmatrix}
+      1&t&-1\\
+      t&4&2\\
+      -1&2&4
+    \end{vmatrix}=-4(t-1)(t+2),
+    |A_4|=-12(t-1)(t+2). \]
+  要使$A$正定,必须
+  \[ \begin{cases}
+    4-t^2>0\\
+    -4(t-1)(t+2)>0
+  \end{cases} \]
+  解得$-2<t<1$.
+\end{solution}
+
+\begin{deduction}\label{ddn:PN1}
+  设$A$为$n$阶正定实对称阵,则
+
+  (1) $A$的所有主子阵都是正定阵;
+
+  (2) $A$的所有主子式全大于零,特别地,主对角元素全大于零;
+
+  (3) $A$中之元素绝对值最大值只出现在主对角线上.
+\end{deduction}
+
+\begin{proof}
+  (1)取$A$中第$i_1,i_2,\cdots,i_k$行、列构成主子阵$B$,
+  设$A$对应的相伴二次型为
+  \[f(x_1,\cdots,x_n)=x'Ax, \]
+  令
+  \[ f_B(x_{i_1},x_{i_2},\cdots,x_{i_k}) \xlongequal {\text{def}}
+    f(0,\cdots,0,x_{i_1},0,\cdots,0,x_{i_2},0,\cdots,0,x_{i_k}). \]
+  由$f$正定$\Longrightarrow f_B$正定$\Longrightarrow$相伴矩阵$B$正定.
+
+  (2)是(1)的推论.
+
+  (3)用反证法:设绝对值最大的元素为$|a_{ij}|$,其中$i<j$.
+  考虑$2$阶主子式
+  \begin{equation}\label{eq:PN1}
+    A
+    \begin{pmatrix}
+      i&j\\
+      i&j
+    \end{pmatrix}=
+    \begin{vmatrix}
+      a_{ii}&a_{ij}\\
+      a_{ji}&a_{jj}
+    \end{vmatrix}=a_{ii}a_{jj}-a_{ij}^2,
+  \end{equation}
+  \[ \because |a_{ij}| \geq a_{ii}>0, |a_{ij}| \geq a_{jj}>0,
+    \therefore \text{\eqref{eq:PN1}式小于零.} \]
+  这和(2)矛盾.
+\end{proof}
+
+\begin{deduction}\label{ddn:PN2}
+  设$A$为$n$阶正定实对称阵,则$A$的特征值全大于零.
+\end{deduction}
+
+\begin{proof}
+  {\heiti 事实:}设
+  \[
+    \xi = (a_1,a_2,\cdots,a_n)'\neq 0 \in \mathbb{C}^n,
+  \]
+  则
+  \[
+    \overline{\xi'}\cdot\xi=(\overline{a_1},\overline{a_2},\cdots,\overline{a_n})
+      \begin{pmatrix}
+        a_1\\a_2\\\vdots\\a_n
+      \end{pmatrix}=\sum_{i=1}^n|a_i|^2 > 0.
+    \]
+    任取$A$的特征值$\lambda$,对应特征向量为$\xi$.
+    \[ A\text{正定} \Longrightarrow
+      \exists\text{非异阵}C \in M_n(\mathbb{R}) \st
+      A = C'I_nC = C'C. \]
+    \[ A\xi =\lambda_0\xi \Longrightarrow
+      \lambda_0\overline{\xi'}\xi = \overline{\xi'}A\xi = \overline{\xi'}C'C\xi
+      =\overline{(C\xi)'}(C\xi).
+    \]
+    \[
+      \xi \neq 0 \Longrightarrow \overline{\xi'}\xi >0,  
+      C\xi \neq 0 \Longrightarrow \overline{(C\xi)'}(C\xi) > 0
+      \Longrightarrow \lambda_0 = \overline{(C\xi)'}(C\xi)/\overline{\xi'}\xi > 0.
+     \]
+   \end{proof}
+
+   \begin{theorem}
+     设$A$为$n$阶实对称阵,则下列结论等价:
+
+     (1) $A$正定;
+
+     (2) $A$合同于$I_n$;
+
+     (3) $\exists$非异阵$C \in M_n(\mathbb{R}) \st A=C'C$;
+
+     (4) $A$的所有主子式全大于零;
+
+     (5) $A$的$n$个顺序主子式全大于零;
+
+     (6) $A$的特征值全大于零.
+   \end{theorem}
+
+   \begin{proof}
+     (1) $\xLongleftrightarrow {\text{定理\ref{thm:PN2}}}$ (2)
+     $\xLongleftrightarrow {\text{定义}}$ {3}
+
+     (1) $\xLongrightarrow {\text{推论\ref{ddn:PN1}}}$ (4)
+     $\Longrightarrow$ (5) $\xLongrightarrow {\text{定理\ref{thm:PN3}}}$ (1)
+
+     (1) $\xLongrightarrow {\text{推论\ref{ddn:PN2}}}$ (6) $\xLongrightarrow {\text{第九章讲}}$ (1)
+   \end{proof}
+
+\subsection{半正定型和半正定矩阵}
+
+\begin{theory}\label{thr:SP1}
+  设$A$是$n$阶实对称阵,则
+  \[ A\text{半正定} \Longleftrightarrow
+    \exists C \in M_n(\mathbb{R}) \st A=C'C. \]
+\end{theory}
+
+\begin{proof}
+  先证充分性:由定理\ref{thm:PN2}(2)可知,
+  \[ A\text{合同于}
+    \begin{pmatrix}
+      I_r&O\\
+      O&O
+    \end{pmatrix}, r=\rank(A), \]
+  即$\exists$非异阵$B \in M_n(\mathbb{R}) \st$
+  \[ A=B'
+    \begin{pmatrix}
+      I_r&O\\
+      O&O
+    \end{pmatrix}B. \]
+  令
+  \[ C=
+    \begin{pmatrix}
+      I_r&O\\
+      O&O
+    \end{pmatrix}B,
+  \]
+  则$A=C'C$.
+
+  再证必要性:设$A=C'C$,对$0 \neq \alpha \in \mathbb{R}^n$有
+  \[ \alpha'A\alpha = \alpha'C'C\alpha=(C\alpha)'(C\alpha). \]
+  设$C\alpha =
+  \begin{pmatrix}
+    a_1\\a_2\\\vdots\\a_n
+  \end{pmatrix} \in \mathbb{R}
+  $,则上式可写为:
+  \[ \alpha'A\alpha = a_1^2+a_2^2+\cdots+a_n^2 \geq 0. \]
+\end{proof}
+
+\begin{theory}\label{thr:SP2}
+  设$A$为$n$阶实对称阵,则
+  \[ A\text{半正定} \Longleftrightarrow
+  \forall t \in \mathbb{R}^+, A+tI_n\text{为正定阵}.\]
+\end{theory}
+
+\begin{proof}
+  先证充分性: $\forall 0 \neq \alpha \in \mathbb{R}^n$,有
+  \[ \alpha'(A+tI_n)\alpha = \alpha'A\alpha+t\alpha'\alpha. \]
+  \[
+    \because \alpha'A\alpha \geq 0, t\alpha'\alpha>0,
+    \therefore \alpha'(A+tI_n)\alpha > 0. \]
+
+  再证必要性: $\forall 0 \neq \alpha \in \mathbb{R}^n$,有
+  \[ \alpha'(A+tI_n)\alpha = \alpha'A\alpha + t\alpha'\alpha >0. \]
+  令$t \longrightarrow 0^+$,则$\alpha'A\alpha \geq 0$.
+\end{proof}
+
+\begin{example}
+  $A=\diag\{1,0,-1\}, |A_1|=1, |A_2|=|A_3|=0$,
+  不能推出$A$为半正定阵.
+\end{example}
+
+\begin{theory}\label{thr:SP3}
+  设$A$是$n$阶实对称阵,则
+  \[ A \text{半正定} \Longleftrightarrow
+    A \text{的所有主子式全大于或等于零}. \]
+\end{theory}
+
+\begin{proof}
+  先证充分性:令
+  \[ f(x_1,x_2,\cdots,x_n)=x'Ax,  \]
+  则$f$为半正定型.
+  取$A$第$i_1,\cdots,i_r$行,列交叉处的元素构成的主子阵$B$,
+  构造二次型:
+  \[ f_B(x_{i_1},\cdots,x_{i_r})=f(0,\cdots,0,x_{i_1},0,\cdots,0,x_{i_2},0,\cdots,0,x_{i_r}).
+  \]
+  \[
+    f\text{半正定} \Longrightarrow f_B\text{半正定} \Longleftrightarrow B\text{半正定}
+    \Longrightarrow A
+    \begin{pmatrix}
+      i_1&\cdots&i_r\\
+      i_1&\cdots&i_r
+    \end{pmatrix}=|B| \geq 0.
+  \]
+
+  再证必要性:
+  \[
+    |A+tI_n|=t^n+C_1t^{n-1}+\cdots+C_{n-1}t+C_n,
+  \]
+  其中$C_i$为$A$ 的所有$i$阶主子式之和,因此
+  \[
+    C_i \geq 0, \forall 1 \leq i \leq n \Longrightarrow
+    \forall t \in \mathbb{R}^+, |A+tI_n|>0.
+  \]
+  设$A_k$为$A$的顺序主子式$(1 \leq k \leq n)$,
+  可得$A_k$的所有主子式都大于或等于零,
+  重复上述计算,可得
+  \[
+    |A_k+tI_k|>0, \forall 1 \geq k \geq n,\forall t \in \mathbb{R}^+
+    \Longrightarrow A+tI_n\text{是正定阵}, \forall t \in \mathbb{R}^+
+    \xLongrightarrow {\text{引理\ref{thr:SP2}}} A\text{是半正定阵}.
+    \]
+  \end{proof}
+
+\begin{theory}\label{thr:SP4}
+  设$A$为$n$阶实对称阵,则
+  \[
+    A\text{半正定} \Longleftrightarrow A \text{的所有特征值全大于或等于零}.
+    \]
+\end{theory}
+
+\begin{proof}
+  设$A$的特征值为$\lambda_1,\lambda_2,\cdots,\lambda_n$.
+  \begin{align*}
+    A\text{半正定}  \xLongleftrightarrow {\text{引理\ref{thr:SP2}}} &
+    A+tI_n\text{正定},\forall t \in \mathbb{R}+\\
+                   \Longleftrightarrow &  \lambda_i+t>0, \forall 1\leq i \leq n, \forall t >0\\
+    \Longrightarrow & \lambda_i \geq 0, \forall 1 \geq i \geq n.
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+  设$A$为$n$阶实对称阵,则下列结论等价:
+
+  (1) $A$半正定;
+
+  (2) $A$合同于
+  $\begin{pmatrix}
+    I_r&O\\
+    O&O
+  \end{pmatrix}$;
+
+  (3) $\exists C \in M_n(\mathbb{R}) \st A=C'C$;
+
+  (4) $A$的所有主子式全部大于或等于零;
+
+  (5) $A$的所有特征值全大于或等于零.
+\end{theorem}
+
+\begin{property}
+  设$A=(a_{ij})$为半正定阵,若$a_{ii}=0$,则$A$的第$i$行和第$i$列元素全为零.
+\end{property}
+
+\begin{proof}
+  任取$a_{ij},a_{ji} (i\neq j)$所在的二阶主子式,即
+  \[
+    \begin{vmatrix}
+      a_{ii}&a_{ij}\\
+      a_{ji}&a_{jj}
+    \end{vmatrix} = -a_{ij}^2 \geq 0,
+  \]
+  上式中$A_{ii}=0$,从而$
+  \begin{cases}
+    a_{ij}=0\\
+    a_{ji}=0
+  \end{cases}
+  $
+\end{proof}
+
+\begin{property}
+  $A$为半正定阵,
+  $\alpha \in \mathbb{R}^n \st \alpha'A\alpha=0$,
+  则$A\alpha=0$.
+\end{property}
+
+\begin{proof}
+  $\exists C \in M_n(\mathbb{R}) \st A=C'C$,所以
+  \[
+    0 = \alpha'A\alpha = \alpha'C'C\alpha =(C\alpha)'(C\alpha)
+    \Longrightarrow C\alpha=0
+    \Longrightarrow A\alpha=C'C\alpha =C'(C\alpha)=0.
+    \]
+\end{proof}
+
+\subsection{Hermite型}
+二次型
+\[ f(x_1,x_2,\cdots,x_n)=d_1x_1^2+d_2x_2^2+\cdots+d_rx_r^2, \]
+其中$d_1,d_2,\cdots,d_r \in \mathbb{C}$,
+$x_1,x_2,\cdots,x_n$为复变元.
+则$\forall (a_1,a_2,\cdots,a_n)'\in \mathbb{C}^2$,
+\[ f(a_1,a_2,\cdots,a_n)=d_1a_1^2+d_2a_2^2+\cdots+d_ra_r^2 \in \mathbb{C}. \]
+
+做如下调整:
+
+(1)加限制性条件,使得$d_1,d_2,\cdots,d_r$为实数;
+
+(2)将$x_i^2$变为$|x_i|^2=\overline{x_i}x_i$.
+
+此时$f \in \mathbb{R}$,可写成如下形式:
+\[
+  f(x_1,x_2,\cdots,x_n)=d_1\overline{x_1}x_1+d_2\overline{x_2}x_2+\cdots+d_r\overline{x_r}x_r.
+\]
+调整后, $f$已经不是多项式了,不是二次型,而是Hermite型.
+
+\begin{definition}
+  下列$n$个复变元的二次齐次函数称为Hermite型:
+  \[
+    f(x_1,x_2,\cdots,x_n) = \sum_{j=1}^n\sum_{i=1}^na_{ij}\overline{x_i}x_j,
+  \]
+  其中$\overline{a_{ij}}=a_{ji} ( \forall 1 \leq i, j \leq n)$.
+  此时, $f$为复变元实值函数.
+\end{definition}
+
+\begin{theory}
+  定义从$\{n\text{阶Hermite阵}\}\longrightarrow \{n\text{元Hermite型}\}$
+  的映射$\varphi$:
+  \[
+    A \mapsto f=\overline{x'}Ax,
+  \]
+  求证:$\varphi$为一一映射.
+\end{theory}
+
+\begin{proof}
+  每个Hermite矩阵的各个元素都可写成一个Hermite型的对应项系数,
+  因此可知$\varphi$显然为满射.下证$\varphi$为单射:
+
+  设$A, B$为Hermite阵且
+  $\overline{x'}Ax=\overline{x'}Bx$,则
+  \begin{equation}\label{eq:Hermite1}
+    \overline{x'}(A-B)x=0.
+  \end{equation}
+  令$C=(c_{ij})=A-B$,
+  $x$可在复数域内取任意值\eqref{eq:Hermite1}式都成立,因此可令$x$分别取下列值:
+  \begin{align*}
+    & x=
+    \bordermatrix{
+      ~&1\cr
+         1&0\cr
+            ~&\vdots\cr
+               i&1\cr
+                  ~&\vdots\cr
+                     n&0} \Longrightarrow C_{ii}=0 (\forall i),
+    x=
+    \bordermatrix{
+      ~&1\cr
+         1&0\cr
+            ~&\vdots\cr
+               i&1\cr
+                  ~&\vdots\cr
+                     j&1\cr
+                        ~&\vdots\cr
+                           n&0} \Longrightarrow
+                              C_{ij}+C_{ji}=0 (\forall i,j),\\
+    & x=
+    \bordermatrix{
+      ~&1\cr
+         1&0\cr
+            ~&\vdots\cr
+               i&1\cr
+                  ~&\vdots\cr
+                     j&\sqrt{-1}\cr
+                        ~&\vdots\cr
+                           n&0} \Longrightarrow
+                              C_{ij}-C_{ji}=0 (\forall i,j).
+  \end{align*}
+  由以上可知, $A-B=C=0$,因此, $A=B$.
+\end{proof}
+
+\begin{theorem}
+  设$A$为Hermite阵,
+  则$\exists$非异阵$C \in \mathbb{C}^n \st \overline{C'}AC$为是对角阵.
+\end{theorem}
+
+\begin{proof}
+  共轭对称初等变换为负相合变换:
+  (1)对换第$i$行与第$j$行,对换第$i$列与第$j$列:
+  \[
+    P_{ij}AP_{ij}, \overline{P'_{ij}}=P_{ij};
+  \]
+
+  (2)第$i$行乘以非零复数$C$,第$i$列乘以$\overline{C}$:
+  \[
+    P_i(C)AP_i(\overline{C}), \overline{P_i(C)'}=P_i(\overline{C});
+  \]
+
+  (3)第$i$行乘以复数$C$加到第$j$行上,
+  再将第$i$列乘以$\overline{C}$加到第$j$列上:
+  \[
+    T_{ij}(C)AT_{ji}(\overline{C}), \overline{T_{ij}(C)'}=T_{ji}(\overline{C}).
+  \]
+
+  {\heiti 证明概要:} 令$A=(a_{ij})$.
+
+  (I)若$a_{11}\neq 0$, 则符合要求.
+
+  (II)若$a_{11}=0, a_{ii}\neq 0 (2\leq i \leq n)$,
+  则经过$P_{1i}AP_{1i}$之后,$a_{11}\neq 0$.
+
+  (III)若$a_{ii}=0(\forall 1 \leq i \leq n)$,任取$a_{ij}\neq 0(i<j)$.
+  \[
+    A=\bordermatrix{
+      ~&i&j\cr
+      i&0&a_{ij}\cr
+      j&\overline{a_{ij}}&0}
+    \xlongrightarrow [\text{第$j$行乘以$a_{ij}$再加到第$i$行上}]
+    {\text{第$j$列乘以$\overline{a_{ij}}$再加到第$i$列上}} \bordermatrix{
+      ~&i&j\cr
+      i&2|a_{ij}|^2&a_{ij}\cr
+      j&\overline{a_{ij}}&0}
+  \]
+  此时$a_{ii}$已不为零,再通过上述第(III)步调整,可使$a_{11}\neq 0$.
+  $A$可变为下列形式:
+  \[
+    A=
+    \begin{pmatrix}
+      a_{11}&a_{12}&\cdots&a_{1n}\\
+      a_{21}&&&\\
+      \vdots&&*&\\
+      a_{n1}&&&
+    \end{pmatrix}
+    \xlongrightarrow[\text{第$1$列分别乘以适当常数后加到第$2-n$列上}]{\text{第$1$行分别乘以适当常数后加到第$2-n$行上}}
+      \begin{pmatrix}
+        a_{11}&0&\cdots&0\\
+        0&&&\\
+        \vdots&&A_{n-1}&\\
+        0&&&
+      \end{pmatrix}
+    \]
+    上式中, $A_{n-1}$为$n-1$阶Hermite阵,
+    再用归纳法即可得证.
+\end{proof}
+
+\begin{theorem}[惯性定理]
+  设$f(x_1,x_2,\cdots,x_n)$是一个Hermite型,则它总可化为如下标准型:
+  \[
+    \overline{y_1}y_1+\cdots+\overline{y_p}y_p-
+    \overline{y_{p+1}}y_{p+1}-\cdots-\overline{y_r}y_r,
+  \]
+  且若$f$又可化为另一个标准型:
+  \[
+    \overline{z_1}z_1+\cdots+\overline{z_k}z_k-
+    \overline{z_{k+1}}z_{k+1}-\cdots-\overline{z_r}z_r,
+  \]
+  则$p=k$.
+\end{theorem}
+
+\begin{theorem}
+  秩$r$与符号差$s$(或正负惯性指数p,q)是Hermite型(阵)在复相合关系下的全系不变量.
+\end{theorem}
+
+\begin{definition}
+  $f(x_1,\cdots,x_n)=\overline{x'}Ax$是hermite型,
+  其相伴Hermite矩阵为$A$, $\forall 0 \neq \alpha, \beta \in \mathbb{C}^n$,
+  则有如下定义和结论:
+  \begin{align*}
+    &\overline{\alpha'}A\alpha & f &&A\\
+    &>0&\text{正定}&&\text{正定}\\
+    &\geq 0&\text{半正定}&&\text{半正定}\\
+    &<0&\text{负定}&&\text{负定}\\
+    &\leq 0&\text{半负定}&&\text{半负定}\\
+    &\overline{\alpha'}A\alpha>0, \overline{\beta'}A\beta<0 & \text{不定型} && \text{不定型}
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  \begin{align*}
+    & (1) f\text{正定} &\Longleftrightarrow && p=n && A\text{正定} & \xLongleftrightarrow{\text{复相合于}} I_n;\\
+    & (2) f\text{半正定}& \Longleftrightarrow && p=r && A\text{半正定} & \xLongleftrightarrow{\text{复相合于}}
+                                                       \begin{pmatrix}
+                                                         I_r&O\\
+                                                         O&O
+                                                       \end{pmatrix};\\
+    & (3) f\text{负定} &\Longleftrightarrow && q=n && A\text{负定} & \xLongleftrightarrow{\text{复相合于}} -I_n;\\
+    & (4) f\text{半负定} &\Longleftrightarrow && q=r && A\text{半负定} & \xLongleftrightarrow{\text{复相合于}}
+                                                       \begin{pmatrix}
+                                                         -I_r&O\\
+                                                         O&O
+                                                       \end{pmatrix};\\
+    & (5) f\text{不定} &\Longleftrightarrow && p>0\text{且}q>0 && A\text{不定} & \xLongleftrightarrow{\text{复相合于}}
+                                                                 \begin{pmatrix}
+                                                                   I_p&&\\
+                                                                   &-I_q&\\
+                                                                          &&O
+                                                                 \end{pmatrix}.
+  \end{align*}
+\end{theorem}
+
+\begin{remark}
+  \[
+    f(A)\text{负定(半负定)} \Longleftrightarrow -f(-A)\text{正定(半正定)}.
+    \]
+\end{remark}
+
+\begin{theorem}
+  设$A$为Hermite阵,则下列结论等价:
+
+  (1) $A$正定;
+
+  (2) $A$复相合于$I_n$;
+
+  (3) $\exists$非异阵$C \in M_n(\mathbb{C}) \st A=\overline{C'}C$;
+
+  (4) $A$的所有主子式全大于零;
+
+  (5) $A$的$n$个顺序主子式全大于零;
+
+  (6) $A$的特征值全大于零.
+\end{theorem}
+
+\begin{theorem}
+  设$A$为Hermite阵,则下列结论等价:
+
+  (1) $A$半正定;
+
+  (2) $A$复相合于$
+  \begin{pmatrix}
+    I_r&O\\
+    O&O
+  \end{pmatrix}
+  $;
+
+  (3) $\exists C \in M_n(\mathbb{C}) \st A=\overline{C'}C$;
+
+  (4) $A$的所有主子式全大于或等于零;
+
+  (5) $A$的特征值全大于或等于零.
+\end{theorem}
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../main"
+%%% End:

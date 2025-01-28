@@ -13,6 +13,7 @@
     "theory"
     "question"
     "application"
+    "property"
     "solution"
     "notice"
     "generalize"))
