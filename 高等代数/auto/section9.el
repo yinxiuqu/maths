@@ -21,6 +21,8 @@
     "thm:isomorphism"
     "eq:isomorphism5"
     "eq:isomorphism6"
-    "thm:orthogonal2"))
+    "thm:orthogonal2"
+    "eq:isomorphism7"
+    "eq:isomorphism8"))
  :latex)
 

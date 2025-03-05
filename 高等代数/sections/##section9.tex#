@@ -197,7 +197,6 @@
   \end{align*}
 \end{proof}
 
-
 \begin{example}
   $V=C[a,b]$,是$[a,b]$上连续函数全体构成的实线性空间,
   $f(x),g(x) \in V$,定义
@@ -960,15 +959,15 @@ $\psi \in \mathscr{L}(V) \xlongleftrightarrow {\text{表示矩阵}} A'$.
 \end{proof}
 
 \begin{theorem}
-  设$V$为$n$维内积空间,$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$
-  是$V$的一组标准正交基,$\varphi\in \mathscr{L}(V)$的表示矩阵为$A$,
-%   则$\varphi$的伴随算子$\varphi^*$的表示矩阵为:
-%   \[
-%   \begin{cases}
-%     \text{酉空间}\quad & \overline{A}',\\
-%     \text{欧氏空间}\quad & A'.
-%   \end{cases}
-%   \]
+  设$V$为$n$维内积空间,$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}
+  是V$的一组标准正交基,$\varphi\in \mathscr{L}(V)$的表示矩阵为$A$,
+  则$\varphi$的伴随算子$\varphi^*$的表示矩阵为:
+  \[
+  \begin{cases}
+    \text{酉空间}\quad & \overline{A}',\\
+    \text{欧氏空间}\quad & A'.
+  \end{cases}
+  \]
 \end{theorem}
 
 \begin{theorem}\label{thm:accompany}
@@ -1259,7 +1258,7 @@ $V$的一组标准正交基,则
       \end{align*}
       则
       \[
-        \varphi(\bm{\alpha}) = \sum a_i\varphi(\bm{e}_i),
+        \varphi(\bm{\alpha}) = \sum a_i\varphi(\bm{{e}_i}),
         \varphi(\bm{\beta}) = \sum b_i\varphi(\bm{e}_i).
       \]
       \begin{align}
@@ -1529,6 +1528,8 @@ A=QR.
 
 \subsection{自伴随算子}
 
+
+\end{document}
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "../main"

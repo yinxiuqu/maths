@@ -47,3 +47,12 @@
 \contentsline {subsection}{\numberline {8.4}正定型与正定矩阵}{69}{subsection.8.4}%
 \contentsline {subsection}{\numberline {8.5}半正定型和半正定矩阵}{73}{subsection.8.5}%
 \contentsline {subsection}{\numberline {8.6}Hermite型}{75}{subsection.8.6}%
+\contentsline {section}{\numberline {9}内积空间}{80}{section.9}%
+\contentsline {subsection}{\numberline {9.1}内积空间的概念}{80}{subsection.9.1}%
+\contentsline {subparagraph}{\color {ecolor}$\mathbb {R}^3$ 中向量内积的性质}{80}{subsection.9.1}%
+\contentsline {subparagraph}{\color {ecolor}范数的性质:}{83}{example.9.9}%
+\contentsline {subsection}{\numberline {9.2}内积的表示和正交基}{85}{subsection.9.2}%
+\contentsline {subparagraph}{\color {ecolor}投影变换的性质}{93}{definition.9.9}%
+\contentsline {subsection}{\numberline {9.3}伴随}{94}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}内积空间的同构，正交变换和酉变换}{97}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}自伴随算子}{103}{subsection.9.5}%
