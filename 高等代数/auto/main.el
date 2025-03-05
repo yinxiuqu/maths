@@ -15,8 +15,7 @@
     "./sections/section5"
     "./sections/section6"
     "./sections/section7"
-    "./sections/section8")
-   (LaTeX-add-environments
-    '("proof" LaTeX-env-args ["argument"] 0)))
+    "./sections/section8"
+    "./sections/section9"))
  :latex)
 

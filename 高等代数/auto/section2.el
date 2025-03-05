@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (TeX-add-style-hook
  "section2"
  (lambda ()
@@ -10,8 +12,6 @@
     "eq:1"
     "eq:2"
     "eq:3"
-    "eq:4")
-   (LaTeX-add-environments
-    '("proof" LaTeX-env-args ["argument"] 0)))
+    "eq:4"))
  :latex)
 
