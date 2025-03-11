@@ -43,7 +43,7 @@
     \end{aligned}\right\}\text{\color{red}第一变元的线性}\\
     & (4) (\bm{\alpha},\bm{\alpha})\geq0\text{且等号成立当且仅当}\bm{\alpha}=0.\text{\color{red}正定性}
   \end{align*}
-  则称$(-,-)$为$V$上的一个内积,$(\bm{\alpha},\bm{\beta})$称为向量$\bm{\alpha},\bm{\beta}$的内积.
+  则称$(-,-)$为$V$上的一个内积, $(\bm{\alpha},\bm{\beta})$称为向量$\bm{\alpha},\bm{\beta}$的内积.
   给定一个内积结构的实线性空间称为实内积空间.有限维的内积空间称为Euclid空间(欧氏空间).
 \end{definition}
 
@@ -61,7 +61,7 @@
     \end{aligned}\right\}\text{\color{red}第一变元的线性}\\
     & (4) (\bm{\alpha},\bm{\alpha})\geq0\text{且等号成立当且仅当}\bm{\alpha}=0.\text{\color{red}正定性}
   \end{align*}
-  则称$(-,-)$为$V$上的一个内积,$(\bm{\alpha},\bm{\beta})$称为向量$\bm{\alpha},\bm{\beta}$的内积.
+  则称$(-,-)$为$V$上的一个内积, $(\bm{\alpha},\bm{\beta})$称为向量$\bm{\alpha},\bm{\beta}$的内积.
   给定一个内积结构的复线性空间称为复内积空间.有限维的复内积空间称为酉空间.
 \end{definition}
 
@@ -237,7 +237,7 @@
 \end{proof}
 
 \begin{definition}
-  设$V$是一个内积空间,$\bm{\alpha}\in V$,
+  设$V$是一个内积空间, $\bm{\alpha}\in V$,
   $\bm{\alpha}$的长度(范数)为
   \[ \Vert\bm{\alpha}\Vert = (\bm{\alpha}, \bm{\alpha})^{\frac{1}{2}}, \]
   \[ \mathrm{d}(\bm{\alpha},\bm{\beta}) = \Vert\bm{\alpha}-\bm{\alpha}\Vert. \]
@@ -327,7 +327,7 @@
 \end{proof}
 
 \begin{example}
-  $V=\mathbb{R}_n$,标准内积,$x_i,y_i \in \mathbb{R}$, 
+  $V=\mathbb{R}_n$,标准内积, $x_i,y_i \in \mathbb{R}$, 
   Cauchy不等式:
   \[ (x_1y_1+x_2y_2+\cdots+x_ny_n)^2 \leq
     (x_1^2+x_2^2+\cdots+x_n^2)(y_1^2+y_2^2+\cdots+y_n^2).\]
@@ -376,7 +376,7 @@
 
 \subsection{内积的表示和正交基}
 
-设$V$是内积空间,$\{\bm{e}_1, \bm{e}_2, \dots, \bm{e}_n\}$是$V$的一组基.
+设$V$是内积空间, $\{\bm{e}_1, \bm{e}_2, \dots, \bm{e}_n\}$是$V$的一组基.
 令$g_{ij}=(\bm{e}_i,\bm{e}_j), G=(g_{ij})_{n\times n}$.取
 \[
   \bm{\alpha} = \sum_{i=1}^n a_i\bm{e}_i \longleftrightarrow \bm{x}= \begin{pmatrix}a_1\\a_2\\\vdots\\a_n\end{pmatrix},
@@ -406,14 +406,14 @@ g_{ij} = (\bm{e}_i,\bm{e}_j) = (\bm{e}_j,\bm{e}_i) = g_{ji}
 \mathbb{R}^n \ni \forall \bm{x} \neq \bm{0}(\Longleftrightarrow V \ni \forall \bm{\alpha} \neq \bm{0}) 
 \Longrightarrow G\text{是正定阵}.
 \]
-反之,设$V$是实线性空间,$\{e_1,e_2,\cdots,e_n\}$是给定的一组基, $G$为$n$阶正定实对称阵,
+反之,设$V$是实线性空间, $\{e_1,e_2,\cdots,e_n\}$是给定的一组基, $G$为$n$阶正定实对称阵,
 $\forall \bm{\alpha} \longleftrightarrow \bm{x}, \bm{\beta} \longleftrightarrow \bm{y}$,
 则$V$上的内积
 \[
 (\bm{\alpha},\bm{\beta})_G \triangleq \bm{\alpha}'G\bm{\beta}
 \Longrightarrow (-,-)_G\text{是$V$上一个内积}.
 \]
-设$V$是实线性空间,$\{e_1,e_2,\cdots,e_n\}$是给定的一组基,
+设$V$是实线性空间, $\{e_1,e_2,\cdots,e_n\}$是给定的一组基,
 \begin{align*}
 \{V\text{上所有内积结构}\} & \xlongrightarrow {\text{一一对应}} \{n\text{阶正定实对称矩阵}\}\\
 \varphi: (-,-) & \longmapsto G=(\bm{e}_i,\bm{e}_j)_{n\times n}\\
@@ -443,7 +443,7 @@ Case 2: $V$是酉空间:
 \[
 (\bm{\alpha},\bm{\beta})_G \triangleq \bm{\alpha}'G\overline{\bm{\beta}}.
 \]
-设$V$是复线性空间,$\{e_1,e_2,\cdots,e_n\}$是给定的一组基,
+设$V$是复线性空间, $\{e_1,e_2,\cdots,e_n\}$是给定的一组基,
 \begin{align*}
 \{V\text{上所有内积结构}\} & \xlongrightarrow {\text{一一对应}} \{n\text{阶正定Hermite矩阵}\}\\
 \varphi: (-,-) & \longmapsto G=(\bm{e}_i,\bm{e}_j)_{n\times n}\\
@@ -458,7 +458,7 @@ Case 2: $V$是酉空间:
 \end{question}
 
 \begin{definition}
-  设$V$是$n$维内积空间,$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$是$V$的一组基,
+  设$V$是$n$维内积空间, $\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$是$V$的一组基,
   若$(\bm{e}_i,\bm{e}_j) = 0, \forall i\neq j$,则称$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$是$V$的一组正交基.进一步,若$\Vert\bm{e}_i\Vert=1, \forall i=1,2,\cdots,n$,则称$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$是$V$的一组标准正交基.
 \end{definition}
 
@@ -692,7 +692,7 @@ $V=M_n(\mathbb{R})$,Frobenius内积, $E_{ij}$为$n$阶标准基矩阵,其$(i,j)$
   \end{solution}
 
 \begin{theory}\label{thr:gram-matrix}
-  设$V$是$n$维内积空间,$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}, 
+  设$V$是$n$维内积空间, $\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}, 
   \{\bm{f}_1,\bm{f}_2,\cdots,\bm{f}_n\}$是$V$的两组基,
   过度矩阵为$C$,即
   \[
@@ -746,7 +746,7 @@ U^{\perp} = \{\bm{v}\in V \vert (\bm{v},\bm{u})=0, \forall \bm{u}\in U\}
 \end{definition}
 
 \begin{theorem}
-  设$V$是$n$维内积空间,$U$是$V$的子空间,
+  设$V$是$n$维内积空间, $U$是$V$的子空间,
   \begin{asparaenum}[(1)]
   \item $ V = U \oplus U^{\perp}$;
   \item $U$的标准正交基可扩充为$V$的标准正交基.
@@ -755,7 +755,7 @@ U^{\perp} = \{\bm{v}\in V \vert (\bm{v},\bm{u})=0, \forall \bm{u}\in U\}
 
 \begin{proof}
   (1)设$\dim U=m$,将$V$上内积限制在$U$上,则$U$是$m$维内积空间,
-  由定理\ref{thr:gram-matrix}可知,$U$有一组标准正交基$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_m\}$,
+  由定理\ref{thr:gram-matrix}可知, $U$有一组标准正交基$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_m\}$,
   令
   \[
   w=v-\sum_{i=1}^m(\bm{v},\bm{e}_i)\bm{e}_i, \forall \bm{v}\in V,
@@ -779,7 +779,7 @@ U^{\perp} = \{\bm{v}\in V \vert (\bm{v},\bm{u})=0, \forall \bm{u}\in U\}
 \end{proof}
 
 \begin{definition}
-  设$V$是$n$维内积空间,$V_1,\cdots,V_m$是$V$的子空间,
+  设$V$是$n$维内积空间, $V_1,\cdots,V_m$是$V$的子空间,
   若对$\forall \bm{\alpha}\in V_i,\forall \bm{\beta}\in V_j$,有$(\bm{\alpha},\bm{\beta})=0$, 
   则称$V_1$与$V_2$正交.若$V=V_1+V_2+\cdots+V_m$且
   $V_i$两两正交,则称上述和为正交和,
@@ -844,7 +844,7 @@ $E(\bm{\alpha})=\bm{u}_1, E(\bm{\beta})=\bm{u}_2$,
 \end{proof}
 
 \begin{theorem}[Bessel不等式]
-  设$V$是内积空间,$\bm{\bm{v}_1},\bm{v}_2,\cdots,\bm{v}_m$是$V$中
+  设$V$是内积空间, $\bm{\bm{v}_1},\bm{v}_2,\cdots,\bm{v}_m$是$V$中
   两两正交的非零向量组,则$\forall \bm{y}\in V$,有
   \[
   \sum_{i=1}^m\frac{|(\bm{y},\bm{v}_i)|^2}{\Vert\bm{v}_i\Vert^2} \leq \Vert\bm{y}\Vert^2. 
@@ -883,7 +883,7 @@ $\{ \bm{v}_1,\bm{v}_2,\cdots,\bm{v}_m,\cdots\}$为一列两两正交的非零向
 
 线性变换又称为线性算子, operator.
 
-设$V$是$n$维内积空间,$\mathscr{L}(V)$是$V$上的线性变换全体,
+设$V$是$n$维内积空间, $\mathscr{L}(V)$是$V$上的线性变换全体,
 $\{ \bm{e}_1,\cdots,\bm{e}_n \}$是$V$的一组标准正交基,
 $\varphi\in \mathscr{L}(V)$是线性算子.任取$\bm{\alpha},\bm{\beta}\in V$,
 $\bm{x},\bm{y}\in \mathbb{R}^n$,分别是$\bm{\alpha},\bm{\beta}$在$\{ \bm{e}_1,\cdots,\bm{e}_n \}$下的坐标向量,则
@@ -960,8 +960,8 @@ $\psi \in \mathscr{L}(V) \xlongleftrightarrow {\text{表示矩阵}} A'$.
 \end{proof}
 
 \begin{theorem}
-  设$V$为$n$维内积空间,$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$
-  是$V$的一组标准正交基,$\varphi\in \mathscr{L}(V)$的表示矩阵为$A$,
+  设$V$为$n$维内积空间, $\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$
+  是$V$的一组标准正交基, $\varphi\in \mathscr{L}(V)$的表示矩阵为$A$,
 %   则$\varphi$的伴随算子$\varphi^*$的表示矩阵为:
 %   \[
 %   \begin{cases}
@@ -972,7 +972,7 @@ $\psi \in \mathscr{L}(V) \xlongleftrightarrow {\text{表示矩阵}} A'$.
 \end{theorem}
 
 \begin{theorem}\label{thm:accompany}
-设$V$为内积空间,$\varphi,\psi \in \mathscr{L}$且
+设$V$为内积空间, $\varphi,\psi \in \mathscr{L}$且
 $\varphi^*,\psi^*$存在, $c$为常数,则
 \begin{asparaenum}[(1)]
 \item $(\varphi+\psi)^* = \varphi^*+\psi^*$;
@@ -1009,7 +1009,7 @@ $V$的一组标准正交基,则
 \end{asparaenum}
 \end{proof}
 
-\begin{question}
+\begin{question}\label{qus:accompany}
   设$V$是$n$维内积空间, $\varphi\in \mathscr{L}(V)$,
 
   (1) 若$U$是$\varphi-$不变子空间,则$U^{\perp}$是$\varphi^*-$不变子空间;
@@ -1361,7 +1361,7 @@ $V$的一组标准正交基,则
 
   $\varphi$为正交算子(酉算子),由定理\ref{thm:orthogonal2}可知,
   $\varphi$可逆且$\varphi^*=\varphi^{-1}$.由线性变换及其表示矩阵
-  之间的一一对应性可知,$\varphi^*$与$\varphi^{-1}$
+  之间的一一对应性可知, $\varphi^*$与$\varphi^{-1}$
   在同一组标准正交基下有相同的表示矩阵,即
   \[\begin{cases}
     A' = A^{-1} \text{(即$A$为正交矩阵)}\quad & V\text{为欧氏空间时},\\
@@ -1391,7 +1391,7 @@ $V$的一组标准正交基,则
     \[
       a_{ij}=\bm{\alpha}_i\cdot\bm{\alpha}'_j=(\bm{\alpha}_i,\bm{\alpha}_j)_{\mathbb{R}_n}=\delta_{ij}
     \]
-    上式中,$a_{ij}$即$A$的第$(i,j)$元素.
+    上式中, $a_{ij}$即$A$的第$(i,j)$元素.
 
     (3) 设$A=(\bm{\beta}_1,\bm{\beta}_2,\cdots,\bm{\beta}_n)$,
     其中, $\bm{\beta}_i$是$A$的列分块向量.依题意,
@@ -1480,7 +1480,7 @@ $V$的一组标准正交基,则
   \begin{equation*}
     A = QR
   \end{equation*}
-  其中$Q$为正交阵(酉阵),$R$为上三角阵且
+  其中$Q$为正交阵(酉阵), $R$为上三角阵且
   主对角元素全大于等于$0$.进一步,若
   $A$非异,则上述分解必唯一.
 \end{theorem}
@@ -1529,6 +1529,1185 @@ A=QR.
 
 \subsection{自伴随算子}
 
+\begin{theory}\label{thy:Self-accompanied1}
+  内积空间$V$中两组标准正交基之间的过渡矩阵
+  为正交阵(欧氏空间)或酉阵(酉空间).
+\end{theory}
+
+\begin{proof}
+  取欧氏空间$V$的两组标准正交基$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$和
+  $\{\bm{f}_1,\bm{f}_2,\cdots,\bm{f}_n\}$,设过渡矩阵为$P=(a_{ij})_{n\times n}$,
+  即
+  \[
+  (\bm{f}_1,\bm{f}_2,\cdots,\bm{f}_n)=(\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n)P.
+  \]
+  则
+  \[
+  \bm{f}_j=\sum_{i=1}^{n}a_{ij}\bm{e}_i, 
+  \bm{f}_k=\sum_{i=1}^{n}a_{ik}\bm{e}_i, j,k=1,2,\cdots,n.
+  \]
+  \begin{align*}
+    \delta_{jk} &= (\bm{f}_j,\bm{f}_k)=
+    (\sum_{i=1}^{n}a_{ij}\bm{e}_i,\sum_{i=1}^{n}a_{ik}\bm{e}_i)\\
+    &=\sum_{i=1}^{n}a_{ij}a_{ik}
+  \end{align*}
+  即$P$的$n$个列分块向量是$\mathbb{R}^n$(标准内积)的一组标准正交基,
+  因此$P$为正交阵.同理可证酉空间时的结论,只需把上式中的$a_{ik}$加共轭即可.
+\end{proof}
+
+\begin{notice}
+  线性算子$\varphi\in\mathscr{L}(V)$在不同基下表示阵的相似关系:
+  \begin{align*}
+    \{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\} & \xlongrightarrow{\text{表示阵}} A\\  
+    \{\bm{f}_1,\bm{f}_2,\cdots,\bm{f}_n\} & \xlongrightarrow{\text{表示阵}} B
+  \end{align*}
+  则$A$与$B$相似,即存在可逆阵$P$,使得
+  \begin{equation*}
+    B = P^{-1}AP=\begin{cases}
+      P'AP \qquad V\text{为欧氏空间}\\
+      \overline{P}'AP \qquad V\text{为酉空间}
+    \end{cases}
+  \end{equation*}
+\end{notice}
+
+\begin{definition}
+  设$A, B \in \mathbb{R}_n$, 若存在正交阵$P$,使得
+  $B=P'AP$,则称$A$与$B$正交相似.
+
+  设$A, B \in \mathbb{C}_n$, 若存在酉阵$P$,使得
+  $B=\overline{P}'AP$,则称$A$与$B$酉相似.
+\end{definition}
+
+\begin{notice}
+  正交相似与酉相似是等价关系.
+
+  (1) 自反性: $A$与$A$正交相似,取$P=I_n$即可:
+  \[
+    A=I_n'A'I_n.
+  \]
+
+  (2) 对称性: $A$与$B$正交相似,则$B$与$A$正交相似,取$P=P^{-1}$即可:
+   \[
+   B=P'AP \Longrightarrow A=(P^{-1})'BP^{-1}.
+   \]
+
+  (3) 传递性: $A$与$B$正交相似, $B$与$C$正交相似,则$A$与$C$正交相似:
+  \begin{align*}
+  & B = P'AP, C = Q'BQ\\
+  \Longrightarrow & C = (PQ)'A(PQ).
+  \end{align*}
+\end{notice}
+
+\begin{definition}
+  设$\varphi$是内积空间$V$上的线性算子,若
+  $\varphi^* = \varphi$,则称$\varphi$为自伴随算子.
+  欧氏空间上的自伴随算子称为对称算子,
+  酉空间上的自伴随算子称为Hermite算子.
+\end{definition}
+
+\begin{example}
+  $V$是$n$维内积空间, $U$为其子空间,
+  $V=U\oplus U^{\perp}$.设$E$为
+  $V$到$U$的正交投影算子,则
+  $\forall \bm{\alpha}, \bm{\beta}\in V$,有
+  \begin{align*}
+  & (E(\bm{\alpha}),\bm{\beta}) = (\bm{\alpha},E(\bm{\beta}))\\
+  \Longrightarrow & E^* = E
+  \end{align*}
+因此, $E$是自伴随算子.
+\end{example}
+
+\begin{deduction}\label{ddn:Self-accompanied1}
+  设$\varphi$是$n$维内积空间上的线性算子,则
+  \[
+  \varphi\text{是自伴随算子} \Longleftrightarrow \varphi
+  \text{在某(任)一组标准正交基下表示阵为}
+  \begin{cases}
+    \text{实对称阵} \qquad &V\text{为欧氏空间}\\
+    \text{Hermite阵} \qquad &V\text{为酉空间}
+  \end{cases}
+  \]
+\end{deduction}
+
+\begin{proof}
+  任取一组标准正交基$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$,
+  设$\varphi$在该基下的表示阵为$A$,
+  则$\varphi^*$在该基下的表示阵为$A'(\overline{A}')$.
+  \[
+  \varphi\text{是自伴随算子,即}\varphi = \varphi^* \xLongleftrightarrow 
+  {\text{代数与几何的一一对应}} \varphi, \varphi^*\text{在某(任)一组标准正交基下
+  的表示阵相等},
+  \]
+即
+\[
+\begin{cases}
+  A = A' \qquad &V\text{为欧氏空间}\\
+  A = \overline{A}' \qquad &V\text{为酉空间}
+\end{cases}
+\]
+\end{proof}
+
+\begin{question}
+  设$\varphi$是酉空间$V$上的自伴随算子,
+  则$\varphi$的所有特征值都是实数且属于不同
+  特征值的特征向量是正交的.
+\end{question}
+
+\begin{proof}
+  任取$\varphi$的特征值$\lambda$,特征向量为$\bm{\alpha}$,
+  则$\varphi(\bm{v})=\lambda\bm{\alpha}$,即
+  \begin{align*}
+  \lambda(\bm{\alpha},\bm{\alpha}) & = (\lambda\bm{\alpha},\bm{\alpha}) = 
+  (\varphi(\bm{\alpha}),\bm{\alpha}) = (\bm{\alpha},\varphi^*(\bm{\alpha}))\\
+  & = (\bm{\alpha},\varphi(\bm{\alpha})) = (\bm{\alpha},\lambda\bm{\alpha}) =
+  \overline{\lambda}(\bm{\alpha},\bm{\alpha})\\
+  \Longrightarrow & \lambda = \overline{\lambda}
+  \end{align*}
+  即$\lambda$是实数.
+
+  任取不同特征值$\mu$,特征向量$\bm{\beta}$,
+  则
+  \begin{align*}
+    \lambda(\bm{\alpha},\bm{\beta}) & = (\lambda\bm{\alpha},\bm{\beta}) =
+    (\varphi(\bm{\alpha}),\bm{\beta}) = (\bm{\alpha},\varphi*(\bm{\beta}))\\
+    & = (\bm{\alpha},\varphi(\bm{\beta})) = (\bm{\alpha},\mu\bm{\beta}) =
+    \mu(\bm{\alpha},\bm{\beta})
+  \end{align*}
+  但$\lambda \neq \mu$,故$(\bm{\alpha},\bm{\beta})=0$.
+\end{proof}
+
+\begin{deduction}\label{ddn:Self-accompanied2}
+  Hermite阵的所有特征值都是实数,且属于不同特征值的特征向量相互正交.
+
+  任一实对称阵都是Hermite阵,从而上述结论对实对称阵也成立.
+\end{deduction}
+
+\begin{deduction}\label{ddn:Self-accompanied3}
+  设$\varphi$为欧氏空间上的自伴随算子,则
+  $\varphi$的特征值都是实数且属于不同特征值的
+  特征向量相互正交.
+\end{deduction}
+
+\begin{proof}
+  任一标准正交基下, $\varphi$的表示矩阵为$A$,
+  由推论\ref{ddn:Self-accompanied1}可知, $A$为实对称阵,
+  又由推论\ref{ddn:Self-accompanied2}可知, $A$的特征值都是实数,
+  $A$的特征值全为实数,存在实特征向量,且不同特征值的特征向量相互正交.
+  根据几何和代数的一一对应性,可得结论.
+\end{proof}
+
+\begin{theorem}\label{thm:Self-accompanied1}
+  设$\varphi$为$n$维内积空间$V$上的自伴随算子,
+  则存在标准正交基$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$使得 
+  $\varphi$在该基下的表示阵为实对角阵.  
+\end{theorem}
+
+\begin{proof}
+  取$\varphi$的一个特征值$\lambda$,且对应的特征向量为$\bm{\alpha}\in V$,
+  令$\bm{e}_1=\dfrac{\bm{\alpha}}{\|\bm{\alpha}\|}$,
+  则$\bm{e}_1$是$\varphi$的单位特征向量,
+  下面对维数$n$进行归纳证明.
+
+  $n=1$时显然成立.
+  
+  假设$\dim V=n-1$时结论成立,下面证明$\dim V=n$时结论也成立.
+
+  令$U=L(\bm{e}_1)^{\perp}$,则$\dim U=n-1$,
+  根据命题\ref{qus:accompany}可得:
+  \[
+     L(\bm{e}_1)\text{是}\varphi-\text{不变子空间} \Longrightarrow 
+     U\text{是}\varphi^*-\text{不变子空间} \Longrightarrow 
+     U\text{是}\varphi-\text{不变子空间}.
+  \]
+  作限制算子$\varphi|_U:U\rightarrow U$,则
+  $\forall \bm{u},\bm{v}\in U \subseteq V$,有
+  \[
+  (\varphi(\bm{u}),\bm{v}) = (\bm{u},\varphi^*(\bm{v})) 
+  = (\bm{u},\varphi(\bm{v})) \Longleftrightarrow 
+  (\varphi|_U(\bm{u}),\bm{v}) = (\bm{u},\varphi|_U(\bm{v})).
+  \]
+由此可推出$\varphi|_U$是自伴随算子.
+由归纳假设,存在$U$标准正交基$\{\bm{e}_2,\cdots,\bm{e}_n\}$使得 
+$\varphi|_U$在该基下的表示阵为实对角阵
+$\diag \{\lambda_2,\cdots, \lambda_n\}$.
+从而
+\[
+V=L(\bm{e}_1)\oplus U,
+\]
+由此可得, $\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$是$V$标准正交基,
+且$\varphi$在该基下的表示阵为
+\[
+\diag \{\lambda,\lambda_2,\cdots, \lambda_n\}.
+\]
+\end{proof}
+
+\begin{theorem}\label{thm:Self-accompanied2}
+  设$A$为$n$阶实对称阵(或Hermite阵),则存在正交阵(或酉阵)$P$使得
+  $P'AP$(或$\overline{P}'AP$)为实对角阵.
+\end{theorem}
+
+\begin{proof}
+  构造$A$对应的线性算子:
+  \begin{align*}
+    \varphi: & \mathbb{R}^n \longrightarrow \mathbb{R}^n(\text{标准内积})\\
+    & \bm{\alpha} \longmapsto A\bm{\alpha}.
+  \end{align*}
+  $\varphi$在标准单位基下$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$的表示阵即为$A$,
+  \[
+  A\text{为Hermite阵} \Longrightarrow \varphi\text{为自伴随算子}, 
+  \]
+  由定理\ref{thm:Self-accompanied1}可知,
+  存在$\mathbb{C}^n$的一组标准正交基
+  $\{\bm{\alpha}_1,\bm{\alpha}_2,\cdots,\bm{\alpha}_n\}$
+  使得$\varphi$在该基下的表示阵为实对角阵$\Lambda$.
+  从而
+  \begin{align*}
+    (\varphi(\bm{\alpha}_1),\varphi(\bm{\alpha}_2),\cdots,\varphi(\bm{\alpha}_n))
+    = (\bm{\alpha}_1,\bm{\alpha}_2,\cdots,\bm{\alpha}_n)\Lambda,\\
+    A(\bm{\alpha}_1,\bm{\alpha}_2,\cdots,\bm{\alpha}_n) =
+    (\bm{\alpha}_1,\bm{\alpha}_2,\cdots,\bm{\alpha}_n)\Lambda.
+  \end{align*}
+  令$P=(\bm{\alpha}_1,\bm{\alpha}_2,\cdots,\bm{\alpha}_n)$,
+  则$P$为酉阵, 因此$\overline{P}'AP=\Lambda$.
+\end{proof}
+
+\begin{definition}\label{ddn:Self-accompanied4}
+  实对称阵(或Hermite阵)在正交相似(或酉相似)关系下的全系不变量是全体特征值,
+  正交相似(或酉相似)标准型是特征值构成的是对称阵.
+\end{definition}
+
+\begin{proof}
+  特征值是正交相似不变量,下面证是全系不变量.
+
+  设$A$和$B$是两个实对称阵,它们的特征值
+  都是$\lambda_1,\lambda_2,\cdots,\lambda_n$,
+  则存在正交阵$P, Q$使得
+  \[
+  P'AP=\begin{pmatrix}
+    \lambda_1 & & & \\
+    & \lambda_2 & & \\
+    & & \ddots & \\
+    & & & \lambda_n
+  \end{pmatrix},\quad Q'BQ=\begin{pmatrix}
+    \lambda_{i_1} & & & \\
+    & \lambda_{i_2} & & \\
+    & & \ddots & \\
+    & & & \lambda_{i_n}
+  \end{pmatrix}.
+  \]
+  其中$\{i_1,i_2,\cdots,i_n\}$是$\{1,2,\cdots,n\}$
+  的全排列.上式中,两个对角阵
+  可以通过合同变换相互转化:
+  \begin{equation}\label{eq:Self-accompanied1}
+  P'_{ij}\diag\{\lambda_1,\lambda_2,\cdots,\lambda_i,\cdots,
+  \lambda_j,\cdots,\lambda_n\}P_{ij} =
+  \diag\{\lambda_1,\lambda_2,\cdots,\lambda_j,\cdots,
+  \lambda_i,\cdots,\lambda_n\},
+  \end{equation}
+  上式中$P_{ij}$是初等阵,因此
+  \[
+  P'_{ij} = P_{ij}, P_{ij}^2=I_n \Longrightarrow P'_{ij}P_{ij}=I_n.
+  \]
+  从而$P_{ij}$是正交阵,式(\ref{eq:Self-accompanied1})是正交相似变换.
+  多次利用式(\ref{eq:Self-accompanied1})可得,经过若干次正交相似变换,
+  \[
+    \diag\{\lambda_{i_1},\lambda_{i_2},\cdots,\lambda_{i_n}\} 
+    \xlongrightarrow{\text{多次正交相似变换}}
+    \diag\{\lambda_1,\lambda_2,\cdots,\lambda_n\}.
+  \]
+  因此, $A, B$正交相似.
+\end{proof}
+
+\begin{remark}
+  \[
+  B = P'AP=P^{-1}AP, 
+  \]
+  因此,正交相似变换既是合同变换,又是相似变换.
+
+  几何上看,
+  \[
+  f(x_1,x_2,\cdots,x_n) = \bm{x}'A\bm{x},
+  \]
+  若要进行线性变换:
+  \[
+  \bm{x} = C\bm{y},
+  \]
+  则
+  矩阵$C$必须保证度量不变性,即
+  \[
+  (\bm{f}_1,\bm{f}_2,\cdots,\bm{f}_n) = (\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n)C,
+  \]
+  其中$\bm{f}_i$是和$\bm{e}_i$都必须是标准正交基,因此$C$必须是正交阵.
+  从而
+  \[
+    f(x_1,x_2,\cdots,x_n) = \bm{x}'A\bm{x}
+    = \bm{y}'(C'AC)\bm{y}.
+  \]
+  上式为正交相似变换或正交合同变换.
+\end{remark}
+
+\begin{deduction}
+  设$f=\bm{x}'A\bm{x}$为实二次型,实对称阵$A$的特征值
+  为$\lambda_1,\lambda_2,\cdots,\lambda_n$,
+  则存在正交变换$\bm{x}=P\bm{y}$使得
+  \[
+  f = \bm{x}'A\bm{x} = \lambda_1y_1^2+\lambda_2y_2^2+\cdots+\lambda_ny_n^2.
+  \]
+  
+  $f$的正惯性指数为$\lambda_1,\lambda_2,\cdots,\lambda_n$中正数的个数,
+  负惯性指数为$\lambda_1,\lambda_2,\cdots,\lambda_n$中负数的个数,
+  二次型的秩为$\lambda_1,\lambda_2,\cdots,\lambda_n$中非零数的个数.
+\end{deduction}
+
+\begin{deduction}
+  设$A$为$n$阶实对称阵,则
+  \[
+  A\begin{cases}
+    \text{正定}\\
+    \text{负定}\\
+    \text{半正定}\\
+    \text{半负定}
+  \end{cases} \Longleftrightarrow A\text{的全体特征值都} \begin{cases}
+    >0\\
+    <0\\
+    \geq 0\\
+    \leq 0
+  \end{cases}
+  \]
+\end{deduction}
+
+\begin{example}
+  \[
+  A=\begin{pmatrix}
+    4 & 2 & 2\\
+    2 & 4 & 2\\
+    2 & 2 & 4
+  \end{pmatrix},
+  \]
+  求正交阵$P$使得$P'AP$为对角阵.
+\end{example}
+
+\begin{solution}
+  \[
+  |\lambda I_3-A|=\left\vert(\lambda-2)I_3-\begin{pmatrix}
+    2\\2\\2\end{pmatrix}\begin{pmatrix}
+      1 & 1 & 1\end{pmatrix}\right\vert.
+  \]
+  根据降阶公式:
+  \[
+  |\lambda I_m-AB| = \lambda^{m-n}|\lambda I_n-BA|, m\geq n,
+  \]
+  \begin{align*}
+  |\lambda I_3-A| & = (\lambda-2)^2\left\vert(\lambda-2)I_2-\begin{pmatrix}
+    1 & 1 & 1\end{pmatrix}\begin{pmatrix}
+      2\\2\\2\end{pmatrix}\right\vert\\
+      & =(\lambda-2)^2(\lambda-8)
+    \end{align*}
+  因此,特征值为$8,2,2$.
+  \[
+  \lambda_1=8 \longleftrightarrow \bm{\alpha}_1=\begin{pmatrix}
+    1\\1\\1\end{pmatrix} \longrightarrow \bm{e}_1 = 
+    \begin{pmatrix}
+      \cfrac{1}{\sqrt{3}}\\
+      \cfrac{1}{\sqrt{3}}\\
+      \cfrac{1}{\sqrt{3}}
+    \end{pmatrix}.
+  \]
+  $\lambda_2=2$时,
+  \[
+  \begin{pmatrix}
+    2 & 2 & 2\\
+    2 & 2 & 2\\
+    2 & 2 & 2
+  \end{pmatrix} \longrightarrow \begin{pmatrix}
+    1 & 1 & 1\\
+    0 & 0 & 0\\
+    0 & 0 & 0
+  \end{pmatrix},
+  \]
+  \[
+  \bm{\alpha}_2=\begin{pmatrix}
+    -1\\1\\0\end{pmatrix} \longrightarrow \bm{e}_2 =
+    \begin{pmatrix}
+      -\cfrac{1}{\sqrt{2}}\\
+      \cfrac{1}{\sqrt{2}}\\
+      0
+    \end{pmatrix}, \quad
+    \bm{\alpha}_3=\begin{pmatrix}
+      -1\\0\\1\end{pmatrix}.
+  \]
+  对$\bm{\alpha}_2,\bm{\alpha}_3$进行正交化,得到
+  \[
+  \bm{\alpha}_3' = \bm{\alpha}_3-\frac{(\bm{\alpha}_3,\bm{\alpha}_2)}{\Vert\bm{\alpha}_2\Vert^2}\bm{\alpha}_2
+  =\begin{pmatrix}
+    -\frac{1}{2} & -\frac{1}{2} & 1\end{pmatrix} \longrightarrow
+    \bm{e}_3 =
+    \begin{pmatrix}
+      -\cfrac{1}{\sqrt{6}}\\
+      -\cfrac{1}{\sqrt{6}}\\
+      \cfrac{2}{\sqrt{6}}
+    \end{pmatrix}.
+  \]
+  令$P=(\bm{e}_1,\bm{e}_2,\bm{e}_3)$,则
+  \[
+  P'AP = \begin{pmatrix}
+    8 & &\\
+    & 2 & \\
+    & & 2
+  \end{pmatrix}.
+  \]
+\end{solution}
+
+\begin{example}
+  $A$为$3$阶实对称阵,其特征值为$0,3,3$.
+  特征值$0$对应的特征向量为$\bm{v}_1=(1,1,1)'$,
+  特征值$3$对应的特征向量为$\bm{v}_2=(-1,1,0)'$,
+  求$A$.
+\end{example}
+
+\begin{solution}
+  设特征值$3$对应的另一个特征向量$\bm{v}_3=(x_1,x_2,x_3)'$
+  且与$\bm{v}_1$及$\bm{v}_2$正交,则
+  \[
+  \begin{cases}
+    x_1+x_2+x_3=0\\
+    -x_1+x_2=0
+  \end{cases} \Longrightarrow \bm{v}_3=(1,1,-2)'.
+  \]
+  标准化:
+  \[
+  \bm{v}_1 \longrightarrow \bm{e}_1 = \begin{pmatrix}
+    \cfrac{1}{\sqrt{3}}\\
+    \cfrac{1}{\sqrt{3}}\\
+    \cfrac{1}{\sqrt{3}}
+  \end{pmatrix}, \quad
+  \bm{v}_2 \longrightarrow \bm{e}_2 = \begin{pmatrix}
+    -\cfrac{1}{\sqrt{2}}\\
+    \cfrac{1}{\sqrt{2}}\\
+    0
+  \end{pmatrix}, \quad
+  \bm{v}_3 \longrightarrow \bm{e}_3 = \begin{pmatrix}
+    \cfrac{1}{\sqrt{6}}\\
+    \cfrac{1}{\sqrt{6}}\\
+    -\cfrac{2}{\sqrt{6}}
+  \end{pmatrix}.
+  \]
+  令$P=(\bm{e}_1,\bm{e}_2,\bm{e}_3)$,则
+  $P$为正交阵且$P'AP=\begin{pmatrix}
+    0 & &\\
+    & 3 & \\
+    & & 3
+  \end{pmatrix}$.
+于是
+\[
+A = P\begin{pmatrix}
+  0 & &\\
+  & 3 & \\
+  & & 3
+\end{pmatrix}P' = \begin{pmatrix}
+  -2 & 1 & 1\\
+  1 & -2 & 1\\
+  1 & 1 & -2
+\end{pmatrix}.
+\]
+\end{solution}
+
+\begin{example}
+  $A$为$n$阶实对称阵且$A^3=I_n$,
+  求证: $A=I_n$.
+\end{example}
+
+\begin{proof}
+  任取$A$的特征值$\lambda$,则
+  $\lambda\in \mathbb{R}$且
+  $\lambda^3=1$,
+  即$\lambda=1$.
+  存在正交阵$P$使得
+  \[P'AP=\begin{pmatrix}
+    1 & &\\
+    & \cdots & \\
+    & & 1
+  \end{pmatrix}=I_n \Longrightarrow 
+  A = PI_nP' = I_n.
+  \]
+\end{proof}
+
+\begin{notice}
+  上题中实对称阵的条件太强,可以改为
+  $A$的特征值全为实数且$A^3=I_n$.
+  证明过程可以改为:
+  
+  任取$A$的特征值$\lambda$,则
+  $\lambda\in \mathbb{R}$且
+  $\lambda^3=1$,
+  即$\lambda=1$,则
+  \[
+  (A-I_n)(A^2+A+I_n)=0 \xLongrightarrow
+  {A^2+A+I_n\text{为非异阵}} 
+  A - I_n = 0 \Longrightarrow A = I_n.
+  \]
+\end{notice}
+
+\subsection{复正规算子}
+
+$V$为酉空间, $\varphi\in \mathscr{L}(V)$,
+$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$为标准正交基,
+使得$\varphi$的表示矩阵是复对角阵
+$\Lambda=\diag\{\lambda_1,\lambda_2,\cdots,\lambda_n\}$,
+即
+\[(\varphi(\bm{e}_1),\varphi(\bm{e}_2),\cdots,\varphi(\bm{e}_n))=
+  (\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n)\Lambda \Longleftrightarrow
+  \varphi(\bm{e}_i)=\lambda_i\bm{e}_i(1\leq i\leq n).
+\]
+$\varphi^*$的表示矩阵为
+\[
+  \overline{\Lambda}'=
+  \{\overline{\lambda}_1,\overline{\lambda}_2,\cdots,\overline{\lambda}_n\}
+  \Longleftrightarrow \varphi^*(\bm{e}_i)=
+  \overline{\lambda}_i\bm{e}_i(1\leq i \leq n).
+\]
+\begin{align}
+  \varphi\varphi^*(\bm{e}_i)=
+  \varphi(\overline{\lambda}_i\bm{e}_i)=|\lambda_i|^2\bm{e}_i\label{eq:Complex-normal-operator1}\\
+  \varphi^*\varphi(\bm{e}_i)=
+  \varphi^*(\lambda_i\bm{e}_i)=|\lambda_i|^2\bm{e}_i\label{eq:Complex-normal-operator2}
+\end{align}
+\[
+  \eqref{eq:Complex-normal-operator1}\text{式}=
+  \eqref{eq:Complex-normal-operator2}\text{式}, 1\leq \forall i \leq n
+  \Longrightarrow \varphi\varphi^*=\varphi^*\varphi
+\]
+
+\begin{definition}
+  设$V$为有限维内积空间, $\varphi\in\mathscr{L}(V)$,
+  若$ \varphi\varphi^*=\varphi^*\varphi $,则称$\varphi$为
+  {\heiti 正规算子}.
+
+  设$A\in M_n(\mathbb{R})$,若
+  $AA'=A'A$,则称$A$为实正规阵;
+
+  设$A\in M_n(\mathbb{C})$,若
+  $A\overline{A}'=\overline{A}'A$,则称$A$为复正规阵.
+\end{definition}
+
+\begin{example}
+  (1)自伴随算子是正规算子, $\because \varphi=\varphi*$;
+
+  (2)正交算子(酉算子)是正规算子, $\because \varphi^* = \varphi^{-1}$;
+
+  (3)Hermite阵,酉阵都是复正规阵;
+
+  (4)是对称阵,正交阵都是实正规阵.
+\end{example}
+
+\begin{theory}\label{thr:Complex-normal-operator1}
+  设$V$为欧氏空间(酉空间), $\varphi\in \mathscr{L}(V)$,
+  则$\varphi$是正规算子,当且仅当$\varphi$在某(任)一
+  标准正交基下的表示矩阵为实正规阵(复正规阵).
+\end{theory}
+
+\begin{proof}
+  任取$V$的一组标准正交基,设$\varphi$的表示阵为$A$,
+  则$\varphi$在同一组标准正交基下有相同的表示矩阵为
+  $\begin{cases} A'\quad V\text{为欧氏空间时},\\\overline{A}'
+    \quad V\text{为酉空间时}.\end{cases}$ $\varphi$为正规算子,
+  即$\varphi\varphi^*=\varphi^*\varphi$.因此,$\varphi\varphi^*$与
+  $\varphi^*\varphi$在同一组基下表示矩阵相同.即
+  \[
+    \begin{cases}
+      AA' = A'A \quad V\text{为欧氏空间时},\\
+      A\overline{A}' = \overline{A}'A \quad V\text{为酉空间时}.
+    \end{cases}
+    \]
+  \end{proof}
+
+\begin{remark}
+  酉空间$V$上的线性算子$\varphi$在某组标准正交基下的表示阵为
+  复对角阵,则$\varphi$是正规算子.那么反过来是否成立?
+\end{remark}
+
+\begin{theory}\label{thr:Complex-normal-operator2}
+  设$\varphi$是酉空间$V$上的正规算子,
+
+  (1) $\Vert\varphi(\bm{\alpha})\Vert=\Vert\varphi^*(\bm{\alpha})\Vert,
+  \forall \alpha \in V$;
+
+  (2) $\bm{\alpha}$是$\varphi$关于特征值$\lambda$的特征向量,
+  等价于$\bm{\alpha}$是$\varphi^*$关于特征值$\overline{\lambda}$的特征向量;
+
+  (3) $\varphi$的关于不同特征值的特征向量相互正交.
+\end{theory}
+
+\begin{proof}
+  (1)
+  \[
+    (\varphi(\bm{\alpha}), \varphi(\bm{\alpha}))=
+    (\bm{\alpha}, \varphi^*\varphi(\bm{\alpha}))=
+    (\bm{\alpha},\varphi\varphi^*(\bm{\alpha}))=
+    (\varphi^*(\bm{\alpha}),\varphi^*(\bm{\alpha})).
+  \]
+
+  (2) 先证$\lambda I-\varphi$也是正规算子:
+  \begin{align}
+    \because & (\lambda I-\varphi)^*=\overline{\lambda}I-\varphi^*,\notag\\
+    \therefore & (\lambda I-\varphi)(\lambda I-\varphi)^*=
+      (\lambda I-\varphi)(\overline{\lambda}I-\varphi^*)=
+                 |\lambda|^2I-\overline{\lambda}\varphi-\lambda\varphi^*+\varphi\varphi^*,\label{eq:Complex-normal-operator3}\\
+             & (\lambda I-\varphi)^*(\lambda I-\varphi) =
+               (\overline{\lambda}I-\varphi^*)(\lambda I-\varphi) = 
+               |\lambda|^2I-\overline{\lambda}\varphi-\lambda\varphi^*+\varphi^*\varphi.\label{eq:Complex-normal-operator4}
+  \end{align}
+  由于$\varphi$是正规算子,因此$\varphi\varphi^*=\varphi^*\varphi$,
+  所以, \eqref{eq:Complex-normal-operator3}式$=$\eqref{eq:Complex-normal-operator4}式.
+
+  由(1)可以推出:
+  \[
+    \Vert(\lambda I-\varphi)(\bm{\alpha})\Vert=
+    \Vert(\overline{\lambda}I-\varphi^*)(\bm{\alpha})\Vert,
+    \forall \bm{\alpha}\in V.
+  \]
+  又因为$\bm{\alpha}\neq 0$且$\varphi(\bm{\alpha})=\lambda\bm{\alpha}$,
+  因此,
+  \[
+    (\lambda I-\varphi)(\bm{\alpha})=0 \Longleftrightarrow
+    (\overline{\lambda}I-\varphi^*)(\bm{\alpha}) = 0 \Longleftrightarrow
+    \varphi^*(\bm{\alpha})=\overline{\lambda}\bm{\alpha},\bm{\alpha}\neq 0.
+  \]
+
+  (3) 设$\varphi(\bm{\alpha})=\lambda\bm{\alpha},
+  \varphi(\bm{\beta})=\mu\bm{\beta}$,且
+  $\lambda\neq \mu$,则
+  $\varphi^*(\bm{\beta})=\overline{\mu}\bm{\beta}$,
+  \begin{align*}
+    & \lambda(\bm{\alpha},\bm{\beta})=(\varphi(\bm{\alpha}),\bm{\beta})\\
+    = & (\bm{\alpha},\varphi^*(\bm{\beta})) =
+        (\bm{\alpha}, \overline{\mu}\bm{\beta})\\
+    = & \mu(\bm{\alpha},\bm{\beta})\\
+    \Longrightarrow & (\bm{\alpha},\bm{\beta})=0.
+  \end{align*}
+\end{proof}
+
+\begin{theorem}[Schur定理]\label{thm:Complex-normal-operator1}
+  设$\varphi$是酉空间$V$上的线性算子,则
+  存在$V$上的标准正交基,使得
+  $\varphi$在这组基下的表示矩阵为上三角阵.
+\end{theorem}
+
+\begin{proof}
+  对$n=\dim V$维数进行归纳.$n=1$时显然成立,
+  假设$\dim V<n$时结论成立,下面证$n$维的情形.
+
+  先取$\varphi^*$的特征值$\lambda$及特征向量$\bm{\alpha}$,
+  令
+  \[
+    \bm{e}_n=\frac{\bm{\alpha}}{\Vert\bm{\alpha}\Vert},\quad
+    \varphi^*(\bm{e}_n)=\lambda\bm{e}_n.
+  \]
+  再令
+  \[
+    U=L(\bm{e}_n)^{\perp},\quad \text{则}\dim U=n-1,
+  \]
+  由此可得:
+  \[
+    L(\bm{e}_n)\text{是}\varphi^*-\text{不变子空间} \Longrightarrow
+    U\text{是}(\varphi^*)^*=\varphi-\text{不变子空间}.
+  \]
+  做限制$\varphi|_U$,由归纳假设可得$\exists U$的标准正交基
+  $\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_{n-1}\}$,使得
+  $\varphi|_U$在这组基下的表示矩阵为上三角阵.由此可知,
+  $\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$是$V$的标准正交基.则
+  \[
+    (\varphi(\bm{e}_1),\varphi(\bm{e}_2),\cdots,\varphi(\bm{e}_{n-1}),\varphi(\bm{e}_n))
+    = (\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_{n-1},\bm{e}_n)
+    \begin{pmatrix}\begin{BMAT}{cccc.c}{cccc.c}
+        a_{11} & * & \cdots & * & *\\
+        0 & a_{22} & \cdots & * & *\\
+        \vdots & \vdots & \ddots & \vdots & \vdots\\
+        0 & 0 & \cdots & a_{n-1,n-1} & *\\
+        0 & 0 & \cdots & 0 & a_{nn}
+    \end{BMAT}\end{pmatrix}
+  \]
+\end{proof}
+
+\begin{deduction}[Schur定理]\label{ddn:Complex-normal-operator1}
+  设$A\in M_n(\mathbb{C})$,则存在
+  酉阵$P$使得$\overline{P}'AP$为上三角阵.
+\end{deduction}
+
+\begin{theorem}\label{thm:Complex-normal-operator2}
+  设$\varphi$是酉空间$V$上的线性算子,则
+  $\varphi$为正规算子的充分必要条件是
+  $\varphi$在某组标准正交基下的表示阵为复对角阵.
+\end{theorem}
+
+\begin{proof}
+  充分性已证,下面证明必要性.
+
+  根据Schur定理,存在标准正交基
+  $\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$使得
+  $\varphi$的表示阵为上三角阵$A=(a_{ij})_{n\times n}$,
+  $\varphi^*$在同一组基的表示阵为$\overline{A}'$,则
+  \begin{align*}
+    & (\varphi(\bm{e}_1),\varphi(\bm{e}_2),\cdots,\varphi(\bm{e}_{n-1}),\varphi(\bm{e}_n))\\
+    = & (\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_{n-1},\bm{e}_n)
+    \begin{pmatrix}
+        a_{11} & a_{12} & \cdots & a_{1,n-1} & a_{nn}\\
+        0 & a_{22} & \cdots & a_{2,n-1} & a_{2n}\\
+        \vdots & \vdots & \ddots & \vdots & \vdots\\
+        0 & 0 & \cdots & a_{n-1,n-1} & a_{n-1,n}\\
+        0 & 0 & \cdots & 0 & a_{nn}
+      \end{pmatrix}\\
+    & (\varphi^*(\bm{e}_1),\varphi^*(\bm{e}_2),\cdots,\varphi^*(\bm{e}_{n-1}),\varphi^*(\bm{e}_n))\\
+    = & (\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_{n-1},\bm{e}_n)
+    \begin{pmatrix}
+        \overline{a}_{11} & 0 & \cdots & 0 & 0\\
+        \overline{a}_{12} & \overline{a}_{22} & \cdots & 0 & 0\\
+        \vdots & \vdots & \ddots & \vdots & \vdots\\
+        \overline{a}_{n-1,1} & \overline{a}_{n-1,2} & \cdots & \overline{a}_{n-1,n-1} & 0\\
+        \overline{a}_{n1} & \overline{a}_{n2} & \cdots & \overline{a}_{n,n-1} & \overline{a}_{nn}
+    \end{pmatrix}
+  \end{align*}
+  \begin{align}
+    & \varphi(\bm{e}_1)=a_{11}\bm{e}_1\notag\\
+      \xLongleftrightarrow 
+    {\text{引理\ref{thr:Complex-normal-operator2}(3)}}
+    & \varphi^*(\bm{e}_1)=\overline{a}_{11}\bm{e}_1\label{eq:Complex-normal-operator5},
+  \end{align}
+  又因为
+  \begin{equation}\label{eq:Complex-normal-operator6}
+    \varphi^*(\bm{e}_1)= \overline{a}_{11}\bm{e}_1 +\overline{a}_{12}\bm{e}_2
+    +\cdots+\overline{a}_{1n}\bm{e}_n,
+  \end{equation}
+  由\eqref{eq:Complex-normal-operator5}式$=$\eqref{eq:Complex-normal-operator6}式得,
+  \[
+    a_{12}=a_{13}=\cdots=a_{1n}=0.
+  \]
+  同理,
+ \begin{align}
+    & \varphi(\bm{e}_2)=a_{22}\bm{e}_2\notag\\
+      \xLongleftrightarrow 
+    {\text{引理\ref{thr:Complex-normal-operator2}(3)}}
+    & \varphi^*(\bm{e}_2)=\overline{a}_{22}\bm{e}_2\label{eq:Complex-normal-operator7},
+  \end{align}
+  又因为
+  \begin{equation}\label{eq:Complex-normal-operator8}
+    \varphi^*(\bm{e}_2)= \overline{a}_{22}\bm{e}_2 +\overline{a}_{23}\bm{e}_3
+    +\cdots+\overline{a}_{2n}\bm{e}_n,
+  \end{equation}
+  由\eqref{eq:Complex-normal-operator7}式$=$\eqref{eq:Complex-normal-operator8}式得,
+  \[
+    \overline{a}_{23}=\overline{a}_{24}=\cdots=\overline{a}_{2n}=0.
+  \]
+  反复运用上述方法可得,
+  $\overline{a}_{ij}=0, \forall i < j$都成立,
+  从而$A$为对角阵.
+\end{proof}
+
+\begin{deduction}\label{ddn:Complex-normal-operator2}
+  设$A$为复正规阵,则存在酉阵
+  $P$使得$\overline{P}'AP$为复对角阵.
+\end{deduction}
+
+\begin{remark}
+  同理可证,复正规阵在酉相似关系下的全系不变量
+  为全体特征值,其酉相似标准型为特征值构成的对角阵.
+  酉矩阵是特殊的复正规阵.
+\end{remark}
+
+\begin{deduction}\label{ddn:Complex-normal-operator3}
+  设$U$为酉阵,则存在酉阵$P$使得$\overline{P}'UP=
+  \diag\{c_1,c_2,\cdots,c_n\}, |c_i|=1$.
+\end{deduction}
+
+\begin{proof}
+  由推论\ref{ddn:Complex-normal-operator2}可知,
+  存在酉阵$P$使得$\overline{P}'UP=\diag\{c_1,c_2,\cdots,c_n\}, c_i\in \mathbb{C}$.
+  由于$\overline{P}',U,P$都是酉阵,因此
+  $\diag\{c_1,c_2,\cdots,c_n\}$也必是酉阵,
+  由此可推出$c_i$是模长为$1$的复数.
+\end{proof}
+
+\begin{theorem}\label{thm:Complex-normal-operator3}
+  设$\varphi$是酉空间上的线性算子,
+  $\lambda_1,\lambda_2,\cdots,\lambda_k$是$\varphi$
+  全体不同特征值,$V_1,V_2,\cdots,V_k$是对应的特征子空间.则
+  \[
+    \varphi\text{是正规算子} \Longleftrightarrow
+    V=V_1\perp V_2\perp \cdots \perp V_k.
+  \]
+\end{theorem}
+
+\begin{proof}
+  先证必要性($\Rightarrow$):
+  \begin{align}
+    & \varphi\text{是正规算子}\Longrightarrow \varphi\text{可对角化}\notag\\
+    \Longrightarrow & V=V_1\oplus V_2\oplus \cdots \oplus V_k\label{eq:Complex-normal-operator9}.
+  \end{align}
+  又由引理\ref{thr:Complex-normal-operator2}(3)可得结论:
+  \begin{equation}\label{eq:Complex-normal-operator10}
+    V_i\perp V_j, \forall i\neq j.
+  \end{equation}
+  由\eqref{eq:Complex-normal-operator9}式和\eqref{eq:Complex-normal-operator10}式可推出:
+  \[
+    V=V_1\perp V_2\perp \cdots \perp V_k.
+  \]
+
+  再正充分性($\Leftarrow$):
+
+  取$V_i$的标准正交基拼成$V$的一组标准正交基,
+  这些基向量都是特征向量,从而$\varphi$在这组基下
+  的表示矩阵为对角阵,从而$\varphi$为正规算子.
+\end{proof}
+
+\begin{theorem}\label{thm:Complex-normal-operator4}
+  $\varphi$是欧氏空间上的自伴随算子,
+  $\lambda_1,\lambda_2,\cdots,\lambda_k$是全体
+  不同特征值,$V_1,V_2,\cdots,V_k$是对应的特征子空间,则
+  \[
+    V=V_1\perp V_2\perp \cdots \perp V_k.
+  \]
+\end{theorem}
+
+\begin{proof}
+  证明方法和定理\ref{thm:Complex-normal-operator3}相同.
+\end{proof}
+
+$A$为$n$阶实对称阵,特征值为
+$\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n$.则
+存在正交阵$P$使得
+\[
+  P'AP=\diag\{
+  \lambda_1,\lambda_2,\cdots,\lambda_n\},
+\]
+设
+\[
+  P=(\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n),
+\]
+则$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$是
+$\mathbb{R}^n$的标准正交基,从而
+\[
+  A(\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n) =
+  (\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n)\begin{pmatrix}
+    \lambda_1 & & &\\
+              & \lambda_2 & &\\
+              & & \ddots &\\
+    & & & \lambda_n\end{pmatrix},
+\]
+\[
+  A\bm{e}_i=\lambda_i\bm{e}_i(1\leq i \leq n).
+\]
+对$\forall \bm{x}\in\mathbb{R}^n$,设
+\[
+  \bm{x}=x_1\bm{e}_1+\bm{x}_2+\cdots+x_n\bm{e}_n,
+\]
+则
+\[
+  A\bm{x}=A(\sum_{i=1}^nx_i\bm{e}_i)=\sum_{i=1}^n\lambda_ix_i\bm{e}_i,
+\]
+\[
+  \bm{x}'A\bm{x}=(\sum_{i=1}^nx_i\bm{e}_i,\sum_{i=1}^n\lambda_ix_i\bm{e}_i)=
+  \sum_{i=1}^n\lambda_ix_i^2.
+\]
+于是,
+\[
+  \lambda_1\bm{x}'\bm{x} \leq \bm{x}'A\bm{x} \leq
+  \lambda_n\bm{x}'\bm{x}.
+\]
+上式中,当$\bm{x}=\bm{e}_1$时,左边等号成立;
+当$\bm{x}=\bm{e}_n$时,右边等号成立.从而得出:
+\[
+  \max_{0\neq \bm{x}\in\mathbb{R}^n}\frac{\bm{x}'A\bm{x}}{\bm{x}'\bm{x}}
+  = \lambda_n, \quad
+  \min_{0\neq \bm{x}\in\mathbb{R}^n}\frac{\bm{x}'A\bm{x}}{\bm{x}'\bm{x}}
+  = \lambda_1.
+\]
+上式可估计出$\lambda_n, \lambda_1$,
+但是中间的特征值不能估计.为了估计所有特征值,
+有下面的定理.
+
+\begin{theorem}[极小极大定理,Courant-Fischer定理]
+  \label{thm:Complex-normal-operator5}
+  \begin{align*}
+    \lambda_i& = \min_{\dim V_i=i}\max_{\bm{0}\neq\bm{x}\in V_i}\frac{\bm{x}'A\bm{x}}{\bm{x}'\bm{x}}\\
+    & = \max_{\dim V_i=n+1-i}\min_{\bm{0}\neq\bm{x}\in V_i}\frac{\bm{x}'A\bm{x}}{\bm{x}'\bm{x}}.
+  \end{align*}
+
+\end{theorem}
+
+\begin{proof}
+  先固定某个$V_i\subseteq\mathbb{R}^n$,
+  $U=L(\bm{e}_i,\bm{e}_{i+1},\cdots,\bm{e}_n)$.则
+  \[
+    \dim V_i=i, \quad \dim U=n+1-i.
+  \]
+  断言$V_i\cap U \neq 0, \because\text{若}V_i\cap U = 0,
+  \text{则}\mathbb{R}^n\supseteq V_i\oplus U$,
+  维数矛盾.任取$\bm{0} \neq \bm{x}_0\in V_i\cap U,
+  \bm{x}_0=x_i\bm{e}_i+x_{i+1}\bm{e}_{i+1}+\cdots+x_n\bm{e}_n$.则
+  \[
+    \bm{x}_0'A\bm{x}_0=\sum_{j=i}^n\lambda_jx_j^2, \quad \bm{x}_0'\bm{x}_0=\sum_{j=i}^nx_j^2.
+  \]
+  从而
+  \begin{align*}
+    & \frac{\bm{x}_0'A\bm{x}_0}{\bm{x}_0'\bm{x}_0} \geq \lambda_i\\
+    \Longrightarrow & \max_{\bm{0}\neq\bm{x}\in V_i}\frac{\bm{x}'A\bm{x}}{\bm{x}'\bm{x}} \geq \lambda_i\\
+    \Longrightarrow & \min_{V_i}\max_{\bm{0}\neq\bm{x}\in V_i}\frac{\bm{x}'A\bm{x}}{\bm{x}'\bm{x}} \geq \lambda_i.
+  \end{align*}
+  任取$W=L(\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_i), \dim W=i$,
+  再取$\bm{0}\neq \bm{x} \in W,
+  \bm{x}=x_1\bm{e}_1+x_2\bm{e}_2+\cdots+x_i\bm{e}_i$,则
+  \[
+    \bm{x}'A\bm{x} = \sum_{j=1}^i\lambda_i\bm{x}_i^2,\quad
+    \bm{x}'\bm{x}=\sum_{j=1}^i\bm{x}_i^2.
+  \]
+  以上两式可推出:
+  \[
+    \max_{\bm{0}\neq\bm{x}\in W}\frac{\bm{x}'A\bm{x}}{\bm{x}'\bm{x}} \leq \lambda_i
+    \text{且}\bm{x}=\bm{e}_i\text{时取等号}.
+  \]
+  从而
+  \[
+    \lambda_i=\min_{\dim V_i=i}\max_{\bm{0}\neq\in V_i}
+    \frac{\bm{x}'A\bm{x}}{\bm{x}'\bm{x}}.
+  \]
+
+  构建两个类似的空间,类似可证
+  \[
+    \lambda_i = \max_{\dim V_i=n+1-i}\min_{\bm{0}\neq\bm{x}\in V_i}\frac{\bm{x}'A\bm{x}}{\bm{x}'\bm{x}}.
+  \]
+\end{proof}
+
+\begin{theorem}[Cauchy交错定理]
+  \label{thm:Complex-normal-operator6}
+  设$A$为$n$阶实对称阵,它的全体特征值为
+  \[
+    \lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n.
+  \]
+  设$A_m$为$A$的$m$阶主子式,它的全体特征值为
+  \[
+    \mu_1 \leq \mu_2 \leq \cdots \leq \mu_m.
+    \]
+  则
+  \[
+    \lambda_i \leq \mu_i, \quad \lambda_{n+1-i} \geq \mu_{m+1-i}, 
+    \forall i.
+  \]
+\end{theorem}
+
+\begin{theorem}[Weyl摄动定理]\label{thm:Complex-normal-operator7}
+  设$A$为$n$阶实对称阵,它的全体特征值为
+  \[
+    \lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n.
+  \]
+  设$B$为$n$阶实对称阵,它的全体特征值为
+  \[
+    \mu_1 \leq \mu_2 \leq \cdots \leq \mu_n.
+  \]
+  则
+  $A+B$也为$n$阶实对称阵,设它的全体特征值为
+  \[
+    \nu_1 \leq \nu_2 \leq \cdots \leq \nu_n,
+  \]
+  则
+  \[
+    \lambda_i + \mu_1 \leq \nu_i \leq \lambda_i + \mu_n, \quad \forall i.
+  \]
+\end{theorem}
+
+\subsection{实正规矩阵}
+在欧氏空间(实内积空间)$V$下,正规算子$\varphi$
+未必有实的特征值和特征向量.不能像酉空间中的
+正规算子一样,直接求特征值和特征向量.如何求
+实正规算子的正交相似标准型?
+
+Step1: $\varphi$的极小多项式的不可约分解.
+\[
+  V=W_1\perp W_2\perp \cdots \perp W_k,
+\]
+使得$\varphi|_{W_i}$仍为正规算子且
+极小多项式次数$\leq 2$.
+
+Step2: 极小多项式次数为$2$的不可约多项式的
+正规算子的结构.
+
+\begin{theory}\label{thr:Real-normal-matrix1}
+  $\varphi$为实正规算子, $f(x)\in\mathbb{R}[x]$,则
+  $f(\varphi)$仍为实正规算子.
+\end{theory}
+
+\begin{proof}
+  设$f(x)=a_mx^m+a_{m-1}x^{m-1}+\cdots+a_1x+a_0, a_i\in\mathbb{R}$,则
+  \begin{align*}
+    f(\varphi) & =a_m\varphi^m+a_{m-1}\varphi^{m-1}+\cdots+a_1\varphi+a_0I\\
+    f(\varphi)^* & =\overline{a}_m(\varphi^*)^m+\overline{a}_{m-1}(\varphi^{*2})^{m-1}+\cdots+\overline{a}_1\varphi^*+\overline{a}_0I\\
+    & = a_m(\varphi^*)^m+a_{m-1}(\varphi^*)^{m-1}+\cdots+a_1\varphi^*+a_0I.
+  \end{align*}
+  \begin{align*}
+    \because (\varphi\psi)^*= & \psi^*\varphi^*, \quad (\varphi^m)^*=(\varphi^*)^m,\\
+    \therefore f(\varphi)^*= & a_m(\varphi^*)^m+a_{m-1}(\varphi^*)^{m-1}+\cdots+a_1\varphi^*+a_0I\\
+    = & f(\varphi^*).
+  \end{align*}
+  因此,
+  \[
+    f(\varphi)f(\varphi)^*=f(\varphi)f(\varphi^*)=f(\varphi^*)f(\varphi)=f(\varphi)^*f(\varphi).
+  \]
+\end{proof}
+
+\begin{theory}\label{thr:Real-normal-matrix2}
+  $\varphi$为正规算子, $f(x), g(x)\in \mathbb{R}[x]$,
+  $(f(x), g(x))=1$.任取$\bm{\alpha}\in\ker f(\varphi),
+  \bm{\beta}\in \ker g(\varphi)$,则$(\bm{\alpha},\bm{\beta})=0$.
+\end{theory}
+
+\begin{proof}
+  依题意,存在$u(x),v(x)\in \mathbb{R}[x]$使得
+  \[
+    f(x)u(x)+g(x)v(x)=1.
+  \]
+  令$x=\varphi$,得
+  \[
+   f(\varphi)u(\varphi)+g(\varphi)v(\varphi)=I_V.
+ \]
+ 将上式两边作用到$\bm{\alpha}$上,得
+ \[
+   u(\varphi)f(\varphi)(\bm{\alpha})+v(\varphi)g(\varphi)(\bm{\alpha})=\bm{\alpha}
+   = u(\varphi)0+v(\varphi)g(\varphi)(\bm{\alpha})=g(\varphi)v(\varphi)(\bm{\alpha}).
+ \]
+ \begin{align}
+   (\bm{\alpha},\bm{\beta})= & (g(\varphi)v(\varphi)(\bm{\alpha}),\bm{\beta})\notag\\
+    = & (v(\varphi)(\bm{\alpha}),g(\varphi)^*(\bm{\beta}))\label{eq:Real-normal-matrix1}.
+ \end{align}
+ 由$\bm{\beta}\in\ker g(\varphi)$可知$g(\varphi)(\bm{\beta})=0$,
+ 又因为$\varphi$为正规算子,所以
+ $\Vert\varphi(\bm{\alpha})\Vert=\Vert\varphi^*(\bm{\alpha})\Vert$.
+ 由引理\ref{thr:Real-normal-matrix1}可知,
+ $g(\varphi)$也是正规算子,因此
+ \begin{align}
+   & \Vert g(\varphi)(\bm{\beta})\Vert=\Vert g(\varphi)^*(\bm{\beta})\Vert=0\notag\\
+   \Longrightarrow & g(\varphi)^*(\bm{\beta})=0\label{eq:Real-normal-matrix2}.
+ \end{align}
+ 将\eqref{eq:Real-normal-matrix2}式代入\eqref{eq:Real-normal-matrix1}式得
+  \[
+    (\bm{\alpha},\bm{\beta})=(v(\varphi)(\bm{\alpha}),0)=0.
+  \]
+\end{proof}
+
+\begin{theorem}\label{thm:Real-normal-matrix1}
+  $\varphi$为实正规算子, $g(x)$是$\varphi$的极小多项式.
+  设$g_1(x),g_2(x),\cdots,g_k(x)$是$g(x)$的所有互异并
+  首一不可约因式, $W_i=\ker g_i(\varphi)$,则
+
+  (1) $g(x)=g_1(x)g_2(x)\cdots g_k(x)$且
+  $\deg g_i(x)\leq 2$;
+
+  (2) $V=W_1\perp W_2\perp \cdots \perp W_k$;
+
+  (3) $W_i$是$\varphi$的不变子空间,且$\varphi|_{W_i}$是
+  实正规算子且极小多项式为$g_i(x)$.
+\end{theorem}
+
+\begin{proof}
+  (1) 任取$V$的一组标准正交基, $\varphi$的表示阵为$A$,
+  则$A$为实正规阵$(AA'=A'A)$.将$A$看成复矩阵,则
+  $A$为复正规阵.由推论\ref{ddn:Complex-normal-operator2}可知,
+  $A$酉相似于对角阵,从而$A$可对角化,等价于$g(x)$在
+  $\mathbb{C}$上无重根,从而$g(x)$在$\mathbb{R}$上无重根,即
+  \[
+    g(x)=g_1(x)g_2(x)\cdots g_k(x).
+  \]
+
+  (2) 令
+  \begin{align*}
+    & f_i(x)=\frac{g(x)}{g_i(x)}=\prod_{j\neq i}g_j(x),\\
+    \Longrightarrow & (f_1(x),f_2(x),\cdots,f_k(x))=1,\\
+    \Longrightarrow & \exists u_i(x) \st  f_1(x)u_1(x)+f_2(x)u_2(x)+\cdots+f_k(x)u_k(x)=1.
+  \end{align*}
+  令$x=\varphi$,得
+  \[
+    f_1(\varphi)u_1(\varphi)+f_2(\varphi)u_2(\varphi)+\cdots+f_k(\varphi)u_k(\varphi)=I_V.
+  \]
+  任取$\bm{\alpha}\in V$,将上式两边作用到$\bm{\alpha}$上,得
+  \[
+    f_1(\varphi)u_1(\varphi)(\bm{\alpha})+f_2(\varphi)u_2(\varphi)(\bm{\alpha})+\cdots+f_k(\varphi)u_k(\varphi)(\bm{\alpha})=\bm{\alpha}.
+  \]
+  将$g_i(\varphi)$作用到上式中任意项上,即
+  \begin{align*}
+    & g_i(\varphi)(f_i(\varphi)u_i(\varphi)(\bm{\alpha}))=
+      g(\varphi)u_i(\varphi)(\bm{\alpha}) \xlongequal {g(\varphi)=0} 0\\
+    \Longrightarrow & f_i(\varphi)u_i(\varphi)(\bm{\alpha})\in\ker g_i(\varphi)= W_i.
+  \end{align*}
+  从而
+  \[
+    V=W_1+W_2+\cdots+W_k.
+  \]
+  \[
+    \forall 1\leq i \neq j \leq k, (g_i(x),g_j(x))=1,
+  \]
+  由引理\ref{thr:Real-normal-matrix2}可知,
+  \[
+    W_i\perp W_j.
+  \]
+  于是
+  \[
+    V=W_1\perp W_2 \perp\cdots\perp W_k.
+  \]
+
+  (3) 先证$W_i$是$\varphi-$不变子空间,
+  也是$\varphi^*-$不变子空间.
+
+  任取$\bm{w}\in W_i=\ker g_i(\varphi)$,即
+  $g_i(\varphi)(\bm{w})=\bm{0}$,由此得
+  \begin{align*}
+    & g_i(\varphi)(\varphi(\bm{w}))=\varphi(g_i(\varphi)(\bm{w}))
+      =\varphi(\bm{0})=\bm{0}\\
+    \Longrightarrow & \varphi(\bm{w})\in W_i.
+  \end{align*}
+  因此$W_i$是$\varphi-$不变子空间.同理,
+  \begin{align*}
+    & g_i(\varphi)(\varphi^*(\bm{w})) \xlongequal
+      {\varphi\varphi^*=\varphi^*\varphi}
+      \varphi^*(g_i(\varphi)(\bm{w})) = \varphi^*(\bm{0})=0\\
+    \Longrightarrow & \varphi^*(\bm{w})\in W_i.
+  \end{align*}
+  因此$W_i$也是$\varphi^*-$不变子空间.
+
+  做限制$\varphi|_{W_i}, \varphi^*|_{W_i}$,
+  对$\forall \bm{\alpha}, \bm{\beta}\in W_i$,有
+  \begin{align*}
+    & (\varphi(\bm{\alpha}), \bm{\beta})=(\bm{\alpha},\varphi^*(\bm{\beta}))\\
+    \Longrightarrow & (\varphi|_{W_i}(\bm{\alpha}),\bm{\beta})=(\bm{\alpha},\varphi^*|_{W_i}(\bm{\beta}))\\
+    \Longrightarrow & (\varphi|_{W_i})^*=\varphi^*|_{W_i}.
+  \end{align*}
+  由此可得
+  \[
+    \varphi|_{W_i}(\varphi|_{W_i})^*=\varphi|_{W_i}\varphi^*|_{W_i}=
+    \varphi^*|_{W_i}\varphi|_{W_i}=(\varphi|_{W_i})^*\varphi|_{W_i}.
+  \]
+  从而$\varphi|_{W_i}$仍为实正规算子.
+
+  因为$W_i=\ker g_i(\varphi)$,
+  所以$\varphi|_{W_i}$适合$g_i(x)$,即
+  \[
+    g_i(\varphi)|_{W_i}=0 \in \mathscr{L}(W_i).
+  \]
+  \begin{align*}
+    &\forall \bm{w}\in W_i, g_i(\varphi|_{W_i})(\bm{w})=g_i(\varphi)(\bm{w})=0\\
+    \Longrightarrow & \varphi|_{W_i}\text{的极小多项式整除}g_i(x).
+  \end{align*}
+  由于$g_i(x)$是不可约多项式,所以$\varphi|_{W_i}$的
+  极小多项式$=g_i(x)$.
+\end{proof}
+
+\begin{remark}
+  二次不可约多项式都可写成如下形式:
+  \[
+    g(x)=(x-a)^2+b^2, a,b\in\mathbb{R}\text{且}b\neq 0.
+  \]
+  下面的引理研究特殊情形:
+  \[
+    g(x)=x^2+1.
+  \]
+\end{remark}
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "../main"

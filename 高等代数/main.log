@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Debian) (preloaded format=xelatex 2025.1.13)  5 MAR 2025 18:11
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Debian) (preloaded format=xelatex 2025.1.13)  11 MAR 2025 22:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1969,24 +1969,25 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
 
 ]
 [81] [82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95]
-[96] [97] [98] [99] [100] [101] [102]) [103] (./main.aux (./sections/cover.aux)
-(./sections/contents.aux) (./sections/section1.aux) (./sections/section2.aux)
-(./sections/section3.aux) (./sections/section4.aux) (./sections/section5.aux)
-(./sections/section6.aux) (./sections/section7.aux) (./sections/section8.aux)
-(./sections/section9.aux))
+[96] [97] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108]
+[109] [110] [111] [112] [113] [114] [115] [116] [117] [118]) [119] (./main.aux
+(./sections/cover.aux) (./sections/contents.aux) (./sections/section1.aux)
+(./sections/section2.aux) (./sections/section3.aux) (./sections/section4.aux)
+(./sections/section5.aux) (./sections/section6.aux) (./sections/section7.aux)
+(./sections/section8.aux) (./sections/section9.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2534130EA59726F47AC80C95C714708A;5486.
+(rerunfilecheck)             Checksum: 5BA91C1E6C21EFD8121344FE2039B3A5;5682.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46775 strings out of 476775
- 1011717 string characters out of 5808212
+ 46811 strings out of 476775
+ 1012689 string characters out of 5808212
  1889991 words of memory out of 5000000
- 65908 multiletter control sequences out of 15000+600000
+ 65944 multiletter control sequences out of 15000+600000
  528127 words of font info for 140 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,25n,107p,1223b,1158s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (107 pages).
+Output written on main.pdf (123 pages).
