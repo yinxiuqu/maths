@@ -58,3 +58,7 @@
 \contentsline {subsection}{\numberline {9.5}自伴随算子}{104}{subsection.9.5}%
 \contentsline {subsection}{\numberline {9.6}复正规算子}{110}{subsection.9.6}%
 \contentsline {subsection}{\numberline {9.7}实正规矩阵}{116}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.8}谱}{123}{subsection.9.8}%
+\contentsline {subsection}{\numberline {9.9}奇异值分解}{130}{subsection.9.9}%
+\contentsline {subparagraph}{\color {ecolor}奇异值分解步骤}{133}{definition.9.22}%
+\contentsline {subparagraph}{\color {ecolor}SVD应用}{133}{Item.44}%

@@ -537,28 +537,28 @@ $V=M_n(\mathbb{R})$,Frobenius内积, $E_{ij}$为$n$阶标准基矩阵,其$(i,j)$
     \begin{figure}[htbp]
       \centering
       \tdplotsetmaincoords{75}{60} % 视角参数 (theta=60, phi=270)
-      
+
       \begin{tikzpicture}[scale=1.2, tdplot_main_coords]
         % 坐标轴
         \draw[->, thick] (0,0,0) -- (3,0,0) node[right]{$\bm{v}_1$};
         \draw[->, thick] (0,0,0) -- (0,3,0) node[above]{$\bm{v}_2$};
         \draw[->, thick] (0,0,0) -- (0,0,3) node[below left]{$\bm{v}_3$};
-    
+
         % 向量 u
         \coordinate (u) at (2,2,2);
         \draw[->, thick, blue] (0,0,0) -- (u) node[above right]{$\bm{u}$};
-    
+
         % 投影线
         \draw[dashed, gray] (u) -- (2,0,0);
         \draw[dashed, gray] (u) -- (0,2,0);
         \draw[dashed, gray] (u) -- (0,0,2);
-    
+
         % 投影向量
         \draw[->, thick, red] (0,0,0) -- (2,0,0) node[below]{$a{\bm{v}_1}$};
         \draw[->, thick, red] (0,0,0) -- (0,2,0) node[left]{$b{\bm{v}_2}$};
         \draw[->, thick, red] (0,0,0) -- (0,0,2) node[below]{${\bm{v}_3}$};
       \end{tikzpicture}
-    
+
       \caption{向量 $\mathbf{u}$ 在正交坐标系 $v_1,v_2,v_3$ 上的投影}
       \label{fig:projection}
     \end{figure}
@@ -2708,7 +2708,1564 @@ Step2: 极小多项式次数为$2$的不可约多项式的
     g(x)=x^2+1.
   \]
 \end{remark}
+
+\begin{theory}\label{thr:Real-normal-matrix3}
+  $\varphi$为实正规算子, $g(x)=x^2+1$是$\varphi$的极小多项式,
+  任取$\bm{0}\neq \bm{v} \in V, \bm{u}=\varphi(\bm{v})$,则
+  $\Vert\bm{u}\Vert=\Vert\bm{v}\Vert, (\bm{u},\bm{v})=0$且
+  \[
+    (\varphi(\bm{u}),\varphi(\bm{v}))=(\bm{u},\bm{v})\begin{pmatrix}
+      0 & 1\\
+      -1 & 0
+    \end{pmatrix},\quad
+    (\varphi^*(\bm{u}),\varphi^*(\bm{v}))=(\bm{u},\bm{v})\begin{pmatrix}
+      0 & -1\\
+      1 & 0
+    \end{pmatrix}.
+  \]
+\end{theory}
+
+\begin{proof}
+  \[
+    \varphi(\bm{u})=\varphi^2(\bm{v})=-\bm{v},
+  \]
+  所以,结论中左边的等式成立.
+
+  由$\varphi$为正规算子,可得
+  $\Vert\varphi(\bm{v})\Vert=\Vert\varphi^*(\bm{v})\Vert$;
+  $(\varphi(\bm{u}),\bm{v})=(\bm{u},\varphi^*(\bm{v}))$
+  且$\varphi$为实算子,可得
+  $(\bm{u},\varphi^*(\bm{v}))=(\varphi^*(\bm{v}),\bm{u})$.因此,
+  \begin{align}
+    & \Vert\varphi(\bm{v})-\bm{u}\Vert+
+      \Vert\varphi(\bm{u})+\bm{v}\Vert=0\label{eq:Real-normal-matrix3}\\
+    = & \Vert\varphi(\bm{v})\Vert^2-2(\varphi(\bm{v}),\bm{u})+
+        \Vert\bm{u}\Vert^2+\Vert\varphi(\bm{u})\Vert^2-2(\varphi(\bm{u}),\bm{v})+
+        \Vert\bm{v}\Vert^2\notag\\
+    = & \Vert\varphi^*(\bm{v})\Vert^2+2(\varphi*(\bm{v}),\bm{u})+
+        \Vert\bm{u}\Vert^2+
+        \Vert\varphi^*(\bm{u})\Vert^2-2(\varphi^*(\bm{u}),\bm{v})+
+        \Vert\bm{v}\Vert^2\notag\\
+    \Longrightarrow & \Vert\varphi^*(\bm{v})-\bm{u}\Vert^2+
+        \Vert\varphi^*(\bm{u})-\bm{v}\Vert^2=0.\label{eq:Real-normal-matrix4}
+  \end{align}
+  由\eqref{eq:Real-normal-matrix4}式可得:
+  \[
+    \varphi^*(\bm{v})=-\bm{u}, \quad \varphi^*(\bm{u})=\bm{v}.
+  \]
+  从而结论中右边的等式成立.
+  \[
+    (\bm{u},\bm{u})=(\varphi(\bm{v}),\bm{u})=(\bm{v},\varphi^*(\bm{u}))=(\bm{v},\bm{v}),
+  \]
+  从而$\Vert\bm{u}\Vert=\Vert\bm{v}\Vert$.
+  \begin{align*}
+    & (\bm{u},\bm{v})=(\varphi(\bm{v}),\bm{v})=
+      (\bm{v},\varphi^*(\bm{v}))=(\bm{v},-\bm{u})=-(\bm{u},\bm{v})\\
+    \Longrightarrow & (\bm{u},\bm{v})=0.
+  \end{align*}
+\end{proof}
+
+\begin{theory}\label{thr:Real-normal-matrix4}
+  $\varphi$为实正规算子, 极小多项式为
+  $g(x)=(x-a)^2+b^2, a,b\in\mathbb{R},b\neq 0$.
+  任取$\bm{0}\neq \bm{v}\in V$,令
+  $\bm{u}=b^{-1}(\varphi-aI_v)(\bm{v})$,则
+  $\Vert\bm{u}\Vert=\Vert\bm{v}\Vert, (\bm{u},\bm{v})=0$且
+  \[
+    (\varphi(\bm{u}),\varphi(\bm{v}))=(\bm{u},\bm{v})\begin{pmatrix}
+      a & b\\
+      -b & a
+    \end{pmatrix},\quad
+    (\varphi^*(\bm{u}),\varphi^*(\bm{v}))=(\bm{u},\bm{v})\begin{pmatrix}
+      a & -b\\
+      b & a
+    \end{pmatrix}.
+  \]
+\end{theory}
+
+\begin{proof}
+  \[
+    (\varphi-aI_v)^2+b^2I_v=0 \Longrightarrow
+    b^{-1}(\varphi-aI_v)^2+I_v=0.
+  \]
+  令$\psi=b^{-1}(\varphi-aI_v)(\bm{v})$,则
+  $\psi$的极小多项式为$g(x)=x^2+1$.
+  由引理\ref{thr:Real-normal-matrix3}可知,
+  \[
+    \bm{0}\neq \bm{v}\in V, \bm{u}=\psi(\bm{v})=b^{-1}(\varphi-aI_v)(\bm{v}),
+  \]
+  \[
+    \Vert\bm{u}\Vert=\Vert\bm{v}\Vert, (\bm{u},\bm{v})=0,
+  \]
+  且
+  \[
+     (\psi(\bm{u}),\psi(\bm{v}))=(\bm{u},\bm{v})\begin{pmatrix}
+      0 & 1\\
+      -1 & 0
+    \end{pmatrix},\quad
+    (\psi^*(\bm{u}),\psi^*(\bm{v}))=(\bm{u},\bm{v})\begin{pmatrix}
+      0 & -1\\
+      1 & 0
+    \end{pmatrix}.
+  \]
+  反之,
+  \[
+    \varphi=aI_v+b\psi,\quad
+    \varphi^*=aI_v+b\psi^*.
+  \]
+  由此可得
+  \[
+    (\varphi(\bm{u}),\varphi(\bm{v}))=(\bm{u},\bm{v})\begin{pmatrix}
+      a & b\\
+      -b & a
+    \end{pmatrix},\quad
+    (\varphi^*(\bm{u}),\varphi^*(\bm{v}))=(\bm{u},\bm{v})\begin{pmatrix}
+      a & -b\\
+      b & a
+    \end{pmatrix}.
+  \]
+\end{proof}
+
+\begin{theorem}\label{thm:Real-normal-matrix2}
+   $\varphi$为实正规算子, 极小多项式为
+   $g(x)=(x-a)^2+b^2, a,b\in\mathbb{R},b\neq 0$.则
+   存在$s$个$2$维子空间$V_i$使得
+   \[
+      V=V_1\perp V_2\perp \cdots \perp V_s,
+    \]
+    且存在$V_i$的标准正交基$\bm{u}_i,\bm{v}_i$使得
+    $\varphi|_{V_i}$的表示阵为
+    \[
+      \begin{pmatrix}
+        a & b\\
+        -b & a
+      \end{pmatrix}.
+    \]
+\end{theorem}
+
+\begin{proof}
+  对维数$n=\dim V$进行归纳证明.$n=0$时,证明已经结束;
+  当$n=1$时,$V=L(\bm{e})$为一维空间,
+  $\varphi(\bm{e})=\lambda_0\bm{e}$,
+  其中$\lambda_0$为实特征值.
+  $g(\lambda_0)=(\lambda_0-a)^2+b^2>0$,产生矛盾,
+  因此$n$不可能为$1$.设$\dim V<n$时结论成立,
+  下面证$n$维的情形.
+
+  任取$\bm{0}\neq \bm{v}_1\in V$且$\Vert\bm{v}_1\Vert=1$.
+  令$\bm{u}_1=b^{-1}(\varphi-aI_V)(\bm{v}_1)$.
+  由引理\ref{thr:Real-normal-matrix4}可得:
+  \[
+    \Vert\bm{u}_1\Vert=\Vert\bm{v}_1\Vert=1, \quad
+    (\bm{u}_1,\bm{v}_1)=0.
+  \]
+  令$V_1=L(\bm{u}_1,\bm{v}_1)$,则$\bm{u}_1,\bm{v}_1$
+  是标准正交基,且
+  \[
+    (\varphi(\bm{u}_1),\varphi(\bm{v}_1))=(\bm{u}_1,\bm{v}_1)\begin{pmatrix}
+      a & b\\
+      -b & a
+    \end{pmatrix},\quad
+    (\varphi^*(\bm{u}_1),\varphi^*(\bm{v}_1))=(\bm{u}_1,\bm{v}_1)\begin{pmatrix}
+      a & -b\\
+      b & a
+    \end{pmatrix}.
+  \]
+  从而$V_1$是$\varphi-$不变子空间且是$\varphi^*-$不变子空间,
+  $V_1^{\perp}$是$\varphi^*-$不变子空间且是$\varphi-$不变子空间.
+  作限制:$\varphi|_{V_1^{\perp}}, \varphi^*|_{V_1^{\perp}}$,
+  可以证明$\varphi|_{V_1^{\perp}}$仍为正规算子.
+  \[
+    \dim V_1^{\perp}=n-\dim V_1=n-2<n.
+  \]
+  由归纳假设,存在$s-1$个$2$维子空间
+  $V_2,V_3\cdots,V_s$使得
+  \[
+    V_1^{\perp}=V_2\perp V_3\perp\cdots\perp V_s\Longrightarrow
+    V=V_1\perp V_2\perp\cdots\perp V_s.
+  \]
+  存在$V_i$的标准正交基$\{\bm{u}_i,\bm{v}_i\}$使得
+  $\varphi|_{V_i}$的表示矩阵为
+  \[
+    \begin{pmatrix}
+      a & b\\
+      -b  & a
+    \end{pmatrix}.
+  \]
+  $\varphi$在$V$的标准正交基
+  $\{\bm{u}_1,\bm{v}_1,\bm{u}_2,\bm{v}_2,\cdots,\bm{u}_s,\bm{v}_s\}$下
+  表示矩阵为
+  \[
+    \diag\left\{
+    \begin{pmatrix}
+      a_1&b_1\\
+      -b_1&a_1
+    \end{pmatrix},
+    \begin{pmatrix}
+      a_2&b_2\\
+      -b_2&a_2
+    \end{pmatrix},\cdots,
+    \begin{pmatrix}
+      a_s&b_s\\
+      -b_s&a_s
+    \end{pmatrix}
+    \right\}.
+  \]
+\end{proof}
+
+\begin{theorem}\label{thm:Real-normal-matrix3}
+  设$\varphi$为实正规算子,则存在$V$的标准正交基使得
+  $\varphi$的表示阵为
+  \begin{equation}\label{eq:Real-normal-matrix5}
+    \diag\left\{
+    \begin{pmatrix}
+      a_1&b_1\\
+      -b_1&a_1
+    \end{pmatrix},
+    \begin{pmatrix}
+      a_2&b_2\\
+      -b_2&a_2
+    \end{pmatrix},\cdots,
+    \begin{pmatrix}
+      a_r&b_r\\
+      -b_r&a_r
+    \end{pmatrix},
+    c_{2r+1},\cdots,c_n
+    \right\}.
+  \end{equation}
+  其中, $a_i,b_ic_j\in\mathbb{R}$且
+  $b_i\neq 0 (1\leq i \leq r, 2r+1\leq j \leq n)$,
+\end{theorem}
+
+\begin{proof}
+  考虑$\varphi|_{W_i} (1\leq i \leq k)$.
+
+  $1^{\circ}$ 若极小多项式$g_i(x)=x-c_i$,
+  则$\varphi|_{W_i}=c_iI_{W_i}$.
+
+  $2^{\circ}$ 若极小多项式$g_i(x)=(x-a_i)^2+b_i^2, b_i\neq 0$,
+  则由定理\ref{thm:Real-normal-matrix2}可知,
+  存在$W_i$的标准正交基$\{\bm{u}_i,\bm{v}_i\}$使得
+  $\varphi|_{\bigcup_{i=1}^r V_i}$的表示阵为
+  \[
+    \diag\left\{
+    \begin{pmatrix}
+      a&b\\
+      -b&a
+    \end{pmatrix},\cdots,
+    \begin{pmatrix}
+      a&b\\
+      -b&a
+    \end{pmatrix}
+  \right\}.
+\]
+结合$1^{\circ}$和$2^{\circ}$,即可得结论.
+\end{proof}
+
+\begin{remark}
+  我们将\eqref{eq:Real-normal-matrix5}式称为
+  实正规算子的正交相似标准形.
+
+  实正规算子在正交相似下关系下的全系不变量是全体特征值.
+
+  对于$1^{\circ}$中的限制,其特征值为$c_i$;
+  对于$2^{\circ}$中的限制,其特征值为$a_i\pm b_i\bm{i}$.
+\end{remark}
+
+\begin{deduction}\label{ddn:Real-normal-matrix1}
+  设$A$为正交阵,则存在正交阵$P$使得
+  \begin{align}
+    P^{-1}AP=\diag & \left\{
+     \begin{pmatrix}
+      \cos\theta_1&\sin\theta_1\\
+      -\sin\theta_1&\cos\theta_1
+    \end{pmatrix},
+    \begin{pmatrix}
+      \cos\theta_2&\sin\theta_2\\
+      -\sin\theta_2&\cos\theta_2
+    \end{pmatrix},\cdots,\right.\notag\\
+    & \quad\qquad\left.\begin{pmatrix}
+      \cos\theta_r&\sin\theta_r\\
+      -\sin\theta_r&\cos\theta_r
+    \end{pmatrix},
+    1,\cdots,1,-1,\cdots,-1
+    \right\}.\label{eq:Real-normal-matrix6}
+  \end{align}
+\end{deduction}
+
+\begin{proof}
+  存在正交阵$P$使得
+  \[
+    P^{-1}AP=\diag\left\{
+    \begin{pmatrix}
+      a_1&b_1\\
+      -b_1&a_1
+    \end{pmatrix},
+    \begin{pmatrix}
+      a_2&b_2\\
+      -b_2&a_2
+    \end{pmatrix},\cdots,
+    \begin{pmatrix}
+      a_r&b_r\\
+      -b_r&a_r
+    \end{pmatrix},
+    c_{2r+1},\cdots,c_n
+  \right\}.
+\]
+上式中,因为$P,P',A$皆为正交阵,因此
+等式左边的矩阵也是正交阵,从而
+右边也是正交阵,即
+\[
+  \begin{pmatrix}
+    a_1&b_1\\
+    -b_1&a_1
+  \end{pmatrix},
+  \begin{pmatrix}
+    a_2&b_2\\
+    -b_2&a_2
+  \end{pmatrix},\cdots,
+  \begin{pmatrix}
+    a_r&b_r\\
+    -b_r&a_r
+  \end{pmatrix}
+\]
+都是正交阵,且$c_j^2=1,j=2r+1,\cdots,n$,即$c_j=1\text{或}-1$.
+正交阵和它的转置矩阵相乘等于单位阵,因此
+\[
+  \begin{pmatrix}
+    a_i&b_i\\
+    -b_i&a_i
+  \end{pmatrix}
+  \begin{pmatrix}
+    a_i&-b_i\\
+    b_i&a_i
+  \end{pmatrix}=I_2\Longrightarrow a_i^2+b_i^2=1.
+\]
+设$a_i=\cos\theta_i, b_i=\sin\theta_i$,即可得结论.
+\end{proof}
+
+\begin{deduction}\label{ddn:Real-normal-matrix2}
+  设$A$为实对称阵,则存在正交阵$P$使得
+  \[
+    P^{-1}AP=\diag\left\{
+    \begin{pmatrix}
+      0&b_1\\
+      b_1&0
+    \end{pmatrix},
+    \begin{pmatrix}
+      0&b_2\\
+      b_2&0
+    \end{pmatrix},\cdots,
+    \begin{pmatrix}
+      0&b_r\\
+      b_r&0
+    \end{pmatrix},
+    0,\cdots,0\right\}.
+  \]
+\end{deduction}
+
+\begin{proof}
+  由题意可知:
+  \[
+    AA'=-A^2=A'A,
+  \]
+  存在正交阵$P$使得
+  \[
+    P^{-1}AP=\diag\left\{
+    \begin{pmatrix}
+      a_1&b_1\\
+      b_1&a_1
+    \end{pmatrix},
+    \begin{pmatrix}
+      a_2&b_2\\
+      b_2&a_2
+    \end{pmatrix},\cdots,
+    \begin{pmatrix}
+      a_r&b_r\\
+      b_r&a_r
+    \end{pmatrix},
+    c_{2r+1},\cdots,c_n\right\}.
+\]
+\[
+  (P'AP)'=P'A'P=-P'AP,
+\]
+即$P'AP$为反对称阵,从而其主对角线上的元素全部为$0$.因此
+\[
+  a_1=a_2=\cdots=a_r=0, \quad c_{2r+1}=\cdots=c_n=0.
+\]
+\end{proof}
+
+\begin{deduction}\label{ddn:Real-normal-matrix3}
+  实反对称阵的秩为偶数且其特征值
+  为$0$或纯虚数.
+\end{deduction}
+
+\begin{proof}
+  由推论\ref{ddn:Real-normal-matrix2}的结论
+  可以直接观察得出.
+\end{proof}
+
+\subsection{谱}
+
+\begin{theorem}[谱分析定理]\label{thm:Spectrum1}
+  设$\begin{cases} V\text{为酉空间}, &\varphi\text{为正规算子}\\
+    V\text{为欧氏空间}, &\varphi\text{为自伴随算子}\end{cases}$,
+  $\lambda_1,\lambda_2,\cdots,\lambda_k$是$\varphi$的全体不同
+  特征值, $V_i=\ker(\varphi-\lambda_iI_V)$是对应的特征子空间,则
+  \[
+    V=V_1\perp V_2\perp\cdots\perp V_k.
+  \]
+  设$E_i$为$V$到$V_i$的正交投影算子,则
+  \[
+    \varphi=\lambda_1E_1+\lambda_2E_2+\cdots+\lambda_kE_k.
+  \]
+  上式称为$\varphi$的谱分解.
+\end{theorem}
+
+\begin{proof}
+  投影算子的性质:
+
+  (1) $E_iE_j=0(i\neq j)$;
+
+  (2) $E_i^2=E_i$;
+
+  (3) $E_1+E_2+\cdots+E_k=I_V$;
+
+  (4) $E_i^*=E_i$.
+
+  断言: $\varphi E_i=\lambda_iE_i$.
+
+  任取$\bm{v}\in V, E_i(\bm{v})\in V_i=\ker(\varphi-\lambda_iI_V)$,
+  即$(\varphi-\lambda_iI_V)(E_i(\bm{v}))=0$,
+  即$\varphi E_i(\bm{v})=\lambda_iE_i(\bm{v})$,从而
+  $\varphi E_i=\lambda_iE_i$.
+
+  由此可得
+  \begin{align*}
+    \varphi= & \varphi I_V=\varphi(E_1+E_2+\cdots+E_k)\\
+    = & \varphi E_1+\varphi E_2+\cdots+\varphi E_k\\
+    = & \lambda_1E_1+\lambda_2E_2+\cdots+\lambda_kE_k.
+  \end{align*}
+\end{proof}
+
+\begin{theory}\label{thr:Spectrum1}
+  记号同定理\ref{thm:Spectrum1},设
+  \[
+    f_j(x)=\prod_{i\neq j}\frac{x-\lambda_i}{\lambda_j-\lambda_i},
+  \]
+  则
+  \[
+    E_j=f_j(\varphi).
+    \]
+  \end{theory}
+
+  \begin{proof}
+    \begin{align*}
+      \varphi^2= & (\lambda_1E_1+\lambda_2E_2+\cdots+\lambda_kE_k)^2\\
+      = & \lambda_1^2E_1+\lambda_2^2E_2+\cdots+\lambda_k^2E_k
+    \end{align*}
+    \begin{align*}
+      \forall m\geq 1, \varphi^m= & (\lambda_1E_1+\lambda_2E_2+\cdots+\lambda_kE_k)^m\\
+      = & \lambda_1^mE_1+\lambda_2^mE_2+\cdots+\lambda_k^mE_k
+    \end{align*}
+    设$f(x)=a_0+a_1x_1+\cdots+a_mx^m$,则
+    \begin{align*}
+      f(\varphi)= & a_0I_V+a_1\varphi+a_2\varphi^2+\cdots+a_m\varphi^m\\
+      = & a_0(\sum_{i=1}^kE_i)+a_1(\sum_{i=1}^k\lambda_iE_i)+\cdots+a_m(\sum_{i=1}^k\lambda_i^mE_i)\\
+      = & \sum_{i=1}^k(a_0+a_1\lambda_i+\cdots+a_m\lambda_i^m)E_i\\
+      = & \sum_{i=1}^k f(\lambda_i)E_i.
+    \end{align*}
+    又由于$f_j(\lambda_i)=\delta_{ij}$,所以
+    \[
+      f_j(\varphi)=\sum_{i=1}^k f_j(\lambda_i)E_j=E_j.
+    \]
+    
+  \end{proof}
+
+  \begin{theorem}\label{thm:Spectrum2}
+    设$\varphi$是酉空间$V$上的线性算子,则
+    \[
+      \varphi\text{为正规算子}\Longleftrightarrow
+      \exists f(x)\in\mathbb{R}[x]\text{使得}\varphi^*=\varphi f(\varphi).
+    \]
+  \end{theorem}
+
+  \begin{proof}
+    充分性($\Leftarrow$):
+    \[
+      \varphi\varphi^*=\varphi f(\varphi)=f(\varphi)\varphi=\varphi^*\varphi.
+    \]
+
+    必要性($\Rightarrow$):
+
+    由定理\ref{thm:Spectrum1}做谱分解:
+    \[
+      \varphi=\lambda_1E_1+\lambda_2E_2+\cdots+\lambda_kE_k.
+    \]
+    \[
+      \varphi^*=(\sum_{i=1}^k\lambda_iE_i)^*=\sum_{i=1}^k\overline{\lambda_i}E_i^*
+      =\sum_{i=1}^k\overline{\lambda_i}E_i.
+    \]
+    令$f(x)=\sum\limits_{j=1}^k\overline{\lambda_j}f_j(\lambda_i)
+    =\sum\limits_{j=1}^n(\overline{\lambda_j}\prod\limits_{i\neq j}\frac{x-\lambda_i}{\lambda_j-\lambda_i})$,
+    \[
+      f(\varphi)=\sum_{j=1}^k\overline{\lambda_j}f_j(\varphi)
+      \xlongequal{\text{引理}\ref{thr:Spectrum1}}
+      \sum_{j=1}^k\overline{\lambda_j}E_j
+      =\varphi^*.
+    \]
+  \end{proof}
+
+  \begin{definition}
+    设$V$是有限维内积空间, $\varphi$是$V$上的自伴随算子,
+    若对$\forall \bm{0}\neq \bm{\alpha}\in V$,有
+    \[
+      \begin{cases}
+        (\varphi(\bm{\alpha}),\bm{\alpha})>0 \triangleq \varphi\text{正定自伴随算子}\\
+        (\varphi(\bm{\alpha}),\bm{\alpha})\geq 0 \triangleq \varphi\text{半正定自伴随算子}\\
+        (\varphi(\bm{\alpha}),\bm{\alpha})<0 \triangleq \varphi\text{负定自伴随算子}\\
+        (\varphi(\bm{\alpha}),\bm{\alpha})\leq 0 \triangleq \varphi\text{半负定自伴随算子}
+      \end{cases}.
+    \]
+
+    若$V$是欧氏空间,任取标准正交基,$\varphi$的表示阵为$A$,
+    则$A$为实对称阵.设$\bm{\alpha}$的坐标向量为$\bm{x}\in\mathbb{R}^n$,
+    则$\varphi(\bm{\alpha})$的坐标向量为$A\bm{x}$.
+    若对$\forall \bm{0}\neq \bm{x}\in\mathbb{R}^n$,有
+    \[
+      (\varphi(\bm{\alpha}),\bm{\alpha})=
+      (A\bm{x})'\bm{x}=\bm{x}'A'\bm{x}=\bm{x}'A\bm{x}
+      \begin{cases}
+        >0 \triangleq A\text{正定实对称矩阵}\\
+        \geq 0 \triangleq A\text{半正定实对称矩阵}\\
+        <0 \triangleq A\text{负定实对称矩阵}\\
+        \leq 0 \triangleq A\text{半负定实对称矩阵}
+      \end{cases}.
+    \]
+    酉空间有对应的正负定等Hermite矩阵的定义.
+  \end{definition}
+
+  \begin{theorem}\label{thm:Spectrum3}
+    设$\varphi$是酉空间上的正规算子,则
+
+    (1) 若$\varphi$的特征值全为实数,则$\varphi$为自伴随算子;
+
+    (2) 若$\varphi$的特征值全部大于或等于$0$,则$\varphi$为半正定自伴随算子;
+
+    (3) 若$\varphi$的特征值全部大于$0$,则$\varphi$为正定自伴随算子;
+
+    (4) 若$\varphi$的特征值的模长全为$1$,则$\varphi$为酉算子.
+  \end{theorem}
+
+  \begin{proof}
+    设
+    \[
+      \varphi=\lambda_1E_1+\lambda_2E_2+\cdots+\lambda_kE_k.
+    \]
+
+    (1) $\varphi$的特征值全为实数,则$\lambda_i=\overline{\lambda_i}$,
+    \[
+      \varphi^*=\overline{\lambda_1}E_1+\overline{\lambda_2}E_2+\cdots+\overline{\lambda_k}E_k
+      =\lambda_1E_1+\lambda_2E_2+\cdots+\lambda_kE_k=\varphi.
+    \]
+
+    (2) 任取$\bm{\alpha}\in V$,则
+  \[
+    \varphi(\bm{\alpha})=\lambda_1E_1(\bm{\alpha})+\lambda_2E_2(\bm{\alpha})+\cdots+\lambda_kE_k(\bm{\alpha}),
+  \]
+  \[
+    \bm{\alpha}=E_1(\bm{\alpha})+E_2(\bm{\alpha})+\cdots+E_k(\bm{\alpha}).
+  \]
+  则
+  \begin{align*}
+    (\varphi(\bm{\alpha}),\bm{\alpha})=(\sum_{i=1}^k\lambda_iE_i(\bm{\alpha}),
+    \sum_{j=1}^kE_j(\bm{\alpha}))\\
+    =\lambda_1(E_1(\bm{\alpha}),E_1(\bm{\alpha}))+\cdots+\lambda_k(E_k(\bm{\alpha}),E_k(\bm{\alpha}))
+    \overset{\text{特征值全大于或等于零}}{\geq} 0.
+  \end{align*}
+
+  (3) 可类似证明.
+
+  (4)
+  \[
+    \varphi=\sum_{i=1}^k\lambda_iE_i, \quad
+    \varphi^*=\sum_{i=1}^k\overline{\lambda_i}E_i.
+  \]
+  \[
+    \varphi\varphi^*=(\sum_{i=1}^k\lambda_iE_i)(\sum_{j=1}^k\overline{\lambda_j}E_j)
+    =\sum_{i=1}^k\lambda_i\overline{\lambda_i}E_i=\sum_{i=1}^k|\lambda_i|E_i
+    =\sum_{i=1}^kE_i=I_V.
+  \]
+  \end{proof}
+
+  \begin{theorem}\label{thm:Spectrum4}
+    设$V$为有限维内积空间,$\varphi$为$V$上的半正定自伴随算子,
+    则存在唯一的半正定自伴随算子$\psi$使得
+    \[
+      \varphi=\psi^2.
+    \]
+    也称$psi$为$\varphi$的算术平方根,记为
+    \[
+      \psi = (\varphi)^{\frac{1}{2}}.
+    \]
+  \end{theorem}
+
+  \begin{proof}
+    对$\varphi$做谱分解:
+    \[
+      \varphi=\lambda_1E_1+\lambda_2E_2+\cdots+\lambda_kE_k,
+    \]
+    其中,$\lambda_1,\lambda_2,\cdots,\lambda_k$为全体不同的特征值,
+    $V_i$为对应的特征子空间,$E_i$为从$V$到$V_i$的正交投影算子.
+    \[
+    \varphi\text{为半正定自伴随算子} \Longleftrightarrow
+    \lambda_i\geq 0(1\leq i \leq k).
+    \]
+    令$d_i=\sqrt{\lambda_i}\leq 0$, 
+    $\psi=d_1E_1+d_2E_2+\cdots+d_kE_k$,
+    则
+    \[
+      \psi\text{也是半正定自伴随算子} \begin{cases}
+        d_1,d_2,\cdots,d_k\text{是$\psi$的全体不同特征值}\\
+        V_i=E_i(V)\text{是$d_i$的特征子空间}
+      \end{cases}
+    \]
+    \[
+      \psi^2=\sum_{i=1}^kd_i^2E_i=\sum_{i=1}^k\lambda_iE_i=\varphi.
+    \]
+    下面证唯一性.设$\theta$是半正定自伴随算子且$\theta^2=\varphi$.
+    设
+    \[
+      \theta=b_1F_1+b_2F_2+\cdots+b_kF_r,
+    \]
+    $b_1,b_2,\cdots,b_r$为$\theta$全体不同的特征值,
+    $b_i\geq 0(1\leq i \leq r)$, $F_i$为从$V$到特征子空间
+    $F_i(V)$的正交投影算子.
+    \begin{align*}
+      \varphi = & \theta^2=b_1^2F_1+b_2^2F_2+\cdots+b_r^2F_r\\
+      =& \lambda_1E_1+\lambda_2E_2+\cdots+\lambda_kE_k.
+    \end{align*}
+    则$b_1^2,b_2^2,\cdots,b_r^2$为互不相同的非负数且
+    \[
+      V=F_1(V_1)\perp F_2(V_2)\perp\cdots\perp F_r(V_r).
+    \]
+    因此可知$b_1^2,b_2^2,\cdots,b_r^2$为$\varphi$的全体不同特征值.
+    从而$k=r$,在调整次序后可得
+    \[
+      b_i^2=\lambda_i(\forall 1\leq i \leq k).
+    \]
+    因此,
+    \[
+      b_i=\sqrt{\lambda_i}=d_i (1\leq i \leq k).
+    \]
+    对$\varphi$而言,$F_i(V)$是特征值$b_i^2=\lambda_i$的特征子空间,
+    $E_i(V)$是特征值$\lambda_i$的对应的特征子空间.
+    从而
+    \[
+      F_i(V)=E_i(V)(1\leq i \leq k).
+    \]
+    \[
+      E_i: V\longrightarrow E_i(V), \quad F_i: V\longrightarrow F_i(V).
+    \]
+    因此
+    \[
+    E_i=F_i \Longrightarrow \theta = \psi.
+    \]
+  \end{proof}
+
+  \begin{example}
+    $\varphi$的表示矩阵为
+    \[
+      \begin{bmatrix}
+        1 & 0\\
+        0 & -1
+      \end{bmatrix},
+    \]
+    \[
+      E_1: V\longrightarrow L(\bm{e}_1), 
+      \quad E_2: V\longrightarrow L(\bm{e}_2).
+    \]
+    则
+    \[
+      \varphi = 1\cdot E_1+(-1)\cdot E_2,
+    \]
+    \[
+      \varphi^2 = (1\cdot E_1+(-1)\cdot E_2)^2= 1^2\cdot E_1+(-1)^2\cdot E_2 
+      = E_1+E_2= I_2.
+    \]
+  \end{example}
+
+  \begin{deduction}\label{ddn:Spectrum1}
+    设$A$为半正定的实对称阵(或Hermite阵),则
+    存在唯一的半正定实对称阵$B$满足
+    \[
+      A = B^2,
+    \]
+    称$B$为$A$的算术平方根,记为
+    \[
+      B=A^{\frac{1}{2}}.
+    \]
+  \end{deduction}
+
+  \begin{theorem}[极分解定理]\label{thm:Spectrum5}
+    设$V$为有限维内积空间, $\varphi$为线性算子,则
+    \[
+    \varphi = \omega\psi,
+    \]
+    其中$\omega$为保积算子, $\psi$为半正定自伴随算子,
+    并且$\psi$由$\varphi$唯一决定;若$\varphi$可逆,则
+    $\omega$也唯一.
+  \end{theorem}
+
+    先分析一下结论:
+
+    若$\varphi=\omega\psi$,则
+    \[
+    \varphi^*=\psi^*\omega^* \xlongequal{\psi\text{自伴随}} \psi\omega^*
+    \xlongequal{\omega\text{保积算子}} \psi\omega^{-1},
+    \]
+    \[
+    \varphi^*\varphi=\psi\omega^*\omega\psi=\psi\omega^{-1}\omega\psi
+    = \psi^2.
+    \]
+    若能证明$\varphi*\varphi$是半正定自伴随算子,根据前面定理,则上式会成立.
+    下面开始证明.
+    \begin{proof}
+    对$\forall \bm{\alpha}\in V$,有
+    \begin{align*}
+      & (\varphi^*\varphi(\bm{\alpha}),\bm{\alpha}) = (\varphi(\bm{\alpha}),\varphi(\bm{\alpha}))
+    \geq 0\\
+    \Longrightarrow & \varphi^*\varphi\text{是半正定自伴随算子}.
+    \end{align*}
+    令$\psi$为$\varphi^*\varphi$的算术平方根,即
+    $\psi$为半正定自伴随算子且
+    \begin{equation}
+    \psi^2 = \varphi^*\varphi.\label{eq:Spectrum1}
+    \end{equation}
+    由定理\ref{thm:Spectrum5}可知,
+    $\psi$唯一由$\varphi$决定,且对于
+    $\forall \bm{\alpha}\in V$,
+    \begin{align}
+      & (\psi\bm{\alpha},\psi\bm{\alpha})=(\psi^2(\bm{\alpha}),\bm{\alpha})
+      = (\varphi^*\varphi(\bm{\alpha}),\bm{\alpha})= 
+      (\varphi(\bm{\alpha}),\varphi(\bm{\alpha}))\notag\\
+      \Longrightarrow & \Vert \psi\bm{\alpha}\Vert = 
+      \Vert \varphi\bm{\alpha}\Vert.\label{eq:Spectrum2}
+      \end{align}
+
+      Case 1: $\varphi$可逆时,
+      \[
+      \varphi\text{可逆} \Longrightarrow  \ker\varphi = \ker\psi=0.
+      \]
+      又$\because \forall \bm{\alpha}\in \ker\psi$, 
+      即$\psi\bm{\alpha}=\bm{0}$,根据\eqref{eq:Spectrum2}式可得
+      $\varphi(\bm{\alpha})=\bm{0}$.于是,
+      $\bm{\alpha}=0$,则$\ker\psi=0$,因此
+      \[
+      \varphi\text{可逆} \Longleftrightarrow \ker\varphi=0
+      \Longleftrightarrow \ker\psi=0\Longleftrightarrow \psi\text{可逆}.
+      \]
+      令$\omega=\varphi\psi^{-1}$,下面证$\omega$保积.
+      \[
+      \omega^*=(\varphi\psi^{-1})^*=(\psi^{-1})^*(\varphi)^*=
+      (\psi^*)^{-1}\varphi^*=\psi^{-1}\varphi^*,
+      \]
+      \[
+      \omega^*\omega = \psi^{-1}\varphi^*\varphi\psi^{-1}
+      \xlongequal {\text{\eqref{eq:Spectrum1}式}} 
+      \psi^{-1}\psi^2\psi^{-1} = I_V\longrightarrow \omega\text{保积}.
+      \]
+
+      Case 2: $\varphi$不可逆时,
+      \[
+      \ker\varphi = \ker\psi\text{且不为零空间}.
+      \]
+      由维数公式可得
+      \begin{equation}\label{eq:Spectrum3}
+      \dim\IM\varphi = \dim\IM\psi.
+      \end{equation}
+      构造映射
+      \begin{align*}
+        \eta: \IM\psi & \to \IM\varphi\\
+        \psi(\bm{v}) & \mapsto \varphi(\bm{v})
+      \end{align*}
+      若$\psi(\bm{u}) = \psi(\bm{v})$，则
+      \[
+      \bm{u}-\bm{v} \in \ker\psi=\ker\varphi,
+      \]
+      即$\varphi(\bm{u})=\varphi(\bm{v})$.
+      \[
+      \begin{cases}
+        \begin{aligned}
+          \eta(\psi(\bm{u})+\psi(\bm{v})) & = \eta(\psi(\bm{u}+\bm{v})) = \varphi(\bm{u}+\bm{v})
+          = \varphi(\bm{u})+\varphi(\bm{v})\\
+          & = \eta(\psi(\bm{u}))+\eta(\psi(\bm{v}))
+        \end{aligned}\\
+      \eta(k\cdot\psi(\bm{u}))=k\varphi(\bm{u}) 
+      \end{cases}
+      \]
+      又因为每个$\varphi(\bm{u})$都
+      有一个$\psi(\bm{u})$和它对应,因此
+      \[
+      \eta: \IM\psi \mapsto \IM\varphi\text{是满的线性映射}
+      \]
+      根据前面维数公式,映射前后维数一致且$\eta$又是满射,因此
+      $\eta$必是单射,所以$\eta$是线性同构.
+
+      对所有$\bm{v}\in V$,有
+      \begin{align*}
+      & \Vert\eta(\psi(\bm{v}))\Vert=\Vert\varphi(\bm{v})\Vert
+      \xlongequal {\text{\eqref{eq:Spectrum2}}} \Vert\psi(\bm{v})\Vert\\
+      \Longrightarrow & \eta\text{保范是同构}\\
+      \Longleftrightarrow & \eta\text{是保积同构}.
+      \end{align*}
+      \begin{align*}
+        \because V & = \IM\psi \perp (\IM\psi)^{\perp}\\
+        & = \IM\varphi\perp(\IM\varphi)^{\perp},
+      \end{align*}
+      由\eqref{eq:Spectrum3}式可知,
+      $\dim(\IM\psi)^{\perp}=\dim(\IM\varphi)^{\perp}$,所以必定存在保积同构
+      \[
+      \xi:  (\IM\psi)^{\perp} \to (\IM\varphi)^{\perp}.
+      \]
+      令
+      \begin{align*}
+      \omega: V & \to V\\
+      (\psi(\bm{v}),\bm{u}) & \mapsto (\varphi(\bm{v}),\xi(\bm{u})),
+      \end{align*}
+      即
+      \[
+      \omega = \eta\perp\xi.
+      \]
+      容易证明,一个线性保积同构和它正交补空间上的线性同构以直和的形式组合,
+      则仍然是线性保积同构,因此$\omega$也是线性保积同构.
+
+      最后验证
+      \[
+      \varphi = \omega\cdot\psi \Longleftrightarrow \varphi(\bm{v}) = \omega\psi(\bm{v}), 
+      \forall \bm{v} \in V.
+      \]
+      此时 $\omega=\eta$, 所以上式成立.
+  \end{proof}
+
+  \begin{remark}
+    极坐标中,
+    \[
+    (\rho,\theta) \Longleftrightarrow x=\rho\cos\theta, y=\rho\sin\theta,
+    z = x+iy=\rho\cdot e^{i\theta}.
+    \]
+   上式即复数的极分解,矩阵的极分解是复数极分解的推广.
+   $e^i\theta$在复数中表示一个$\theta$角的旋转,
+   对应矩阵极分解中的正交变换或酉变换,即对应一个保积算子;
+   $\rho$在复数极分解中是一个大于等于0的实数,对应矩阵极分解中的
+   半正定的自伴随算子.
+
+   \[
+   \varphi = \omega\psi = (\omega\psi\omega^*)\omega,
+   \]
+   容易证明,上式最右边$(\omega\psi\omega^*)$仍然是一个
+   半正定的自伴随算子,因此$\omega$写在左边或右边都可以.
+  \end{remark}
+
+  \begin{deduction}
+    $\forall A\in M_n(\mathbb{R})$,有$A=OS=S_1O$,其中$O$为正交矩阵,
+    $S$或$S_1$为半正定实对称矩阵.这种分解叫OS分解或实矩阵的极分解;
+
+    $\forall A\in M_n(\mathbb{C})$,有$A=UH=H_1U$,其中$U$为酉矩阵,
+    $H$或$H_1$为半正定Hermite矩阵.这种分解叫UH分解或复矩阵的极分解.
+  \end{deduction}
+
+  \begin{remark}
+    $A$为可逆实矩阵时,求OS分解的步骤:
+
+    $A'A$为正定阵,必存在正交阵$P$使得
+    \[
+    P'A'AP=\begin{pmatrix}
+      \lambda_1 & & &\\
+      & \lambda_2 & &\\
+      & & \ddots &\\
+      & & & \lambda_n
+    \end{pmatrix}, \lambda_i>0.
+    \]
+    则
+    \[
+    S=P\begin{pmatrix}
+      \sqrt{\lambda_1} & & &\\
+      & \sqrt{\lambda_2} & &\\
+      & & \ddots &\\
+      & & & \sqrt{\lambda_n}
+    \end{pmatrix}P'
+    \]
+    满足$A'A=S^2$,则$O=AS^{-1}$为正交阵.
+
+    $A$为不可逆矩阵时,可通过求奇异值分解来进行$OS$分解,
+    即下节将详细介绍.
+  \end{remark}
+
+  \subsection{奇异值分解}
+
+  第7章和第8章主要介绍了相似标准型
+  和合同(复相合)标准型,第9章则演变成了
+  正交(或酉)相似标准型.那么相抵标准型
+  到第9章进化成什么样呢?
+
+  设$A^{m\times n}$为实矩阵,则存在非异阵
+  $P^{m\times m}, Q^{n\times n}$使得
+  \[
+    P^{-1}AQ=\begin{pmatrix}
+      I_r& O\\
+      O&O
+    \end{pmatrix}.
+  \]
+
+  在内积空间中,如果$P^{m\times m}, Q^{n\times n}$为正交阵(酉阵),
+  那会使得$P'AQ$为什么矩阵呢?
+
+  \begin{definition}
+    设$A\in M_{m\times n}(\mathbb{R})$,若存在非负数$\sigma$,
+    非零向量$\bm{0}\neq \bm{v}\in \mathbb{R}^n, 
+    \bm{0}\neq \bm{u}\in \mathbb{R}^n$,使得
+    \[
+    A\bm{v}=\sigma\bm{u}, A'\bm{u}=\sigma\bm{v},
+    \]
+    则称$\sigma$为$A$的奇异值,
+    $\bm{v}$为$A$的右奇异向量,
+    $\bm{u}$为$A$的左奇异向量.
+  \end{definition}
+
+  \begin{definition}
+    设$V$为$n$维欧氏空间,$U$为$m$维欧氏空间,线性映射
+    \[
+    \varphi: V \to U,
+    \]
+    则存在唯一的线性映射
+    \[
+    \varphi^*: U \to V,
+    \]
+    使得对$\forall \bm{v}\in V, \forall \bm{u}\in U$有
+    \[
+    (\varphi(\bm{v}),\bm{u})=(\bm{v},\varphi^*(\bm{u})).
+    \]
+    上式中,等号左边的内积是在空间$U$上,
+    右边的内积是在空间$V$上. $\varphi^*$称为$\varphi$的伴随.
+    这可以看作是欧氏空间上线性算子的伴随推广到线性映射.
+    \end{definition}
+
+    \begin{proof}
+      取$V$的一组标准正交基$\{\bm{e}_1,\bm{e}_2,\dots,\bm{e}_n\}$,
+      取$U$的一组标准正交基$\{\bm{f}_1,\bm{f}_2,\dots,\bm{f}_m\}$, 
+      $\varphi$的表示矩阵为$A$, $\bm{v}$的坐标向量为$\bm{x}\in\mathbb{R}^n$, 
+      $\bm{u}$的坐标向量为$\bm{y}\in\mathbb{R}^m$,则
+      \[
+        (\varphi(\bm{v}),\bm{u})_U=(A\bm{x})'\cdot\bm{y}
+        = \bm{x}'\cdot A'\bm{y} \xlongequal 
+        {\text{令$\varphi^*$在给定基下的表示矩阵为$A'$}} 
+        (\bm{x}'\cdot A')\cdot\bm{y} = (\bm{v}, \varphi^*(\bm{u}))_V. 
+      \]
+    \end{proof}
+
+    \begin{definition}
+      设$\varphi\in \mathscr{L}(V, U)$,其伴随为$\varphi^*$,
+      若存在非负数$\sigma$及$\bm{0}\neq \bm{v}\in V, 
+      \bm{0}\neq \bm{u}\in U$,使得
+      \[
+        \varphi(\bm{v})=\sigma\bm{u},
+        \varphi^*(\bm{u})=\sigma\bm{v},
+      \]
+      则称$\sigma$为$\varphi$的奇异值,
+      $\bm{v},\bm{u}$为$\varphi$的右,左奇异向量.
+      $\varphi^*\varphi\in \mathscr{V}$为半正定自伴随算子,
+      \[
+        \varphi^*\varphi(\bm{v})=\varphi^*(\sigma\bm{u})
+        =\sigma\varphi^*(\bm{u})=\sigma^2\bm{v}.
+      \]
+      同理, $\varphi\varphi^*\in\mathscr{U}$为半正定自伴随算子,
+      \[
+        \varphi\varphi^*(\bm{u})=\varphi^*(\sigma\bm{v})
+        =\sigma\varphi^*(\bm{v})=\sigma^2\bm{u}.
+      \]
+    \end{definition}
+
+    \begin{theorem}\label{thm:SVD1}
+      设$\varphi\in\mathscr{L}(V^m, U^n)$,则存在$V$的
+      一组标准正交基$\{\bm{e}_1,\bm{e}_2,\dots,\bm{e}_m\}$,
+      $U$的一组标准正交基$\{\bm{f}_1,\bm{f}_2,\dots,\bm{f}_n\}$,
+      使得$\varphi$的表示矩阵为
+      \[
+      \begin{pmatrix}
+        S&O\\
+        O&0
+      \end{pmatrix},
+      S=\begin{pmatrix}
+        \sigma_1&&&\\
+        &\sigma_2&&\\
+        &&\ddots&\\
+        &&&\sigma_r
+      \end{pmatrix},\quad
+      \]
+      其中, $\sigma_1\geq\sigma_2\geq\dots\geq\sigma_r>0$是
+      $\varphi$的所有正的奇异值.
+    \end{theorem}
+
+    \begin{proof}
+      $\varphi^*\varphi\in\mathscr{L}(V)$是半正定自伴随算子,
+      则存在$V$的一组标准正交基$\{\bm{e}_1,\bm{e}_2,\dots,\bm{e}_m\}$
+      使得$\varphi^*\varphi$在这组基下的表示矩阵为
+      \[
+        \diag\{\lambda_1,\lambda_2,\cdots,\lambda_r,0,\cdots,0\},
+      \]
+      其中, $r=\rank(\varphi^*\varphi)=\rank(\varphi)$,且
+      \begin{align*}
+        \varphi^*\varphi(\bm{e}_i) &  = \lambda_i\bm{e}_i, 1\leq i \leq r,\\
+        \varphi^*\varphi(\bm{e}_j) & = 0, r+1\leq j\leq m.
+      \end{align*}
+      \begin{align*}
+        \forall 1\leq i \leq r, & (\varphi(\bm{e}_i),\varphi(\bm{e}_i)) =
+        (\bm{e}_i,\varphi^*\varphi(\bm{e}_i)) = (\bm{e}_i,\lambda_i\bm{e}_i) = \lambda_i,\\
+        \forall 1\leq i\neq j\leq r, & (\varphi(\bm{e}_i),\varphi(\bm{e}_j)) =
+        (\bm{e}_i,\varphi^*\varphi(\bm{e}_j)) = (\bm{e}_i,\lambda_j\bm{e}_j) = 0,\\
+        \forall r < j \leq n, & (\varphi(\bm{e}_j),\varphi(\bm{e}_j)) = 
+        (\bm{e}_j,\varphi^*\varphi(\bm{e}_j)) = (\bm{e}_j,0) = 0 \Longrightarrow
+        \bm{e}_j =0.
+      \end{align*}
+      令
+      \[
+      \sigma_i=\sqrt{\lambda_i}, f_i=\frac{1}{\sigma}\varphi(\bm{e}_i),
+      1\leq i \leq r,
+      \]
+      则
+      \[
+        \Vert f_i\Vert=1, (\bm{f_i},\bm{f_j})=0, 1\leq i\neq j\leq r,
+      \]
+      即$\{\bm{f}_1,\bm{f}_2,\dots,\bm{f}_r\}$是$U$中两两正交的单位向量组,
+      将其扩张为$U$上的一组标准正交基$\{\bm{f}_1,\bm{f}_2,\\
+      \dots,\bm{f}_n\}$, 则
+      \begin{align}
+        & \varphi(\bm{e}_i)=\sigma_i\bm{f}_i, 1\leq i\leq r,\label{eq:SVD1}\\
+        & \varphi(\bm{e}_j)=\bm{0}, r+1\leq j\leq m.\notag
+      \end{align}
+      于是
+      \begin{align*}
+      & (\varphi(\bm{e}_1),\cdots,\varphi(\bm{e}_r),\varphi(\bm{e}_{r+1}),
+      \cdots,\varphi(\bm{e}_m)) \\
+      = & (\bm{f}_1,\cdots,\bm{f}_r,\bm{f}_{r+1},\cdots,\bm{f}_n)
+      \begin{pmatrix}
+        \sigma_1&&&\\
+        &\ddots&&\\
+        &&\sigma_r&\\
+        &&&O
+        \end{pmatrix}_{n\times m}.
+      \end{align*}
+      同理,
+      \begin{align*}
+      & (\varphi^*(\bm{f}_1),\cdots,\varphi^*(\bm{f}_r),\varphi^*(\bm{f}_{r+1}),
+      \cdots,\varphi^*(\bm{f}_n))\\
+      = &(\bm{e}_1,\cdots,\bm{e}_r,\bm{e}_{r+1},\cdots,\bm{e}_m)
+      \begin{pmatrix}
+        \sigma_1^{-1}&&&\\
+        &\ddots&&\\
+        &&\sigma_r^{-1}&\\
+        &&&O
+        \end{pmatrix}_{m\times n}.
+      \end{align*}
+      上式等价于
+      \begin{align}
+        & (\varphi^*(\bm{f}_i))=\sigma_i\bm{e}_i, 1\leq i\leq r,\label{eq:SVD2}\\
+        & (\varphi^*(\bm{f}_j))=\bm{0}, r+1\leq j\leq n.\notag
+      \end{align}
+      由\eqref{eq:SVD1}式和\eqref{eq:SVD2}式可知,
+      $\sigma_i(1\leq i \leq r)$是$\varphi$的奇异值.
+    \end{proof}
+
+    \begin{theorem}\label{thm:SVD2}
+      设$A\in M_{m\times n}(\mathbb{R})$, 则存在$m$阶正交阵$P$, 
+      $n$阶正交阵$Q$,使得
+      \[
+        P'AQ= \begin{pmatrix}
+          S&O\\
+          O&O
+          \end{pmatrix}, \quad
+          S=\begin{pmatrix}
+            \sigma_1&&&\\
+            &\ddots&&\\
+            &&\sigma_r&\\
+            &&&O
+            \end{pmatrix}.
+      \]
+      其中$\sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r>0$,
+      是$A$的全体正奇异值.上面左边等式又称$A$的正交相抵标准型.
+    \end{theorem}
+
+    \begin{definition}
+      用定理\ref{thm:SVD2}中的记号, $A\in M_{m\times n}(\mathbb{R})$,
+      则存在$m$阶正交阵$P$, $n$阶正交阵$Q$,使得
+      \[
+        A = P\begin{pmatrix}
+          S&O\\
+          O&O
+          \end{pmatrix}Q',
+      \]
+      上述分解称为$A$的奇异值分解(Singular Value Decomposition, SVD).
+    \end{definition}
+
+\subparagraph{\color{ecolor}奇异值分解步骤}
+\begin{asparaenum}[(1)]
+  \item 求$A'A$的正交相似标准型:存在正交阵$Q$使得
+  $Q'(A'A)Q=\diag\{\lambda_1,\cdots,\lambda_r,0,\cdots,0\}$, 
+  $r=\rank(A'A)=\rank(A)$, $\lambda_1\geq\cdots\geq\lambda_r>0$;
+  \item 设$Q=(\bm{\alpha}_1,\bm{\alpha}_2,\cdots,\bm{\alpha}_n)$,
+  令$\sigma_i=\sqrt{\lambda_i}$, 
+  $\beta_i=\frac{1}{\sigma_i}A\bm{\alpha}_i(1\leq i\leq r)$,
+  可得到$\{\bm{\beta}_1,\cdots,\bm{\beta}_r\}$是$\mathbb{R}^m$中
+  的两两正交的单位向量,扩张为$\mathbb{R}^m$的标准正交基
+  $\{\bm{\beta}_1,\cdots,\bm{\beta}_r,\bm{\beta}_{r+1},\cdots,\bm{\beta}_m\}$;
+  \item 令$P=(\bm{\beta}_1,\cdots,\bm{\beta}_r,\bm{\beta}_{r+1},
+  \cdots,\bm{\beta}_m)$为$m$阶正交阵,则可得
+  \[
+    A=P\begin{pmatrix}
+      S&O\\
+      O&O
+      \end{pmatrix}Q'.
+  \]
+\end{asparaenum}
+
+\subparagraph{\color{ecolor}SVD应用}
+\begin{asparaenum}[(1)]
+  \item 对方阵$A\in M_n(\mathbb{R})$而言,
+  极分解等价于奇异值分解.例如,
+  下面为$A$的一个极分解,其中$O$为正交阵,
+  $S$为半正定的是对称阵:
+  \begin{equation*}
+    \begin{aligned}
+      A=OS = & O(P'\Lambda P)\\
+      = & (OP')\Lambda P,
+    \end{aligned}\quad 
+    \Lambda=\begin{pmatrix}
+      \sigma_1&&&\\
+      &\ddots&&\\
+      &&\sigma_r&\\
+      &&&O
+      \end{pmatrix}.
+  \end{equation*}
+上式中, $(OP')$是正交阵, $\Lambda P$也是正交阵,
+就变成了奇异值分解.反过来,已知$A$的奇异值分解:
+\begin{eqnarray*}
+  A = P \begin{pmatrix}
+    S&O\\
+    O&O
+    \end{pmatrix}Q' = (PQ')(Q\begin{pmatrix}
+      S&O\\
+      O&O
+      \end{pmatrix}Q').
+\end{eqnarray*}
+上式中, $(PQ')$是正交阵, $Q\begin{pmatrix}
+  S&O\\
+  O&O
+  \end{pmatrix}Q'$是半正定的是对称阵,
+就变成了极分解.
+\item PCA(Principal Component Analysis, 主成分分析).
+\[
+  A=P\begin{pmatrix}
+    S&O\\
+    O&O
+  \end{pmatrix}Q'.
+\]
+  
+(a) 图片去噪音.
+  \[
+    A^{m\times n} \longrightarrow \begin{pmatrix}
+      \sigma_1&&&\\
+      &\sigma_2&&\\
+      &&\ddots&\\
+      &&&\sigma_r
+    \end{pmatrix}
+  \]
+  可将接近于0的奇异值对应的列去掉,从而去掉噪音.
+  
+  (b) 图片存储压缩.$A^{m\times n}$原来占用
+  $m\times n$个存储位.
+  \begin{align*}
+    A & = (\bm{\beta}_1,\cdots,\bm{\beta}_r,\cdots,\bm{\beta}_m)
+    \begin{pmatrix}
+      \sigma_1&&&\\
+      &\ddots&&\\
+      &&\sigma_r&\\
+      &&&O
+    \end{pmatrix}\begin{pmatrix}
+      \bm{\alpha}_1\\\bm{\alpha}_2\\\vdots\\\bm{\alpha}_n
+    \end{pmatrix}\\
+    & = \sigma_1\bm{\beta}_1\bm{\alpha}_1'+\sigma_2\bm{\beta}_2\bm{\alpha}_2'+\cdots+\sigma_r\bm{\beta}_r\bm{\alpha}_r'.
+  \end{align*}
+  只需要$(m+n+1)r$个存储位置.
+\item LSI(Latent Semantic Indexing, 潜在语义索引):
+  搜索网站将文章篇数看作一个大矩阵的行数,
+  文章中的词汇数看作这个大矩阵的列数.如
+  \[
+    A^{100000\times 10000},
+  \]
+  可表示10万篇1万字的文章,进行SVD后,
+  \[
+    A=\begin{pmatrix}
+      &&&\\
+      &&&\\
+      &&&\\
+      &&&
+    \end{pmatrix}_{m\times r}
+    \begin{pmatrix}
+      &&&\\
+      &&&\\
+      &&&\\
+      &&&
+    \end{pmatrix}_{r\times r}
+    \begin{pmatrix}
+      &&&\\
+      &&&\\
+      &&&\\
+      &&&
+    \end{pmatrix}_{r\times n}.
+  \]
+  所有和索引有关的关键信息,包括关键词,全部
+  位于中间的$r\times r$的小对角矩阵中,或者
+  $m\times r$矩阵的第一列和$r\times n$矩阵的第一行中.
+\end{asparaenum}
+
+\begin{example}
+  设$\varphi, \psi\in \mathscr{L}(V^n,U^m) \st
+  \varphi^*\varphi = \psi^*\psi$,证明:
+  存在正交算子$\omega\in \mathscr{L}(U) \st
+  \varphi=\omega\psi$.
+\end{example}
+
+\begin{proof}
+  取$V$的一组标准正交基$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$,
+  使得$\varphi^*\varphi$在这组基下的表示矩阵为
+  \[
+    \diag\{\lambda_1,\lambda_2,\cdots,\lambda_r,0,\cdots,0\},
+  \]
+  其中, $r=\rank(\varphi^*\varphi)=\rank(\varphi)$,且
+  $\lambda_1\geq \lambda_2 \geq \cdots \geq \lambda_r >0$.
+  令
+  \[
+    \sigma_i=\sqrt{\lambda_i}, \bm{f}_i=\frac{1}{\sigma_i}\varphi(\bm{e}_i),
+    1\leq i \leq r.
+  \]
+  将$\bm{f}_i$扩张为$U$上的一组标准正交基
+  $\{\bm{f}_1,\cdots,\bm{f}_r,\bm{f}_{r+1},\cdots,\bm{f}_m\}$.
+  同理,令
+  \[
+    \bm{g}_i=\frac{1}{\sigma_i}\psi(\bm{e}_i), 1\leq i \leq r.
+  \]
+  将$\bm{g}_i$扩张为$U$上的一组标准正交基
+  $\{\bm{g}_1,\cdots,\bm{g}_r,\bm{g}_{r+1},\cdots,\bm{g}_m\}$.则
+  \[
+    \varphi(\bm{e}_i)=\sigma_i\bm{f}_i,
+    \psi(\bm{e}_i)=\sigma_i\bm{g}_i,
+    1\leq i \leq r.
+  \]
+  \[
+    \varphi(\bm{e}_j)=\bm{0}, \psi(\bm{e}_j)=\bm{0},
+    r+1\leq j \leq n.
+  \]
+  令
+  \begin{align*}
+    \omega: U & \to U\\
+    \bm{g}_i & \mapsto \bm{f}_i
+  \end{align*}
+  则$\omega$为正交算子.$1\leq i \leq r$时,
+  \[
+    \omega\psi(\bm{e}_i)=\omega(\sigma_i\bm{g}_i)=\sigma_i\omega(\bm{g}_i)=
+    \sigma_i\bm{f}_i=\varphi(\bm{e}_i).
+  \]
+  $r+1\leq j \leq n$时,
+  \[
+    \omega\psi(\bm{e}_j)=\omega(\bm{0})=\bm{0}=\varphi(\bm{e}_j).
+  \]
+  因此, $\varphi=\omega\psi$.
+\end{proof}
+
+(4) 广义逆.
+
+\begin{theorem}\label{thm:SVD3}
+  设$\varphi\in\mathscr{L}(V^n,U^m)$,
+  则存在唯一的线性映射$\varphi^+\in\mathscr{L}(U^m,V^n)$
+  满足:
+
+  (1) $\varphi\varphi^+\varphi=\varphi$;
+
+  (2) $\varphi^+\varphi\varphi^+=\varphi^+$;
+
+  (3) $\varphi\varphi^+$和$\varphi^+\varphi$均为自伴随算子.
+
+  上述$\varphi^+$称为$\varphi$的Moore-Penrose广义逆.
+\end{theorem}
+
+\begin{proof}
+  如下图所示:
+  \begin{figure}[htbp]
+    \centering
+    \vspace{1.5cm}
+    \begin{tikzpicture}[
+        plane/.style={fill=blue!10, draw=blue!50, thick}
+    ]
+
+    % 坐标系设置
+    \coordinate (O) at (0,0,0);
+
+    % 绘制左侧平面 (kerφ)^⊥
+    \begin{scope}[transform canvas={xshift=-2.5cm}] % 缩小左侧偏移量
+        \draw[plane] (-1.5,-1) -- (1.5,-1) -- (2.5,1) -- (-0.5,1) -- cycle;
+        \node[blue] at (0.7,0.3) {$(\ker\varphi)^\perp$};
+
+        % 绘制kerφ箭头（垂直向上）
+        \draw[->, thick, red] (0,0) -- (0,2) node[above, left] {$\ker\varphi$};
+    \end{scope}
+
+    % 绘制右侧平面 Imφ
+    \begin{scope}[transform canvas={xshift=2.0cm}] % 增加右侧偏移量0.5cm
+        \draw[plane] (-1.5,-1) -- (1.5,-1) -- (2.5,1) -- (-0.5,1) -- cycle;
+        \node[blue] at (0.7,0.3) {$\mathrm{Im}\varphi$};
+
+        % 绘制(Imφ)^⊥箭头
+        \draw[->, thick, red] (0,0) -- (0,2) node[above, right] {$(\mathrm{Im}\varphi)^\perp$};
+    \end{scope}
+
+    % 绘制水平映射箭头φ（缩短0.5cm）
+    \draw[->, thick, blue!80, shorten >=1.25cm, shorten <=1.25cm]
+        (-1.7,0) -- node[midway, above] {$\varphi$} (2.0,0); % 调整箭头起点和终点
+
+      \end{tikzpicture}
+      \vspace{1cm}
+    \caption{$\varphi$映射示意图}\label{fig:kernel_image}
+  \end{figure}
+
+  令
+  \[
+    \xi=\varphi|_{(\ker\varphi)^\perp} :(\ker\varphi)^\perp \to \IM\varphi.
+  \]
+  则
+  \begin{align}
+    \ker\xi =& \ker\varphi\cap (\ker\varphi)^\perp=\bm{0},\label{eq:SVD3}\\
+    \dim(\ker\varphi)^\perp=& \dim V-\dim\ker\varphi=\dim\IM\varphi.\label{eq:SVD4}
+  \end{align}
+  由\eqref{eq:SVD3}式可知, $\xi$为单线性映射;
+  由\eqref{eq:SVD4}式可知, 线性映射$\xi$的定义域空间和
+  值域空间的维数相等,所以$\xi$为满线性映射.从而$\xi$
+  一定是线性同构.
+
+  定义
+  \begin{align*}
+    & \varphi^+=\begin{cases}
+      \xi^{-1}(\bm{u}), & \bm{u}\in\IM\varphi,\\
+      \bm{0}, & \bm{u}\in(\IM\varphi)^\perp.
+    \end{cases}\\
+    \Longrightarrow& \varphi^+: U \to V\text{为线性映射}.
+  \end{align*}
+  考虑$\varphi$的SVD,设
+  $V$的一组标准正交基$\{\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_n\}$,
+  $U$的一组标准正交基$\{\bm{f}_1,\bm{f}_2,\cdots,\bm{f}_m\}$,
+  则
+  \begin{align*}
+    & \varphi(\bm{e}_i) = \sigma_i\bm{f}_i, 1\leq i \leq r,\\
+    & \varphi(\bm{e}_j) = \bm{0}, r+1\leq j \leq n,\\
+    & \ker\varphi = L(\bm{e}_{r+1},\cdots,\bm{e}_n),
+                  \ker\varphi^\perp = L(\bm{e}_1,\cdots,\bm{e}_r)\\
+    & \IM\varphi = L(\bm{f}_1,\cdots,\bm{f}_r),
+                  (\IM\varphi)^\perp = L(\bm{f}_{r+1},\cdots,\bm{f}_m).
+  \end{align*}
+  \[
+    \forall 1\leq i \leq r,
+    \xi(\bm{e}_i)=\varphi(\bm{e}_i)=\sigma_i\bm{f}_i.
+  \]
+  因此
+  \[
+    \varphi^+(\bm{f}_i)=\begin{cases}
+      \frac{1}{\sigma_i}\bm{e}_i, & 1\leq i \leq r,\\
+      \bm{0}, & r+1\leq i \leq m.
+    \end{cases}
+  \]
+  $\varphi^+$的表示矩阵为
+  \[
+    \begin{pmatrix}
+      \frac{1}{\sigma_1}& & & &\\
+                        & \frac{1}{\sigma_2}& & &\\
+                        & & \ddots& &\\
+                        & & & \frac{1}{\sigma_r}&\\
+                        & & & & O
+    \end{pmatrix}.
+  \]
+  由以上两式可验证,定理中的结论(1)(2)(3)都成立.
+\end{proof}
+
+\begin{deduction}\label{ded:SVD1}
+  设$A\in M_{m\times n}(\mathbb{R})$,则存在唯一的
+  $A^+\in M_{n\times m}(\mathbb{R})$满足:
+
+  (1) $AA^+A=A$;
+
+  (2) $A^+AA^+=A^+$;
+
+  (3) $AA^+$和$A^+A$均为是对称阵.
+
+  上述$A^+$称为$A$的Moore-Penrose广义逆.
+\end{deduction}
+
+\begin{proof}
+  $A$的奇异值分解
+  \[
+    A=P\begin{pmatrix}
+      S&O\\
+      O&O
+    \end{pmatrix}Q'.
+  \]
+  则$A^+$的奇异值分解
+  \[
+    A^+=Q\begin{pmatrix}
+      S^{-1}&O\\
+      O&O
+    \end{pmatrix}P'.
+  \]
+\end{proof}
+
+\begin{notice}
+  \begin{asparaenum}[(1)]
+  \item $\varphi, A$可逆时, $\varphi^+=\varphi^{-1}$,
+    $A^+=A^{-1}$;
+  \item $\varphi=0, A=0$时, $\varphi^+=0, A^+=0$.
+  \end{asparaenum}
+\end{notice}
+
+\begin{theory}\label{thr:SVD1}
+  设$\varphi\in\mathscr{L}(V^n,U^m)$,
+  $\varphi^+$是其广义逆,则
+
+  $\varphi^+\varphi$是$V$到$(\ker\varphi)^{\perp}$
+  的正交投影算子;
+
+  $\varphi\varphi^+$是$U$到$\IM\varphi$的正交投影算子.
+\end{theory}
+
+\begin{proof}
+  \begin{align*}
+    & \begin{aligned}
+      \varphi^+\varphi(\bm{e}_i) & = \varphi^+(\sigma_i\bm{f}_i), 1 \leq i \leq r\\
+      & = \frac{1}{\sigma_i}(\sigma_i\bm{e}_i) = \bm{e}_i.
+    \end{aligned}\\
+    & \varphi^+\varphi(\bm{e}_j) = \bm{0}, r+1\leq j \leq n.
+  \end{align*}
+  同理可证$\varphi\varphi^+$.
+\end{proof}
+
+\begin{theorem}\label{thm:SVD4}
+  设$A\in M_{m\times n}(\mathbb{R}), \bm{\beta}\in\mathbb{R}^m,
+  \bm{x}\in\mathbb{R}^n$,
+  \begin{equation}\tag{*}
+    A\bm{x}=\bm{\beta}.
+  \end{equation}
+
+  (1)若(*)有解, 则$\bm{z}=A^+\bm{\beta}$是(*)的长度最小的解;
+
+  (2)若(*)无解, 则$\bm{z}=A^+\bm{\beta}$是(*)的最优近似解,即
+  \[
+    \Vert A\bm{z}-\bm{\beta}\Vert \leq \Vert A\bm{x}-\bm{\beta}\Vert,
+    \forall \bm{x}\in\mathbb{R}^n.
+  \]
+\end{theorem}
+
+\begin{proof}
+  (1) 若(*)有解, 则$\bm{\beta}$必在$\IM A$上.
+  \[
+    \bm{\beta}=A\bm{x}_0, \bm{z}=A^+A\bm{x}_0.
+  \]
+  则
+  \[
+    A\bm{z}=A(A^+A\bm{x}_0)=A\bm{x}_0=\bm{\beta}.
+  \]
+  上式说明$\bm{z}$是(*)的一个解.
+
+    \begin{figure}[hbtp]
+    \centering
+%    \vspace{1.5cm}
+    \begin{tikzpicture}[
+    plane/.style={fill=blue!10, draw=blue!50, thick},
+    projline/.style={dashed, blue, thin} 
+]
+
+% 坐标系设置
+\coordinate (O) at (0,0,0);
+
+% 左侧平面 (kerA)^⊥
+\begin{scope}[transform canvas={xshift=-2.5cm}]
+    \draw[plane] (-1.5,-1) -- (1.5,-1) -- (2.5,1) -- (-0.5,1) -- cycle;
+    \node[blue] at (0.3,-0.8) {$(\ker A)^\perp$};
+    \node[red] at (1.4,0) {$\bm{z}$};
+    % kerA箭头
+    \draw[->, thick, red] (0,0) -- (0,2) node[above, left] {$\ker A$};
+    
+    % x0向量及投影
+    \draw[->, thick, blue] (0,0) -- (1.2,0.8) node[above left] {$\bm{x}_0$};
+    \draw[->, thick, red] (0,0) -- (1.2,0);
+    \draw[projline] (1.2,0.8) -- (1.2,0); % 蓝色虚线
+\end{scope}
+
+% 右侧平面 ImA
+\begin{scope}[transform canvas={xshift=2.0cm}]
+    \draw[plane] (-1.5,-1) -- (1.5,-1) -- (2.5,1) -- (-0.5,1) -- cycle;
+    \node[blue] at (0.3,-0.8) {$\mathrm{Im}A$};
+    \node[red] at (1.2,0) {$AA^+\bm{\beta}$};
+    % (ImA)^⊥箭头
+    \draw[->, thick, red] (0,0) -- (0,2) node[above, left] {$(\mathrm{Im}A)^\perp$};
+    
+    % beta向量及投影
+    \draw[->, thick, blue] (0,0) -- (0.6,1.5) node[above right] {$\bm{\beta}$};
+    \draw[->, thick, red] (0,0) -- (0.6,0);
+    \draw[projline] (0.6,1.5) -- (0.6,0); % 蓝色虚线
+\end{scope}
+
+% 映射箭头A
+\draw[->, thick, blue!80, shorten >=1.25cm, shorten <=1.25cm]
+    (-1.7,0) -- node[midway, above] {$A$} (2.0,0);
+
+  \end{tikzpicture}
+  \vspace{1cm}
+    \caption{矩阵$A$表示的线性映射示意图}
+    \label{fig:SVD2}
+  \end{figure}
+  设$\bm{x}_0$是(*)的一个解, 如图\ref{fig:SVD2}所示:
+  由于$\ker A$在矩阵$A$的作用下等于0,因此$\bm{x}_0$与$\ker A$中
+  任一元素的和都是(*)的解.对$\bm{x}_0$做正交直和分解,这是
+  长度最小的解.由引理\ref{thr:SVD1}(1)可知, $\bm{x}_0$的正交直和分解
+  即$A^+A\bm{x}_0=\bm{z}$.
+
+  (2) 若(*)无解, 则$\bm{\beta}$必不在$\IM A$上.
+  \[
+    A\bm{z} = A(A^+\bm{\beta})\perp (\IM A)^\perp.
+  \]
+  \[
+    A\bm{x}-\bm{\beta}=A(\bm{x}-\bm{z})+A{\bm{z}}-\bm{\beta},
+  \]
+  由于$A(\bm{x}-\bm{z})\in\IM A, A\bm{z}-\bm{\beta}\in (\IM A)^\perp$,
+  根据勾股定理,有
+  \[
+    \Vert A\bm{x}-\bm{\beta}\Vert \geq \Vert A\bm{z}-\bm{\beta}\Vert.
+  \]
+\end{proof}
+
+\begin{remark}
+  在经济和金融等生产实际中,常常可以根据
+  实际数据得到大量的矛盾方程组:
+  \[
+  A^{m\times n}\bm{x}^{n\times 1}=\bm{\beta}^{m\times 1},
+\]
+由于实际可得的数量充分多,因此$m\gg 0$,即矩阵的行数可以特别多,
+方程数量可以很多,从而只能保证列满秩$\rank(A)=n$.
+根据定理\ref{thm:SVD4},可以得到最优解(最佳逼近解)
+  \[
+    \bm{x}=A^+\bm{\beta} \xlongequal{A^+=(A'A)^{-1}A'}
+    (A'A)^{-1}A'\bm{\beta}.
+\]
+即9.4节中的最小二乘法.
+\end{remark}
 %%% Local Variables:
-%%% mode: LaTeX
+%%% mode: latex
 %%% TeX-master: "../main"
 %%% End:
