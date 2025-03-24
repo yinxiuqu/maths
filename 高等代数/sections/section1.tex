@@ -1,10 +1,703 @@
 \section{行列式}
 
+\subsection{\texorpdfstring{$n$}{\textit{n}}阶行列式}
+\begin{definition}\label{dfn:n-order-determinant1}
+  由两条竖线围成的$n$行$n$列元素组成的式子(数值)
+  称为$n$阶行列式:
+  \[
+    |A|=
+    \begin{vmatrix}
+      a_{11}&a_{12}&\cdots&a_{1n}\\
+      a_{21}&a){22}&\cdots&a_{2n}\\
+      \vdots&\vdots&&\vdots\\
+      a_{n1}&a_{n2}&\cdots&a_{nn}
+    \end{vmatrix}.
+  \]
+  有时也记为$\det(A)$, determinant.
+  \begin{align*}
+    a_{i1}, a_{i2},\cdots, a_{in} \quad & \text{第$i$行}\\
+    a_{1j}, a_{2j},\cdots, a_{nj} \quad & \text{第$j$列}\\
+    a_{11}, a_{22},\cdots, a_{nn} \quad & \text{主对角线}
+  \end{align*}
+  $a_{ij}$称为第$(i,j)$元素,删去$a_{ij}$所在的第$i$行,第$j$列,
+  剩余元素按原来的顺序构成一个$n-1$阶行列式,称为$a_{ij}$的余子式,
+  记为$M_{ij}$.
+\end{definition}
+
+\begin{definition}[递归定义]\label{dfn:n-order-determinant2}
+  当$n=1$是, $1$阶行列式$|a_{11}| \triangleq a_{11}$.
+  设所有$n-1$阶行列式值已定义好,特别地, $M_{ij}$已定义好,
+  下面按第一列展开,定义$n$阶行列式:
+  \[
+    |A| \triangleq a_{11}M_{11}-a_{21}M_{21}+\cdots +(-1)^{n+1}a_{n1}M_{n1}.
+  \]
+\end{definition}
+
+\begin{definition}\label{dfn:n-order-determinant3}
+  $a_{ij}$的代数余子式为
+  \[
+    A_{ij} = (-1)^{i+j}M_{ij},
+  \]
+  定义$A$的$n$阶行列式:
+  \[
+    |A| = a_{11}A_{11}+a_{21}A_{21}+\cdots +a_{n1}A_{n1}.
+  \]
+\end{definition}
+
+\begin{definition}\label{dfn:n-order-determinant4}
+  若$a_{ij}=0, \forall i>j$,即主对角线下方所有元素都为$0$,
+  则称$|A|$为上三角行列式;若$a_{ij}=0, \forall i<j$,
+  即主对角线上方所有元素都为$0$,则称$|A|$为下三角行列式.
+\end{definition}
+
+\subparagraph{\color{ecolor}性质1}
+上三角(下三角)行列式值等于主对角线元素之积.
+
+\begin{proof}
+  当$n=1$时, $|a_{11}|=a_{11}$,结论成立.
+  设结论对$n-1$阶行列式成立,下面证$n$阶的情形.
+
+  $1^{\circ}.$上三角时:
+  \[
+    |A|=
+    \begin{vmatrix}
+      a_{11}&a_{12}&\cdots&a_{1n}\\
+      0&a_{22}&\cdots&a_{2n}\\
+      \vdots&\vdots&&\vdots\\
+      0&0&\cdots&a_{nn}
+    \end{vmatrix}.
+  \]
+  根据定义\ref{dfn:n-order-determinant2}, $|A|=a_{11}M_{11}$.
+  其中, $M_{11}$为$n-1$阶上三角行列式.由归纳假设,
+  \[
+    M_{11}=a_{11}a_{22}\cdots a_{nn},
+  \]
+  因此,
+  \[
+    |A|=a_{11}a_{22}\cdots a_{nn}.
+  \]
+
+  $2^{\circ}.$下三角时:
+  \[
+    |A|=
+    \begin{vmatrix}
+      a_{11}&0&0&\cdots&0\\
+      a_{21}&a_{22}&0&\cdots&0\\
+      a_{31}&a_{32}&a_{33}&\cdots&0\\
+      \vdots&\vdots&\vdots&\ddots&\vdots\\
+      a_{n1}&a_{n2}&a_{n3}&\cdots&a_{nn}
+    \end{vmatrix}.
+  \]
+  由定义\ref{dfn:n-order-determinant2}
+  \[
+    |A|=a_{11}M_{11}-a_{21}M_{21}+\cdots +(-1)^{n+1}a_{n1}M_{n1}.
+  \]
+  考虑余子式$M_{k1}(1\leq k \leq n)$,
+  设$M_{k1}=(b_{ij})_{(n-1)\times (n-1)}$,则
+  \begin{equation}\label{eq:n-order-determinant1}
+    b_{ij}=
+    \begin{cases}
+      a_{i,j+1}, & 1\leq i \leq k-1,\\
+      a_{i+1,j+1}, & k\leq i \leq n-1.
+    \end{cases}
+  \end{equation}
+  $|A|$为下三角行列式,即
+  \begin{equation}
+    \label{eq:n-order-determinant2}
+    \forall i<j, a_{ij}=0.
+  \end{equation}
+  由\eqref{eq:n-order-determinant1}式和
+  \eqref{eq:n-order-determinant2}式可知,
+  $M_{k1}$都是下三角行列式.可以断言,
+  当$k\geq 2$时, $M_{k1}$必有一个主对角元为$0$,
+  因为
+  \[
+    b_{k-1,k-1}=a_{k-1,k}=0.
+  \]
+  因此,根据归纳假设,
+  \[
+    M_{k1}=0(k\geq 2), M_{11}=a_{22}\cdots a_{nn},
+  \]
+  从而
+  \[
+    |A|=a_{11}a_{22}\cdots a_{nn}.    
+  \]
+\end{proof}
+
+\subparagraph{\color{ecolor}性质2}
+行列式$|A|$的某行(列)乘以常数$c$,
+得到的行列式$|B|=c\cdot|A|$.
+
+\begin{proof}
+  当$n=1$时,
+  \[
+    |B|=|c\cdot a_{11}|=ca_{11}=c\cdot |A|.
+  \]
+  假设结论对$n-1$阶行列式成立,下面证$n$阶的情形.
+
+  $1^{\circ}.$行的情形:
+  \[
+    |B|=
+    \begin{vmatrix}
+      a_{11}&a_{12}&\cdots&a_{1n}\\
+      \hdotsfor{4}\\
+      ca_{i1}&ca_{i2}&\cdots&ca_{in}\\
+      \hdotsfor{4}\\
+      a_{n1}&a_{n2}&\cdots&a_{nn}
+    \end{vmatrix}.
+  \]
+  设$|A|$的余子式为$M_{ij}$, $|B|$的余子式为$N_{ij}$.
+  由定义\ref{dfn:n-order-determinant2}可得
+  \begin{equation}\label{eq:n-order-determinant3}
+    |B|=a_{11}N_{11}-a_{21}N_{21}+\cdots+
+    (-1)^{i+1}ca_{i1}N_{i+1}+\cdots+(-1)^{n+1}a_{n1}N_{n1}.
+  \end{equation}
+  当$k\neq i$时, $N_{k1}$是$M_{k1}$的某一行元素乘以$c$得到,
+  因此由归纳假设可知
+  \begin{equation}\label{eq:n-order-determinant4}
+    N_{k1}=c\cdot M_{k1},
+  \end{equation}
+  当$k=i$时,
+  \begin{equation}\label{eq:n-order-determinant5}
+    N_{k1}= M_{k1}.
+  \end{equation}
+  将\eqref{eq:n-order-determinant4}式和\eqref{eq:n-order-determinant5}式
+  代入\eqref{eq:n-order-determinant3}式中去:
+  \[
+    |B|=c(a_{11}M_{11}-a_{21}M_{21}+\cdots+(-1)^{n+1}a_{n1}M_{n1})
+    =c|A|.
+  \]
+
+  $2^{\circ}.$列的情形:
+
+  (1)乘以$c$的是第$1$列时:
+  \[
+    |B|=
+    \begin{vmatrix}
+      ca_{11}&a_{12}&\cdots&a_{1n}\\
+      ca_{21}&a_{22}&\cdots&a_{2n}\\
+      \hdotsfor{4}\\
+      ca_{n1}&a_{n2}&\cdots&a_{nn}
+    \end{vmatrix}.
+  \]
+  此时,$\forall i, N_{i1}=M_{i1}$,所以
+  \begin{align*}
+    |B|= & ca_{11}N_{11}-ca_{21}N_{21}+\cdots+(-1)^{n+1}ca_{n1}N_{n1}\\
+    = & c(a_{11}M_{11}-a_{21}M_{21}+\cdots+(-1)^{n+1}a_{n1}M_{n1})
+    = c|A|.
+  \end{align*}
+
+  (2)乘以$c$的是第$j$列, $j\geq 2$时:
+  \[
+    |B|=
+    \begin{vmatrix}
+      a_{11}&a_{12}&\cdots&ca_{1j}&\cdots&a_{1n}\\
+      a_{21}&a_{22}&\cdots&ca_{2j}&\cdots&a_{2n}\\
+      \vdots&\vdots&&\vdots&&\vdots\\
+      a_{n1}&a_{n2}&\cdots&ca_{nj}&\cdots&a_{nn}
+    \end{vmatrix}
+  \]
+  根据定义\ref{dfn:n-order-determinant2},
+  \begin{equation}\label{eq:n-order-determinant6}
+    |B|=a_{11}N_{11}-a_{21}N_{21}+\cdots+(-1)^{n+1}a_{n1}N_{n1},
+  \end{equation}
+  上式中$N_{i1}$是由$M_{i1}$某一列乘以$c$得到,
+  由归纳假设可知,
+  \begin{equation}\label{eq:n-order-determinant7}
+    N_{i1}=c\cdot M_{i1}, \forall i.
+  \end{equation}
+  将\eqref{eq:n-order-determinant7}式代入\eqref{eq:n-order-determinant6}式,
+  可得
+  \[
+    |B|=c(a_{11}M_{11}-a_{21}M_{21}+\cdots+(-1)^{n+1}a_{n1}M_{n1})
+    =c\cdot |A|.
+  \]
+\end{proof}
+
+\subparagraph{\color{ecolor}性质3}
+若$|A|$有一行(列)元素全为$0$,则$|A|=0$.
+
+\begin{proof}
+  \[
+    |A|=
+    \begin{vmatrix}
+      a_{11}&a_{12}&\cdots&a_{1n}\\
+      a_{21}&a_{22}&\cdots&a_{2n}\\
+      \hdotsfor{4}\\
+      0&0&\cdots&0\\
+      a_{n1}&a_{n2}&\cdots&a_{nn}
+    \end{vmatrix} \xlongequal {\text{根据性质2}}
+    0\cdot |A| =0.
+  \]
+\end{proof}
+
+\subparagraph{\color{ecolor}性质4}
+对换$|A|$的两个不同行,所得行列式$|B|=-|A|$.
+
+\begin{proof}
+  当$n=2$时,容易验证结论成立.
+  设结论对$n-1$阶行列式成立,下面证
+  结论对$n$阶行列式成立.
+
+  $1^{\circ}.$ 对换相邻两行,即第$i$行与$i+1$行,
+  此时
+  \[
+    |B|=
+    \begin{vmatrix}
+      a_{11}&a_{12}&\cdots&a_{1n}\\
+      \hdotsfor{4}\\
+      a_{i+1,1}&a_{i+1,2}&\cdots&a_{i+1,n}\\
+      a_{i1}&a_{i2}&\cdots&a_{in}\\
+      \hdotsfor{4}\\
+      a_{n1}&a_{n2}&\cdots&a_{nn}
+    \end{vmatrix},
+  \]
+  根据定义\ref{dfn:n-order-determinant4},
+  \begin{equation}\label{eq:n-order-determinant8}
+    |B|= a_{11}N_{11}-a_{21}N_{21}+(-1)^{i+1}a_{i+1,1}N_{i1}+
+    (-1)^{i+2}a_{i1}N_{i+1,1}+\cdots+(-1)^{n+1}a_{n1}N_{n1}.
+  \end{equation}
+  当$k\neq i, i+1$时, $N_{k1}$由$M_{k1}$对换相邻两行得到,
+  由归纳假设可知,
+  \begin{equation}\label{eq:n-order-determinant9}
+    N_{k1}=-M_{k1}, \forall k\neq i, i+1.
+  \end{equation}
+  当$k=i,i+1$时,
+  \begin{equation}\label{eq:n-order-determinant10}
+    N_{i1}=M_{i+1,1}, N_{i+1,1}=M_{i,1}.
+  \end{equation}
+  将\eqref{eq:n-order-determinant9}式和\eqref{eq:n-order-determinant10}式
+  都代入\eqref{eq:n-order-determinant8}式中,可得
+  \[
+    |B|=-(a_{11}M_{11}-a_{21}M_{21}+\cdots+(-1)^{n+1}a_{n1}M_{n1})
+    = -|A|.
+  \]
+
+  $2^{\circ}.$ 对换$|A|$的第$i$行和第$j$行$(i<j)$.
+  因为普通的行对换等价于一系列的相邻行对换的复合,所以
+  \[
+    \begin{matrix}
+      i\\i+1\\\vdots\\j-1\\j
+    \end{matrix} \xLongrightarrow {j-i\text{次相邻行对换}}
+    \begin{matrix}
+      i+1\\\cdots\\j-1\\j\\i
+    \end{matrix} \xLongrightarrow {j-i-1\text{次相邻行对换}}
+    \begin{matrix}
+      j\\i+1\\\vdots\\j-1\\i
+    \end{matrix}
+  \]
+  从上面行指标的对换过程可以看出,任何第$i$行和第$j$行做对换,
+  等价于做了$2(j-i)-1$次相邻行对换,根据$1^{\circ}$可得
+  \[
+    |B|=(-1)^{2(j-1)-1}|A|=-|A|.
+  \]
+\end{proof}
+
+\subparagraph{\color{ecolor}性质5}
+
+若$|A|$的两行成比例(相等),则
+\[
+|A|=0.
+\]
+
+\begin{proof}
+  设$|A|$的第$j$行的元素是第$i$行对应元素的$c$倍,
+  则
+  \begin{equation}\label{eq:n-order-determinant11}
+    |A|=
+    \begin{vmatrix}
+      a_{11}&a_{12}&\cdots&a_{1n}\\
+      \hdotsfor{4}\\
+      a_{i1}&a_{i2}&\cdots&a_{in}\\
+      \hdotsfor{4}\\
+      ca_{i1}&ca_{i2}&\cdots&ca_{in}\\
+      \hdotsfor{4}\\
+      a_{n1}&a_{n2}&\cdots&a_{nn}
+    \end{vmatrix}\xlongequal {\text{根据性质2}}
+    c\cdot
+    \begin{vmatrix}
+            a_{11}&a_{12}&\cdots&a_{1n}\\
+      \hdotsfor{4}\\
+      a_{i1}&a_{i2}&\cdots&a_{in}\\
+      \hdotsfor{4}\\
+      a_{i1}&a_{i2}&\cdots&a_{in}\\
+      \hdotsfor{4}\\
+      a_{n1}&a_{n2}&\cdots&a_{nn}
+    \end{vmatrix}.
+  \end{equation}
+  根据性质4,交换上式最后一个矩阵的第$i$行和第$j$行,得
+  \[
+        \begin{vmatrix}
+        a_{11}&a_{12}&\cdots&a_{1n}\\
+      \hdotsfor{4}\\
+      a_{i1}&a_{i2}&\cdots&a_{in}\\
+      \hdotsfor{4}\\
+      a_{i1}&a_{i2}&\cdots&a_{in}\\
+      \hdotsfor{4}\\
+      a_{n1}&a_{n2}&\cdots&a_{nn}
+      \end{vmatrix} = -
+      \begin{vmatrix}
+       a_{11}&a_{12}&\cdots&a_{1n}\\
+      \hdotsfor{4}\\
+      a_{i1}&a_{i2}&\cdots&a_{in}\\
+      \hdotsfor{4}\\
+      a_{i1}&a_{i2}&\cdots&a_{in}\\
+      \hdotsfor{4}\\
+      a_{n1}&a_{n2}&\cdots&a_{nn}
+      \end{vmatrix} \Longrightarrow
+          \begin{vmatrix}
+            a_{11}&a_{12}&\cdots&a_{1n}\\
+      \hdotsfor{4}\\
+      a_{i1}&a_{i2}&\cdots&a_{in}\\
+      \hdotsfor{4}\\
+      a_{i1}&a_{i2}&\cdots&a_{in}\\
+      \hdotsfor{4}\\
+      a_{n1}&a_{n2}&\cdots&a_{nn}
+    \end{vmatrix} =0.
+  \]
+  将上式结论代入\eqref{eq:n-order-determinant11}式,得
+  \[
+   |A|=c\times 0 = 0.
+  \]
+\end{proof}
+
+\subparagraph{\color{ecolor}性质6}
+
+\[
+  \begin{vmatrix}
+    a_{11}&a_{12}&\cdots&a_{1n}\\
+    \hdotsfor{4}\\
+    a_{r1}+b_{r1}&a_{r2}+b_{r2}&\cdots&a_{rn}+b_{rn}\\
+    \hdotsfor{4}\\
+    a_{n1}&a_{n2}&\cdots&a_{nn}
+  \end{vmatrix} =
+  \begin{vmatrix}
+    a_{11}&a_{12}&\cdots&a_{1n}\\
+    \hdotsfor{4}\\
+    a_{r1}&a_{r2}&\cdots&a_{rn}\\
+    \hdotsfor{4}\\
+    a_{n1}&a_{n2}&\cdots&a_{nn}    
+  \end{vmatrix} +
+  \begin{vmatrix}
+    a_{11}&a_{12}&\cdots&a_{1n}\\
+    \hdotsfor{4}\\
+    b_{r1}&b_{r2}&\cdots&b_{rn}\\
+    \hdotsfor{4}\\
+    a_{n1}&a_{n2}&\cdots&a_{nn}    
+  \end{vmatrix}.
+\]
+
+\begin{proof}
+  当$n=1$时, $|a_{11}+b_{11}|=|a_{11}|+|b_{11}|$,结论成立.
+  设结论对$n-1$阶行列式成立,下面证明$n$阶的情形.
+  设结论等式左边的行列式为$|C|$,其余子式为$Q_{ij}$;等式右边两个行列式分别为
+  $|A|$和$|B|$,它们的余子式分别为$M_{ij}$和$N_{ij}$.根据定义
+  \ref{dfn:n-order-determinant2},
+  \begin{equation}\label{eq:n-order-determinant12}
+    |C|=a_{11}Q_{11}-a_{21}Q_{21}+\cdots+(-1)^{r+1}(a_{r1}+b_{r1})Q_{r1}
+    +\cdots+(-1)^{n+1}a_{n1}Q_{n1},
+  \end{equation}
+  当$k\neq r$时, $Q_{k1}, M_{k1},N_{k1}$满足性质6中的条件,
+  由归纳假设可知
+  \begin{equation}\label{eq:n-order-determinant13}
+    Q_{k1}=M_{k1}+N_{k1}, \forall k\neq r.
+  \end{equation}
+  当$k=r$时,
+  \begin{equation}\label{eq:n-order-determinant14}
+    Q_{r1}=M_{r1}=N_{r1}.
+  \end{equation}
+  将\eqref{eq:n-order-determinant13}式和\eqref{eq:n-order-determinant14}式
+  代入\eqref{eq:n-order-determinant12}式,
+  \begin{align*}
+    |C|= & (a_{11}M_{11}-a_{21}M_{21}+\cdots+(-1)^{r+1}a_{r1}M_{r1}+\cdots+
+    (-1)^{n+1}a_{n1}M_{n1})+\\
+    & (a_{11}N_{11}-a_{21}N_{21}+\cdots+(-1)^{r+1}b_{r1}N_{r1}+\cdots+
+      (-1)^{n+1}a_{n1}N_{n1})\\
+    = & |A|+|B|.
+  \end{align*}
+\end{proof}
+
+\subparagraph{\color{ecolor}性质7}
+
+\[
+  \begin{vmatrix}
+    a_{11}&a_{12}&\cdots&a_{1n}\\
+    \vdots&\vdots&&\vdots\\
+    a_{i1}&a_{i2}&\cdots&a_{in}\\
+    \vdots&\vdots&&\vdots\\
+    ca_{i1}+a_{j1}&ca_{i2}+a_{j2}&\cdots&ca_{in}+a_{jn}\\
+    \vdots&\vdots&&\vdots\\
+    a_{n1}&a_{n2}&\cdots&a_{nn}
+  \end{vmatrix} =
+  \begin{vmatrix}
+    a_{11}&a_{12}&\cdots&a_{1n}\\
+    \vdots&\vdots&&\vdots\\
+    a_{i1}&a_{i2}&\cdots&a_{in}\\
+    \vdots&\vdots&&\vdots\\
+    a_{j1}&a_{j2}&\cdots&a_{jn}\\
+    \vdots&\vdots&&\vdots\\    
+    a_{n1}&a_{n2}&\cdots&a_{nn}
+  \end{vmatrix}
+\]
+
+\begin{proof}
+  设等式左边的行列式为$|B|$,等式右边的行列式为$|A|$.
+  根据性质6对$|B|$进行拆分,
+  \[
+    |B|=
+  \begin{vmatrix}
+    a_{11}&a_{12}&\cdots&a_{1n}\\
+    \vdots&\vdots&&\vdots\\
+    a_{i1}&a_{i2}&\cdots&a_{in}\\
+    \vdots&\vdots&&\vdots\\
+    a_{j1}&a_{j2}&\cdots&a_{jn}\\
+    \vdots&\vdots&&\vdots\\    
+    a_{n1}&a_{n2}&\cdots&a_{nn}
+  \end{vmatrix} +
+  \begin{vmatrix}
+    a_{11}&a_{12}&\cdots&a_{1n}\\
+    \vdots&\vdots&&\vdots\\
+    a_{i1}&a_{i2}&\cdots&a_{in}\\
+    \vdots&\vdots&&\vdots\\
+    ca_{i1}&ca_{i2}&\cdots&ca_{in}\\
+    \vdots&\vdots&&\vdots\\    
+    a_{n1}&a_{n2}&\cdots&a_{nn}
+  \end{vmatrix},
+  \]
+  根据性质5,上式最后一个行列式的值为$0$,因此
+  \[
+    |B|=|A|.
+  \]
+\end{proof}
+
+\subparagraph{\color{ecolor}性质5'}
+
+若$|A|$有两列成比例(相等),则
+\[
+  |A|=0.
+\]
+
+\begin{proof}
+  对阶数$n$进行归纳.当$n=2$时,容易验证结论成立.
+  设对$n-1$阶行列式结论成立,现证$n$阶的情形.
+  两列成比例情况可以转化为相等的情况,
+  因此只需证明两列相等的情形.
+
+  Case 1: 相等的两列都不是第一列.
+  \begin{equation}\label{eq:n-order-determinant15}
+    |A|=a_{11}M_{11}-a_{21}M_{21}+\cdots+(-1)^{n+1}a_{n1}M_{n1}.
+  \end{equation}
+  $\forall i$, $M_{i1}$都有两列相等.
+  由归纳假设可知,
+  \[
+    M_{i1}=0, \forall i.
+  \]
+  将上式代入\eqref{eq:n-order-determinant15}式,可得
+  \[
+    |A|=0.
+  \]
+
+  Case 2: 第$1$列和第$r$列相等.
+  如果第一列全部为$0$,结论显然成立,下面证第一列
+  不全为$0$的情形,例如设$a_{s1}\neq 0$.
+  \[
+    |A|=
+    \begin{vmatrix}
+      a_{11}&\cdots&a_{11}&\cdots&a_{1n}\\
+      \vdots&&\vdots&&\vdots\\
+      a_{s1}&\cdots&a_{s1}&\cdots&a_{sn}\\
+      \vdots&&\vdots&&\vdots\\
+      a_{n1}&\cdots&a_{n1}&\cdots&a_{nn}
+    \end{vmatrix} \xlongequal
+    [\text{第$s$行乘以$-\frac{a_{i1}}{a_{s1}}$后加到第$i$行上}]{\text{根据性质7}} 
+    |C|=
+    \begin{vmatrix}
+      0&\cdots&0&\cdots&*\\
+      \vdots&&\vdots&&\vdots\\
+      a_{s1}&\cdots&a_{s1}&\cdots&*\\
+      \vdots&&\vdots&&\vdots\\
+      0&\cdots&0&\cdots&*
+    \end{vmatrix}.
+  \]
+  上式中,$|C|$第$1$列和第$r$列都只有$a_{s1}$非零,将$|C|$按第$1$列展开,
+  \[
+    |A|=|C|=(-1)^{s+1}a_{s1}Q_{s1},
+  \]
+  $Q_{i1}$为$|C|$按第$1$列展开时的余子式,
+  $Q_{s1}$中,由于第$s$行全去掉了,因此,有一列全部为$0$,
+  因此根据性质3, $Q_{s1}=0$,从而
+  \[
+    |A|=|C|=0.
+  \]
+\end{proof}
+
+\subparagraph{\color{ecolor}性质6'}
+
+\[
+  \begin{vmatrix}
+    a_{11}&\cdots&a_{1r}+b_{1r}&\cdots&a_{1n}\\
+    a_{21}&\cdots&a_{2r}+b_{2r}&\cdots&a_{2n}\\
+    \vdots&&\vdots&&\vdots\\
+    a_{n1}&\cdots&a_{nr}+b_{nr}&\cdots&a_{nn}
+  \end{vmatrix} =
+  \begin{vmatrix}
+    a_{11}&\cdots&a_{1r}&\cdots&a_{1n}\\
+    a_{21}&\cdots&a_{2r}&\cdots&a_{2n}\\
+    \vdots&&\vdots&&\vdots\\
+    a_{n1}&\cdots&a_{nr}&\cdots&a_{nn}    
+  \end{vmatrix} +
+  \begin{vmatrix}
+    a_{11}&\cdots&b_{1r}&\cdots&a_{1n}\\
+    a_{21}&\cdots&b_{2r}&\cdots&a_{2n}\\
+    \vdots&&\vdots&&\vdots\\
+    a_{n1}&\cdots&b_{nr}&\cdots&a_{nn}    
+  \end{vmatrix}.
+\]
+
+\begin{proof}
+  $n=1$时显然成立.设阶数为$n-1$时结论成立,
+  现证$n$阶时的情形.设上面等式左边的行列式为$|C|$,
+  其余子式为$Q_{ij}$;等式右边第一个行列式为$|A|$,
+  其行列式为$M_{ij}$;等式右边第二个行列式为$|B|$,
+  其行列式为$N_{ij}$.
+
+  Case 1: $r=1$时
+  \begin{equation}\label{eq:n-order-determinant16}
+    |C|=(a_{11}+b_{11})Q_{11}-(a_{21}+b_{21})Q_{21}+\cdots+
+    (-1)^{n+1}(a_{n1}+b_{n1})Q_{n1}.
+  \end{equation}
+  由于求和的列位于第$1$列,因此第$1$列元素的余子式不包括求和的列,所以
+  \[
+    Q_{i1}=M_{i1}=N_{i1}, \forall i.
+  \]
+  将上式代入\eqref{eq:n-order-determinant16},得
+  \[
+    |C|=|A|+|B|.
+  \]
+
+  Case 2: $r>1$时
+  \begin{equation}\label{eq:n-order-determinant17}
+    |C|=a_{11}Q_{11}-a_{21}Q_{21}+\cdots+(-1)^{n+1}a_{n1}Q_{n1}.
+  \end{equation}
+  $Q_{i1},M_{i1},N_{i1}$满足性质6'中的条件,
+  根据归纳假设可知
+  \[
+    Q_{i1}=M_{i1}+N_{i1},
+  \]
+  将上式代入\eqref{eq:n-order-determinant17}可得
+  \[
+    |C|=|A|+|B|.
+  \]
+\end{proof}
+
+\subparagraph{\color{ecolor}性质7'}
+
+\[
+  \begin{vmatrix}
+    a_{11}&\cdots&a_{1r}&\cdots&a_{1s}+ca_{1r}&\cdots&a_{1n}\\
+    a_{21}&\cdots&a_{2r}&\cdots&a_{2s}+ca_{2r}&\cdots&a_{2n}\\
+    \vdots&&\vdots&&\vdots&&\vdots\\
+    a_{n1}&\cdots&a_{nr}&\cdots&a_{ns}+ca_{nr}&\cdots&a_{nn}
+  \end{vmatrix} =
+  \begin{vmatrix}
+    a_{11}&\cdots&a_{1r}&\cdots&a_{1s}&\cdots&a_{1n}\\
+    a_{21}&\cdots&a_{2r}&\cdots&a_{2s}&\cdots&a_{2n}\\
+    \vdots&&\vdots&&\vdots&&\vdots\\
+    a_{n1}&\cdots&a_{nr}&\cdots&a_{ns}&\cdots&a_{nn}
+  \end{vmatrix}.
+\]
+
+\begin{proof}
+  由性质6'+性质5'可证.
+  \begin{align*}
+  & \begin{vmatrix}
+    a_{11}&\cdots&a_{1r}&\cdots&a_{1s}+ca_{1r}&\cdots&a_{1n}\\
+    a_{21}&\cdots&a_{2r}&\cdots&a_{2s}+ca_{2r}&\cdots&a_{2n}\\
+    \vdots&&\vdots&&\vdots&&\vdots\\
+    a_{n1}&\cdots&a_{nr}&\cdots&a_{ns}+ca_{nr}&\cdots&a_{nn}
+  \end{vmatrix}\\
+    = & 
+  \begin{vmatrix}
+    a_{11}&\cdots&a_{1r}&\cdots&a_{1s}&\cdots&a_{1n}\\
+    a_{21}&\cdots&a_{2r}&\cdots&a_{2s}&\cdots&a_{2n}\\
+    \vdots&&\vdots&&\vdots&&\vdots\\
+    a_{n1}&\cdots&a_{nr}&\cdots&a_{ns}&\cdots&a_{nn}
+  \end{vmatrix}+
+  \underbrace{\begin{vmatrix}
+    a_{11}&\cdots&a_{1r}&\cdots&a_{1r}&\cdots&a_{1n}\\
+    a_{21}&\cdots&a_{2r}&\cdots&a_{2r}&\cdots&a_{2n}\\
+    \vdots&&\vdots&&\vdots&&\vdots\\
+    a_{n1}&\cdots&a_{nr}&\cdots&a_{nr}&\cdots&a_{nn}
+  \end{vmatrix}}_{\text{根据性质5',该行列式值为$0$}}\\
+    = &
+  \begin{vmatrix}
+    a_{11}&\cdots&a_{1r}&\cdots&a_{1s}&\cdots&a_{1n}\\
+    a_{21}&\cdots&a_{2r}&\cdots&a_{2s}&\cdots&a_{2n}\\
+    \vdots&&\vdots&&\vdots&&\vdots\\
+    a_{n1}&\cdots&a_{nr}&\cdots&a_{ns}&\cdots&a_{nn}
+  \end{vmatrix}.  
+  \end{align*}
+\end{proof}
+
+\subparagraph{\color{ecolor}性质4'}
+
+对换$|A|$的两个不同列,得到的行列式$|B|=-|A|$.
+
+\begin{proof}
+  设$|B|$是对换$|A|$的第$r$列与第$s$列所得,
+  \[
+    |A|=
+    \begin{vmatrix}
+      a_{11}&\cdots&a_{1r}&\cdots&a_{1s}&\cdots&a_{1n}\\
+      a_{21}&\cdots&a_{2r}&\cdots&a_{2s}&\cdots&a_{2n}\\
+      \vdots&&\vdots&&\vdots&&\vdots\\
+      a_{n1}&\cdots&a_{nr}&\cdots&a_{ns}&\cdots&a_{nn}
+    \end{vmatrix},
+    |B|=
+    \begin{vmatrix}
+      a_{11}&\cdots&a_{1s}&\cdots&a_{1r}&\cdots&a_{1n}\\
+      a_{21}&\cdots&a_{2s}&\cdots&a_{2r}&\cdots&a_{2n}\\
+      \vdots&&\vdots&&\vdots&&\vdots\\
+      a_{n1}&\cdots&a_{ns}&\cdots&a_{nr}&\cdots&a_{nn}
+    \end{vmatrix}.
+  \]
+  构造一个新行列式$|C|$:
+  \[
+    |C|=
+    \begin{vmatrix}
+      a_{11}&\cdots&a_{1r}+a_{1s}&\cdots&a_{1r}+a_{1s}&\cdots&a_{1n}\\
+      a_{21}&\cdots&a_{2r}+a_{2s}&\cdots&a_{2r}+a_{2s}&\cdots&a_{2n}\\
+      \vdots&&\vdots&&\vdots&&\vdots\\
+      a_{n1}&\cdots&a_{nr}+a_{ns}&\cdots&a_{nr}+a_{ns}&\cdots&a_{nn}
+    \end{vmatrix}\xlongequal{\text{根据性质5'}} 0.
+  \]
+  利用性质6'将$|C|$拆分成4个行列式:
+  \begin{align*}
+    |C|= &
+    \begin{vmatrix}
+      a_{11}&\cdots&a_{1r}&\cdots&a_{1r}&\cdots&a_{1n}\\
+      a_{21}&\cdots&a_{2r}&\cdots&a_{2r}&\cdots&a_{2n}\\
+      \vdots&&\vdots&&\vdots&&\vdots\\
+      a_{n1}&\cdots&a_{nr}&\cdots&a_{nr}&\cdots&a_{nn}
+    \end{vmatrix} +
+    \begin{vmatrix}
+      a_{11}&\cdots&a_{1s}&\cdots&a_{1s}&\cdots&a_{1n}\\
+      a_{21}&\cdots&a_{2s}&\cdots&a_{2s}&\cdots&a_{2n}\\
+      \vdots&&\vdots&&\vdots&&\vdots\\
+      a_{n1}&\cdots&a_{ns}&\cdots&a_{ns}&\cdots&a_{nn}
+    \end{vmatrix} + |A|+|B|\\
+    = & |A|+|B|\\
+    = & 0\\
+    \Longrightarrow & |B|=-|A|.
+  \end{align*}
+\end{proof}
+
+
 \subsection{行列式的展开和转置}
-\begin{theorem}\label{thm:1-1}
+\begin{theorem}\label{thm:Determinant1}
   若
   \begin{equation}
-    \label{eq:0-1}
+    \label{eq:Determinant1}
   |A|=
   \begin{vmatrix}
     a_{11} & a_{12} & \cdots & a_{1n}\\
@@ -16,44 +709,79 @@
 第$i$行第$j$列元素$a_{ij}$的代数余子式记为$A_{ij}$,
 则对任意的$r(r=1,2,\cdots,n)$列有展开式：
   \begin{equation}
-    \label{eq:0-2}
+    \label{eq:Determinant2}
     |A|=a_{1r}A_{1r}+ a_{2r}A_{2r}+\cdots+a_{nr}A_{nr}.
   \end{equation}
   又对任意的$s \neq r$,有
   \begin{equation}
-    \label{eq:0-3}
+    \label{eq:Determinant3}
     a_{1r}A_{1s}+a_{2r}A_{2s}+\cdots+a_{nr}A_{ns}=0
   \end{equation}
 \end{theorem}
 
 \begin{proof}
-  \begin{equation*}
-    \begin{split}
-      |A| =
+  先证$s=r$的情况.
+
+  方法一:将第$r$列和前面相邻列逐次对换,
+  直到第$r$列对换到第$1$列,此时的行列式为$|B|$.
+  设$|A|$的余子式为$M_{ij}$, $|B|$的余子式为$N_{ij}$.
+  \begin{align*}
+    & |A|=
+    \begin{vmatrix}
+      a_{11}&\cdots&a_{1,r-1}&a_{1r}&\cdots&a_{1n}\\
+      a_{21}&\cdots&a_{2,r-1}&a_{2r}&\cdots&a_{2n}\\
+      \vdots&&\vdots&\vdots&&\vdots\\
+      a_{n1}&\cdots&a_{n,r-1}&a_{nr}&\cdots&a_{nn}
+    \end{vmatrix}\\
+    & \xlongrightarrow {|A|\text{经过$r-1$次相邻两列对换}} |B|=
+    \begin{vmatrix}
+      a_{1r}&a_{11}&\cdots&a_{1,r-1}&\cdots&a_{1n}\\
+      a_{2r}&a_{21}&\cdots&a_{2,r-1}&\cdots&a_{2n}\\
+      \vdots&\vdots&&\vdots&&\vdots\\
+      a_{nr}&a_{n1}&\cdots&a_{n,r-1}&\cdots&a_{nn}
+    \end{vmatrix}\\
+    & \Longrightarrow
+      |B|= a_{1r}N_{11}-a_{2r}N_{21}+\cdots+(-1)^{n+1}a_{nr}N_{n1}.
+  \end{align*}
+  $|A|$经过$r-1$次相邻两列对换得到$|B|$,
+  故$|A|=(-1)^{r-1}|B|$.又因为$\forall i, N_{i1}=M_{ir}$,
+  代入$|B|$的表达式,得
+  \begin{align*}
+    |A|& =(-1)^{r-1}|B|=
+         (-1)^{r-1}(a_{1r}M_{1r}-a_{2r}M_{2r}+\cdots+(-1)^{n+1}a_{nr}M_{nr})\\
+       & = (-1)^{r+1}a_{1r}M_{1r}+(-1)^{r+2}a_{2r}M_{2r}+\cdots+(-1)^{r+n}a_{nr}M_{nr}\\
+    & = a_{1r}A_{1r}+a_{2r}A_{2r}+\cdots+a_{nr}A_{nr}
+  \end{align*}
+  上面推算中, $(-1)^{r-1}=(-1)^{r+1}$.
+
+  方法二:利用性质6'将第$r$列进行拆分.
+  \begin{align*}
+      |A| = &
     \begin{vmatrix}
     a_{11} & \cdots & a_{1r}& \cdots & a_{1n}\\
     a_{21} & \cdots & 0 & \cdots & a_{2n}\\
     \vdots & \vdots & \vdots & \vdots & \vdots\\
     a_{n1} & \cdots & 0 & \cdots &a_{nn}
-    \end{vmatrix} & +
+    \end{vmatrix} +
     \begin{vmatrix}
     a_{11} & \cdots & 0 & \cdots & a_{1n}\\
     a_{21} & \cdots & a_{2r} & \cdots & a_{2n}\\
     \vdots & \vdots & \vdots & \vdots & \vdots\\
     a_{n1} & \cdots & 0 & \cdots &a_{nn}
-  \end{vmatrix}\\
-    + \cdots & +
+  \end{vmatrix} + \cdots +
   \begin{vmatrix}
     a_{11} & \cdots & 0 & \cdots & a_{1n}\\
     a_{21} & \cdots & 0 & \cdots & a_{2n}\\
     \vdots & \vdots & \vdots & \vdots & \vdots\\
     a_{n1} & \cdots & a_{nr} & \cdots &a_{nn}
   \end{vmatrix}\\
-  =a_{1r}A_{1r}+ a_{2r}A_{2r}+\cdots+a_{nr}A_{nr}.
-  \end{split}  
-\end{equation*}
-所以，\eqref{eq:0-2}式成立。
-再在\eqref{eq:0-1}式基础上，将其第s列换成第r列，构建一个新行列式，其值为0,即：
+  = & a_{1r}A_{1r}+ a_{2r}A_{2r}+\cdots+a_{nr}A_{nr}.
+\end{align*}
+所以，\eqref{eq:Determinant2}式成立。
+
+再证$s=r$的情况.
+
+在\eqref{eq:Determinant1}式基础上，将其第s列换成第r列，构建一个新行列式，其值为0,即：
 \begin{equation*}
   \begin{vmatrix}
     a_{11} & \cdots & a_{1r} & \cdots & a_{1r} & \cdots & a_{1n}\\
@@ -66,25 +794,25 @@
 \begin{equation*}
   a_{1r}A_{1s}+a_{2r}A_{2s}+\cdots+a_{nr}A_{ns}=0
 \end{equation*}
-所以\eqref{eq:0-3}式成立。
+所以\eqref{eq:Determinant3}式成立。
 
 同理可证，按照任意$r(r=1,2,\cdots,n)$行展开有展开式：
 \begin{equation}
-    \label{eq:0-4}
+    \label{eq:Determinant4}
     |A|=a_{r1}A_{1r}+ a_{r2}A_{r2}+\cdots+a_{rn}A_{rn}.
   \end{equation}
   又对任意的$s \neq r$,有
   \begin{equation}
-    \label{eq:0-5}
+    \label{eq:Determinant5}
     a_{r1}A_{s1}+a_{r2}A_{s2}+\cdots+a_{rn}A_{sn}=0
   \end{equation}
 \end{proof}
 
 \subsection{Gramer法则}
 
-\begin{theorem}[Gramer法则]
+\begin{theorem}[Gramer法则]\label{thm:Gramer}
   设有方程组
-  \begin{equation}\label{eq:1-1}
+  \begin{equation}\label{eq:Determinant6}
     \begin{cases}
       a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1,\\
       a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2,\\
@@ -93,7 +821,7 @@
     \end{cases}
   \end{equation}
   记这个方程组的系数行列式为$|A|$,若$|A|\neq 0$, 则方程组有且仅有一组解：
-  \begin{align}\label{eq:1-2}
+  \begin{align}\label{eq:Determinant7}
     x_1=\frac{|A_1|}{|A|},x_2=\frac{|A_2|}{|A|},
     \cdots,x_n=\frac{|A_n|}{|A|},
   \end{align}
@@ -103,24 +831,24 @@
 
 \begin{proof}
 
-  方法一：只需验证\eqref{eq:1-2}式确为方程组\eqref{eq:1-1}的解.
+  方法一：只需验证\eqref{eq:Determinant7}式确为方程组\eqref{eq:Determinant6}的解.
 
   将$|A_j|$按第$j$列展开,得
-  \begin{equation}\label{eq:1-3}
+  \begin{equation}\label{eq:Determinant8}
     |A_j|=b_1A_{1j}+b_2A_{2j}+\cdots+b_nA_{nj}=\sum\limits_{i=1}^nb_iA_{ij},
   \end{equation}
 
-  根据式\eqref{eq:1-2}和式\eqref{eq:1-3},
-  \begin{equation}\label{eq:1-4}
+  根据式\eqref{eq:Determinant7}和式\eqref{eq:Determinant8}可得,
+  \begin{equation}\label{eq:Determinant9}
     x_j=\frac{|A_j|}{|A|}=\frac{1}{|A|}\sum\limits_{i=1}^nb_iA_{ij},
     j=1,2,\cdots,n.
   \end{equation}
 
-  方程组\eqref{eq:1-1}第$k$个方程为
-  \begin{equation}\label{eq:1-5}
+  方程组\eqref{eq:Determinant6}第$k$个方程为
+  \begin{equation}\label{eq:Determinant10}
     \sum\limits_{j=1}^na_{kj}x_j=b_k, 1 \leq k \leq n.
   \end{equation}
-  将\eqref{eq:1-4}代入\eqref{eq:1-5}左边得
+  将\eqref{eq:Determinant9}代入\eqref{eq:Determinant10}左边得
   \begin{equation*}
     \begin{split}
     \sum\limits_{j=1}^na_{kj}x_j & =
@@ -146,10 +874,10 @@
   \end{equation*}
 
   由于$k$为任意$1$至$n$的自然数,
-  因此\eqref{eq:1-2}式是\eqref{eq:1-1}式的解.
+  因此\eqref{eq:Determinant7}式是\eqref{eq:Determinant6}式的解.
 
   方法二：利用系数矩阵求逆的方法。
-  方程组\eqref{eq:1-1}可以写成矩阵形式
+  方程组\eqref{eq:Determinant6}可以写成矩阵形式
   \begin{equation*}
     Ax=\beta,
   \end{equation*}
@@ -275,7 +1003,7 @@
 \end{example}
 
 \begin{solution}
-  按第一行展开,$a_n$的余子式是一个上三角行列式,其值等于$(-1)^{n-1}$,
+  按第一行展开, $a_n$的余子式是一个上三角行列式,其值等于$(-1)^{n-1}$,
   $\lambda$的余子式是与$F_n$相类似的$n-1$阶行列式,记之为$F_{n-1}$,
   于是得到递推关系式：
   \begin{equation*}
@@ -289,12 +1017,12 @@
 
 % \subsection{\texorpdfstring{$Laplace$}{\textit{Laplace}}定理}
 \subsection{Laplace定理}
-\begin{theorem}[$Laplace$定理]
+\begin{theorem}[Laplace定理]\label{thm:Laplace}
   设$|A|$是$n$阶行列式,在$|A|$中任取$k$行（列）,
   那么包含于这$k$行（列）的全部$k$阶子式与它们对应的代数余子式的成绩之和
   等于$|A|$.即若取定$k$个行：$1 \leq i_1 < i_2 < \cdots < i_k \leq n$,则
   \begin{equation}
-    \label{eq:1-6}
+    \label{eq:Determinant11}
     |A|=\sum\limits_{1 \leq j_1 < j_2 < \cdots < j_k \leq n}
     A\begin{pmatrix}i_1 & i_2 & \cdots & i_k & n\\
         j_1 & j_2 & \cdots & j_k & n\end{pmatrix}
@@ -303,7 +1031,7 @@
   \end{equation}
   同样若取定$k$个列：$1 \leq j_1 < j_2 < \cdots < j_k \leq n$,则
   \begin{equation}
-    \label{eq:1-7}
+    \label{eq:Determinant12}
     |A|=\sum\limits_{1 \leq i_1 < i_2 < \cdots < i_k \leq n}
     A\begin{pmatrix}i_1 & i_2 & \cdots & i_k & n\\
         j_1 & j_2 & \cdots & j_k & n\end{pmatrix}
@@ -315,7 +1043,7 @@
 \begin{proof}
   如果能证明$|A|$的每个$k$阶子式与其代数余子式之积的展开式中的每一项
   都互不相同且都属于$|A|$的展开式,两者总项数相等,那么就证明
-  了$Laplace$定理.
+  了Laplace定理.
 
   首先证明$|A|$的任意$k$阶子式与其代数余子式之积的展开式中
   的每一项都属于$|A|$的展开式.
@@ -323,7 +1051,7 @@
   先证明特殊情形：$i_1=1,i_2=2,\cdots,
   ,i_k=k;j_1=1,j_2=2,\cdots,j_k=k$.这时$|A|$可写为：
   \begin{equation}
-    \label{eq:1-8}
+    \label{eq:Determinant13}
     \begin{vmatrix}
       A_1 & *\\
       * & A_2
@@ -331,7 +1059,7 @@
   \end{equation}
   其中
   \begin{equation}
-    \label{eq:1-9}
+    \label{eq:Determinant14}
     |A_1|=A
     \left(\begin{smallmatrix}
       1 & 2 & \cdots & k\\
@@ -344,7 +1072,7 @@
     \end{vmatrix},
   \end{equation}
   \begin{equation}
-    \label{eq:1-10}
+    \label{eq:Determinant15}
     |A_2|=\widehat{A}
     \left(\begin{smallmatrix}
       1 & 2 & \cdots & k\\
@@ -356,12 +1084,12 @@
       a_{n,k+1}& \cdots & a_{nn}
     \end{vmatrix}.
   \end{equation}
-  \eqref{eq:1-9}式中的任一项具有形式：
+  \eqref{eq:Determinant14}式中的任一项具有形式：
   \begin{equation*}
     (-1)^{N(j_1,j_2,\cdots,j_k)}a_{j_11}a_{j_22}\cdots a_{j_kk},
   \end{equation*}
   其中$N(j_1,j_2,\cdots,j_k)$是排列$(j_1,j_2,\cdots,j_k)$的逆序数.
-  \eqref{eq:1-10}式中的任一项具有形式：
+  \eqref{eq:Determinant15}式中的任一项具有形式：
   \begin{equation*}
     (-1)^{N(j_{k+1},j_{k+2},\cdots,j_n)}a_{j_{k+1},k+1}a_{j_{k+2},k+2}\cdots a_{j_nn},
   \end{equation*}
@@ -379,7 +1107,7 @@
     \end{smallmatrix}\right)
   \end{equation*}
   中的任一项具有下列形式：
-  \begin{equation}\label{eq:1-11}
+  \begin{equation}\label{eq:Determinant16}
     (-1)^\sigma a_{j_11}a_{j_22}\cdots a_{j_kk}a_{j_{k+1}k+1}\cdots a_{j_nn},
   \end{equation}
   其中$\sigma = N(j_1,\cdots,j_k)+N(j_{k+1},\cdots,j_n)$. 
@@ -388,16 +1116,16 @@
   $(j_1,\cdots,j_k,j_{k+1},\cdots,j_n)$是$(1,2,\cdots,n)$的一个排列且
   \begin{equation*}    N(j_1,\cdots,j_k,j_{k+1},\cdots,j_n)=N(j_1,\cdots,j_k)+N(j_{k+1},\cdots,j_n).
   \end{equation*}
-  因此,\eqref{eq:1-11}式是$|A|$中的某一项.
+  因此,\eqref{eq:Determinant16}式是$|A|$中的某一项.
 
   再证明一般情况,设
   \[ 1 \leq i_1 < i_2 < \cdots < i_k \leq n;1 \leq j_1 < j_2 < \cdots < j_k \leq n.\]
   经过$i_1-1$次相邻两行的对换,可把$i_1$行调到第一行,
-  经过$i_2-2$次相邻两行的对换,可把$i_2$行调到第二行,$\cdots$,
+  经过$i_2-2$次相邻两行的对换,可把$i_2$行调到第二行, $\cdots$,
   经过$(i_1+\cdots+i_k)-\frac{1}{2}k(k+1)$次对换,可把
   第$i_1,i_2,\cdots,i_k$行调至前$k$行.同理,
   经过$(j_1+\cdots+j_k)-\frac{1}{2}k(k+1)$次对换,可把
-  第$j_1,j_2,\cdots,j_k$行调至前$k$列.因此,$|A|$经过
+  第$j_1,j_2,\cdots,j_k$行调至前$k$列.因此, $|A|$经过
   $(i_1+\cdots+i_k)+(j_1+\cdots+j_k)-k(k+1)$次行列的对换
   (其中$k(k+1)$必为偶数),得到了一个新的行列式：
   \[
@@ -414,7 +1142,7 @@
       j_1 & j_2 & \cdots & j_k
     \end{pmatrix}
   \]
-  由以上分析可知,$|C|=(-1)^{p+q}|A|,p=i_1+\cdots+i_k,q=j_1+\cdots+j_k.$
+  由以上分析可知, $|C|=(-1)^{p+q}|A|,p=i_1+\cdots+i_k,q=j_1+\cdots+j_k.$
   $|B|$是子式$|D|$在$|C|$中的代数余子式,由前面特殊情况的分析可知,
   $|D||B|$中的任一项都是$|C|$中的项.由于
   \[\widehat{A}
@@ -424,7 +1152,7 @@
     \end{pmatrix}
     =(-1)^{p+q}|B|,\]
   因此,
-  \begin{equation}\label{eq:1-12}
+  \begin{equation}\label{eq:Determinant17}
   A
     \begin{pmatrix}
       i_1 & i_2 & \cdots & i_k\\
@@ -437,14 +1165,14 @@
     \end{pmatrix}\end{equation}
   中的任一项都是$(-1)^{p+q}|C|=|A|$中的项.
 
-  以上分析了\eqref{eq:1-12}式中任一项均属于$|A|$的展开式。
+  以上分析了\eqref{eq:Determinant17}式中任一项均属于$|A|$的展开式。
 
   最后证明二者总项数相等：当$i_1,i_2,\cdots,i_k$固定时,对
   不同的$1 \leq j_1 < j_2 < \cdots < j_k \leq n$共有$C_n^k$个
   不同子式,每个子式完全展开后均含有$k!$项，相应的余子式也有$C_n^k$个，
-  每个余子式展开后均含有$(n-k)!$项.由\eqref{eq:1-12}式
-  展开得到的项是没有重复的,且一共有$C_n^k\cdot k!(n-1)!=n!$项.$|A|$的展开式也有$n!$项,
-  因此\eqref{eq:1-6}式成立.\eqref{eq:1-7}式同理可证.
+  每个余子式展开后均含有$(n-k)!$项.由\eqref{eq:Determinant17}式
+  展开得到的项是没有重复的,且一共有$C_n^k\cdot k!(n-1)!=n!$项. $|A|$的展开式也有$n!$项,
+  因此\eqref{eq:Determinant11}式成立.\eqref{eq:Determinant12}式同理可证.
 \end{proof}
 %%% Local Variables:
 %%% mode: latex

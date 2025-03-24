@@ -136,7 +136,7 @@
       O & D-CA^{-1}B\end{pmatrix}\longrightarrow \begin{pmatrix}
       A & O\\
       O & D-CA^{-1}B\end{pmatrix}\]
-  由前面例题可知，\(\rank(M)=\rank(A)+\rank(D-CA^{-1}B)\)
+  由前面例题可知，\(\rank(M)=\rank(A)+\rank(D-CA^{-1}B)\).
 \end{proof}
 
 \subsection{线性方程组的解}
@@ -144,7 +144,7 @@
   设\(Ax=\beta(\beta\neq 0)\)的特解为\(\gamma\),相伴齐次线性方程组
   \(Ax=0\)的基础解系为$\eta_1$, $\eta_2$, $\cdots$, $\eta_{n-r}$, 求证：
 
-  （1）\(\gamma,\gamma+\eta_1,\gamma+\eta_2,\cdots,\gamma+\eta_{n-r}\)
+  （1）\(\gamma, \gamma+\eta_1, \gamma+\eta_2, \cdots, \gamma+\eta_{n-r}\)
   线性无关；
 
   （2）\(Ax=\beta\)的任一解必为如下形式：
@@ -156,7 +156,7 @@
 
   （1）设\(\lambda_0\gamma+\lambda_1(\gamma+\eta_1)+\lambda_2(\gamma+\eta_2)+
   \lambda_2(\gamma+\eta_2)+\cdots+\lambda_{n-r}(\gamma+\eta_{n-r})=0\),合并整理得下式：
-  \begin{equation}\label{line_equation:1}
+  \begin{equation}\label{eq:Line-space1}
     (\sum_{i=0}^{n-r}\lambda_i)\gamma+\lambda_1\eta_1+
     \lambda_2\eta_2+\cdots+\lambda_{n-r}\eta_{n-r}=0,
   \end{equation}
@@ -165,14 +165,20 @@
     (\sum_{i=0}^{n-r}\lambda_i)A\gamma+\lambda_1A\eta_1+\lambda_2A\eta_2+
     \cdots+\lambda_{n-r}A\eta_{n-r}=0,
   \]
-  \(A\eta_i=0 \Longrightarrow (\displaystyle\sum_{i=0}^{n-r}\lambda_i)A\gamma=0
+  \[
+    A\eta_i=0 \Longrightarrow (\displaystyle\sum_{i=0}^{n-r}\lambda_i)A\gamma=0
   \xLongrightarrow{A\gamma=\beta}(\displaystyle\sum_{i=0}^{n-r}\lambda_i)\beta=0
-  \xLongrightarrow{\beta \neq 0}\displaystyle\sum_{i=0}^{n-r}\lambda_i=0\),\\
-  将\(\displaystyle\sum_{i=0}^{n-r}\lambda_i=0\)代入\eqref{line_equation:1}式，可得
-  \(\lambda_1\eta_1+\lambda_2\eta_2+\cdots+\lambda_{n-r}\eta_{n-r}=0\),\\
-  \(\because \eta_1,\eta_2,\cdots,\eta_{n-r}\)是基础解系,
-  \(\therefore \lambda_1=\lambda_2=\cdots=\lambda_{n-r}=0\) ,\\
-  由\eqref{line_equation:1}式可知，\(\gamma,\gamma+\eta_1,\gamma+\eta_2,\cdots,
+  \xLongrightarrow{\beta \neq 0}\displaystyle\sum_{i=0}^{n-r}\lambda_i=0,
+\]
+  将\(\displaystyle\sum_{i=0}^{n-r}\lambda_i=0\)代入\eqref{eq:Line-space1}式，可得
+  \[
+    \lambda_1\eta_1+\lambda_2\eta_2+\cdots+\lambda_{n-r}\eta_{n-r}=0,
+  \]
+  \[
+    \because \eta_1,\eta_2,\cdots,\eta_{n-r}\text{是基础解系},
+    \therefore \lambda_1=\lambda_2=\cdots=\lambda_{n-r}=0,
+  \]
+  由\eqref{eq:Line-space1}式可知，\(\gamma,\gamma+\eta_1,\gamma+\eta_2,\cdots,
   \gamma+\eta_{n-r}\)线性无关.
 
   (2)设\(\alpha\)为线性方程组\(Ax=\beta\)的任一解，\(k_i \in \mathbb{K}\),那么
@@ -199,10 +205,14 @@
 
   1、凑因子法：\((A-2I_n)(A+I_n)=I_n\),所以\(A-2I_n\)非异。
 
-  2、线性方程组解法：只要证明\((A-2I_n)x=0\)只有零解。\\
-  设\(x_0\)是线性方程组\((A-2I_n)x=0\)的解，那么\\
-  \(Ax_0=2x_0\), \(A^2x_0=2Ax_0=4x_0\),\\
-  \((A^2-A-3I_n)x_0=0\Longrightarrow -x_0=0 \Longrightarrow x_0=0\).
+  2、线性方程组解法：只要证明\((A-2I_n)x=0\)只有零解。
+  设\(x_0\)是线性方程组\((A-2I_n)x=0\)的解，那么
+  \[
+    Ax_0=2x_0, A^2x_0=2Ax_0=4x_0,
+  \]
+  \[
+    (A^2-A-3I_n)x_0=0\Longrightarrow -x_0=0 \Longrightarrow x_0=0.
+  \]
 \end{proof}
 
 \begin{example}
@@ -212,25 +222,25 @@
 \begin{proof}
   因为\(\rank(AA')=\rank(A'A)\),故只需证明右边的等式。
 
-  设\(Ax=0\)的解空间为\(V_A\), \(A'Ax=0\)的解空间为\(V_A'A\). \(Ax=0\)时, \(A'Ax\)必为\(0\),
+  设\(Ax=0\)的解空间为\(V_A\), \(A'Ax=0\)的解空间为\(V_{A'A}\). \(Ax=0\)时, \(A'Ax\)必为\(0\),
   所以\(V_A\subseteq V_{A'A}\).
 
   任取\(x_0\in V_{A'A}\),此时\(x_0\in\mathbb{R}_n\)且\(A'Ax_0=0\).\\
-  令\(Ax_0=\left(\begin{smallmatrix}a_1\\
-                                    a_2\\
-                                    \cdots\\
-                                    a_m\end{smallmatrix}\right)\in\mathbb{R}_m
-                                \Longrightarrow (Ax_0)'(Ax_0)=0 \Longrightarrow
-                                (a_1,a_2,\cdots,a_m)\left(\begin{smallmatrix}a_1\\
-                                    a_2\\
-                                    \cdots\\
-                                    a_m\end{smallmatrix}\right)=0\\
-                                \Longrightarrow \displaystyle\sum_1^ma_i^2=0
-                                \Longrightarrow \forall i, a_i=0
-                                \Longrightarrow Ax_0=0
-                                \Longrightarrow V_A'A\subseteq V_A
-                                \xLongrightarrow{V_A\subseteq V_{A'A}}V_A=V_{A'A}\\
-                                \Longrightarrow \rank(A)=\rank(A'A)\)
+  令\(Ax_0=\begin{pmatrix}a_1\\a_2\\\cdots\\a_m\end{pmatrix}
+  \in\mathbb{R}_m\)，则
+  \begin{align*}
+     & (Ax_0)'(Ax_0)=0 \Longrightarrow
+                (a_1,a_2,\cdots,a_m)\begin{pmatrix}a_1\\
+                    a_2\\
+                    \cdots\\
+                    a_m\end{pmatrix}=0
+                \Longrightarrow \sum_1^ma_i^2=0\\
+    \Longrightarrow & \forall i, a_i=0
+                \Longrightarrow Ax_0=0
+                \Longrightarrow V_A'A\subseteq V_A
+                \xLongrightarrow{V_A\subseteq V_{A'A}}V_A=V_{A'A}\\
+    \Longrightarrow & \rank(A)=\rank(A'A)
+\end{align*}
 \end{proof}
 %%% Local Variables:
 %%% mode: latex

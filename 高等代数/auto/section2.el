@@ -4,14 +4,15 @@
  "section2"
  (lambda ()
    (LaTeX-add-labels
-    "thm:2.1"
+    "thm:Matrix1"
+    "eq:Matrix1"
     "thm:Cauchy-Binet"
-    "eq:5"
-    "fig:1"
-    "fig:2"
-    "eq:1"
-    "eq:2"
-    "eq:3"
-    "eq:4"))
+    "eq:Matrix2"
+    "fig:Matrix1"
+    "fig:Matrix2"
+    "eq:Matrix3"
+    "eq:Matrix4"
+    "eq:Matrix5"
+    "eq:Matrix6"))
  :latex)
 

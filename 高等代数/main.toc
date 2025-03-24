@@ -1,64 +1,76 @@
 \contentsline {section}{\numberline {1}行列式}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}行列式的展开和转置}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Gramer法则}{2}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}行列式的计算}{4}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Laplace定理}{5}{subsection.1.4}%
-\contentsline {section}{\numberline {2}矩阵}{8}{section.2}%
-\contentsline {subsection}{\numberline {2.1}矩阵的逆}{8}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Cauchy-Binet公式}{8}{subsection.2.2}%
-\contentsline {section}{\numberline {3}线性空间}{12}{section.3}%
-\contentsline {subsection}{\numberline {3.1}矩阵的秩}{12}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}线性方程组的解}{13}{subsection.3.2}%
-\contentsline {section}{\numberline {4}线性映射}{16}{section.4}%
-\contentsline {subsection}{\numberline {4.1}线性映射与矩阵}{16}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}线性映射的像与核}{17}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}不变子空间}{20}{subsection.4.3}%
-\contentsline {section}{\numberline {5}多项式}{25}{section.5}%
-\contentsline {subsection}{\numberline {5.1}复系数多项式}{25}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}结式和判别式}{25}{subsection.5.2}%
-\contentsline {section}{\numberline {6}特征值}{29}{section.6}%
-\contentsline {subsection}{\numberline {6.1}对角化}{29}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}极小多项式与Cayley-Hamilton定理}{29}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}特征值的估计}{33}{subsection.6.3}%
-\contentsline {section}{\numberline {7}相似标准型}{37}{section.7}%
-\contentsline {subsection}{\numberline {7.1}多项式矩阵}{37}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}矩阵的法式}{37}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}不变因子}{40}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}有理标准型}{43}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}初等因子}{46}{subsection.7.5}%
-\contentsline {subsection}{\numberline {7.6}Jordan标准型}{47}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Jordan标准型的进一步讨论和应用}{53}{subsection.7.7}%
-\contentsline {subsection}{\numberline {7.8}Jordan标准型练习题}{59}{subsection.7.8}%
-\contentsline {subsubsection}{\numberline {7.8.1}TOPIC 1}{59}{subsubsection.7.8.1}%
-\contentsline {subsubsection}{\numberline {7.8.2}TOPIC 2}{60}{subsubsection.7.8.2}%
-\contentsline {subsubsection}{\numberline {7.8.3}TOPIC 3}{62}{subsubsection.7.8.3}%
-\contentsline {subsection}{\numberline {7.9}矩阵函数}{64}{subsection.7.9}%
-\contentsline {section}{\numberline {8}二次型}{66}{section.8}%
-\contentsline {subsection}{\numberline {8.1}二次型的化简与矩阵的合同}{66}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}二次型的化简}{67}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}配方法}{67}{subsubsection.8.2.1}%
-\contentsline {paragraph}{基本公式}{67}{subsubsection.8.2.1}%
-\contentsline {paragraph}{步骤}{67}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}对称初等变换法}{67}{subsubsection.8.2.2}%
-\contentsline {paragraph}{方法}{67}{subsubsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.3}惯性定理}{67}{subsection.8.3}%
-\contentsline {subsubsection}{\numberline {8.3.1}实二次型}{68}{subsubsection.8.3.1}%
-\contentsline {subsubsection}{\numberline {8.3.2}复二次型}{68}{subsubsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.4}正定型与正定矩阵}{69}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}半正定型和半正定矩阵}{73}{subsection.8.5}%
-\contentsline {subsection}{\numberline {8.6}Hermite型}{75}{subsection.8.6}%
-\contentsline {section}{\numberline {9}内积空间}{80}{section.9}%
-\contentsline {subsection}{\numberline {9.1}内积空间的概念}{80}{subsection.9.1}%
-\contentsline {subparagraph}{\color {ecolor}$\mathbb {R}^3$ 中向量内积的性质}{80}{subsection.9.1}%
-\contentsline {subparagraph}{\color {ecolor}范数的性质:}{83}{example.9.9}%
-\contentsline {subsection}{\numberline {9.2}内积的表示和正交基}{85}{subsection.9.2}%
-\contentsline {subparagraph}{\color {ecolor}投影变换的性质}{93}{definition.9.9}%
-\contentsline {subsection}{\numberline {9.3}伴随}{94}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}内积空间的同构，正交变换和酉变换}{97}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}自伴随算子}{104}{subsection.9.5}%
-\contentsline {subsection}{\numberline {9.6}复正规算子}{110}{subsection.9.6}%
-\contentsline {subsection}{\numberline {9.7}实正规矩阵}{116}{subsection.9.7}%
-\contentsline {subsection}{\numberline {9.8}谱}{123}{subsection.9.8}%
-\contentsline {subsection}{\numberline {9.9}奇异值分解}{130}{subsection.9.9}%
-\contentsline {subparagraph}{\color {ecolor}奇异值分解步骤}{133}{definition.9.22}%
-\contentsline {subparagraph}{\color {ecolor}SVD应用}{133}{Item.44}%
+\contentsline {subsection}{\numberline {1.1}$n$阶行列式}{1}{subsection.1.1}%
+\contentsline {subparagraph}{\color {ecolor}性质1}{1}{definition.1.4}%
+\contentsline {subparagraph}{\color {ecolor}性质2}{2}{equation.1.2}%
+\contentsline {subparagraph}{\color {ecolor}性质3}{4}{equation.1.7}%
+\contentsline {subparagraph}{\color {ecolor}性质4}{4}{equation.1.7}%
+\contentsline {subparagraph}{\color {ecolor}性质5}{5}{equation.1.10}%
+\contentsline {subparagraph}{\color {ecolor}性质6}{6}{equation.1.11}%
+\contentsline {subparagraph}{\color {ecolor}性质7}{6}{equation.1.14}%
+\contentsline {subparagraph}{\color {ecolor}性质5'}{7}{equation.1.14}%
+\contentsline {subparagraph}{\color {ecolor}性质6'}{8}{equation.1.15}%
+\contentsline {subparagraph}{\color {ecolor}性质7'}{8}{equation.1.17}%
+\contentsline {subparagraph}{\color {ecolor}性质4'}{9}{equation.1.17}%
+\contentsline {subsection}{\numberline {1.2}行列式的展开和转置}{10}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Gramer法则}{11}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}行列式的计算}{13}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Laplace定理}{14}{subsection.1.5}%
+\contentsline {section}{\numberline {2}矩阵}{17}{section.2}%
+\contentsline {subsection}{\numberline {2.1}矩阵的逆}{17}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Cauchy-Binet公式}{17}{subsection.2.2}%
+\contentsline {section}{\numberline {3}线性空间}{21}{section.3}%
+\contentsline {subsection}{\numberline {3.1}矩阵的秩}{21}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}线性方程组的解}{22}{subsection.3.2}%
+\contentsline {section}{\numberline {4}线性映射}{25}{section.4}%
+\contentsline {subsection}{\numberline {4.1}线性映射与矩阵}{25}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}线性映射的像与核}{26}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}不变子空间}{29}{subsection.4.3}%
+\contentsline {section}{\numberline {5}多项式}{34}{section.5}%
+\contentsline {subsection}{\numberline {5.1}复系数多项式}{34}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}结式和判别式}{34}{subsection.5.2}%
+\contentsline {section}{\numberline {6}特征值}{38}{section.6}%
+\contentsline {subsection}{\numberline {6.1}对角化}{38}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}极小多项式与Cayley-Hamilton定理}{38}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}特征值的估计}{42}{subsection.6.3}%
+\contentsline {section}{\numberline {7}相似标准型}{46}{section.7}%
+\contentsline {subsection}{\numberline {7.1}多项式矩阵}{46}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}矩阵的法式}{46}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}不变因子}{49}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}有理标准型}{52}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}初等因子}{55}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Jordan标准型}{56}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Jordan标准型的进一步讨论和应用}{62}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}Jordan标准型练习题}{68}{subsection.7.8}%
+\contentsline {subsubsection}{\numberline {7.8.1}TOPIC 1}{68}{subsubsection.7.8.1}%
+\contentsline {subsubsection}{\numberline {7.8.2}TOPIC 2}{69}{subsubsection.7.8.2}%
+\contentsline {subsubsection}{\numberline {7.8.3}TOPIC 3}{71}{subsubsection.7.8.3}%
+\contentsline {subsection}{\numberline {7.9}矩阵函数}{73}{subsection.7.9}%
+\contentsline {section}{\numberline {8}二次型}{75}{section.8}%
+\contentsline {subsection}{\numberline {8.1}二次型的化简与矩阵的合同}{75}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}二次型的化简}{76}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}配方法}{76}{subsubsection.8.2.1}%
+\contentsline {paragraph}{基本公式}{76}{subsubsection.8.2.1}%
+\contentsline {paragraph}{步骤}{76}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}对称初等变换法}{76}{subsubsection.8.2.2}%
+\contentsline {paragraph}{方法}{76}{subsubsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.3}惯性定理}{76}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}实二次型}{77}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}复二次型}{77}{subsubsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.4}正定型与正定矩阵}{78}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}半正定型和半正定矩阵}{82}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Hermite型}{84}{subsection.8.6}%
+\contentsline {section}{\numberline {9}内积空间}{89}{section.9}%
+\contentsline {subsection}{\numberline {9.1}内积空间的概念}{89}{subsection.9.1}%
+\contentsline {subparagraph}{\color {ecolor}$\mathbb {R}^3$ 中向量内积的性质}{89}{subsection.9.1}%
+\contentsline {subparagraph}{\color {ecolor}范数的性质:}{92}{example.9.9}%
+\contentsline {subsection}{\numberline {9.2}内积的表示和正交基}{94}{subsection.9.2}%
+\contentsline {subparagraph}{\color {ecolor}投影变换的性质}{102}{definition.9.9}%
+\contentsline {subsection}{\numberline {9.3}伴随}{103}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}内积空间的同构，正交变换和酉变换}{106}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}自伴随算子}{113}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}复正规算子}{119}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}实正规矩阵}{125}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.8}谱}{132}{subsection.9.8}%
+\contentsline {subsection}{\numberline {9.9}奇异值分解}{139}{subsection.9.9}%
+\contentsline {subparagraph}{\color {ecolor}奇异值分解步骤}{142}{definition.9.22}%
+\contentsline {subparagraph}{\color {ecolor}SVD应用}{142}{Item.44}%

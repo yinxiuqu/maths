@@ -3,9 +3,9 @@
 
 \begin{theorem}
   设\(V\in \mathbb{K}^n, U\in \mathbb{K}^m, W\in \mathbb{K}^p\),
-  它们的基分别为\(\{e_1,e_2,\cdots,e_n\}\),\\
-  \(\{f_1,f_2,\cdots,f_m\}\), \(\{g_1,g_2,\cdots,g_p\}\), \(T\)
-  是从线性映射到其表示矩阵的线性同构.设\\
+  它们的基分别为\(\{e_1,e_2,\cdots,e_n\}\),
+  \(\{f_1,f_2,\cdots,f_m\}\),\\ \(\{g_1,g_2,\cdots,g_p\}\), \(T\)
+  是从线性映射到其表示矩阵的线性同构.设
   \(\varphi:V \longrightarrow U\), \(\psi:U \longrightarrow W\)为两个线性映射.
   则\(\psi \circ \varphi:V \xlongrightarrow{}{W}\)为线性映射，且
   \(T(\psi \circ \varphi)=T(\psi)\cdot T(\varphi)\).
@@ -24,10 +24,12 @@
     & \Longrightarrow  (\psi\varphi(e_1),\psi\varphi(e_2),\cdots,\psi\varphi(e_n))
       = (\psi(f_1),\psi(f_2),\cdots,\psi(f_m))A
   \end{align*}
-  \(\because (\psi(f_1),\psi(f_2),\cdots,\psi(f_n))=(g_1,g_2,\cdots,g_p)B\),\\
-  \(\therefore (\psi\varphi(e_1),\psi\varphi(e_2),\cdots,\psi\varphi(e_n)) =
-  (g_1,g_2,\cdots,g_p)BA\).\\
-  \(\therefore T(\psi \circ \varphi)=T(\psi)\cdot T(\varphi) \).
+  \begin{align*}
+  & \because (\psi(f_1),\psi(f_2),\cdots,\psi(f_n))=(g_1,g_2,\cdots,g_p)B,\\
+  & \therefore (\psi\varphi(e_1),\psi\varphi(e_2),\cdots,\psi\varphi(e_n)) =
+  (g_1,g_2,\cdots,g_p)BA.\\
+  & \therefore T(\psi \circ \varphi)=T(\psi)\cdot T(\varphi).
+  \end{align*}
 \end{proof}
 
 \begin{deduction}
@@ -180,11 +182,11 @@
 \begin{deduction}\label{thm:ImKer3}
   设$\varphi: V^n \longrightarrow U^n$为线性映射且$\dim V = \dim U = n$,则以下结论等价：
 
-  (1)$\varphi$为单射;
+  (1) $\varphi$为单射;
 
-  (2)$\varphi$为满射;
+  (2) $\varphi$为满射;
 
-  (3)$\varphi$为同构. 
+  (3) $\varphi$为同构. 
 \end{deduction}
 
 \begin{proof}
@@ -231,9 +233,9 @@
   $U$的一组基为$\{f_1, f_2,\cdots,f_m\}$.
   计算:
 
-  (1)$\ker\varphi$用$e_i$的线性组合表示;
+  (1) $\ker\varphi$用$e_i$的线性组合表示;
 
-  (2)$\IM\varphi$用$f_i$的线性组合表示. 
+  (2) $\IM\varphi$用$f_i$的线性组合表示. 
 \end{example}
 
 \begin{solution}
